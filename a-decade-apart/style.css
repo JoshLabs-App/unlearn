@@ -1,0 +1,944 @@
+:root {
+  --bg: #faf6f0;
+  --card: #ffffff;
+  --ink: #2b2420;
+  --muted: #8a7f74;
+  --accent: #d96b3a;
+  --accent-soft: #f3d9c8;
+  --correct: #4c9a6a;
+  --wrong: #cf5252;
+  --border: #ece2d6;
+  --serif: "Songti SC", "STSong", Georgia, "Times New Roman", serif;
+  font-family: -apple-system, "PingFang SC", "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+.app-header {
+  padding: 14px 20px 12px;
+  text-align: center;
+}
+/* 顶部条：头像/名字（左）+ 火苗/菜单（右）在同一行里用 flex 排开，
+   不再各自 position:absolute 摆在角落——那样两块东西各自飘着，标题又是单独居中，
+   视觉上是三段互不相关的内容，改成一行之后才是一个整体的"应用顶栏"。 */
+.app-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.app-header h1 { margin: 0; font-family: var(--serif); font-weight: 600; font-size: 1.6rem; }
+.tagline { margin: 4px 0 0; color: var(--muted); font-size: 0.9rem; }
+
+.ghost-btn, .primary-btn {
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--ink);
+}
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.user-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.user-badge.logged-in {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  cursor: default;
+}
+.user-badge-avatar {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+.user-badge-avatar:empty { display: none; }
+.user-badge-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.ghost-btn:hover { border-color: var(--accent); color: var(--accent); }
+#zh-toggle-btn[aria-pressed="false"] {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* 连续打卡：header 里常驻的火苗徽章 + 今天还没打卡时的紧迫感横幅（见 main.js 的
+   renderStreakUI/updateStreakCountdown）。横幅要读出来比页面里其它提示条更"急"，
+   所以是实心 accent 底 + 白字，还带呼吸光晕，跟 .history-banner 那种柔和的浅色提示区分开。 */
+.streak-badge {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+.streak-banner {
+  max-width: 920px;
+  margin: 0 auto 14px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 0.92rem;
+  font-weight: 600;
+  background: var(--accent);
+  color: #fff;
+  animation: streak-banner-pulse 2s ease-in-out infinite;
+}
+.streak-banner.hidden { display: none; }
+@keyframes streak-banner-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--accent); }
+  50% { box-shadow: 0 0 0 8px transparent; }
+}
+
+.primary-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  font-size: 1rem;
+  padding: 10px 24px;
+}
+.primary-btn:hover { opacity: 0.9; }
+
+.layout {
+  display: flex;
+  gap: 20px;
+  max-width: 920px;
+  margin: 10px auto 40px;
+  padding: 0 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.scene-panel {
+  flex: 2;
+  min-width: 320px;
+  background: var(--card);
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  padding: 24px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+.scene-panel.scene-fade-out {
+  opacity: 0;
+  transform: translateY(-14px);
+}
+.scene-panel.scene-fade-in-prep {
+  transition: none;
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.scene-progress {
+  display: flex;
+  align-items: center;
+  border-radius: 999px;
+  overflow: hidden; /* 圆角只上在整条外框上，内部小段之间不留缝，连成一条 */
+  margin-bottom: 18px;
+}
+.scene-progress .dot {
+  flex: 1;
+  height: 6px;
+  background: var(--border);
+  transition: background 0.3s ease;
+}
+.scene-progress .dot.done { background: var(--correct); }
+.scene-progress .dot.active { background: var(--accent); }
+
+.level-indicator { margin-bottom: 16px; }
+.level-bar {
+  position: relative;
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  /* 每个级别锚定自己的纯色点，中间全程连续渐变过去（不是只在边界窄幅过渡）。
+     锚点按 CEFR 词汇量门槛的真实占比来定，main.js 里的 CEFR_VOCAB_THRESHOLDS
+     变了这里也要跟着改，两边要对得上：
+     A1 0% · A2 500/4000=12.5% · B1 1100/4000=27.5% · B2 2250/4000=56.25% */
+  background: linear-gradient(
+    90deg,
+    #4c9a6a 0%,      /* A1 绿 */
+    #d9a63a 12.5%,   /* A2 琥珀 */
+    #6a5acd 27.5%,   /* B1 紫 */
+    #a8477a 56.25%,  /* B2 酒红 */
+    #a8477a 100%
+  );
+}
+.level-bar-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--border);
+  transition: width 0.4s ease;
+}
+.level-label {
+  margin: 6px 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: right;
+}
+
+.scene-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.avatar {
+  font-size: 2.4rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-soft);
+  border-radius: 50%;
+}
+.scene-head h2 { margin: 0; font-family: var(--serif); font-weight: 600; font-size: 1.4rem; }
+.scene-subtitle { margin: 3px 0 0; color: var(--muted); font-size: 0.9rem; }
+
+/* 翻页回看：往回翻整段游戏历史（已经答对过的句子），翻到底再往前一步会回到当前进度。
+   见 main.js 的 buildHistory() / browseIndex。 */
+.history-nav {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+}
+.history-nav-btn {
+  flex: 1;
+  text-align: center;
+}
+.ghost-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.ghost-btn:disabled:hover {
+  border-color: var(--border);
+  color: var(--ink);
+}
+.history-banner {
+  margin: 0 0 12px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.85rem;
+  text-align: center;
+}
+.history-banner.hidden { display: none; }
+
+.dialogue-bubble {
+  background: #fdf8f3;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.npc-en { margin: 0 0 8px; font-size: 1.32rem; font-weight: 600; line-height: 1.4; }
+.npc-zh { margin: 0; color: var(--muted); font-size: 1rem; }
+body.hide-zh .npc-zh,
+body.hide-zh .scene-subtitle,
+body.hide-zh .zh-inline {
+  display: none;
+}
+
+.npc-en .word,
+.scene-head h2 .word,
+.scene-subtitle .word,
+.t-en .word {
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0 1px;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  transition: background 0.15s;
+}
+.npc-en .word.word-active,
+.scene-head h2 .word.word-active,
+.scene-subtitle .word.word-active,
+.t-en .word.word-active {
+  background: var(--accent-soft);
+}
+
+.word-popup {
+  position: fixed;
+  z-index: 100;
+  background: var(--ink);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.5;
+  max-width: min(320px, 86vw);
+  white-space: normal;
+  text-align: center;
+  pointer-events: none;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
+}
+.word-popup.hidden { display: none; }
+
+.play-btn {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  padding: 15px 18px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  font-size: 1.08rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.15s;
+}
+.play-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
+.play-btn:active { transform: scale(0.98); }
+.play-btn.playing { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+/* 心数：紧挨着选项上方，答错即时掉血、恢复倒计时也在这一行里一起显示
+   （见 main.js renderHeartsDisplay）。心数清零时 #choices 会被换成 .heart-gate-msg
+   + 一个"去复习"按钮，不再是选项列表——见下面 .heart-gate-msg。 */
+.hearts-display {
+  margin: 4px 0 10px;
+}
+.hearts-row { font-size: 1.1rem; }
+.hearts-tip {
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin-top: 2px;
+}
+.hearts-tip-clickable { color: var(--accent); cursor: pointer; }
+.hearts-tip-clickable:hover { text-decoration: underline; }
+.heart-gate-msg {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.choice-btn {
+  text-align: left;
+  padding: 15px 18px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  font-size: 1.08rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.choice-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.choice-btn:disabled { cursor: default; opacity: 0.6; }
+.choice-btn.wrong {
+  border-color: var(--wrong);
+  background: #fbe9e9;
+  opacity: 1;
+}
+.choice-btn.correct {
+  border-color: var(--correct);
+  background: #e6f4ea;
+  opacity: 1;
+}
+.choice-btn.shake {
+  animation: shake 0.35s ease;
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(3px); }
+}
+
+.xp-float {
+  position: fixed;
+  font-weight: 700;
+  color: var(--correct);
+  font-size: 1rem;
+  pointer-events: none;
+  animation: xp-rise 0.9s ease-out forwards;
+  z-index: 50;
+}
+@keyframes xp-rise {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: 1; }
+  100% { transform: translateY(-40px); opacity: 0; }
+}
+
+/* 变量奖励：随机命中的双倍经验飘字，颜色/字号/动效都要跟普通 +XP 明显不一样，
+   让玩家一眼就能认出"这次不一样"——这就是它存在的意义，不能做得太克制。 */
+.xp-float-bonus {
+  color: var(--accent);
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-shadow: 0 0 12px var(--accent-soft);
+  animation: xp-rise-bonus 1.4s cubic-bezier(0.2, 0.8, 0.3, 1.4) forwards;
+}
+@keyframes xp-rise-bonus {
+  0% { transform: translateY(0) scale(0.6); opacity: 0; }
+  20% { transform: translateY(-6px) scale(1.3); opacity: 1; }
+  60% { transform: translateY(-26px) scale(1.05); opacity: 1; }
+  100% { transform: translateY(-58px) scale(1); opacity: 0; }
+}
+
+/* 每日目标达成庆祝：纯 CSS 彩纸屑，JS 只负责按随机位置/颜色/延迟生成这些 span
+   再自己移除（见 celebrateDailyGoal），不依赖任何图片/音频素材。 */
+.confetti-piece {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 200;
+  animation: confetti-fall 1.1s ease-in forwards;
+}
+@keyframes confetti-fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(260px) rotate(600deg); opacity: 0; }
+}
+
+.hint {
+  min-height: 1.2em;
+  margin-top: 14px;
+  color: var(--wrong);
+  font-size: 0.88rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.hint.visible { opacity: 1; }
+
+.sidebar {
+  flex: 1;
+  min-width: 240px;
+  background: var(--card);
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  padding: 22px;
+}
+.sidebar h3 { margin: 0 0 16px; font-family: var(--serif); font-weight: 600; font-size: 1.1rem; }
+
+.skill-row {
+  margin-bottom: 14px;
+}
+.skill-label { font-size: 0.94rem; margin-bottom: 6px; }
+.skill-bar {
+  background: var(--border);
+  border-radius: 999px;
+  height: 8px;
+  overflow: hidden;
+}
+.skill-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+.skill-xp { font-size: 0.75rem; color: var(--muted); margin-top: 3px; text-align: right; }
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  margin-top: 10px;
+}
+
+/* 每日目标：进度条填满时 renderDailyGoal 会挂上 goal-complete，
+   celebrateDailyGoal 再强制重触发一次动画（见 main.js 的注释）。 */
+.daily-goal-card {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.daily-goal-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  margin-bottom: 6px;
+}
+.daily-goal-count { color: var(--muted); font-weight: 700; }
+.daily-goal-bar {
+  height: 10px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.daily-goal-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--correct);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+.daily-goal-card.goal-complete .daily-goal-fill {
+  animation: goal-pulse 0.7s ease;
+}
+@keyframes goal-pulse {
+  0% { transform: scaleY(1); }
+  35% { transform: scaleY(1.8); }
+  100% { transform: scaleY(1); }
+}
+
+/* 排行榜：走独立的 english_game_leaderboard 表（谁都能读，只能改自己那一行），
+   跟存档表 english_game_saves 分开——见 auth.js 顶部注释。未登录也能看榜，
+   只是不会有自己那一行；自己的名次靠比对 user_id 高亮，不额外发一次请求查排名。 */
+.leaderboard-card {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.leaderboard-note { color: var(--muted); font-size: 0.8rem; margin: 2px 0 8px; }
+.leaderboard-list {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.leaderboard-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 6px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+.leaderboard-rank {
+  flex: none;
+  width: 20px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--muted);
+}
+.leaderboard-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.leaderboard-xp { flex: none; font-weight: 700; }
+.leaderboard-row-self {
+  background: var(--accent-soft);
+}
+.leaderboard-row-self .leaderboard-rank,
+.leaderboard-row-self .leaderboard-xp {
+  color: var(--accent);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(43, 36, 32, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.overlay.visible { display: flex; }
+
+.flashback-card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 28px;
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+}
+.flashback-label { color: var(--muted); font-size: 0.85rem; margin: 0 0 6px; }
+.flashback-zh { font-size: 1.4rem; font-weight: 700; margin: 0 0 18px; }
+.flashback-feedback { min-height: 1.4em; margin-top: 14px; font-size: 0.9rem; }
+
+.transition-en { font-size: 1.1rem; font-style: italic; margin: 0 0 8px; }
+.transition-en.hidden, .transition-zh.hidden { display: none; }
+.transition-zh { color: var(--muted); font-size: 0.95rem; margin: 0 0 22px; }
+
+/* 章节卡：跨章节（不只是跨场景）才会出现，比下面那句"次日/几天后"式的小过场
+   更有仪式感——用来让读者明确意识到"故事换了一个新的生活领域"，见 main.js
+   goToNextScene() 里 CHAPTER_INDEX 的查找逻辑。*/
+.transition-chapter-card {
+  margin: 0 0 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.transition-chapter-card.hidden { display: none; }
+.transition-chapter-num {
+  margin: 0 0 4px;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.transition-chapter-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.flashback-answer {
+  min-height: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 6px;
+  padding: 10px;
+  border: 1.5px dashed var(--border);
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+.flashback-answer.build-correct { border-color: var(--correct); border-style: solid; background: #e6f4ea; }
+.flashback-answer.build-wrong { border-color: var(--wrong); border-style: solid; background: #fbe9e9; }
+.flashback-wordbank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+.word-chip {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.word-chip:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+.word-chip:disabled { cursor: default; }
+.word-chip.placed { background: var(--accent-soft); border-color: var(--accent); }
+
+.end-screen {
+  max-width: 480px;
+  margin: 60px auto;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 40px 30px;
+}
+.end-screen h2 { margin-top: 0; }
+#end-summary p { margin: 8px 0; color: var(--ink); }
+
+.account-wrap { position: relative; }
+.account-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  min-width: 200px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+  z-index: 60;
+  text-align: left;
+}
+.account-menu-email { font-size: 0.85rem; color: var(--muted); margin: 0 0 10px; word-break: break-all; }
+.menu-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 9px 6px;
+  border: none;
+  background: none;
+  font-size: 0.92rem;
+  color: var(--ink);
+  cursor: pointer;
+  border-radius: 8px;
+  font-family: inherit;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+.menu-item:hover { background: var(--accent-soft); color: var(--accent); }
+.menu-divider { height: 1px; background: var(--border); margin: 6px 0; }
+
+.auth-card { max-width: 320px; position: relative; text-align: left; }
+.auth-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: none;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+}
+.auth-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  font-size: 1rem;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+.auth-full-btn { display: block; width: 100%; margin-bottom: 10px; }
+.auth-hint { color: var(--muted); font-size: 0.85rem; margin: 0 0 10px; }
+.auth-divider { text-align: center; color: var(--muted); font-size: 0.8rem; margin: 4px 0 10px; }
+.auth-error { color: var(--wrong); font-size: 0.85rem; min-height: 1.2em; margin: 4px 0 0; }
+
+/* 角色定制：头像选择器，一排 emoji 按钮，选中态用 accent 描边 */
+.avatar-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.avatar-option {
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s, background 0.15s;
+}
+.avatar-option:hover { border-color: var(--accent); }
+.avatar-option.selected { border-color: var(--accent); background: var(--accent-soft); }
+
+/* 上传照片当头像：跟 emoji 选项二选一，见 main.js 的 pendingAvatarImage——
+   选了照片会自动清掉 emoji 的选中态，反过来点 emoji 也会清掉待存的照片。 */
+.avatar-upload-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1.5px dashed var(--border);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.avatar-upload-row:hover { border-color: var(--accent); background: var(--accent-soft); }
+.avatar-upload-preview {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+.avatar-upload-preview img { width: 100%; height: 100%; object-fit: cover; }
+.avatar-upload-row.selected .avatar-upload-preview { border-color: var(--accent); }
+.avatar-upload-text { font-size: 0.88rem; color: var(--muted); }
+.avatar-upload-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+/* 成就墙：网格卡片，未解锁灰置+锁图标 */
+.achievements-card { max-width: 480px; }
+.achievements-hint { color: var(--muted); font-size: 0.82rem; margin: 0 0 16px; }
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  max-height: 55vh;
+  overflow-y: auto;
+}
+.achievement-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 8px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s, background 0.15s;
+}
+.achievement-card.locked {
+  opacity: 0.5;
+  cursor: default;
+}
+.achievement-card.unlocked:hover { border-color: var(--accent); background: var(--accent-soft); }
+.achievement-card.equipped { border-color: var(--accent); background: var(--accent-soft); }
+.achievement-card-icon { font-size: 1.8rem; }
+.achievement-card-title { font-size: 0.78rem; text-align: center; line-height: 1.3; }
+
+/* 成就解锁提示：居中卡片，比 .xp-float 醒目，停留久一点 */
+.achievement-toast {
+  position: fixed;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--ink);
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
+  z-index: 200;
+  cursor: pointer;
+  animation: achievement-toast-in 0.3s ease;
+}
+.achievement-toast-out { animation: achievement-toast-out 0.25s ease forwards; }
+.achievement-toast-icon { font-size: 1.8rem; }
+.achievement-toast-label { font-size: 0.75rem; opacity: 0.7; }
+.achievement-toast-title { font-size: 1rem; font-weight: 700; }
+@keyframes achievement-toast-in {
+  0% { opacity: 0; transform: translateX(-50%) translateY(-16px); }
+  100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+@keyframes achievement-toast-out {
+  0% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+}
+
+.hidden { display: none; }
+
+@media (max-width: 640px) {
+  .layout { flex-direction: column; align-items: stretch; }
+  .scene-panel, .sidebar { min-width: 0; width: 100%; }
+  .app-topbar { flex-wrap: wrap; justify-content: center; }
+}
+
+/* 对话总览页（dialogue.html）：把所有台词摊平列成聊天记录，
+   NPC 靠左、玩家靠右，点单句播放/整段连续播放都在这一块样式里。 */
+.t-page {
+  max-width: 720px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+}
+
+.t-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--bg);
+  padding: 14px 0;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.t-count { color: var(--muted); font-size: 0.85rem; white-space: nowrap; }
+
+.t-scene-head {
+  margin: 30px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--border);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.t-scene-head:first-child { margin-top: 4px; }
+.t-scene-title { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; }
+.t-scene-sub { color: var(--muted); font-size: 0.85rem; }
+
+.t-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.t-row-player { flex-direction: row-reverse; }
+
+.t-avatar {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+}
+.t-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.t-avatar-player { background: var(--border); }
+
+.t-bubble {
+  max-width: 76%;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+.t-bubble:hover { border-color: var(--accent); }
+.t-bubble:active { transform: scale(0.98); }
+.t-row-player .t-bubble { background: #fdf8f3; }
+.t-en { font-size: 1rem; font-weight: 600; line-height: 1.4; }
+.t-zh { color: var(--muted); font-size: 0.88rem; margin-top: 3px; }
+
+.t-row.t-playing .t-bubble {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* 隐藏中文模式下，点单句临时把这一行的翻译露出来（dialogue.js 里 3 秒后自动收回）——
+   选择器权重要压过上面通用的 body.hide-zh .zh-inline { display: none }。 */
+body.hide-zh .t-row.t-zh-reveal .t-zh.zh-inline {
+  display: block;
+}
+
+.t-sentinel { height: 1px; }
+
+@media (max-width: 640px) {
+  .t-bubble { max-width: 84%; }
+}

@@ -299,7 +299,7 @@ let heartRecoveryMode = false;
 // 中文翻译显隐：全局开关，存在 localStorage 里跨场景/跨次打开都记得。
 // 只影响台词下方的中文翻译（.npc-zh），不影响回忆闪回的中文提示——那是游戏机制本身要考的。
 const ZH_HIDE_KEY = "eng-rpg-hide-zh";
-let hideZh = localStorage.getItem(ZH_HIDE_KEY) === "1";
+let hideZh = localStorage.getItem(ZH_HIDE_KEY) !== "0";
 
 const TITLE_ZH = "十年之约 · Unlearn";
 const TITLE_EN = "A Decade Apart · Unlearn";

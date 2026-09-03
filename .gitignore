@@ -1,3 +1,4 @@
-a-decade-apart/scripts/.venv-tts/
-node_modules/
 .DS_Store
+scripts/
+a-decade-apart/scripts/
+node_modules/

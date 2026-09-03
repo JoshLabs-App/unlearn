@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>生词收藏 · A Decade Apart</title>
+<link rel="icon" type="image/svg+xml" href="../icon.svg" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>📗 生词收藏 <span class="zh-inline">点过的词</span></h1>
+    <p class="tagline">A Decade Apart <span class="zh-inline">· 点过的词会一直标绿，按句子收在这里</span></p>
+    <div class="header-controls">
+      <button id="zh-toggle-btn" class="ghost-btn" type="button" aria-pressed="true">隐藏中文</button>
+      <a href="index.html" class="ghost-btn">← 返回</a>
+    </div>
+  </header>
+
+  <main class="t-page">
+    <div class="t-toolbar">
+      <span id="vocab-count" class="t-count"></span>
+    </div>
+    <div id="vocab-list" class="category-list"></div>
+  </main>
+
+  <div id="word-popup" class="word-popup hidden" aria-hidden="true"></div>
+
+  <!-- 这个页面只读 localStorage 里的 reviewQueue（已经带着句子原文/翻译），不需要
+       遍历 GAME_CONTENT.scenes 去反查内容，所以只加载 chapter1.js 撑起最基本的
+       GAME_CONTENT 结构（freshGameState() 兜底要用），没有像 category.html 那样
+       全量加载 94 章。 -->
+  <script src="content/chapter1.js"></script>
+  <script src="content/audio-manifest.js"></script>
+  <script src="content/word-audio-manifest.js"></script>
+  <script src="content/dictionary.js"></script>
+  <script src="vocab.js"></script>
+</body>
+</html>

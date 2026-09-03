@@ -79,17 +79,31 @@ function saveGameState() {
   localStorage.setItem(SAVE_KEY, JSON.stringify(gameState));
 }
 
-function queueWordForReview(word, meaning) {
+const knownWords = new Set(
+  gameState.reviewQueue.filter((r) => r.kind === "word").map((r) => r.en.toLowerCase())
+);
+
+function queueWordForReview(word, meaning, sentenceEn, sentenceZh) {
   const existing = gameState.reviewQueue.find((r) => r.en === word && r.kind === "word");
-  if (existing) return;
+  if (existing) {
+    if (sentenceEn && !existing.sentence) {
+      existing.sentence = sentenceEn;
+      existing.sentenceZh = sentenceZh;
+      saveGameState();
+    }
+    return;
+  }
   gameState.reviewQueue.push({
     en: word,
     zh: meaning,
     kind: "word",
+    sentence: sentenceEn || null,
+    sentenceZh: sentenceZh || null,
     streak: 0,
     status: "active",
     queuedAtScene: gameState.sceneIndex
   });
+  knownWords.add(word.toLowerCase());
   saveGameState();
 }
 
@@ -144,10 +158,14 @@ function isContentWord(word) {
   return w.length > 1 && !STOPWORDS.has(w);
 }
 
-function wrapWordsHTML(text) {
+function wrapWordsHTML(text, sentenceZh) {
+  const sentenceAttr = encodeURIComponent(text);
+  const zhAttr = encodeURIComponent(sentenceZh || "");
   return escapeHtml(text).replace(/[A-Za-zÀ-ÿ']+/g, (word) => {
-    const cls = isContentWord(word) ? "word word-content" : "word";
-    return `<span class="${cls}" data-word="${word.toLowerCase()}">${word}</span>`;
+    const classes = ["word"];
+    if (isContentWord(word)) classes.push("word-content");
+    if (knownWords.has(word.toLowerCase())) classes.push("word-known");
+    return `<span class="${classes.join(" ")}" data-word="${word.toLowerCase()}" data-sentence="${sentenceAttr}" data-sentence-zh="${zhAttr}">${word}</span>`;
   });
 }
 
@@ -174,6 +192,7 @@ function showWordPopup(wordEl) {
 
   document.querySelectorAll(".word.word-active").forEach((w) => w.classList.remove("word-active"));
   wordEl.classList.add("word-active");
+  document.querySelectorAll(`.word[data-word="${word}"]`).forEach((w) => w.classList.add("word-known"));
 
   clearTimeout(wordPopupTimer);
   wordPopupTimer = setTimeout(hideWordPopup, WORD_POPUP_MS);
@@ -182,7 +201,9 @@ function showWordPopup(wordEl) {
     playAudio(word, null, WORD_AUDIO_MANIFEST);
   }
 
-  queueWordForReview(word, meaning);
+  const sentenceEn = decodeURIComponent(wordEl.dataset.sentence || "");
+  const sentenceZh = decodeURIComponent(wordEl.dataset.sentenceZh || "");
+  queueWordForReview(word, meaning, sentenceEn, sentenceZh);
 }
 
 function hideWordPopup() {
@@ -251,7 +272,7 @@ function renderList() {
     row.innerHTML = `
       <button class="category-play-btn" type="button" aria-label="播放">▶</button>
       <div class="category-text">
-        <p class="category-en">${wrapWordsHTML(en)}</p>
+        <p class="category-en">${wrapWordsHTML(en, zh)}</p>
         <p class="category-zh zh-inline">${escapeHtml(zh || "")}</p>
       </div>
     `;

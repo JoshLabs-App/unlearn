@@ -3,9 +3,9 @@
   --card: #ffffff;
   --ink: #2b2420;
   --muted: #8a7f74;
-  --accent: #d96b3a;
-  --accent-soft: #f3d9c8;
-  --correct: #4c9a6a;
+  --accent: #3e8f4f;
+  --accent-soft: #dcefe0;
+  --correct: #2f8f6f;
   --wrong: #cf5252;
   --border: #ece2d6;
   --serif: "Songti SC", "STSong", Georgia, "Times New Roman", serif;
@@ -99,6 +99,7 @@ body {
 }
 .streak-banner {
   max-width: 920px;
+  width: calc(100% - 40px);
   margin: 0 auto 14px;
   padding: 12px 20px;
   border-radius: 12px;
@@ -692,18 +693,85 @@ body.hide-zh .zh-inline {
 .menu-item:hover { background: var(--accent-soft); color: var(--accent); }
 .menu-divider { height: 1px; background: var(--border); margin: 6px 0; }
 
-.auth-card { max-width: 320px; position: relative; text-align: left; }
+.auth-card { max-width: 340px; position: relative; text-align: left; padding: 30px 26px 26px; }
 .auth-close {
   position: absolute;
-  top: 10px;
+  top: 12px;
   right: 12px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
   border: none;
   background: none;
   font-size: 1.3rem;
   line-height: 1;
   color: var(--muted);
   cursor: pointer;
+  transition: background 0.15s, color 0.15s;
 }
+.auth-close:hover { background: var(--accent-soft); color: var(--accent); }
+
+.auth-header { text-align: center; margin: 0 0 20px; }
+.auth-header-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+.auth-title { margin: 0; font-family: var(--serif); font-weight: 700; font-size: 1.2rem; }
+.auth-subtitle { margin: 3px 0 0; color: var(--muted); font-size: 0.82rem; }
+
+.auth-oauth-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+.auth-oauth-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 12px;
+  font-size: 0.94rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+.auth-oauth-btn:active { transform: scale(0.98); }
+.auth-oauth-icon { width: 18px; height: 18px; flex: none; }
+.auth-oauth-apple {
+  background: #000;
+  color: #fff;
+  border: 1.5px solid #000;
+}
+.auth-oauth-apple:hover { opacity: 0.85; }
+.auth-oauth-google {
+  background: #fff;
+  color: var(--ink);
+  border: 1.5px solid var(--border);
+}
+.auth-oauth-google:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); }
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin: 4px 0 16px;
+  gap: 10px;
+}
+.auth-divider::before, .auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
 .auth-input {
   width: 100%;
   padding: 10px 14px;
@@ -716,7 +784,6 @@ body.hide-zh .zh-inline {
 }
 .auth-full-btn { display: block; width: 100%; margin-bottom: 10px; }
 .auth-hint { color: var(--muted); font-size: 0.85rem; margin: 0 0 10px; }
-.auth-divider { text-align: center; color: var(--muted); font-size: 0.8rem; margin: 4px 0 10px; }
 .auth-error { color: var(--wrong); font-size: 0.85rem; min-height: 1.2em; margin: 4px 0 0; }
 
 /* 角色定制：头像选择器，一排 emoji 按钮，选中态用 accent 描边 */

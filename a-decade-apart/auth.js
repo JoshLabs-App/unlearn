@@ -140,6 +140,14 @@
       });
       if (error) throw error;
     },
+    async signInWithApple() {
+      const supabase = await getClient();
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: "apple",
+        options: { redirectTo: currentPageUrl() }
+      });
+      if (error) throw error;
+    },
     async signOut() {
       const supabase = await getClient();
       await supabase.auth.signOut();

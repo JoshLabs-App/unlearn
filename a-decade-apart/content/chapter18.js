@@ -148,7 +148,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "We found a place? Already?", zh: "找到地方了？这么快？" },
+        npcLine: { en: "We found a place? Already?", zh: "找到地方了？这么快？", voice: "ho" },
         skill: "community",
         grammarTag: "present-perfect",
         choices: [
@@ -159,7 +159,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Who's going to run the second location day to day?", zh: "第二个地点日常谁来管呢？" },
+        npcLine: { en: "Who's going to run the second location day to day?", zh: "第二个地点日常谁来管呢？", voice: "ho" },
         skill: "community",
         grammarTag: "wh-question",
         choices: [
@@ -171,7 +171,7 @@ GAME_CONTENT.scenes.push(
       },
       n3: {
         avatar: "🧑",
-        npcLine: { en: "I'd like to try, if everyone trusts me with it.", zh: "如果大家信得过我，我想试试。" },
+        npcLine: { en: "I'd like to try, if everyone trusts me with it.", zh: "如果大家信得过我，我想试试。", voice: "ho" },
         skill: "community",
         grammarTag: "conditional",
         choices: [
@@ -360,7 +360,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "We wrote you a letter, for your first day running things alone.", zh: "我们给你写了封信，庆祝你第一天独自挑大梁。" },
+        npcLine: { en: "We wrote you a letter, for your first day running things alone.", zh: "我们给你写了封信，庆祝你第一天独自挑大梁。", voice: "ho" },
         skill: "community",
         grammarTag: "past-simple",
         choices: [
@@ -371,7 +371,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "It's from all of us who've watched you grow.", zh: "这是所有看着你成长的人写给你的。" },
+        npcLine: { en: "It's from all of us who've watched you grow.", zh: "这是所有看着你成长的人写给你的。", voice: "ho" },
         skill: "community",
         grammarTag: "relative-clause",
         choices: [
@@ -382,7 +382,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Keep it somewhere close. Ten Letters started with just one.", zh: "把它放在身边吧。「十封信」当年也是从一封开始的。" },
+        npcLine: { en: "Keep it somewhere close. Ten Letters started with just one.", zh: "把它放在身边吧。「十封信」当年也是从一封开始的。", voice: "ho" },
         skill: "community",
         grammarTag: "past-simple",
         choices: [

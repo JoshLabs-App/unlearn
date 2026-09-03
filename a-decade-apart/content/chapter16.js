@@ -65,7 +65,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "How bad is it, really?", zh: "情况到底有多糟？" },
+        npcLine: { en: "How bad is it, really?", zh: "情况到底有多糟？", voice: "ho" },
         skill: "community",
         grammarTag: "wh-question",
         choices: [
@@ -76,7 +76,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "If nothing changes, we'll have to close by spring.", zh: "如果情况不改变，我们春天前就得关门了。" },
+        npcLine: { en: "If nothing changes, we'll have to close by spring.", zh: "如果情况不改变，我们春天前就得关门了。", voice: "ho" },
         skill: "community",
         grammarTag: "conditional",
         choices: [
@@ -87,7 +87,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "We didn't come this far to give up now.", zh: "我们不是走了这么远才要现在放弃的。" },
+        npcLine: { en: "We didn't come this far to give up now.", zh: "我们不是走了这么远才要现在放弃的。", voice: "ho" },
         skill: "community",
         grammarTag: "past-simple",
         choices: [
@@ -319,7 +319,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "I've never seen this many people in one room.", zh: "我从没见过这么多人挤在一间屋子里。" },
+        npcLine: { en: "I've never seen this many people in one room.", zh: "我从没见过这么多人挤在一间屋子里。", voice: "ho" },
         skill: "community",
         grammarTag: "present-perfect",
         choices: [
@@ -330,7 +330,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "One student is about to tell her story to everyone.", zh: "有一位学员马上就要向大家讲述她的故事了。" },
+        npcLine: { en: "One student is about to tell her story to everyone.", zh: "有一位学员马上就要向大家讲述她的故事了。", voice: "ho" },
         skill: "community",
         grammarTag: "present-continuous",
         choices: [
@@ -341,7 +341,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "By the end of the night, we'd raised more than double our goal.", zh: "到当晚结束时，我们已经筹到了超过目标两倍的钱。" },
+        npcLine: { en: "By the end of the night, we'd raised more than double our goal.", zh: "到当晚结束时，我们已经筹到了超过目标两倍的钱。", voice: "ho" },
         skill: "community",
         grammarTag: "past-perfect",
         choices: [

@@ -128,14 +128,23 @@ const KOKORO_MODEL = "prince-canuma/Kokoro-82M";
 // 路人 NPC（机场官员/司机/店员等）统一用 Kokoro 英式男声——量大、要快、不追求个性。
 // 玩家选项/词汇统一用 Kokoro 美式男声（男主视角——玩家是男生，跟 Emma 是异性关系，
 // 声音不能配成女声，不然听起来会像同性）。
-// 女主角 Emma 的台词（chapter1.js 里手动标了 npcLine.voice: "emma" 的几句）单独给她
-// 分配 Kokoro 自带的英式女声 bf_emma，跟路人 NPC 区分开。
+// 剧情里固定的女性角色台词（chapter*.js 里手动标了 npcLine.voice 的几句）单独分配
+// Kokoro 自带的英式女声，跟路人 NPC 区分开，各角色之间也用不同音色区分：
+//   - Emma（女主角）→ bf_emma
+//   - Ho太太（贯穿全剧的邻居老太太）→ bf_alice
+//   - 剧情里出现的女医生 → bf_lily
+//   - 剧情里出现的女性职员/官员（市政厅、移民局、酒店前台等）→ bf_isabella
 // （曾试过用 Chatterbox 做更有情感起伏的声线，但它在本机跑单句要卡好几分钟，
 // 性价比太低，先放弃——如果以后想再试，mlx-audio 已经装好了，模型是
 // ResembleAI/chatterbox，直接加回 synth() 的分支即可。）
 const NPC_VOICE = { voice: "bm_george", langCode: "b" };
 const PLAYER_VOICE = { voice: "am_puck", langCode: "a" };
-const EMMA_VOICE = { voice: "bf_emma", langCode: "b" };
+const NAMED_VOICES = {
+  emma: { voice: "bf_emma", langCode: "b" },
+  ho: { voice: "bf_alice", langCode: "b" },
+  doctor: { voice: "bf_lily", langCode: "b" },
+  official: { voice: "bf_isabella", langCode: "b" }
+};
 
 function loadGameContent() {
   const sandbox = {};
@@ -193,7 +202,7 @@ function runMlxAudio(args, outPrefix) {
 
 function synth(text, speaker, voiceTag, outPath) {
   const tmpWav = outPath.replace(/\.m4a$/, "");
-  const v = voiceTag === "emma" ? EMMA_VOICE : speaker === "npc" ? NPC_VOICE : PLAYER_VOICE;
+  const v = NAMED_VOICES[voiceTag] || (speaker === "npc" ? NPC_VOICE : PLAYER_VOICE);
   runMlxAudio(
     ["--model", KOKORO_MODEL, "--text", text, "--voice", v.voice, "--lang_code", v.langCode],
     tmpWav

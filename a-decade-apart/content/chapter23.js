@@ -272,7 +272,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Welcome! Do you have a reservation with us?", zh: "欢迎光临！您有在我们这儿预订吗？" },
+        npcLine: { en: "Welcome! Do you have a reservation with us?", zh: "欢迎光临！您有在我们这儿预订吗？", voice: "official" },
         skill: "community",
         grammarTag: "do-question",
         choices: [
@@ -283,7 +283,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "We've upgraded your room for your honeymoon. Congratulations.", zh: "我们把您的房间升级了，祝贺新婚。" },
+        npcLine: { en: "We've upgraded your room for your honeymoon. Congratulations.", zh: "我们把您的房间升级了，祝贺新婚。", voice: "official" },
         skill: "community",
         grammarTag: "present-perfect",
         choices: [
@@ -294,7 +294,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Breakfast is served until ten, and checkout is at noon.", zh: "早餐供应到十点，退房时间是中午十二点。" },
+        npcLine: { en: "Breakfast is served until ten, and checkout is at noon.", zh: "早餐供应到十点，退房时间是中午十二点。", voice: "official" },
         skill: "community",
         grammarTag: "passive",
         choices: [

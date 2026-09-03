@@ -25,7 +25,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Here it is. After all these years.", zh: "就是这里。过了这么多年。" },
+        npcLine: { en: "Here it is. After all these years.", zh: "就是这里。过了这么多年。", voice: "ho" },
         skill: "community",
         grammarTag: "comparative",
         choices: [
@@ -36,7 +36,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Should we knock on the door?", zh: "我们要不要敲门？" },
+        npcLine: { en: "Should we knock on the door?", zh: "我们要不要敲门？", voice: "ho" },
         skill: "community",
         grammarTag: "lets-suggestion",
         choices: [
@@ -48,7 +48,7 @@ GAME_CONTENT.scenes.push(
       },
       n3: {
         avatar: "🧑",
-        npcLine: { en: "Hello? Can I help you two?", zh: "你好？有什么可以帮你们的吗？" },
+        npcLine: { en: "Hello? Can I help you two?", zh: "你好？有什么可以帮你们的吗？", voice: "ho" },
         skill: "community",
         grammarTag: "courtesy",
         choices: [
@@ -110,7 +110,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Look — this corner. It hasn't changed at all.", zh: "你看——这个角落。一点都没变。" },
+        npcLine: { en: "Look — this corner. It hasn't changed at all.", zh: "你看——这个角落。一点都没变。", voice: "ho" },
         skill: "community",
         grammarTag: "present-perfect",
         choices: [
@@ -121,7 +121,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Wait... I think there's something behind this shelf.", zh: "等等……这个架子后面好像有东西。" },
+        npcLine: { en: "Wait... I think there's something behind this shelf.", zh: "等等……这个架子后面好像有东西。", voice: "ho" },
         skill: "community",
         grammarTag: "wh-question",
         choices: [
@@ -132,7 +132,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Old letters. So many old letters.", zh: "旧信。好多旧信啊。" },
+        npcLine: { en: "Old letters. So many old letters.", zh: "旧信。好多旧信啊。", voice: "ho" },
         skill: "community",
         grammarTag: "comparative",
         choices: [
@@ -152,7 +152,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Let's take these home and read them slowly.", zh: "我们把这些带回家慢慢读吧。" },
+        npcLine: { en: "Let's take these home and read them slowly.", zh: "我们把这些带回家慢慢读吧。", voice: "ho" },
         skill: "community",
         grammarTag: "lets-suggestion",
         choices: [
@@ -163,7 +163,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "By the way, Lunar New Year is next week. Will you join us?", zh: "对了，下周就是春节了。你愿意来我们家过节吗？" },
+        npcLine: { en: "By the way, Lunar New Year is next week. Will you join us?", zh: "对了，下周就是春节了。你愿意来我们家过节吗？", voice: "ho" },
         skill: "festival",
         grammarTag: "will-future",
         choices: [
@@ -174,7 +174,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Wonderful! It's the biggest celebration of the year for us.", zh: "太好了！这对我们来说是一年中最盛大的节日。" },
+        npcLine: { en: "Wonderful! It's the biggest celebration of the year for us.", zh: "太好了！这对我们来说是一年中最盛大的节日。", voice: "ho" },
         skill: "festival",
         grammarTag: "comparative",
         choices: [
@@ -195,7 +195,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "We need red decorations. Which one is bigger?", zh: "我们需要红色装饰。哪一个更大？" },
+        npcLine: { en: "We need red decorations. Which one is bigger?", zh: "我们需要红色装饰。哪一个更大？", voice: "ho" },
         skill: "festival",
         grammarTag: "comparative",
         choices: [
@@ -206,7 +206,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Good choice. Can you help me hang it?", zh: "选得好。你能帮我挂上去吗？" },
+        npcLine: { en: "Good choice. Can you help me hang it?", zh: "选得好。你能帮我挂上去吗？", voice: "ho" },
         skill: "festival",
         grammarTag: "can-modal",
         choices: [
@@ -217,7 +217,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Perfect. This is the best decoration we've had in years.", zh: "太好了。这是我们这些年里最好的装饰了。" },
+        npcLine: { en: "Perfect. This is the best decoration we've had in years.", zh: "太好了。这是我们这些年里最好的装饰了。", voice: "ho" },
         skill: "festival",
         grammarTag: "present-perfect",
         choices: [
@@ -322,7 +322,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Here — a red envelope for you.", zh: "给你——一个红包。" },
+        npcLine: { en: "Here — a red envelope for you.", zh: "给你——一个红包。", voice: "ho" },
         skill: "festival",
         grammarTag: "courtesy",
         choices: [
@@ -333,7 +333,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "It's for good luck, not for spending right away.", zh: "这是图个好运，不是让你马上花掉的。" },
+        npcLine: { en: "It's for good luck, not for spending right away.", zh: "这是图个好运，不是让你马上花掉的。", voice: "ho" },
         skill: "festival",
         grammarTag: "will-future",
         choices: [
@@ -344,7 +344,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "You've brought us good luck too, you know.", zh: "其实你也给我们带来了好运，你知道吗。" },
+        npcLine: { en: "You've brought us good luck too, you know.", zh: "其实你也给我们带来了好运，你知道吗。", voice: "ho" },
         skill: "festival",
         grammarTag: "present-perfect",
         choices: [
@@ -407,7 +407,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "I read a few of those letters tonight.", zh: "我今晚读了几封那些信。" },
+        npcLine: { en: "I read a few of those letters tonight.", zh: "我今晚读了几封那些信。", voice: "ho" },
         skill: "community",
         grammarTag: "past-simple",
         choices: [
@@ -418,7 +418,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "One of them was addressed to someone named Emma.", zh: "其中一封是写给一个叫Emma的人的。" },
+        npcLine: { en: "One of them was addressed to someone named Emma.", zh: "其中一封是写给一个叫Emma的人的。", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -429,7 +429,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "I think it's time we showed her these letters.", zh: "我觉得是时候把这些信给她看看了。" },
+        npcLine: { en: "I think it's time we showed her these letters.", zh: "我觉得是时候把这些信给她看看了。", voice: "ho" },
         skill: "community",
         grammarTag: "will-future",
         choices: [

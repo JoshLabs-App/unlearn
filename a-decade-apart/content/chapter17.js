@@ -25,7 +25,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Hi, I read the article. I work with the city's community programs.", zh: "你好，我看了那篇报道。我在市政府的社区项目部门工作。" },
+        npcLine: { en: "Hi, I read the article. I work with the city's community programs.", zh: "你好，我看了那篇报道。我在市政府的社区项目部门工作。", voice: "official" },
         skill: "community",
         grammarTag: "past-simple",
         choices: [
@@ -36,7 +36,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "The city has a small grant program for places exactly like this.", zh: "市政府有一个小额补助项目，正适合这样的地方。" },
+        npcLine: { en: "The city has a small grant program for places exactly like this.", zh: "市政府有一个小额补助项目，正适合这样的地方。", voice: "official" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -47,7 +47,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Would you be open to hearing about it?", zh: "您愿意听我讲讲吗？" },
+        npcLine: { en: "Would you be open to hearing about it?", zh: "您愿意听我讲讲吗？", voice: "official" },
         skill: "community",
         grammarTag: "conditional",
         choices: [
@@ -67,7 +67,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "If you had this funding, what would you do with it?", zh: "如果你们拿到这笔资助，会用来做什么？" },
+        npcLine: { en: "If you had this funding, what would you do with it?", zh: "如果你们拿到这笔资助，会用来做什么？", voice: "official" },
         skill: "community",
         grammarTag: "conditional-advanced",
         choices: [
@@ -78,7 +78,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "If the space were bigger, could you help more families?", zh: "如果这个地方更大一些，你们能帮到更多家庭吗？" },
+        npcLine: { en: "If the space were bigger, could you help more families?", zh: "如果这个地方更大一些，你们能帮到更多家庭吗？", voice: "official" },
         skill: "community",
         grammarTag: "conditional-advanced",
         choices: [
@@ -89,7 +89,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "That's exactly the kind of thinking this grant is for.", zh: "这正是这笔补助想要支持的想法。" },
+        npcLine: { en: "That's exactly the kind of thinking this grant is for.", zh: "这正是这笔补助想要支持的想法。", voice: "official" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -152,7 +152,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Let's lay out everything the grant would require of us.", zh: "我们把这笔补助会要求我们做的事都列出来吧。" },
+        npcLine: { en: "Let's lay out everything the grant would require of us.", zh: "我们把这笔补助会要求我们做的事都列出来吧。", voice: "ho" },
         skill: "community",
         grammarTag: "lets-suggestion",
         choices: [
@@ -163,7 +163,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "We'd need to report our numbers every three months.", zh: "我们得每三个月上报一次数据。" },
+        npcLine: { en: "We'd need to report our numbers every three months.", zh: "我们得每三个月上报一次数据。", voice: "ho" },
         skill: "community",
         grammarTag: "will-future",
         choices: [
@@ -174,7 +174,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "In exchange, we'd get funding that's been guaranteed for three years.", zh: "作为交换，我们会得到一笔保证发放三年的资助。" },
+        npcLine: { en: "In exchange, we'd get funding that's been guaranteed for three years.", zh: "作为交换，我们会得到一笔保证发放三年的资助。", voice: "ho" },
         skill: "community",
         grammarTag: "passive",
         choices: [
@@ -320,7 +320,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "It sounds like we're all leaning the same way.", zh: "听起来我们的想法都差不多。" },
+        npcLine: { en: "It sounds like we're all leaning the same way.", zh: "听起来我们的想法都差不多。", voice: "ho" },
         skill: "community",
         grammarTag: "present-continuous",
         choices: [
@@ -331,7 +331,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "If we accept it, we do it together, with our eyes open.", zh: "如果我们接受，就要一起做，而且要清楚地知道自己在做什么。" },
+        npcLine: { en: "If we accept it, we do it together, with our eyes open.", zh: "如果我们接受，就要一起做，而且要清楚地知道自己在做什么。", voice: "ho" },
         skill: "community",
         grammarTag: "conditional",
         choices: [
@@ -342,7 +342,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Then it's decided. Let's call her back tomorrow.", zh: "那就这么定了。我们明天回电话给她。" },
+        npcLine: { en: "Then it's decided. Let's call her back tomorrow.", zh: "那就这么定了。我们明天回电话给她。", voice: "ho" },
         skill: "community",
         grammarTag: "lets-suggestion",
         choices: [
@@ -363,7 +363,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Congratulations. The city is proud to support this place.", zh: "恭喜。市政府很自豪能支持这个地方。" },
+        npcLine: { en: "Congratulations. The city is proud to support this place.", zh: "恭喜。市政府很自豪能支持这个地方。", voice: "official" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -374,7 +374,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "If you ever need anything else, my door is open.", zh: "如果你们以后还需要什么，我随时欢迎。" },
+        npcLine: { en: "If you ever need anything else, my door is open.", zh: "如果你们以后还需要什么，我随时欢迎。", voice: "official" },
         skill: "community",
         grammarTag: "conditional",
         choices: [
@@ -385,7 +385,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "This is bigger than a grant. This is a real partnership.", zh: "这不只是一笔补助。这是一次真正的合作。" },
+        npcLine: { en: "This is bigger than a grant. This is a real partnership.", zh: "这不只是一笔补助。这是一次真正的合作。", voice: "official" },
         skill: "community",
         grammarTag: "comparative",
         choices: [

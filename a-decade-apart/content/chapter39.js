@@ -232,7 +232,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Oh, they have your nose, don't they?", zh: "哦，他们的鼻子长得像你，是不是？" },
+        npcLine: { en: "Oh, they have your nose, don't they?", zh: "哦，他们的鼻子长得像你，是不是？", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -243,7 +243,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Would you like us to bring dinner over this week?", zh: "这周要不要我们给你们送饭过来？" },
+        npcLine: { en: "Would you like us to bring dinner over this week?", zh: "这周要不要我们给你们送饭过来？", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -254,7 +254,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Let us know if you need anything at all.", zh: "有什么需要就告诉我们。" },
+        npcLine: { en: "Let us know if you need anything at all.", zh: "有什么需要就告诉我们。", voice: "ho" },
         skill: "community",
         grammarTag: "connector",
         choices: [

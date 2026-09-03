@@ -17,7 +17,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Look — it's an old photo. And an address.", zh: "你看——是一张旧照片，还有一个地址。" },
+        npcLine: { en: "Look — it's an old photo. And an address.", zh: "你看——是一张旧照片，还有一个地址。", voice: "emma" },
         skill: "greeting",
         grammarTag: "statement",
         choices: [
@@ -29,7 +29,7 @@ GAME_CONTENT.scenes.push(
       },
       n2: {
         avatar: "🤔",
-        npcLine: { en: "I don't recognize this address. Do you?", zh: "这个地址我不认识。你呢？" },
+        npcLine: { en: "I don't recognize this address. Do you?", zh: "这个地址我不认识。你呢？", voice: "emma" },
         skill: "greeting",
         grammarTag: "do-question",
         choices: [
@@ -41,7 +41,7 @@ GAME_CONTENT.scenes.push(
       },
       n3: {
         avatar: "💡",
-        npcLine: { en: "No idea. But I know someone who might.", zh: "不知道。但我认识一个可能知道的人。" },
+        npcLine: { en: "No idea. But I know someone who might.", zh: "不知道。但我认识一个可能知道的人。", voice: "emma" },
         skill: "greeting",
         grammarTag: "lets-suggestion",
         choices: [
@@ -400,7 +400,7 @@ GAME_CONTENT.scenes.push(
     nodes: {
       n1: {
         avatar: "🤔",
-        npcLine: { en: "So, what does the address say?", zh: "那，地址上写的是哪儿？" },
+        npcLine: { en: "So, what does the address say?", zh: "那，地址上写的是哪儿？", voice: "emma" },
         skill: "direction",
         grammarTag: "statement",
         choices: [
@@ -412,7 +412,7 @@ GAME_CONTENT.scenes.push(
       },
       n2: {
         avatar: "🤔",
-        npcLine: { en: "Near the lake? Do you know that area?", zh: "湖边？你了解那一带吗？" },
+        npcLine: { en: "Near the lake? Do you know that area?", zh: "湖边？你了解那一带吗？", voice: "emma" },
         skill: "direction",
         grammarTag: "do-question",
         choices: [
@@ -424,7 +424,7 @@ GAME_CONTENT.scenes.push(
       },
       n3: {
         avatar: "😊",
-        npcLine: { en: "Let's go find out tomorrow.", zh: "我们明天去看看吧。" },
+        npcLine: { en: "Let's go find out tomorrow.", zh: "我们明天去看看吧。", voice: "emma" },
         skill: "direction",
         grammarTag: "will-future",
         choices: [

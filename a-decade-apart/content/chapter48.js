@@ -142,7 +142,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "I'm going to check your blood pressure now.", zh: "我现在要给您量一下血压。" },
+        npcLine: { en: "I'm going to check your blood pressure now.", zh: "我现在要给您量一下血压。", voice: "doctor" },
         skill: "community",
         grammarTag: "will-future",
         choices: [
@@ -153,7 +153,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Your blood pressure is a bit higher than average.", zh: "您的血压比平均值稍微高一点。" },
+        npcLine: { en: "Your blood pressure is a bit higher than average.", zh: "您的血压比平均值稍微高一点。", voice: "doctor" },
         skill: "community",
         grammarTag: "comparative",
         choices: [
@@ -164,7 +164,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Can you step on the scale for me next?", zh: "接下来您能站到体重秤上吗？" },
+        npcLine: { en: "Can you step on the scale for me next?", zh: "接下来您能站到体重秤上吗？", voice: "doctor" },
         skill: "community",
         grammarTag: "can-modal",
         choices: [

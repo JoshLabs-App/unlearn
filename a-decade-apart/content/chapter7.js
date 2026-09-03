@@ -22,7 +22,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Thank you for coming with me today.", zh: "谢谢你今天陪我一起来。" },
+        npcLine: { en: "Thank you for coming with me today.", zh: "谢谢你今天陪我一起来。", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -33,7 +33,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Are you nervous? I am, a little.", zh: "你紧张吗？我有点紧张。" },
+        npcLine: { en: "Are you nervous? I am, a little.", zh: "你紧张吗？我有点紧张。", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -44,7 +44,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "This is our stop. Let's get off here.", zh: "到站了。我们在这儿下车吧。" },
+        npcLine: { en: "This is our stop. Let's get off here.", zh: "到站了。我们在这儿下车吧。", voice: "ho" },
         skill: "community",
         grammarTag: "lets-suggestion",
         choices: [
@@ -362,7 +362,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "That was a lot to hear today.", zh: "今天听到的这些真不少。" },
+        npcLine: { en: "That was a lot to hear today.", zh: "今天听到的这些真不少。", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -373,7 +373,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Thank you for helping me find this.", zh: "谢谢你帮我找到了这些。" },
+        npcLine: { en: "Thank you for helping me find this.", zh: "谢谢你帮我找到了这些。", voice: "ho" },
         skill: "community",
         grammarTag: "past-simple",
         choices: [
@@ -384,7 +384,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Let's visit the house next weekend, like he said.", zh: "我们下周末就去看看那栋房子吧，像他说的那样。" },
+        npcLine: { en: "Let's visit the house next weekend, like he said.", zh: "我们下周末就去看看那栋房子吧，像他说的那样。", voice: "ho" },
         skill: "community",
         grammarTag: "lets-suggestion",
         choices: [

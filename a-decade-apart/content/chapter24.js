@@ -269,7 +269,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Please review these closing documents before you sign.", zh: "请在签字前先审阅这些成交文件。" },
+        npcLine: { en: "Please review these closing documents before you sign.", zh: "请在签字前先审阅这些成交文件。", voice: "official" },
         skill: "housing",
         grammarTag: "please-request",
         choices: [
@@ -280,7 +280,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "The keys will officially be yours after this signature.", zh: "这个签名之后，钥匙就正式归你们了。" },
+        npcLine: { en: "The keys will officially be yours after this signature.", zh: "这个签名之后，钥匙就正式归你们了。", voice: "official" },
         skill: "housing",
         grammarTag: "will-future",
         choices: [
@@ -291,7 +291,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "It's official. Welcome to homeownership.", zh: "正式生效了。欢迎成为房主。" },
+        npcLine: { en: "It's official. Welcome to homeownership.", zh: "正式生效了。欢迎成为房主。", voice: "official" },
         skill: "housing",
         grammarTag: "statement",
         choices: [

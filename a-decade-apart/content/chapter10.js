@@ -278,7 +278,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Emma, thank you for coming. Please, sit.", zh: "Emma，谢谢你能来。请坐。" },
+        npcLine: { en: "Emma, thank you for coming. Please, sit.", zh: "Emma，谢谢你能来。请坐。", voice: "ho" },
         skill: "community",
         grammarTag: "courtesy",
         choices: [
@@ -289,7 +289,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "This letter has your family name on it. Do you recognize it?", zh: "这封信上写着你的姓氏。你认得出来吗？" },
+        npcLine: { en: "This letter has your family name on it. Do you recognize it?", zh: "这封信上写着你的姓氏。你认得出来吗？", voice: "ho" },
         skill: "community",
         grammarTag: "do-question",
         choices: [
@@ -301,7 +301,7 @@ GAME_CONTENT.scenes.push(
       },
       n3: {
         avatar: "😮",
-        npcLine: { en: "Your grandmother? Then it really was her shop.", zh: "你祖母？那当年真的是她的店。" },
+        npcLine: { en: "Your grandmother? Then it really was her shop.", zh: "你祖母？那当年真的是她的店。", voice: "ho" },
         skill: "community",
         grammarTag: "past-simple",
         choices: [
@@ -363,7 +363,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "If we open it, there's no going back.", zh: "如果我们打开它，就没有回头路了。" },
+        npcLine: { en: "If we open it, there's no going back.", zh: "如果我们打开它，就没有回头路了。", voice: "ho" },
         skill: "community",
         grammarTag: "conditional",
         choices: [
@@ -374,7 +374,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Emma, would you like to be the one to open it?", zh: "Emma，你愿意由你来打开它吗？" },
+        npcLine: { en: "Emma, would you like to be the one to open it?", zh: "Emma，你愿意由你来打开它吗？", voice: "ho" },
         skill: "community",
         grammarTag: "can-modal",
         choices: [
@@ -385,7 +385,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Take your time. We're right here with you.", zh: "慢慢来。我们就在这儿陪着你。" },
+        npcLine: { en: "Take your time. We're right here with you.", zh: "慢慢来。我们就在这儿陪着你。", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [

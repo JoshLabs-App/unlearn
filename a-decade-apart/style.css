@@ -22,7 +22,7 @@ body {
 }
 
 .app-header {
-  padding: 14px 20px 12px;
+  padding: calc(14px + env(safe-area-inset-top)) 20px 12px;
   text-align: center;
 }
 /* 顶部条：头像/名字（左）+ 火苗/菜单（右）在同一行里用 flex 排开，
@@ -273,7 +273,8 @@ body.hide-zh .zh-inline {
 .npc-en .word,
 .scene-head h2 .word,
 .scene-subtitle .word,
-.t-en .word {
+.t-en .word,
+.choice-btn .word {
   cursor: pointer;
   border-radius: 4px;
   padding: 0 1px;
@@ -286,7 +287,8 @@ body.hide-zh .zh-inline {
 .npc-en .word.word-active,
 .scene-head h2 .word.word-active,
 .scene-subtitle .word.word-active,
-.t-en .word.word-active {
+.t-en .word.word-active,
+.choice-btn .word.word-active {
   background: var(--accent-soft);
 }
 

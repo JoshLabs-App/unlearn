@@ -2,9 +2,15 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>别学英语 · JoshLabs</title>
 <link rel="icon" type="image/svg+xml" href="icon.svg" />
+<link rel="manifest" href="manifest.webmanifest" />
+<meta name="theme-color" content="#3e8f4f" />
+<link rel="apple-touch-icon" href="icons/icon-180.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="别学英语" />
 <link rel="stylesheet" href="library.css" />
 </head>
 <body>
@@ -96,5 +102,70 @@
       </div>
     </section>
   </main>
+
+  <div id="install-banner" class="install-banner" hidden>
+    <img src="icons/icon-192.png" alt="" class="install-banner-icon" />
+    <div class="install-banner-text">
+      <p class="install-banner-title">安装到主屏幕</p>
+      <p class="install-banner-desc" id="install-banner-desc">像App一样打开，无地址栏，一键启动。</p>
+    </div>
+    <button type="button" class="install-banner-btn" id="install-banner-btn">安装</button>
+    <button type="button" class="install-banner-close" id="install-banner-close" aria-label="关闭">×</button>
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+
+    (function () {
+      var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+      if (isStandalone) return;
+      if (localStorage.getItem('installBannerDismissed') === '1') return;
+
+      var banner = document.getElementById('install-banner');
+      var closeBtn = document.getElementById('install-banner-close');
+      var installBtn = document.getElementById('install-banner-btn');
+      var descEl = document.getElementById('install-banner-desc');
+
+      closeBtn.addEventListener('click', function () {
+        banner.hidden = true;
+        localStorage.setItem('installBannerDismissed', '1');
+      });
+
+      var ua = navigator.userAgent || '';
+      var isIOS = /iphone|ipad|ipod/i.test(ua);
+
+      if (isIOS) {
+        descEl.textContent = '点击底部分享按钮，选择"添加到主屏幕"';
+        installBtn.hidden = true;
+        banner.hidden = false;
+        return;
+      }
+
+      var deferredPrompt = null;
+      window.addEventListener('beforeinstallprompt', function (e) {
+        e.preventDefault();
+        deferredPrompt = e;
+        banner.hidden = false;
+      });
+
+      installBtn.addEventListener('click', function () {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.finally(function () {
+          deferredPrompt = null;
+          banner.hidden = true;
+        });
+      });
+
+      window.addEventListener('appinstalled', function () {
+        banner.hidden = true;
+        localStorage.setItem('installBannerDismissed', '1');
+      });
+    })();
+  </script>
 </body>
 </html>

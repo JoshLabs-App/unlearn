@@ -2,9 +2,15 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>十年之约 · 别学英语</title>
 <link rel="icon" type="image/svg+xml" href="../icon.svg" />
+<link rel="manifest" href="../manifest.webmanifest" />
+<meta name="theme-color" content="#3e8f4f" />
+<link rel="apple-touch-icon" href="../icons/icon-180.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="别学英语" />
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -305,5 +311,12 @@
   <script src="content/dictionary.js"></script>
   <script src="auth.js"></script>
   <script src="main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+  </script>
 </body>
 </html>

@@ -68,6 +68,7 @@ const el = {
   authSentEmail: document.getElementById("auth-sent-email"),
   authRetryEmailBtn: document.getElementById("auth-retry-email-btn"),
   authGoogleBtn: document.getElementById("auth-google-btn"),
+  authAppleBtn: document.getElementById("auth-apple-btn"),
   authError: document.getElementById("auth-error"),
   authSignOutBtn: document.getElementById("auth-sign-out-btn"),
   characterEditBtn: document.getElementById("character-edit-btn"),
@@ -1512,6 +1513,12 @@ el.authGoogleBtn.addEventListener("click", () => {
   el.authError.textContent = "";
   window.GameAuth.signInWithGoogle().catch(() => {
     el.authError.textContent = "Google 登录暂时不可用";
+  });
+});
+el.authAppleBtn.addEventListener("click", () => {
+  el.authError.textContent = "";
+  window.GameAuth.signInWithApple().catch(() => {
+    el.authError.textContent = "Apple 登录暂时不可用";
   });
 });
 el.authSignOutBtn.addEventListener("click", async () => {

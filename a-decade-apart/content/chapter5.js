@@ -18,7 +18,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Oh, hello! Did you come about the photo?", zh: "哦，你好！你是为了照片来的吗？" },
+        npcLine: { en: "Oh, hello! Did you come about the photo?", zh: "哦，你好！你是为了照片来的吗？", voice: "ho" },
         skill: "community",
         grammarTag: "past-simple",
         choices: [
@@ -30,7 +30,7 @@ GAME_CONTENT.scenes.push(
       },
       n2: {
         avatar: "😮",
-        npcLine: { en: "My name? Where did you see that?", zh: "我的名字？你在哪儿看到的？" },
+        npcLine: { en: "My name? Where did you see that?", zh: "我的名字？你在哪儿看到的？", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -41,7 +41,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Let's look into it together, at the library. I need time to think first.", zh: "我们一起去图书馆查查吧。我需要先想一想。" },
+        npcLine: { en: "Let's look into it together, at the library. I need time to think first.", zh: "我们一起去图书馆查查吧。我需要先想一想。", voice: "ho" },
         skill: "community",
         grammarTag: "will-future",
         choices: [
@@ -146,7 +146,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "So, when did the pain start?", zh: "那，疼痛是什么时候开始的？" },
+        npcLine: { en: "So, when did the pain start?", zh: "那，疼痛是什么时候开始的？", voice: "doctor" },
         skill: "health",
         grammarTag: "past-simple",
         choices: [
@@ -157,7 +157,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "I see. How are you feeling otherwise?", zh: "明白了。其他方面感觉怎么样？" },
+        npcLine: { en: "I see. How are you feeling otherwise?", zh: "明白了。其他方面感觉怎么样？", voice: "doctor" },
         skill: "health",
         grammarTag: "statement",
         choices: [
@@ -168,7 +168,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Let's take a quick look at your throat.", zh: "我们快速看一下你的喉咙。" },
+        npcLine: { en: "Let's take a quick look at your throat.", zh: "我们快速看一下你的喉咙。", voice: "doctor" },
         skill: "health",
         grammarTag: "lets-suggestion",
         choices: [
@@ -188,7 +188,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "It's just a small infection. Nothing serious.", zh: "只是个小感染，不严重。" },
+        npcLine: { en: "It's just a small infection. Nothing serious.", zh: "只是个小感染，不严重。", voice: "doctor" },
         skill: "health",
         grammarTag: "statement",
         choices: [
@@ -199,7 +199,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Can you take this medicine twice a day?", zh: "你能一天吃两次这个药吗？" },
+        npcLine: { en: "Can you take this medicine twice a day?", zh: "你能一天吃两次这个药吗？", voice: "doctor" },
         skill: "health",
         grammarTag: "can-modal",
         choices: [
@@ -210,7 +210,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Good. Feel better soon!", zh: "好的。祝你早日康复！" },
+        npcLine: { en: "Good. Feel better soon!", zh: "好的。祝你早日康复！", voice: "doctor" },
         skill: "health",
         grammarTag: "courtesy",
         choices: [
@@ -358,7 +358,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Oh, hello! Merry Christmas!", zh: "哦，你好！圣诞快乐！" },
+        npcLine: { en: "Oh, hello! Merry Christmas!", zh: "哦，你好！圣诞快乐！", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -369,7 +369,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Come in, come in. Are you having a good holiday?", zh: "快进来快进来。假期过得开心吗？" },
+        npcLine: { en: "Come in, come in. Are you having a good holiday?", zh: "快进来快进来。假期过得开心吗？", voice: "ho" },
         skill: "community",
         grammarTag: "present-continuous",
         choices: [
@@ -380,7 +380,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "I'm glad. Let's talk more next week.", zh: "真高兴。我们下周再多聊聊。" },
+        npcLine: { en: "I'm glad. Let's talk more next week.", zh: "真高兴。我们下周再多聊聊。", voice: "ho" },
         skill: "community",
         grammarTag: "will-future",
         choices: [

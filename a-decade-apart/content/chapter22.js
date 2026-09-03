@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "We are gathered here today to witness this union.", zh: "我们今天齐聚在这里，见证这段结合。" },
+        npcLine: { en: "We are gathered here today to witness this union.", zh: "我们今天齐聚在这里，见证这段结合。", voice: "official" },
         skill: "community",
         grammarTag: "passive",
         choices: [
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "The officiant asked everyone to please take their seats.", zh: "司仪请大家就座。" },
+        npcLine: { en: "The officiant asked everyone to please take their seats.", zh: "司仪请大家就座。", voice: "official" },
         skill: "community",
         grammarTag: "reported-speech",
         choices: [
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Here comes the bride.", zh: "新娘来了。" },
+        npcLine: { en: "Here comes the bride.", zh: "新娘来了。", voice: "official" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -185,7 +185,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "You may now kiss the bride.", zh: "你现在可以亲吻新娘了。" },
+        npcLine: { en: "You may now kiss the bride.", zh: "你现在可以亲吻新娘了。", voice: "ho" },
         skill: "community",
         grammarTag: "can-modal",
         choices: [
@@ -196,7 +196,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Everyone cheered so loudly the whole street could hear it.", zh: "大家欢呼得那么响，整条街都能听到。" },
+        npcLine: { en: "Everyone cheered so loudly the whole street could hear it.", zh: "大家欢呼得那么响，整条街都能听到。", voice: "ho" },
         skill: "community",
         grammarTag: "past-simple",
         choices: [
@@ -207,7 +207,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Congratulations, Mr. and Mrs.! Let's head to the reception.", zh: "恭喜二位！我们去婚宴现场吧。" },
+        npcLine: { en: "Congratulations, Mr. and Mrs.! Let's head to the reception.", zh: "恭喜二位！我们去婚宴现场吧。", voice: "ho" },
         skill: "community",
         grammarTag: "lets-suggestion",
         choices: [

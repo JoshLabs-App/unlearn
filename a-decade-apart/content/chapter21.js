@@ -60,7 +60,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "How did you know it was the right time to propose, back then?", zh: "您当年是怎么知道求婚的时机到了的？" },
+        npcLine: { en: "How did you know it was the right time to propose, back then?", zh: "您当年是怎么知道求婚的时机到了的？", voice: "ho" },
         skill: "community",
         grammarTag: "past-simple",
         choices: [
@@ -71,7 +71,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "You'll know. It's less about timing and more about certainty.", zh: "你会知道的。这与其说是时机，不如说是确定感。" },
+        npcLine: { en: "You'll know. It's less about timing and more about certainty.", zh: "你会知道的。这与其说是时机，不如说是确定感。", voice: "ho" },
         skill: "community",
         grammarTag: "comparative",
         choices: [
@@ -82,7 +82,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Whatever you choose, do it in a way that feels like you.", zh: "不管你选什么方式，都要让它像你自己的风格。" },
+        npcLine: { en: "Whatever you choose, do it in a way that feels like you.", zh: "不管你选什么方式，都要让它像你自己的风格。", voice: "ho" },
         skill: "community",
         grammarTag: "relative-clause",
         choices: [
@@ -315,7 +315,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "I heard the news! When did this happen?", zh: "我听说了！这是什么时候的事？" },
+        npcLine: { en: "I heard the news! When did this happen?", zh: "我听说了！这是什么时候的事？", voice: "ho" },
         skill: "community",
         grammarTag: "past-simple",
         choices: [
@@ -326,7 +326,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "This calls for the biggest celebration this house has ever seen.", zh: "这值得办一场这栋房子有史以来最大的庆祝会。" },
+        npcLine: { en: "This calls for the biggest celebration this house has ever seen.", zh: "这值得办一场这栋房子有史以来最大的庆祝会。", voice: "ho" },
         skill: "community",
         grammarTag: "present-perfect",
         choices: [
@@ -337,7 +337,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "I'm so happy for you both, more than words can say.", zh: "我为你们俩感到无比开心，多到言语难以表达。" },
+        npcLine: { en: "I'm so happy for you both, more than words can say.", zh: "我为你们俩感到无比开心，多到言语难以表达。", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [

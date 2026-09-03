@@ -62,7 +62,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "A gathering? Of course I'll come.", zh: "聚会？我当然会去。" },
+        npcLine: { en: "A gathering? Of course I'll come.", zh: "聚会？我当然会去。", voice: "ho" },
         skill: "community",
         grammarTag: "will-future",
         choices: [
@@ -74,7 +74,7 @@ GAME_CONTENT.scenes.push(
       },
       n2: {
         avatar: "👴",
-        npcLine: { en: "Can I bring my famous tea?", zh: "我能带上我那有名的茶吗？" },
+        npcLine: { en: "Can I bring my famous tea?", zh: "我能带上我那有名的茶吗？", voice: "ho" },
         skill: "community",
         grammarTag: "can-modal",
         choices: [
@@ -86,7 +86,7 @@ GAME_CONTENT.scenes.push(
       },
       n3: {
         avatar: "🧓",
-        npcLine: { en: "I've never been invited to something like this before.", zh: "我以前从没被邀请参加过这样的活动。" },
+        npcLine: { en: "I've never been invited to something like this before.", zh: "我以前从没被邀请参加过这样的活动。", voice: "ho" },
         skill: "community",
         grammarTag: "present-perfect",
         choices: [
@@ -106,7 +106,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "I've been thinking about that old house.", zh: "我一直在想那栋老房子的事。" },
+        npcLine: { en: "I've been thinking about that old house.", zh: "我一直在想那栋老房子的事。", voice: "ho" },
         skill: "community",
         grammarTag: "present-perfect",
         choices: [
@@ -117,7 +117,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "If the owner ever sells it, we could turn it into something special.", zh: "如果房主以后要卖，我们可以把它变成一个特别的地方。" },
+        npcLine: { en: "If the owner ever sells it, we could turn it into something special.", zh: "如果房主以后要卖，我们可以把它变成一个特别的地方。", voice: "ho" },
         skill: "community",
         grammarTag: "conditional",
         choices: [
@@ -128,7 +128,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "A place where new families could be welcomed, like we were.", zh: "一个能像当年我们一样，接纳新家庭的地方。" },
+        npcLine: { en: "A place where new families could be welcomed, like we were.", zh: "一个能像当年我们一样，接纳新家庭的地方。", voice: "ho" },
         skill: "community",
         grammarTag: "passive",
         choices: [
@@ -234,7 +234,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "A year ago, none of us knew each other.", zh: "一年前，我们谁都不认识谁。" },
+        npcLine: { en: "A year ago, none of us knew each other.", zh: "一年前，我们谁都不认识谁。", voice: "ho" },
         skill: "community",
         grammarTag: "past-simple",
         choices: [
@@ -245,7 +245,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "So much has changed since that first letter arrived.", zh: "自从第一封信到来，太多事情都变了。" },
+        npcLine: { en: "So much has changed since that first letter arrived.", zh: "自从第一封信到来，太多事情都变了。", voice: "ho" },
         skill: "community",
         grammarTag: "present-perfect",
         choices: [
@@ -256,7 +256,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "To all of you — the best year of my life.", zh: "敬在座各位——这是我这辈子最好的一年。" },
+        npcLine: { en: "To all of you — the best year of my life.", zh: "敬在座各位——这是我这辈子最好的一年。", voice: "ho" },
         skill: "community",
         grammarTag: "comparative",
         choices: [

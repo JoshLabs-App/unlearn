@@ -143,7 +143,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Based on your dates, we estimate the due date in April.", zh: "根据您的日期推算，预产期在四月。" },
+        npcLine: { en: "Based on your dates, we estimate the due date in April.", zh: "根据您的日期推算，预产期在四月。", voice: "doctor" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -154,7 +154,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Would you like to hear the heartbeat?", zh: "你们想听听胎心吗？" },
+        npcLine: { en: "Would you like to hear the heartbeat?", zh: "你们想听听胎心吗？", voice: "doctor" },
         skill: "community",
         grammarTag: "do-question",
         choices: [
@@ -165,7 +165,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "That fast little sound is your baby's heartbeat.", zh: "这个跳得快快的小声音，就是你们宝宝的心跳。" },
+        npcLine: { en: "That fast little sound is your baby's heartbeat.", zh: "这个跳得快快的小声音，就是你们宝宝的心跳。", voice: "doctor" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -355,7 +355,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "We've all chipped in to get you the stroller you wanted.", zh: "我们大家凑钱给你买了你想要的婴儿车。" },
+        npcLine: { en: "We've all chipped in to get you the stroller you wanted.", zh: "我们大家凑钱给你买了你想要的婴儿车。", voice: "ho" },
         skill: "community",
         grammarTag: "present-perfect",
         choices: [
@@ -366,7 +366,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Everyone wanted to be part of welcoming this baby.", zh: "大家都想参与迎接这个宝宝。" },
+        npcLine: { en: "Everyone wanted to be part of welcoming this baby.", zh: "大家都想参与迎接这个宝宝。", voice: "ho" },
         skill: "community",
         grammarTag: "past-simple",
         choices: [
@@ -377,7 +377,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "This whole community is going to be her family too.", zh: "这整个社区也将会是她的家人。" },
+        npcLine: { en: "This whole community is going to be her family too.", zh: "这整个社区也将会是她的家人。", voice: "ho" },
         skill: "community",
         grammarTag: "will-future",
         choices: [

@@ -17,7 +17,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Good morning! You're new here, aren't you?", zh: "早上好！你是新搬来的吧？" },
+        npcLine: { en: "Good morning! You're new here, aren't you?", zh: "早上好！你是新搬来的吧？", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -28,7 +28,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Welcome to the building! Do you need anything?", zh: "欢迎搬进来！需要点什么帮忙吗？" },
+        npcLine: { en: "Welcome to the building! Do you need anything?", zh: "欢迎搬进来！需要点什么帮忙吗？", voice: "ho" },
         skill: "community",
         grammarTag: "do-question",
         choices: [
@@ -39,7 +39,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Of course, it's in the basement. Let's take a look.", zh: "当然知道，在地下室。我带你去看看吧。" },
+        npcLine: { en: "Of course, it's in the basement. Let's take a look.", zh: "当然知道，在地下室。我带你去看看吧。", voice: "ho" },
         skill: "community",
         grammarTag: "lets-suggestion",
         choices: [
@@ -59,7 +59,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "This machine takes quarters. Do you have some?", zh: "这台机器要投硬币。你有零钱吗？" },
+        npcLine: { en: "This machine takes quarters. Do you have some?", zh: "这台机器要投硬币。你有零钱吗？", voice: "ho" },
         skill: "housing",
         grammarTag: "can-modal",
         choices: [
@@ -70,7 +70,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "There's a change machine right by the door.", zh: "门边就有一台换零钱机。" },
+        npcLine: { en: "There's a change machine right by the door.", zh: "门边就有一台换零钱机。", voice: "ho" },
         skill: "housing",
         grammarTag: "will-future",
         choices: [
@@ -81,7 +81,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "All set? The dryers are over there.", zh: "都弄好了吗？烘干机在那边。" },
+        npcLine: { en: "All set? The dryers are over there.", zh: "都弄好了吗？烘干机在那边。", voice: "ho" },
         skill: "housing",
         grammarTag: "courtesy",
         choices: [
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Oh, hello again! What's that in your hand?", zh: "哦，又见面啦！你手里拿的是什么？" },
+        npcLine: { en: "Oh, hello again! What's that in your hand?", zh: "哦，又见面啦！你手里拿的是什么？", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -156,7 +156,7 @@ GAME_CONTENT.scenes.push(
       },
       n2: {
         avatar: "🤔",
-        npcLine: { en: "Let me see... wait, I think I know this street.", zh: "我看看……等等，这条街我好像认识。" },
+        npcLine: { en: "Let me see... wait, I think I know this street.", zh: "我看看……等等，这条街我好像认识。", voice: "ho" },
         skill: "community",
         grammarTag: "wh-question",
         choices: [
@@ -167,7 +167,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Near the old bakery, by the lake. Can you come for dinner? I'll tell you more.", zh: "在老面包店附近，靠湖边。你能来吃个晚饭吗？我再跟你细说。" },
+        npcLine: { en: "Near the old bakery, by the lake. Can you come for dinner? I'll tell you more.", zh: "在老面包店附近，靠湖边。你能来吃个晚饭吗？我再跟你细说。", voice: "ho" },
         skill: "community",
         grammarTag: "can-modal",
         choices: [
@@ -272,7 +272,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "You made it! Are you hungry?", zh: "你来啦！饿了吗？" },
+        npcLine: { en: "You made it! Are you hungry?", zh: "你来啦！饿了吗？", voice: "ho" },
         skill: "dining",
         grammarTag: "short-answer",
         choices: [
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       },
       n2: {
         avatar: "🧑",
-        npcLine: { en: "This is my son, David. He's visiting for the holiday.", zh: "这是我儿子David。他回来过节。" },
+        npcLine: { en: "This is my son, David. He's visiting for the holiday.", zh: "这是我儿子David。他回来过节。", voice: "ho" },
         skill: "dining",
         grammarTag: "statement",
         choices: [
@@ -295,7 +295,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Come in, come in. Dinner's almost ready.", zh: "快进来快进来。饭马上就好了。" },
+        npcLine: { en: "Come in, come in. Dinner's almost ready.", zh: "快进来快进来。饭马上就好了。", voice: "ho" },
         skill: "dining",
         grammarTag: "courtesy",
         choices: [
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Now... about that photo. That house belongs to someone I once knew.", zh: "现在……说说那张照片吧。那栋房子是我曾经认识的一个人的。" },
+        npcLine: { en: "Now... about that photo. That house belongs to someone I once knew.", zh: "现在……说说那张照片吧。那栋房子是我曾经认识的一个人的。", voice: "ho" },
         skill: "community",
         grammarTag: "wh-question",
         choices: [
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "That's... a long story. Maybe too long for tonight.", zh: "这个……说来话长。今晚可能讲不完。" },
+        npcLine: { en: "That's... a long story. Maybe too long for tonight.", zh: "这个……说来话长。今晚可能讲不完。", voice: "ho" },
         skill: "community",
         grammarTag: "can-modal",
         choices: [
@@ -381,7 +381,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Of course, dear. Come by anytime.", zh: "当然可以，亲爱的。随时过来找我。" },
+        npcLine: { en: "Of course, dear. Come by anytime.", zh: "当然可以，亲爱的。随时过来找我。", voice: "ho" },
         skill: "community",
         grammarTag: "will-future",
         choices: [

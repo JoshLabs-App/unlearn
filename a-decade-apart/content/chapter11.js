@@ -38,7 +38,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "There are more pages here. Should we keep reading?", zh: "这儿还有更多信纸。我们要不要继续读？" },
+        npcLine: { en: "There are more pages here. Should we keep reading?", zh: "这儿还有更多信纸。我们要不要继续读？", voice: "ho" },
         skill: "community",
         grammarTag: "lets-suggestion",
         choices: [
@@ -49,7 +49,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "This next part was written in 1984.", zh: "接下来这部分是1984年写的。" },
+        npcLine: { en: "This next part was written in 1984.", zh: "接下来这部分是1984年写的。", voice: "ho" },
         skill: "community",
         grammarTag: "passive",
         choices: [
@@ -60,7 +60,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "1984 — that's when Hong Kong's future was decided.", zh: "1984年——那是香港的未来被决定的一年。" },
+        npcLine: { en: "1984 — that's when Hong Kong's future was decided.", zh: "1984年——那是香港的未来被决定的一年。", voice: "ho" },
         skill: "community",
         grammarTag: "passive",
         choices: [
@@ -248,7 +248,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "So this whole time, our families were connected.", zh: "所以一直以来，我们两家都是有联系的。" },
+        npcLine: { en: "So this whole time, our families were connected.", zh: "所以一直以来，我们两家都是有联系的。", voice: "ho" },
         skill: "community",
         grammarTag: "passive",
         choices: [
@@ -259,7 +259,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "It feels like fate, doesn't it?", zh: "感觉像是命运，对吧？" },
+        npcLine: { en: "It feels like fate, doesn't it?", zh: "感觉像是命运，对吧？", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -270,7 +270,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "There's one letter left. The last one.", zh: "还剩一封信。最后一封。" },
+        npcLine: { en: "There's one letter left. The last one.", zh: "还剩一封信。最后一封。", voice: "ho" },
         skill: "community",
         grammarTag: "lets-suggestion",
         choices: [
@@ -332,7 +332,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Ten years ago, you made a promise to come back to Toronto.", zh: "十年前，你许下了要回到多伦多的承诺。" },
+        npcLine: { en: "Ten years ago, you made a promise to come back to Toronto.", zh: "十年前，你许下了要回到多伦多的承诺。", voice: "ho" },
         skill: "community",
         grammarTag: "past-simple",
         choices: [
@@ -343,7 +343,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Emma's family's promise was kept too, in its own way.", zh: "Emma家的承诺，也以它自己的方式被兑现了。" },
+        npcLine: { en: "Emma's family's promise was kept too, in its own way.", zh: "Emma家的承诺，也以它自己的方式被兑现了。", voice: "ho" },
         skill: "community",
         grammarTag: "passive",
         choices: [
@@ -354,7 +354,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Maybe that's what Ten Letters was always about.", zh: "也许「十封信」一直以来说的就是这个。" },
+        npcLine: { en: "Maybe that's what Ten Letters was always about.", zh: "也许「十封信」一直以来说的就是这个。", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -374,7 +374,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "So, what happens now?", zh: "那，现在打算怎么办？" },
+        npcLine: { en: "So, what happens now?", zh: "那，现在打算怎么办？", voice: "ho" },
         skill: "community",
         grammarTag: "wh-question",
         choices: [
@@ -385,7 +385,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "I'd like all of us to have dinner together soon.", zh: "我希望我们所有人能尽快一起吃顿饭。" },
+        npcLine: { en: "I'd like all of us to have dinner together soon.", zh: "我希望我们所有人能尽快一起吃顿饭。", voice: "ho" },
         skill: "community",
         grammarTag: "conditional",
         choices: [
@@ -396,7 +396,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Deal. Welcome to the family, both of you.", zh: "说定了。欢迎你们俩加入这个大家庭。" },
+        npcLine: { en: "Deal. Welcome to the family, both of you.", zh: "说定了。欢迎你们俩加入这个大家庭。", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [

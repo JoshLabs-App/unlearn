@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Please signal before you change lanes.", zh: "变道前请打转向灯。" },
+        npcLine: { en: "Please signal before you change lanes.", zh: "变道前请打转向灯。", voice: "official" },
         skill: "community",
         grammarTag: "please-request",
         choices: [
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Come to a complete stop at the sign ahead.", zh: "在前面的停车标志前完全停稳。" },
+        npcLine: { en: "Come to a complete stop at the sign ahead.", zh: "在前面的停车标志前完全停稳。", voice: "official" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -166,7 +166,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "That's the test complete. You passed with flying colors.", zh: "测试完成了。您通过得非常出色。" },
+        npcLine: { en: "That's the test complete. You passed with flying colors.", zh: "测试完成了。您通过得非常出色。", voice: "official" },
         skill: "community",
         grammarTag: "past-simple",
         choices: [

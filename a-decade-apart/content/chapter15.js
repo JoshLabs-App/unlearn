@@ -234,7 +234,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "She wrote that a decade apart became a lifetime together.", zh: "她写道，分开了十年，最终成了一辈子的相守。" },
+        npcLine: { en: "She wrote that a decade apart became a lifetime together.", zh: "她写道，分开了十年，最终成了一辈子的相守。", voice: "ho" },
         skill: "community",
         grammarTag: "reported-speech",
         choices: [
@@ -245,7 +245,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "This part about Lily... it's more moving than I expected.", zh: "关于Lily的这部分……比我预期的更感人。" },
+        npcLine: { en: "This part about Lily... it's more moving than I expected.", zh: "关于Lily的这部分……比我预期的更感人。", voice: "ho" },
         skill: "community",
         grammarTag: "comparative",
         choices: [
@@ -256,7 +256,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "I think it's ready. What does everyone think?", zh: "我觉得可以了。大家觉得呢？" },
+        npcLine: { en: "I think it's ready. What does everyone think?", zh: "我觉得可以了。大家觉得呢？", voice: "ho" },
         skill: "community",
         grammarTag: "wh-question",
         choices: [

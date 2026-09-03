@@ -23,7 +23,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "By the time she called, she had already decided to sell the house.", zh: "她打电话来的时候，已经决定要卖掉那栋房子了。" },
+        npcLine: { en: "By the time she called, she had already decided to sell the house.", zh: "她打电话来的时候，已经决定要卖掉那栋房子了。", voice: "ho" },
         skill: "community",
         grammarTag: "past-perfect",
         choices: [
@@ -34,7 +34,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Her family is moving out of the city. She thought of us first.", zh: "她一家要搬出这座城市了。她第一个想到了我们。" },
+        npcLine: { en: "Her family is moving out of the city. She thought of us first.", zh: "她一家要搬出这座城市了。她第一个想到了我们。", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -45,7 +45,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "If we want it, we have until the end of the month to decide.", zh: "如果我们想要，得在月底前决定。" },
+        npcLine: { en: "If we want it, we have until the end of the month to decide.", zh: "如果我们想要，得在月底前决定。", voice: "ho" },
         skill: "community",
         grammarTag: "conditional",
         choices: [
@@ -410,7 +410,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "It's not finished yet, but it's ready enough to open.", zh: "还没完全弄好，但已经够开放了。" },
+        npcLine: { en: "It's not finished yet, but it's ready enough to open.", zh: "还没完全弄好，但已经够开放了。", voice: "ho" },
         skill: "community",
         grammarTag: "passive",
         choices: [
@@ -421,7 +421,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Look — the new family from down the street is here.", zh: "你看——街那头那户新家庭来了。" },
+        npcLine: { en: "Look — the new family from down the street is here.", zh: "你看——街那头那户新家庭来了。", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -432,7 +432,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "A decade ago, someone had already started this story without knowing it.", zh: "十年前，有人在不知情的情况下，就已经开启了这个故事。" },
+        npcLine: { en: "A decade ago, someone had already started this story without knowing it.", zh: "十年前，有人在不知情的情况下，就已经开启了这个故事。", voice: "ho" },
         skill: "community",
         grammarTag: "past-perfect",
         choices: [

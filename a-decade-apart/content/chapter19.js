@@ -193,7 +193,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Can you tell us about the house in the old photo?", zh: "您能跟我们说说那张老照片里的房子吗？" },
+        npcLine: { en: "Can you tell us about the house in the old photo?", zh: "您能跟我们说说那张老照片里的房子吗？", voice: "ho" },
         skill: "community",
         grammarTag: "can-modal",
         choices: [
@@ -204,7 +204,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "That photo was taken the year we arrived here.", zh: "那张照片是我们刚到这儿那年拍的。" },
+        npcLine: { en: "That photo was taken the year we arrived here.", zh: "那张照片是我们刚到这儿那年拍的。", voice: "ho" },
         skill: "community",
         grammarTag: "passive",
         choices: [
@@ -215,7 +215,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "If I'd known then what I know now, I'd have worried less.", zh: "如果当年就知道现在知道的这些，我会少担心很多。" },
+        npcLine: { en: "If I'd known then what I know now, I'd have worried less.", zh: "如果当年就知道现在知道的这些，我会少担心很多。", voice: "ho" },
         skill: "community",
         grammarTag: "conditional-advanced",
         choices: [

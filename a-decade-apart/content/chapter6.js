@@ -21,7 +21,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Here we are. I haven't been here in years.", zh: "到了。我好多年没来这儿了。" },
+        npcLine: { en: "Here we are. I haven't been here in years.", zh: "到了。我好多年没来这儿了。", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -32,7 +32,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Let's find someone who can help us.", zh: "我们找个能帮忙的人吧。" },
+        npcLine: { en: "Let's find someone who can help us.", zh: "我们找个能帮忙的人吧。", voice: "ho" },
         skill: "community",
         grammarTag: "lets-suggestion",
         choices: [
@@ -44,7 +44,7 @@ GAME_CONTENT.scenes.push(
       },
       n3: {
         avatar: "🧓",
-        npcLine: { en: "Hello! How can I help you two today?", zh: "你们好！今天有什么可以帮忙的？" },
+        npcLine: { en: "Hello! How can I help you two today?", zh: "你们好！今天有什么可以帮忙的？", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -191,7 +191,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "I'm okay. This clipping... it's about my family's old house. We lived there when I was young. We moved here from far away, and that house was the first place that felt like home.", zh: "我没事。这张剪报……说的是我家以前的老房子。我小时候我们就住在那儿。我们从很远的地方搬来这里，那栋房子是第一个让我们觉得像家的地方。" },
+        npcLine: { en: "I'm okay. This clipping... it's about my family's old house. We lived there when I was young. We moved here from far away, and that house was the first place that felt like home.", zh: "我没事。这张剪报……说的是我家以前的老房子。我小时候我们就住在那儿。我们从很远的地方搬来这里，那栋房子是第一个让我们觉得像家的地方。", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -202,7 +202,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "It was. But we didn't stay there forever.", zh: "确实是。但我们没有一直住在那儿。" },
+        npcLine: { en: "It was. But we didn't stay there forever.", zh: "确实是。但我们没有一直住在那儿。", voice: "ho" },
         skill: "community",
         grammarTag: "wh-question",
         choices: [
@@ -213,7 +213,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "That's a longer story. Let's sit down somewhere quiet.", zh: "这个说来话长。我们找个安静的地方坐下吧。" },
+        npcLine: { en: "That's a longer story. Let's sit down somewhere quiet.", zh: "这个说来话长。我们找个安静的地方坐下吧。", voice: "ho" },
         skill: "community",
         grammarTag: "lets-suggestion",
         choices: [
@@ -233,7 +233,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "My parents worked very hard here. They didn't speak much English at first, but they learned, little by little.", zh: "我父母在这里非常努力地工作。他们一开始英语说得不多，但一点点学会了。" },
+        npcLine: { en: "My parents worked very hard here. They didn't speak much English at first, but they learned, little by little.", zh: "我父母在这里非常努力地工作。他们一开始英语说得不多，但一点点学会了。", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -244,7 +244,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "It was hard, yes. But we had good neighbors. They helped us a lot.", zh: "确实不容易。但我们有很好的邻居，帮了我们很多。" },
+        npcLine: { en: "It was hard, yes. But we had good neighbors. They helped us a lot.", zh: "确实不容易。但我们有很好的邻居，帮了我们很多。", voice: "ho" },
         skill: "community",
         grammarTag: "past-simple",
         choices: [
@@ -255,7 +255,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Thank you for listening. There's more, but I think my brother remembers it better than I do.", zh: "谢谢你听我说。还有更多，但我觉得我哥哥记得比我更清楚。" },
+        npcLine: { en: "Thank you for listening. There's more, but I think my brother remembers it better than I do.", zh: "谢谢你听我说。还有更多，但我觉得我哥哥记得比我更清楚。", voice: "ho" },
         skill: "community",
         grammarTag: "can-modal",
         choices: [
@@ -275,7 +275,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Yes, let's visit him soon. He lives across town.", zh: "好，我们尽快去看看他吧。他住在城另一头。" },
+        npcLine: { en: "Yes, let's visit him soon. He lives across town.", zh: "好，我们尽快去看看他吧。他住在城另一头。", voice: "ho" },
         skill: "community",
         grammarTag: "will-future",
         choices: [
@@ -286,7 +286,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Of course. He'll be happy to meet you.", zh: "当然可以。他会很高兴见到你的。" },
+        npcLine: { en: "Of course. He'll be happy to meet you.", zh: "当然可以。他会很高兴见到你的。", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -297,7 +297,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Let's head back now. It's getting late.", zh: "我们现在回去吧。天有点晚了。" },
+        npcLine: { en: "Let's head back now. It's getting late.", zh: "我们现在回去吧。天有点晚了。", voice: "ho" },
         skill: "community",
         grammarTag: "lets-suggestion",
         choices: [

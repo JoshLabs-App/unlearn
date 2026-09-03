@@ -148,7 +148,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Welcome. Do you have an appointment today?", zh: "欢迎光临。您今天有预约吗？" },
+        npcLine: { en: "Welcome. Do you have an appointment today?", zh: "欢迎光临。您今天有预约吗？", voice: "official" },
         skill: "community",
         grammarTag: "do-question",
         choices: [
@@ -159,7 +159,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Have a seat. The consultant will review your file shortly.", zh: "请坐。顾问很快就会审核您的材料。" },
+        npcLine: { en: "Have a seat. The consultant will review your file shortly.", zh: "请坐。顾问很快就会审核您的材料。", voice: "official" },
         skill: "community",
         grammarTag: "will-future",
         choices: [
@@ -170,7 +170,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Your file is in order. This looks straightforward.", zh: "您的材料没问题。这个申请看起来很顺利。" },
+        npcLine: { en: "Your file is in order. This looks straightforward.", zh: "您的材料没问题。这个申请看起来很顺利。", voice: "official" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -190,7 +190,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Fill in your personal details on this section first.", zh: "先在这一部分填写您的个人信息。" },
+        npcLine: { en: "Fill in your personal details on this section first.", zh: "先在这一部分填写您的个人信息。", voice: "official" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -201,7 +201,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Make sure every date matches the documents you brought.", zh: "确保每个日期都跟您带来的文件对得上。" },
+        npcLine: { en: "Make sure every date matches the documents you brought.", zh: "确保每个日期都跟您带来的文件对得上。", voice: "official" },
         skill: "community",
         grammarTag: "will-future",
         choices: [
@@ -212,7 +212,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "There's also a small application fee to pay today.", zh: "今天还需要缴纳一笔申请费。" },
+        npcLine: { en: "There's also a small application fee to pay today.", zh: "今天还需要缴纳一笔申请费。", voice: "official" },
         skill: "banking",
         grammarTag: "statement",
         choices: [
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "There's a small ceremony next month to receive your card.", zh: "下个月有一个小仪式来领取你的身份卡。" },
+        npcLine: { en: "There's a small ceremony next month to receive your card.", zh: "下个月有一个小仪式来领取你的身份卡。", voice: "ho" },
         skill: "community",
         grammarTag: "statement",
         choices: [
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
         next: "n2"
       },
       n2: {
-        npcLine: { en: "Can we all come and watch you take this step?", zh: "我们大家都能来看你走完这一步吗？" },
+        npcLine: { en: "Can we all come and watch you take this step?", zh: "我们大家都能来看你走完这一步吗？", voice: "ho" },
         skill: "community",
         grammarTag: "can-modal",
         choices: [
@@ -424,7 +424,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "A decade apart, and now this is officially home.", zh: "分开了十年，而现在，这里正式成了家。" },
+        npcLine: { en: "A decade apart, and now this is officially home.", zh: "分开了十年，而现在，这里正式成了家。", voice: "ho" },
         skill: "community",
         grammarTag: "comparative",
         choices: [

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>十年之约 · 英语学习 RPG</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-topbar">
+      <button id="user-badge" class="ghost-btn user-badge" type="button">
+        <span id="user-badge-avatar" class="user-badge-avatar"></span>
+        <span id="user-badge-label">请登录</span>
+      </button>
+      <div class="header-controls">
+        <div id="streak-badge" class="streak-badge">🔥 0</div>
+        <div class="account-wrap">
+          <button id="account-btn" class="ghost-btn" type="button">☰</button>
+          <div id="account-menu" class="account-menu hidden">
+            <button id="zh-toggle-btn" class="menu-item" type="button" aria-pressed="true">隐藏中文</button>
+            <a href="dialogue.html" class="menu-item">📖 全部对话</a>
+            <button id="character-edit-btn" class="menu-item" type="button">✏️ 编辑角色</button>
+            <button id="achievements-btn" class="menu-item" type="button">🏆 成就</button>
+            <button id="reset-btn" class="menu-item" type="button">重新开始</button>
+            <div class="menu-divider"></div>
+            <div id="account-logged-out-item">
+              <button id="account-login-btn" class="menu-item" type="button">登录账号</button>
+            </div>
+            <div id="account-logged-in-item" class="hidden">
+              <p id="account-menu-email" class="account-menu-email"></p>
+              <button id="auth-sign-out-btn" class="menu-item" type="button">退出登录</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1>🍁 A Decade Apart <span class="zh-inline">十年之约</span></h1>
+    <p class="tagline">A Decade Apart <span class="zh-inline">· 用英语能力推进剧情的养成 + 视觉小说游戏</span></p>
+  </header>
+
+  <p id="streak-banner" class="streak-banner hidden"></p>
+
+  <main id="game-screen" class="layout">
+    <section class="scene-panel">
+      <div id="scene-progress" class="scene-progress"></div>
+      <div id="level-indicator" class="level-indicator">
+        <div class="level-bar"><div id="level-bar-mask" class="level-bar-mask"></div></div>
+        <p id="level-label" class="level-label"></p>
+      </div>
+      <div class="scene-head">
+        <span id="avatar" class="avatar">👮</span>
+        <div>
+          <h2 id="scene-title">Heathrow Airport</h2>
+          <p id="scene-subtitle" class="scene-subtitle">希思罗机场 · 入境检查</p>
+        </div>
+      </div>
+
+      <div class="dialogue-bubble">
+        <p id="npc-en" class="npc-en"></p>
+        <p id="npc-zh" class="npc-zh"></p>
+      </div>
+
+      <div id="hearts-display" class="hearts-display"></div>
+      <div id="choices" class="choices"></div>
+      <button id="npc-audio-btn" class="play-btn" type="button">PLAY</button>
+
+      <p id="history-banner" class="history-banner hidden">🕰 回顾模式 · 这是你之前答对的内容</p>
+      <div class="history-nav">
+        <button id="history-prev-btn" class="ghost-btn history-nav-btn" type="button">◀ PREVIOUS</button>
+        <button id="history-next-btn" class="ghost-btn history-nav-btn" type="button" disabled>NEXT ▶</button>
+      </div>
+
+      <p id="hint" class="hint"></p>
+    </section>
+
+    <aside class="sidebar">
+      <h3>Character Growth <span class="zh-inline">角色成长</span></h3>
+      <div id="skill-panel" class="skill-panel"></div>
+      <div class="stat-row">
+        <span>Total XP <span class="zh-inline">总经验值</span></span><strong id="xp-total">0</strong>
+      </div>
+      <div class="stat-row">
+        <span>Vocabulary Learned <span class="zh-inline">已学词汇</span></span><strong id="vocab-count">0</strong>
+      </div>
+
+      <div id="daily-goal-card" class="daily-goal-card">
+        <div class="daily-goal-head">
+          <span>🎯 Daily Goal <span class="zh-inline">今日目标</span></span>
+          <span id="daily-goal-count" class="daily-goal-count">0/3</span>
+        </div>
+        <div class="daily-goal-bar"><div id="daily-goal-fill" class="daily-goal-fill"></div></div>
+      </div>
+
+      <div class="leaderboard-card">
+        <h3>🏆 Leaderboard <span class="zh-inline">排行榜</span></h3>
+        <ol id="leaderboard-list" class="leaderboard-list"></ol>
+        <p id="leaderboard-empty" class="leaderboard-note hidden">登录后你的分数就会上榜</p>
+        <div class="stat-row">
+          <span>Your Total XP <span class="zh-inline">你的总经验值</span></span><strong id="leaderboard-self-xp">0</strong>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <section id="end-screen" class="end-screen hidden">
+    <h2>📖 未完待续</h2>
+    <div id="end-summary"></div>
+    <button id="restart-btn" class="primary-btn">再玩一次</button>
+  </section>
+
+  <div id="transition-overlay" class="overlay">
+    <div class="flashback-card">
+      <p id="transition-en" class="transition-en"></p>
+      <p id="transition-zh" class="transition-zh"></p>
+      <button id="transition-continue-btn" class="primary-btn" type="button">继续 Continue →</button>
+    </div>
+  </div>
+
+  <div id="flashback-overlay" class="overlay">
+    <div class="flashback-card">
+      <p id="flashback-label" class="flashback-label">🧳 回忆闪回 · 这个词是？</p>
+      <p id="flashback-zh" class="flashback-zh"></p>
+      <div id="flashback-choices" class="choices"></div>
+      <div id="flashback-build" class="flashback-build hidden">
+        <div id="flashback-answer" class="flashback-answer"></div>
+        <div id="flashback-wordbank" class="flashback-wordbank"></div>
+      </div>
+      <p id="flashback-feedback" class="flashback-feedback"></p>
+    </div>
+  </div>
+
+  <div id="word-popup" class="word-popup hidden" aria-hidden="true"></div>
+
+  <div id="character-overlay" class="overlay">
+    <div class="flashback-card auth-card">
+      <button id="character-close-btn" class="auth-close" type="button" aria-label="关闭">×</button>
+      <p class="flashback-label">✏️ 编辑角色</p>
+      <input id="character-name-input" class="auth-input" type="text" placeholder="给主角起个名字" maxlength="12" />
+      <div id="avatar-picker" class="avatar-picker"></div>
+      <label class="avatar-upload-row">
+        <span id="avatar-upload-preview" class="avatar-upload-preview">📷</span>
+        <span class="avatar-upload-text zh-inline">上传自己的照片当头像</span>
+        <input id="avatar-upload-input" class="avatar-upload-input" type="file" accept="image/*" />
+      </label>
+      <button id="character-save-btn" class="primary-btn auth-full-btn" type="button">保存</button>
+    </div>
+  </div>
+
+  <div id="achievements-overlay" class="overlay">
+    <div class="flashback-card auth-card achievements-card">
+      <button id="achievements-close-btn" class="auth-close" type="button" aria-label="关闭">×</button>
+      <p class="flashback-label">🏆 成就 · 称号</p>
+      <p class="achievements-hint zh-inline">点已解锁的成就可以佩戴成称号，显示在左上角</p>
+      <div id="achievements-grid" class="achievements-grid"></div>
+    </div>
+  </div>
+
+  <div id="auth-overlay" class="overlay">
+    <div class="flashback-card auth-card">
+      <button id="auth-close-btn" class="auth-close" type="button" aria-label="关闭">×</button>
+
+      <div id="auth-logged-out">
+        <p class="flashback-label">🔐 登录账号 <span class="zh-inline">· 进度可跨设备同步</span></p>
+
+        <div id="auth-email-step">
+          <input id="auth-email-input" class="auth-input" type="email" placeholder="邮箱 email" autocomplete="email" />
+          <button id="auth-send-link-btn" class="primary-btn auth-full-btn" type="button">发送登录邮件</button>
+        </div>
+
+        <div id="auth-email-sent-step" class="hidden">
+          <p class="auth-hint">📧 已发送登录邮件到 <span id="auth-sent-email"></span>，请查收并点击邮件里的链接完成登录。</p>
+          <button id="auth-retry-email-btn" class="ghost-btn auth-full-btn" type="button">换一个邮箱</button>
+        </div>
+
+        <p class="auth-divider">或者</p>
+        <button id="auth-google-btn" class="ghost-btn auth-full-btn" type="button">使用 Google 登录</button>
+        <p id="auth-error" class="auth-error"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="content/chapter1.js"></script>
+  <script src="content/chapter2.js"></script>
+  <script src="content/chapter3.js"></script>
+  <script src="content/chapter4.js"></script>
+  <script src="content/chapter5.js"></script>
+  <script src="content/chapter6.js"></script>
+  <script src="content/chapter7.js"></script>
+  <script src="content/chapter8.js"></script>
+  <script src="content/chapter9.js"></script>
+  <script src="content/chapter10.js"></script>
+  <script src="content/chapter11.js"></script>
+  <script src="content/chapter12.js"></script>
+  <script src="content/chapter13.js"></script>
+  <script src="content/chapter14.js"></script>
+  <script src="content/chapter15.js"></script>
+  <script src="content/chapter16.js"></script>
+  <script src="content/chapter17.js"></script>
+  <script src="content/chapter18.js"></script>
+  <script src="content/chapter19.js"></script>
+  <script src="content/chapter20.js"></script>
+  <script src="content/chapter21.js"></script>
+  <script src="content/chapter22.js"></script>
+  <script src="content/chapter23.js"></script>
+  <script src="content/chapter24.js"></script>
+  <script src="content/chapter25.js"></script>
+  <script src="content/chapter26.js"></script>
+  <script src="content/chapter27.js"></script>
+  <script src="content/chapter28.js"></script>
+  <script src="content/chapter29.js"></script>
+  <script src="content/chapter30.js"></script>
+  <script src="content/chapter31.js"></script>
+  <script src="content/chapter32.js"></script>
+  <script src="content/chapter33.js"></script>
+  <script src="content/chapter34.js"></script>
+  <script src="content/chapter35.js"></script>
+  <script src="content/chapter36.js"></script>
+  <script src="content/chapter37.js"></script>
+  <script src="content/chapter38.js"></script>
+  <script src="content/chapter39.js"></script>
+  <script src="content/chapter40.js"></script>
+  <script src="content/chapter41.js"></script>
+  <script src="content/chapter42.js"></script>
+  <script src="content/chapter43.js"></script>
+  <script src="content/chapter44.js"></script>
+  <script src="content/chapter45.js"></script>
+  <script src="content/chapter46.js"></script>
+  <script src="content/chapter47.js"></script>
+  <script src="content/chapter48.js"></script>
+  <script src="content/chapter49.js"></script>
+  <script src="content/chapter50.js"></script>
+  <script src="content/chapter51.js"></script>
+  <script src="content/chapter52.js"></script>
+  <script src="content/chapter53.js"></script>
+  <script src="content/chapter54.js"></script>
+  <script src="content/chapter55.js"></script>
+  <script src="content/chapter56.js"></script>
+  <script src="content/chapter57.js"></script>
+  <script src="content/chapter58.js"></script>
+  <script src="content/chapter59.js"></script>
+  <script src="content/chapter60.js"></script>
+  <script src="content/chapter61.js"></script>
+  <script src="content/chapter62.js"></script>
+  <script src="content/chapter63.js"></script>
+  <script src="content/chapter64.js"></script>
+  <script src="content/chapter65.js"></script>
+  <script src="content/chapter66.js"></script>
+  <script src="content/chapter67.js"></script>
+  <script src="content/chapter68.js"></script>
+  <script src="content/chapter69.js"></script>
+  <script src="content/chapter70.js"></script>
+  <script src="content/chapter71.js"></script>
+  <script src="content/chapter72.js"></script>
+  <script src="content/chapter73.js"></script>
+  <script src="content/chapter74.js"></script>
+  <script src="content/chapter75.js"></script>
+  <script src="content/chapter76.js"></script>
+  <script src="content/chapter77.js"></script>
+  <script src="content/chapter78.js"></script>
+  <script src="content/chapter79.js"></script>
+  <script src="content/chapter80.js"></script>
+  <script src="content/chapter81.js"></script>
+  <script src="content/chapter82.js"></script>
+  <script src="content/chapter83.js"></script>
+  <script src="content/chapter84.js"></script>
+  <script src="content/chapter85.js"></script>
+  <script src="content/chapter86.js"></script>
+  <script src="content/chapter87.js"></script>
+  <script src="content/chapter88.js"></script>
+  <script src="content/chapter89.js"></script>
+  <script src="content/chapter90.js"></script>
+  <script src="content/chapter91.js"></script>
+  <script src="content/chapter92.js"></script>
+  <script src="content/chapter93.js"></script>
+  <script src="content/chapter94.js"></script>
+  <script src="content/audio-manifest.js"></script>
+  <script src="content/word-audio-manifest.js"></script>
+  <script src="content/dictionary.js"></script>
+  <script src="auth.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

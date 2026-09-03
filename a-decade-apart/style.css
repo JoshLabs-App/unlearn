@@ -301,6 +301,13 @@ body.hide-zh .zh-inline {
   font-weight: 600;
 }
 
+/* 点过的词（收藏进 reviewQueue）常态显示品牌绿——全站通用，不分哪个页面，
+   跟 word-content 那种"内容词提示"是两回事：这个是"你查过"的个人记录。 */
+.word.word-known {
+  color: var(--accent);
+  font-weight: 600;
+}
+
 .word-popup {
   position: fixed;
   z-index: 100;

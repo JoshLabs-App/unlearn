@@ -94,17 +94,31 @@ function saveGameState() {
   localStorage.setItem(SAVE_KEY, JSON.stringify(gameState));
 }
 
-function queueWordForReview(word, meaning) {
+const knownWords = new Set(
+  gameState.reviewQueue.filter((r) => r.kind === "word").map((r) => r.en.toLowerCase())
+);
+
+function queueWordForReview(word, meaning, sentenceEn, sentenceZh) {
   const existing = gameState.reviewQueue.find((r) => r.en === word && r.kind === "word");
-  if (existing) return;
+  if (existing) {
+    if (sentenceEn && !existing.sentence) {
+      existing.sentence = sentenceEn;
+      existing.sentenceZh = sentenceZh;
+      saveGameState();
+    }
+    return;
+  }
   gameState.reviewQueue.push({
     en: word,
     zh: meaning,
     kind: "word",
+    sentence: sentenceEn || null,
+    sentenceZh: sentenceZh || null,
     streak: 0,
     status: "active",
     queuedAtScene: gameState.sceneIndex
   });
+  knownWords.add(word.toLowerCase());
   saveGameState();
 }
 
@@ -138,11 +152,13 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
-function wrapWordsHTML(text) {
-  return escapeHtml(text).replace(
-    /[A-Za-zÀ-ÿ']+/g,
-    (word) => `<span class="word" data-word="${word.toLowerCase()}">${word}</span>`
-  );
+function wrapWordsHTML(text, sentenceZh) {
+  const sentenceAttr = encodeURIComponent(text);
+  const zhAttr = encodeURIComponent(sentenceZh || "");
+  return escapeHtml(text).replace(/[A-Za-zÀ-ÿ']+/g, (word) => {
+    const cls = knownWords.has(word.toLowerCase()) ? "word word-known" : "word";
+    return `<span class="${cls}" data-word="${word.toLowerCase()}" data-sentence="${sentenceAttr}" data-sentence-zh="${zhAttr}">${word}</span>`;
+  });
 }
 
 // 点单词：弹出翻译 + 放这个词的发音，2.5 秒后自动收起；查过的词记进 reviewQueue。
@@ -174,6 +190,7 @@ function showWordPopup(wordEl) {
 
   document.querySelectorAll(".word.word-active").forEach((w) => w.classList.remove("word-active"));
   wordEl.classList.add("word-active");
+  document.querySelectorAll(`.word[data-word="${word}"]`).forEach((w) => w.classList.add("word-known"));
 
   clearTimeout(wordPopupTimer);
   wordPopupTimer = setTimeout(hideWordPopup, WORD_POPUP_MS);
@@ -182,7 +199,9 @@ function showWordPopup(wordEl) {
     playLineAudio(word, WORD_AUDIO_MANIFEST);
   }
 
-  queueWordForReview(word, meaning);
+  const sentenceEn = decodeURIComponent(wordEl.dataset.sentence || "");
+  const sentenceZh = decodeURIComponent(wordEl.dataset.sentenceZh || "");
+  queueWordForReview(word, meaning, sentenceEn, sentenceZh);
 }
 
 function hideWordPopup() {
@@ -227,7 +246,7 @@ function renderRow(line, idx) {
     img.alt = "";
     avatar.appendChild(img);
   } else {
-    avatar.textContent = line.speaker === "player" ? (gameState.playerAvatar || "👨") : line.avatar || "🙂";
+    avatar.textContent = line.speaker === "player" ? (gameState.playerAvatar || "🍎") : line.avatar || "🙂";
   }
 
   const bubble = document.createElement("div");
@@ -235,7 +254,7 @@ function renderRow(line, idx) {
   bubble.setAttribute("role", "button");
   bubble.tabIndex = 0;
   bubble.innerHTML =
-    `<div class="t-en">${wrapWordsHTML(line.en)}</div>` +
+    `<div class="t-en">${wrapWordsHTML(line.en, line.zh)}</div>` +
     `<div class="t-zh zh-inline">${escapeHtml(line.zh || "")}</div>`;
   // 点在单词上：只查词，不触发整句播放（跟主游戏台词区的规则一致）。
   bubble.addEventListener("click", (e) => {

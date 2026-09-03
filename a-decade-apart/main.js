@@ -259,7 +259,7 @@ function freshState() {
     lastHeartAt: Date.now(),
     // 角色定制 + 成就/称号，同样不做旧存档迁移，读取方一律兜底默认值。
     playerName: null,
-    playerAvatar: "👨",
+    playerAvatar: "🍎",
     playerAvatarImage: null, // 上传的照片：压缩过的方形头像，data URL；设了就优先于 emoji
     equippedTitle: null,
     unlockedAchievements: []
@@ -317,16 +317,44 @@ function applyZhVisibility() {
 const WORD_POPUP_MS = 2500;
 let wordPopupTimer = null;
 
-function wrapWordsHTML(text) {
-  return text.replace(/[A-Za-zÀ-ÿ']+/g, (word) => `<span class="word" data-word="${word.toLowerCase()}">${word}</span>`);
+// 已经点查过的词：常态显示品牌绿（不用等再点一次才高亮），一眼能看出这句里
+// 哪些词是自己收藏过的——生词本页面（vocab.html）就是照这份集合反查句子的。
+const knownWords = new Set(
+  state.reviewQueue.filter((r) => r.kind === "word").map((r) => r.en.toLowerCase())
+);
+
+function wrapWordsHTML(text, sentenceZh) {
+  const sentenceAttr = encodeURIComponent(text);
+  const zhAttr = encodeURIComponent(sentenceZh || "");
+  return text.replace(/[A-Za-zÀ-ÿ']+/g, (word) => {
+    const cls = knownWords.has(word.toLowerCase()) ? "word word-known" : "word";
+    return `<span class="${cls}" data-word="${word.toLowerCase()}" data-sentence="${sentenceAttr}" data-sentence-zh="${zhAttr}">${word}</span>`;
+  });
 }
 
-function queueWordForReview(word, meaning) {
+function queueWordForReview(word, meaning, sentenceEn, sentenceZh) {
   // 已经在复习队列里的话不重复加、不重置进度——只是又查了一下不代表没学会，
   // 只有故事里真答错才算"没学会"，重置进度这件事只归 handleChoice 管。
   const existing = state.reviewQueue.find((r) => r.en === word && r.kind === "word");
-  if (existing) return;
-  state.reviewQueue.push({ en: word, zh: meaning, kind: "word", streak: 0, status: "active", queuedAtScene: state.sceneIndex });
+  if (existing) {
+    if (sentenceEn && !existing.sentence) {
+      existing.sentence = sentenceEn;
+      existing.sentenceZh = sentenceZh;
+      saveState();
+    }
+    return;
+  }
+  state.reviewQueue.push({
+    en: word,
+    zh: meaning,
+    kind: "word",
+    sentence: sentenceEn || null,
+    sentenceZh: sentenceZh || null,
+    streak: 0,
+    status: "active",
+    queuedAtScene: state.sceneIndex
+  });
+  knownWords.add(word.toLowerCase());
   saveState();
 }
 
@@ -351,6 +379,9 @@ function showWordPopup(wordEl) {
 
   document.querySelectorAll(".word.word-active").forEach((w) => w.classList.remove("word-active"));
   wordEl.classList.add("word-active");
+  // 收藏态是永久的（跟 word-active 那个 2.5 秒就收起的临时高亮不一样）：点过一次，
+  // 这句里同名的词全部立刻变绿，不用等下次重新渲染。
+  document.querySelectorAll(`.word[data-word="${word}"]`).forEach((w) => w.classList.add("word-known"));
 
   // 单词发音走独立的 WORD_AUDIO_MANIFEST（按 WORD_DICT 的 key 合成），
   // 跟整句配音的 AUDIO_MANIFEST 分开维护——查词弹出解释的同时读一遍这个词。
@@ -361,7 +392,9 @@ function showWordPopup(wordEl) {
   clearTimeout(wordPopupTimer);
   wordPopupTimer = setTimeout(hideWordPopup, WORD_POPUP_MS);
 
-  queueWordForReview(word, meaning);
+  const sentenceEn = decodeURIComponent(wordEl.dataset.sentence || "");
+  const sentenceZh = decodeURIComponent(wordEl.dataset.sentenceZh || "");
+  queueWordForReview(word, meaning, sentenceEn, sentenceZh);
 }
 
 function hideWordPopup() {
@@ -439,7 +472,7 @@ function renderHistoryView(entry) {
   el.sceneTitle.innerHTML = wrapWordsHTML(scene.title);
   el.sceneSubtitle.innerHTML = wrapWordsHTML(scene.subtitle);
   el.avatar.textContent = node.avatar || scene.avatar;
-  el.npcEn.innerHTML = wrapWordsHTML(node.npcLine.en);
+  el.npcEn.innerHTML = wrapWordsHTML(node.npcLine.en, node.npcLine.zh);
   el.npcZh.textContent = node.npcLine.zh;
   playAudio(node.npcLine.en, el.npcAudioBtn);
   el.hint.textContent = "";
@@ -861,7 +894,7 @@ function renderSceneContent() {
   el.sceneTitle.innerHTML = wrapWordsHTML(scene.title);
   el.sceneSubtitle.innerHTML = wrapWordsHTML(scene.subtitle);
   el.avatar.textContent = node.avatar || scene.avatar;
-  el.npcEn.innerHTML = wrapWordsHTML(node.npcLine.en);
+  el.npcEn.innerHTML = wrapWordsHTML(node.npcLine.en, node.npcLine.zh);
   el.npcZh.textContent = node.npcLine.zh;
   // 进节点自动放一遍就够了，不再循环提醒——想再听就点对话框空白处（见下面的监听器）。
   playAudio(node.npcLine.en, el.npcAudioBtn);
@@ -882,7 +915,7 @@ function renderSceneContent() {
     shuffled.forEach(({ choice, idx }) => {
       const btn = document.createElement("button");
       btn.className = "choice-btn";
-      btn.innerHTML = wrapWordsHTML(choice.text);
+      btn.innerHTML = wrapWordsHTML(choice.text, choice.zh || node.npcLine.zh);
       btn.addEventListener("click", () => handleChoice(idx, btn));
       el.choices.appendChild(btn);
     });
@@ -1293,7 +1326,7 @@ function renderIdentityBadge() {
   if (state.playerAvatarImage) {
     el.userBadgeAvatar.innerHTML = `<img src="${state.playerAvatarImage}" alt="" />`;
   } else {
-    el.userBadgeAvatar.textContent = state.playerAvatar || "👨";
+    el.userBadgeAvatar.textContent = state.playerAvatar || "🍎";
   }
   const titleObj = ACHIEVEMENTS.find((a) => a.id === state.equippedTitle);
   el.userBadgeLabel.textContent = titleObj ? `${titleObj.icon}${titleObj.title} · ${name}` : name;
@@ -1317,9 +1350,9 @@ function renderAuthPanel(user) {
   renderLeaderboard();
 }
 
-// 头像可选项固定这几个——都是清楚男性形象的 emoji，跟"主角是男性"这条项目约束保持一致，
-// 不引入女性/中性选项。
-const AVATAR_OPTIONS = ["👨", "🧑‍🦱", "🧔", "👨‍🦰", "🧑‍🦲", "👨‍🦳"];
+// 头像用水果 emoji，不用人物形象——主要是为了绕开"主角向 Emma 求婚"（第21章）
+// 这条剧情线对玩家性别的隐含预期，水果没有性别，谁选都不别扭。
+const AVATAR_OPTIONS = ["🍎", "🍊", "🍋", "🍇", "🍓", "🍑", "🍍", "🥝", "🍒", "🍉", "🥭", "🍐"];
 
 function renderAvatarPicker() {
   el.avatarPicker.innerHTML = "";
@@ -1328,7 +1361,7 @@ function renderAvatarPicker() {
     btn.type = "button";
     btn.className = "avatar-option";
     btn.textContent = emoji;
-    if (!pendingAvatarImage && (state.playerAvatar || "👨") === emoji) btn.classList.add("selected");
+    if (!pendingAvatarImage && (state.playerAvatar || "🍎") === emoji) btn.classList.add("selected");
     btn.addEventListener("click", () => {
       el.avatarPicker.querySelectorAll(".avatar-option").forEach((b) => b.classList.remove("selected"));
       btn.classList.add("selected");
@@ -1339,7 +1372,7 @@ function renderAvatarPicker() {
     });
     el.avatarPicker.appendChild(btn);
   });
-  el.avatarPicker.dataset.selected = state.playerAvatar || "👨";
+  el.avatarPicker.dataset.selected = state.playerAvatar || "🍎";
 }
 
 // 上传照片当头像：本地先压缩成 96x96 的正方形缩略图（居中裁切，不管原图比例）
@@ -1422,7 +1455,7 @@ el.characterCloseBtn.addEventListener("click", () => {
 el.characterSaveBtn.addEventListener("click", () => {
   const name = el.characterNameInput.value.trim();
   state.playerName = name || null;
-  state.playerAvatar = el.avatarPicker.dataset.selected || "👨";
+  state.playerAvatar = el.avatarPicker.dataset.selected || "🍎";
   state.playerAvatarImage = pendingAvatarImage;
   saveState();
   renderIdentityBadge();
@@ -1564,6 +1597,10 @@ async function syncFromCloudThenStart() {
         const cloud = await window.GameAuth.pullSave();
         if (cloud && (cloud.lastActiveAt || 0) > (state.lastActiveAt || 0)) {
           state = cloud;
+          // 云端存档可能带着本地没有的查词记录，重建一下 knownWords，
+          // 不然这次渲染还是按同步前的旧集合来标绿。
+          knownWords.clear();
+          state.reviewQueue.filter((r) => r.kind === "word").forEach((r) => knownWords.add(r.en.toLowerCase()));
         }
         saveState(); // 落地本地 + 回写云端，确保两边收敛到同一份
       }

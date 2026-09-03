@@ -372,14 +372,22 @@ function hideWordPopup() {
 
 // 点查词范围：不只是台词本身，场景大标题（英文）、小标题也能点单词查释义——
 // 都走同一套 showWordPopup，查过的词照样存进 reviewQueue 参与复习。
-function attachWordLookup(container) {
-  container.addEventListener("click", (e) => {
-    const wordEl = e.target.closest(".word");
-    if (!wordEl) return;
-    showWordPopup(wordEl);
-  });
+function attachWordLookup(container, { capture = false } = {}) {
+  container.addEventListener(
+    "click",
+    (e) => {
+      const wordEl = e.target.closest(".word");
+      if (!wordEl) return;
+      // 选择题按钮里的单词也能点查——但要在捕获阶段拦下，
+      // 不然点单词会先冒泡触发按钮自己的 click（等于顺手把这个选项点选了）。
+      if (capture) e.stopPropagation();
+      showWordPopup(wordEl);
+    },
+    capture
+  );
 }
-[el.npcEn, el.sceneTitle, el.sceneSubtitle].forEach(attachWordLookup);
+[el.npcEn, el.sceneTitle, el.sceneSubtitle].forEach((c) => attachWordLookup(c));
+[el.choices, el.flashbackChoices].forEach((c) => attachWordLookup(c, { capture: true }));
 
 function currentScene() {
   return GAME_CONTENT.scenes[state.sceneIndex];
@@ -871,7 +879,7 @@ function renderSceneContent() {
     shuffled.forEach(({ choice, idx }) => {
       const btn = document.createElement("button");
       btn.className = "choice-btn";
-      btn.textContent = choice.text;
+      btn.innerHTML = wrapWordsHTML(choice.text);
       btn.addEventListener("click", () => handleChoice(idx, btn));
       el.choices.appendChild(btn);
     });
@@ -1072,12 +1080,12 @@ function renderFlashbackChoices(item) {
   options.forEach((text) => {
     const btn = document.createElement("button");
     btn.className = "choice-btn";
-    btn.textContent = text;
+    btn.innerHTML = wrapWordsHTML(text);
     btn.addEventListener("click", () => {
       Array.from(el.flashbackChoices.children).forEach((b) => (b.disabled = true));
       const isCorrect = text === item.en;
-      btn.classList.add(isCorrect ? "correct" : "wrong");
-      const audioDone = playAudio(text, btn);
+      // 不管选没选对都放正确答案的读音，复习看的是记没记住，不靠颜色提示对错。
+      const audioDone = playAudio(item.en, btn);
       resolveFlashback(isCorrect, item, audioDone);
     });
     el.flashbackChoices.appendChild(btn);

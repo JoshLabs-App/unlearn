@@ -84,11 +84,7 @@ const el = {
   achievementsBtn: document.getElementById("achievements-btn"),
   achievementsOverlay: document.getElementById("achievements-overlay"),
   achievementsCloseBtn: document.getElementById("achievements-close-btn"),
-  achievementsGrid: document.getElementById("achievements-grid"),
-  categoryDetailOverlay: document.getElementById("category-detail-overlay"),
-  categoryDetailCloseBtn: document.getElementById("category-detail-close-btn"),
-  categoryDetailTitle: document.getElementById("category-detail-title"),
-  categoryDetailList: document.getElementById("category-detail-list")
+  achievementsGrid: document.getElementById("achievements-grid")
 };
 
 // 每个技能能拿到的经验值上限，从内容里所有场景动态算出——
@@ -392,7 +388,6 @@ function attachWordLookup(container, { capture = false } = {}) {
 }
 [el.npcEn, el.sceneTitle, el.sceneSubtitle].forEach((c) => attachWordLookup(c));
 [el.choices, el.flashbackChoices].forEach((c) => attachWordLookup(c, { capture: true }));
-attachWordLookup(el.categoryDetailList, { capture: true });
 
 function currentScene() {
   return GAME_CONTENT.scenes[state.sceneIndex];
@@ -666,7 +661,9 @@ function renderSkillPanel() {
       <div class="skill-bar"><div class="skill-bar-fill" style="width:${pct}%"></div></div>
       <div class="skill-xp">${xp}/${max}</div>
     `;
-    row.addEventListener("click", () => openCategoryDetail(key));
+    row.addEventListener("click", () => {
+      location.href = "category.html?skill=" + encodeURIComponent(key);
+    });
     el.skillPanel.appendChild(row);
   }
   const totalXp = Object.values(state.skills).reduce((a, b) => a + b, 0);
@@ -681,60 +678,6 @@ function renderSkillPanel() {
     window.GameAuth.pushLeaderboard({ nickname: getNickname(user), totalXp });
   }
 }
-
-// 分类词表：点某个"角色成长"分类，弹出该分类下全部例句——
-// 例句原文复用 wrapWordsHTML/attachWordLookup 那套点词查词逻辑（词典释义+单词发音），
-// 每句再配一个播放按钮，走已有的整句配音 AUDIO_MANIFEST。
-function collectCategorySentences(skillKey) {
-  const seen = new Set();
-  const sentences = [];
-  for (const scene of GAME_CONTENT.scenes) {
-    for (const node of Object.values(scene.nodes)) {
-      if (node.skill !== skillKey) continue;
-      const correct = node.choices.find((c) => c.correct);
-      if (!correct || !correct.text || seen.has(correct.text)) continue;
-      seen.add(correct.text);
-      sentences.push({ en: correct.text, zh: correct.zh || node.npcLine.zh });
-    }
-  }
-  return sentences;
-}
-
-function renderCategoryDetail(skillKey) {
-  const meta = GAME_CONTENT.skillMeta[skillKey];
-  if (!meta) return;
-  el.categoryDetailTitle.textContent = `${meta.icon} ${meta.labelEn} · ${meta.label}`;
-  const sentences = collectCategorySentences(skillKey);
-  el.categoryDetailList.innerHTML = "";
-  if (sentences.length === 0) {
-    el.categoryDetailList.innerHTML = `<p class="category-detail-empty">这个分类暂时还没有例句</p>`;
-    return;
-  }
-  sentences.forEach(({ en, zh }) => {
-    const row = document.createElement("div");
-    row.className = "category-sentence-row";
-    row.innerHTML = `
-      <button class="category-play-btn" type="button" aria-label="播放">▶</button>
-      <div class="category-sentence-text">
-        <p class="category-sentence-en">${wrapWordsHTML(en)}</p>
-        <p class="category-sentence-zh zh-inline">${zh}</p>
-      </div>
-    `;
-    row.querySelector(".category-play-btn").addEventListener("click", (e) => {
-      playAudio(en, e.currentTarget);
-    });
-    el.categoryDetailList.appendChild(row);
-  });
-}
-
-function openCategoryDetail(skillKey) {
-  renderCategoryDetail(skillKey);
-  el.categoryDetailOverlay.classList.add("visible");
-}
-
-el.categoryDetailCloseBtn.addEventListener("click", () => {
-  el.categoryDetailOverlay.classList.remove("visible");
-});
 
 // 排行榜：谁都能查（未登录也看得到榜），自己那一行按 user_id 对比高亮，
 // 不用额外发一次"查我的排名"请求。

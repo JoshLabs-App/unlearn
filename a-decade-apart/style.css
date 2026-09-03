@@ -275,7 +275,7 @@ body.hide-zh .zh-inline {
 .scene-subtitle .word,
 .t-en .word,
 .choice-btn .word,
-.category-sentence-en .word {
+.category-en .word {
   cursor: pointer;
   border-radius: 4px;
   padding: 0 1px;
@@ -290,12 +290,13 @@ body.hide-zh .zh-inline {
 .scene-subtitle .word.word-active,
 .t-en .word.word-active,
 .choice-btn .word.word-active,
-.category-sentence-en .word.word-active {
+.category-en .word.word-active {
   background: var(--accent-soft);
 }
 
-/* 分类词表：句子里的单词直接常态显示成品牌绿，一眼能看出这些是可点查词的词 */
-.category-sentence-en .word {
+/* 分类词表：只有这句里筛出来的"内容词"（过滤掉虚词/功能词后剩下的）才显示品牌绿，
+   不是整句都染色——虚词依然可以点查词，只是不特意上色。 */
+.category-en .word-content {
   color: var(--accent);
   font-weight: 600;
 }
@@ -895,24 +896,20 @@ body.hide-zh .zh-inline {
 .achievement-card-icon { font-size: 1.8rem; }
 .achievement-card-title { font-size: 0.78rem; text-align: center; line-height: 1.3; }
 
-/* 分类词表：点"角色成长"某个分类弹出的例句列表 */
-.category-detail-card { max-width: 480px; }
-.category-detail-list {
+/* 分类词表页（category.html）：独立页面，不是弹窗 */
+.category-list {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  max-height: 60vh;
-  overflow-y: auto;
 }
-.category-detail-empty { color: var(--muted); font-size: 0.9rem; }
-.category-sentence-row {
+.category-empty { color: var(--muted); font-size: 0.9rem; padding: 20px 0; }
+.category-row {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  padding: 12px 0;
+  gap: 12px;
+  padding: 14px 0;
   border-bottom: 1px solid var(--border);
 }
-.category-sentence-row:last-child { border-bottom: none; }
+.category-row:last-child { border-bottom: none; }
 .category-play-btn {
   flex-shrink: 0;
   width: 32px;
@@ -930,9 +927,9 @@ body.hide-zh .zh-inline {
 }
 .category-play-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
 .category-play-btn.playing { background: var(--accent); border-color: var(--accent); color: #fff; }
-.category-sentence-text { flex: 1; min-width: 0; }
-.category-sentence-en { margin: 0; font-size: 1rem; font-weight: 500; line-height: 1.5; }
-.category-sentence-zh { margin: 4px 0 0; color: var(--muted); font-size: 0.85rem; }
+.category-text { flex: 1; min-width: 0; }
+.category-en { margin: 0; font-size: 1rem; font-weight: 500; line-height: 1.5; }
+.category-zh { margin: 4px 0 0; color: var(--muted); font-size: 0.85rem; }
 
 /* 成就解锁提示：居中卡片，比 .xp-float 醒目，停留久一点 */
 .achievement-toast {

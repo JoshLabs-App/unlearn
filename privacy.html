@@ -6,86 +6,116 @@
 <title>隐私政策 · 别学英语</title>
 <link rel="icon" type="image/svg+xml" href="icon.svg" />
 <meta name="theme-color" content="#3e8f4f" />
-<link rel="stylesheet" href="library.css" />
 <style>
-  .doc {
+  :root {
+    color-scheme: light;
+  }
+  body {
+    margin: 0;
+    padding: 0 20px 80px;
+    background: #faf6f0;
+    color: #2b2b26;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Songti SC", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
     max-width: 720px;
     margin: 0 auto;
-    padding: 56px 24px 96px;
-    line-height: 1.75;
   }
-  .doc h1 {
-    font-size: 1.6rem;
-    margin-bottom: 4px;
+  header {
+    padding: 48px 0 16px;
   }
-  .doc .updated {
-    color: var(--muted);
+  h1 {
+    font-size: 1.7rem;
+    margin: 0 0 8px;
+    color: #234d2c;
+  }
+  .meta {
+    color: #7a7368;
     font-size: 0.9rem;
-    margin-bottom: 40px;
+    margin-bottom: 8px;
   }
-  .doc h2 {
+  h2 {
     font-size: 1.15rem;
-    margin: 36px 0 12px;
-    padding-top: 4px;
-    border-top: 1px solid var(--border);
+    color: #3e8f4f;
+    margin: 2.2em 0 0.6em;
+    border-left: 4px solid #3e8f4f;
+    padding-left: 10px;
   }
-  .doc h2:first-of-type { border-top: none; padding-top: 0; }
-  .doc p, .doc li { color: var(--ink); }
-  .doc ul { padding-left: 1.2em; }
-  .doc a { color: var(--accent); }
-  .doc .back {
-    display: inline-block;
-    margin-bottom: 32px;
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 0.9rem;
+  ul {
+    padding-left: 1.3em;
+  }
+  li {
+    margin: 0.4em 0;
+  }
+  a {
+    color: #3e8f4f;
+  }
+  .card {
+    background: #ffffffaa;
+    border: 1px solid #e7ded0;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-top: 24px;
+  }
+  footer {
+    margin-top: 48px;
+    color: #7a7368;
+    font-size: 0.85rem;
   }
 </style>
 </head>
 <body>
-  <div class="doc">
-    <a class="back" href="./">← 返回首页</a>
-    <h1>隐私政策</h1>
-    <p class="updated">最后更新：2026 年 9 月 4 日</p>
+  <div class="wrap">
+    <header>
+      <h1>隐私政策</h1>
+      <p class="meta">别学英语 Unlearn English · JoshLabs　生效日期：2026 年 9 月 4 日</p>
+      <p>"别学英语"（以下称"本应用"）由 JoshLabs 开发和运营。我们非常重视你的隐私，本政策说明我们会收集哪些信息、为什么收集，以及你可以如何控制自己的数据。</p>
+    </header>
 
-    <p>"别学英语"（Unlearn English，含《十年之约》等故事内容，以下统称"本应用"）由 JoshLabs 开发和运营。我们非常重视你的隐私，本政策说明我们会收集哪些信息、如何使用这些信息，以及你可以如何管理自己的数据。</p>
-
-    <h2>一、我们收集的信息</h2>
-    <p>只有当你选择登录账号时，我们才会收集以下信息，用于识别你的账号并同步学习进度：</p>
+    <h2>我们收集哪些信息</h2>
     <ul>
-      <li><strong>登录信息</strong>：如果你使用 Google 或 Apple 账号登录，我们会获得该账号提供给我们的邮箱地址和显示名称；如果你使用邮箱验证码登录，我们会收集你填写的邮箱地址。</li>
-      <li><strong>学习数据</strong>：你的阅读进度、章节解锁情况、词汇量、答题记录、成就与游戏内数据（如经验值、连续学习天数等）。</li>
+      <li><strong>账号信息</strong>：当你使用"Sign in with Apple"或 Google 登录时，我们会通过 Supabase（我们使用的后端服务商）获取你的邮箱地址和一个用于识别账号的匿名标识符（User ID）。我们不会获得你的 Apple ID / Google 账号密码。</li>
+      <li><strong>学习数据</strong>：你在应用内的学习进度（已解锁章节、词汇掌握情况、连续打卡天数、收藏与复习列表等）会被保存到服务器，用于在你更换设备时同步学习记录。</li>
+      <li><strong>昵称与积分</strong>：如果你使用"角色成长"页面里的排行榜功能，你设置的昵称和累计经验值会公开显示给其他用户，用于排行榜展示。这是一个你可以选择是否使用的功能。</li>
+      <li><strong>设备本地存储</strong>：部分设置（例如是否已看过新手引导、每日目标提醒等）只保存在你的设备本地，不会上传到服务器。</li>
     </ul>
-    <p>本应用不包含广告 SDK，也不使用第三方数据统计/追踪工具，不会收集你的位置信息、通讯录、相册等设备隐私数据。</p>
+    <p>我们不会收集你的地理位置、通讯录、相机或麦克风内容，本应用不含广告，也不使用第三方广告追踪 SDK。</p>
 
-    <h2>二、我们如何使用这些信息</h2>
+    <h2>我们如何使用这些信息</h2>
     <ul>
-      <li>创建和维护你的账号，让你在更换设备后也能继续之前的学习进度；</li>
-      <li>根据你的答题情况生成个性化复习内容；</li>
-      <li>保障账号与数据安全，排查异常登录。</li>
+      <li>让你登录账号，并在多台设备之间同步学习进度</li>
+      <li>展示排行榜（仅限你主动使用该功能时）</li>
+      <li>排查问题、改进产品体验</li>
     </ul>
 
-    <h2>三、数据存储与第三方服务</h2>
-    <p>你的账号信息和学习数据存储在 <a href="https://supabase.com" target="_blank" rel="noopener">Supabase</a>（一家提供数据库与身份认证服务的第三方云服务商）上，数据传输均通过加密连接。登录功能分别依赖 Google、Apple 官方提供的登录服务（Google Sign-In / Sign in with Apple），这些服务商会按照各自的隐私政策处理你的登录凭证，本应用仅获取登录成功后返回的邮箱和昵称。</p>
-    <p>我们不会将你的个人信息出售、出租给任何第三方用于广告或营销目的。</p>
-
-    <h2>四、你的权利</h2>
-    <p>你可以随时通过下方联系方式，要求我们：</p>
+    <h2>数据的第三方处理方</h2>
+    <p>我们使用以下服务商来运行本应用，它们会按照各自的隐私政策处理你的数据：</p>
     <ul>
-      <li>查询我们持有的与你账号相关的个人信息；</li>
-      <li>更正不准确的信息；</li>
-      <li>删除你的账号及关联的全部数据。</li>
+      <li>Supabase（数据库与账号认证服务）</li>
+      <li>Apple（Sign in with Apple）</li>
+      <li>Google（Google 登录）</li>
     </ul>
-    <p>我们会在收到请求后的合理时间内处理，并在删除完成后书面告知你。</p>
+    <p>我们不会出售你的个人信息，也不会将其用于与本应用无关的用途。</p>
 
-    <h2>五、儿童隐私</h2>
-    <p>本应用面向具备基本自主判断能力的英语学习者，不专门面向 13 周岁以下儿童设计或运营。若你是未成年人的监护人，并发现孩子在未经你同意的情况下使用邮箱/账号登录了本应用，请通过下方邮箱联系我们，我们会协助删除相关账号数据。</p>
+    <h2>数据保留与删除</h2>
+    <p>只要你的账号存在，我们就会保留你的学习进度数据，以便持续同步。如果你希望删除账号及全部相关数据，请通过下方邮箱联系我们，我们会在收到请求后尽快处理。</p>
 
-    <h2>六、政策更新</h2>
-    <p>我们可能会不定期更新本隐私政策。若有重大变更，我们会在本页面上更新"最后更新"日期，并在应用内以合理方式提示你。建议你定期查看本页面。</p>
+    <h2>儿童隐私</h2>
+    <p>本应用不专门面向 13 周岁以下儿童设计，也不会有意收集他们的个人信息。如果你认为你的孩子在未经同意的情况下向我们提供了个人信息，请联系我们，我们会尽快删除相关信息。</p>
 
-    <h2>七、联系我们</h2>
-    <p>如果你对本隐私政策有任何疑问，或希望行使上述权利，请通过邮箱联系我们：<a href="mailto:josh.zeng.ca@gmail.com">josh.zeng.ca@gmail.com</a></p>
+    <h2>政策更新</h2>
+    <p>我们可能会不时更新本政策。如有重大变更，我们会在应用内或本页面进行说明。</p>
+
+    <div class="card">
+      <h2 style="margin-top:0">联系我们</h2>
+      <p>如果你对本隐私政策有任何疑问，或希望查看、更正、删除你的个人数据，请通过以下邮箱联系我们：</p>
+      <p><a href="mailto:josh.zeng.ca@gmail.com">josh.zeng.ca@gmail.com</a></p>
+    </div>
+
+    <footer>
+      © 2026 JoshLabs. All rights reserved.
+    </footer>
   </div>
 </body>
 </html>

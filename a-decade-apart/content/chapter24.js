@@ -60,7 +60,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What kind of neighborhood are you looking for?", zh: "您想找什么样的社区？" },
         skill: "housing",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Somewhere quiet, close to the bookstore.", zh: "安静一点的地方，离书店近。", correct: true, xp: 10 },
           { text: "Somewhere doesn't matter, honestly.", correct: false }
@@ -113,7 +113,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "The kitchen was renovated just two years ago.", zh: "厨房两年前刚翻修过。" },
         skill: "housing",
-        grammarTag: "passive",
+        grammarTag: "comparative",
         choices: [
           { text: "Recently renovated? Even better.", zh: "最近才翻修的？那更好了。", correct: true, xp: 10 },
           { text: "Recently renovated? That worries me.", correct: false }
@@ -124,7 +124,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "What do you two think so far?", zh: "你们俩目前觉得怎么样？" },
         skill: "housing",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "What we think is, we love it already.", zh: "我们的想法是，我们已经很喜欢了。", correct: true, xp: 10 },
           { text: "What we think doesn't matter yet.", correct: false }
@@ -167,7 +167,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Nothing here should stop you from making an offer.", zh: "这里没什么问题会阻止你们出价的。" },
         skill: "housing",
-        grammarTag: "passive",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Nothing should stop us — let's move forward.", zh: "没什么能阻止我们——我们继续推进吧。", correct: true, xp: 10 },
           { text: "Something should probably stop us, actually.", correct: false }
@@ -240,7 +240,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "There's another buyer who's also very interested.", zh: "还有另一位买家也很感兴趣。" },
         skill: "housing",
-        grammarTag: "relative-clause",
+        grammarTag: "do-question",
         choices: [
           { text: "A buyer who wants it too? Let's move fast.", zh: "也有买家想要？那我们得快点行动了。", correct: true, xp: 10 },
           { text: "A buyer who wants it too doesn't concern us.", correct: false }
@@ -271,7 +271,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Please review these closing documents before you sign.", zh: "请在签字前先审阅这些成交文件。", voice: "official" },
         skill: "housing",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Of course, we'll take our time reading.", zh: "当然，我们会仔细阅读。", correct: true, xp: 10 },
           { text: "We'd rather sign without reading.", correct: false }
@@ -282,7 +282,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "The keys will officially be yours after this signature.", zh: "这个签名之后，钥匙就正式归你们了。", voice: "official" },
         skill: "housing",
-        grammarTag: "will-future",
+        grammarTag: "present-continuous",
         choices: [
           { text: "After this? My hand is shaking already.", zh: "这个签完就行？我的手已经在抖了。", correct: true, xp: 10 },
           { text: "After this? I feel completely unmoved.", correct: false }
@@ -314,7 +314,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you want to carry me over the threshold?", zh: "你要不要把我抱过门槛？", voice: "emma" },
         skill: "work",
-        grammarTag: "do-question",
+        grammarTag: "present-perfect",
         choices: [
           { text: "I've been waiting to ask you that myself.", zh: "我正想问你这句话呢。", correct: true, xp: 10 },
           { text: "I'd rather you walk in on your own.", correct: false }
@@ -325,7 +325,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This empty living room is about to become our whole life.", zh: "这间空荡荡的客厅马上就要变成我们的整个生活了。", voice: "emma" },
         skill: "work",
-        grammarTag: "present-continuous",
+        grammarTag: "statement",
         choices: [
           { text: "It's about to become everything to us.", zh: "它马上就要成为我们的一切了。", correct: true, xp: 10 },
           { text: "It's about to stay empty forever.", correct: false }
@@ -399,7 +399,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "I've unpacked the kitchen, but the rest can wait.", zh: "我已经把厨房收拾好了，剩下的可以慢慢来。", voice: "emma" },
         skill: "work",
-        grammarTag: "present-perfect",
+        grammarTag: "do-question",
         choices: [
           { text: "The kitchen's done? That's the important part.", zh: "厨房弄好了？那是最重要的部分。", correct: true, xp: 10 },
           { text: "The kitchen's done, but who cares about that.", correct: false }

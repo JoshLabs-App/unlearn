@@ -62,7 +62,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What do we still need to buy before we leave?", zh: "我们走之前还需要买什么？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "concession",
         choices: [
           { text: "We still need bottled water and batteries.", zh: "我们还需要瓶装水和电池。", correct: true, xp: 10 },
           { text: "We don't need to buy anything at all.", correct: false }
@@ -73,7 +73,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This line is much longer than usual today.", zh: "今天这条队伍比平时长多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "It is, everyone's preparing for the storm.", zh: "确实是，大家都在为暴风雪做准备。", correct: true, xp: 10 },
           { text: "It isn't, this line looks shorter than usual.", correct: false }
@@ -116,7 +116,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Are you feeling okay in the dark and cold?", zh: "在黑暗和寒冷中你还好吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "Yes, I'm doing fine, just a bit cold.", zh: "还好，就是有点冷。", correct: true, xp: 10 },
           { text: "No, darkness has never bothered me at all.", correct: false }
@@ -139,7 +139,7 @@ GAME_CONTENT.scenes.push(
   },
   {
     id: "waiting-it-out",
-    transition: { en: "They wrap up in blankets and wait for the storm to pass.", zh: "他们裹着毯子，等待暴风雪过去。" },
+    transition: { en: "The fireplace crackles, but they light a few candles too, just for the cozy glow.", zh: "壁炉噼啪作响，但他们还是点了几支蜡烛，就为了那份温馨的暖光。" },
     title: "Waiting It Out",
     subtitle: "家里 · 等待风暴过去",
     avatar: "🛋️",
@@ -159,7 +159,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How long do you think the storm will last?", zh: "你觉得这场暴风雪会持续多久？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "will-future",
         choices: [
           { text: "I think it'll last through most of the night.", zh: "我觉得它会持续大半个晚上。", correct: true, xp: 10 },
           { text: "I think it already ended an hour ago.", correct: false }
@@ -213,7 +213,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We're going to need to shovel the whole driveway.", zh: "我们得把整条车道都铲一遍雪。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "We are, let's grab the shovels and start.", zh: "确实需要，我们拿铲子开始吧。", correct: true, xp: 10 },
           { text: "We're not, the snow can just melt on its own.", correct: false }
@@ -234,7 +234,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you doing okay with the heavy lifting?", zh: "搬这些重活你还好吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "Yes, I'm managing, but let's take breaks.", zh: "还好，不过我们中途休息一下吧。", correct: true, xp: 10 },
           { text: "No, heavy lifting has never bothered me once.", correct: false }
@@ -245,7 +245,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This side of the driveway is icier than the other.", zh: "车道这一边比另一边更结冰。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "passive",
         choices: [
           { text: "It is, let's put down some salt here first.", zh: "确实是，我们先在这边撒点盐吧。", correct: true, xp: 10 },
           { text: "It isn't, both sides look exactly the same.", correct: false }
@@ -277,7 +277,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "We wanted to make sure you got through the storm okay.", zh: "我们想确认一下您暴风雪期间没事。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "phrasal-verb",
         choices: [
           { text: "That's so kind, thank you for checking on me.", zh: "你们真是太好了，谢谢来看我。", correct: true, xp: 10 },
           { text: "That's unnecessary, I never needed any help.", correct: false }
@@ -288,7 +288,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do you need any help shoveling your walkway?", zh: "您需要帮忙铲一下人行道上的雪吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "please-request",
         choices: [
           { text: "Yes, please, that would be a huge help.", zh: "好的，麻烦你们了，这真的帮了大忙。", correct: true, xp: 10 },
           { text: "No, I actually enjoy the extra exercise alone.", correct: false }
@@ -320,7 +320,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you okay? That looked like a bad fall.", zh: "你没事吧？那一下看起来摔得挺重。" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "I'm okay, just a little shaken up.", zh: "我没事，就是有点被吓到了。", correct: true, xp: 10 },
           { text: "I'm not okay, call an ambulance right now.", correct: false }
@@ -385,7 +385,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Even in the storm, I felt safe with you.", zh: "即使在暴风雪里，和你在一起我也感到安心。" },
         skill: "community",
-        grammarTag: "concession",
+        grammarTag: "past-simple",
         choices: [
           { text: "Even in the storm, I felt exactly the same.", zh: "即使在暴风雪里，我的感受也完全一样。", correct: true, xp: 10 },
           { text: "Even in the storm, I felt scared the whole time.", correct: false }
@@ -417,7 +417,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How are you feeling about everything coming next?", zh: "对接下来即将到来的一切，你感觉怎么样？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "I feel ready, especially after a day like this.", zh: "我感觉自己准备好了，尤其是经历了今天这样的一天。", correct: true, xp: 10 },
           { text: "I feel completely unprepared for anything at all.", correct: false }

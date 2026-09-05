@@ -27,7 +27,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This building looks older than any barn we've visited.", zh: "这座建筑比我们参观过的任何谷仓都要老。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, it must have quite a history.", zh: "确实是，它一定有不少历史了。", correct: true, xp: 10 },
           { text: "Age doesn't matter, let's just walk right past it.", correct: false }
@@ -38,7 +38,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's follow the smell of sweetness inside.", zh: "我们跟着甜香味走进去吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, my nose is already leading me there.", zh: "好主意，我的鼻子已经在带路了。", correct: true, xp: 10 },
           { text: "Let's ignore the smell and go the other way.", correct: false }
@@ -70,7 +70,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This sap looks thinner than I expected maple syrup to be.", zh: "这树液比我预想的枫糖浆要稀得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, it's basically just sweet water right now.", zh: "确实是，现在基本上就是甜水。", correct: true, xp: 10 },
           { text: "Thickness doesn't matter, let's drink it right now.", correct: false }
@@ -102,7 +102,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This room is hotter than any kitchen we've cooked in.", zh: "这间屋子比我们做过饭的任何厨房都要热。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, all that boiling really warms things up.", zh: "确实是，一直熬煮真的会让屋子变暖。", correct: true, xp: 10 },
           { text: "Heat doesn't matter, let's stand right over the pan.", correct: false }
@@ -113,7 +113,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Why do we need to boil the sap for so many hours?", zh: "为什么我们需要把树液熬煮这么多个小时？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "It takes forty gallons of sap to make one of syrup.", zh: "要四十加仑树液才能熬出一加仑糖浆。", correct: true, xp: 10 },
           { text: "Boiling time doesn't actually change anything at all.", correct: false }
@@ -145,7 +145,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Is this syrup ready yet, or does it need more time?", zh: "这糖浆好了吗，还是还需要点时间？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Almost there, just a few more degrees to go.", zh: "快好了，还差几度就到了。", correct: true, xp: 10 },
           { text: "It doesn't need any more time at all.", correct: false }
@@ -156,7 +156,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This syrup is thicker now than it was an hour ago.", zh: "这糖浆现在比一小时前要浓稠多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "can-modal",
         choices: [
           { text: "It is, you can really see the change.", zh: "确实是，能明显看出变化。", correct: true, xp: 10 },
           { text: "Thickness doesn't matter, let's just bottle it now.", correct: false }
@@ -188,7 +188,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This tastes richer than any bottle we've ever bought.", zh: "这尝起来比我们买过的任何瓶装糖浆都要浓郁。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really does, nothing compares to this freshness.", zh: "确实如此，没什么能比得上这份新鲜。", correct: true, xp: 10 },
           { text: "It really doesn't, bottled syrup tastes better.", correct: false }
@@ -199,7 +199,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Their whole face is lighting up from that first taste!", zh: "他们尝了第一口整张脸都亮了起来！" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "can-modal",
         choices: [
           { text: "I can see that, syrup this fresh wins every time.", zh: "我看得出来，这么新鲜的糖浆总能赢得人心。", correct: true, xp: 10 },
           { text: "I don't see any change on their face.", correct: false }
@@ -231,7 +231,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This is hardening faster than I expected it to.", zh: "这变硬的速度比我预想的要快。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, the cold snow works incredibly fast.", zh: "确实是，冷雪的效果快得惊人。", correct: true, xp: 10 },
           { text: "Speed doesn't matter, let's just wait an hour.", correct: false }
@@ -253,7 +253,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This is chewier than any candy I've had before.", zh: "这比我以前吃过的任何糖果都更有嚼劲。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "It is, my jaw is getting a real workout.", zh: "确实是，我的下巴都在认真运动了。", correct: true, xp: 10 },
           { text: "Chewiness doesn't matter, let's swallow it whole.", correct: false }
@@ -272,9 +272,9 @@ GAME_CONTENT.scenes.push(
     startNode: "n1",
     nodes: {
       n1: {
-        npcLine: { en: "Are they sticky than any time I've seen them before?", zh: "他们现在是不是比我以前见过的任何时候都要黏？", },
+        npcLine: { en: "Are they stickier than any time I've seen them before?", zh: "他们现在是不是比我以前见过的任何时候都要黏？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "They definitely are, syrup is everywhere on them.", zh: "绝对是，他们身上到处都是糖浆。", correct: true, xp: 10 },
           { text: "They aren't sticky at all right now.", correct: false }
@@ -317,7 +317,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Which grade of syrup should we bring home with us?", zh: "我们该带哪个等级的糖浆回家？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Let's get the darker one, it has more flavor.", zh: "我们买颜色深一点的吧，风味更浓。", correct: true, xp: 10 },
           { text: "We shouldn't buy any syrup at all today.", correct: false }
@@ -328,7 +328,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This bottle is pricier than I expected for its size.", zh: "以这个大小来说，这瓶比我预想的要贵。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It is, but real maple syrup is worth it.", zh: "确实是，不过纯枫糖浆值这个价。", correct: true, xp: 10 },
           { text: "Price doesn't matter, let's just buy ten bottles.", correct: false }
@@ -339,7 +339,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This will taste better on pancakes than anything from a store.", zh: "这个抹在薄煎饼上会比任何店里买的都好吃。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "It will, I can't wait for breakfast tomorrow.", zh: "会的，我已经等不及明天的早餐了。", correct: true, xp: 10 },
           { text: "It won't, store syrup will always taste the same.", correct: false }
@@ -360,7 +360,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This car smells sweeter than it ever has before.", zh: "这车比以前任何时候都要闻起来更甜。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, I don't think I mind it at all.", zh: "确实是，我一点都不介意。", correct: true, xp: 10 },
           { text: "Smell doesn't matter, let's open every window.", correct: false }
@@ -403,7 +403,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This breakfast tastes better than any we've had in months.", zh: "这顿早餐比我们几个月来吃过的任何一顿都好吃。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really does, that farm trip was worth every minute.", zh: "确实如此，那趟农场之旅每一分钟都值得。", correct: true, xp: 10 },
           { text: "It really doesn't, this tastes pretty ordinary.", correct: false }

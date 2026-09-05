@@ -119,7 +119,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Is it okay if I include some of the family history?", zh: "我可以把一部分家族历史写进去吗？" },
         skill: "work",
-        grammarTag: "can-modal",
+        grammarTag: "connector",
         choices: [
           { text: "Some of it, yes — but not all of it.", zh: "可以写一部分——但不是全部。", correct: true, xp: 10 },
           { text: "No, none of it should be shared.", correct: false }
@@ -130,7 +130,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "I understand. Some things are meant to stay private.", zh: "我理解。有些事情本就该保持私密。" },
         skill: "work",
-        grammarTag: "passive",
+        grammarTag: "comparative",
         choices: [
           { text: "Some things are better left untold.", zh: "有些事最好还是别说出来。", correct: true, xp: 10 },
           { text: "Nothing here should stay private.", correct: false }
@@ -236,7 +236,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "She wrote that a decade apart became a lifetime together.", zh: "她写道，分开了十年，最终成了一辈子的相守。", voice: "ho" },
         skill: "community",
-        grammarTag: "reported-speech",
+        grammarTag: "past-simple",
         choices: [
           { text: "She wrote exactly what it felt like.", zh: "她写出了那种感觉本身。", correct: true, xp: 10 },
           { text: "She wrote something completely wrong.", correct: false }
@@ -258,7 +258,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "I think it's ready. What does everyone think?", zh: "我觉得可以了。大家觉得呢？", voice: "ho" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "I think it's ready too.", zh: "我也觉得可以了。", correct: true, xp: 10 },
           { text: "I think it needs a lot more work.", correct: false }
@@ -278,7 +278,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "One line says, 'They had nothing, and they built everything.'", zh: "有一句写着，「他们一无所有，却建起了一切。」" },
         skill: "community",
-        grammarTag: "past-perfect",
+        grammarTag: "past-simple",
         choices: [
           { text: "We had nothing, and it still felt like enough.", zh: "我们一无所有，但那已经足够了。", correct: true, xp: 10 },
           { text: "We had everything back then, actually.", correct: false }
@@ -363,7 +363,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "A local business offered to donate desks and chairs.", zh: "一家本地商户提出想捐些桌椅。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "comparative",
         choices: [
           { text: "That offer means more than they know.", zh: "这份心意比他们想的还要珍贵。", correct: true, xp: 10 },
           { text: "That offer doesn't help us at all.", correct: false }
@@ -405,7 +405,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "A month ago, this was just an idea over dinner.", zh: "一个月前，这还只是饭桌上的一个想法。", voice: "emma" },
         skill: "work",
-        grammarTag: "past-simple",
+        grammarTag: "present-continuous",
         choices: [
           { text: "And now it's changing lives already.", zh: "而现在它已经在改变生活了。", correct: true, xp: 10 },
           { text: "And now it's still just an idea.", correct: false }

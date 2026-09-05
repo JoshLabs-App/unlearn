@@ -167,7 +167,7 @@ GAME_CONTENT.scenes.push(
         next: "n3"
       },
       n3: {
-        npcLine: { en: "Near the old bakery, by the lake. Can you come for dinner? I'll tell you more.", zh: "在老面包店附近，靠湖边。你能来吃个晚饭吗？我再跟你细说。", voice: "ho" },
+        npcLine: { en: "Near the old bakery, by the lake. Can you come for Thanksgiving dinner this Saturday? I'll tell you more then.", zh: "在老面包店附近，靠湖边。这周六来吃感恩节晚饭吧？到时候我细说给你听。", voice: "ho" },
         skill: "community",
         grammarTag: "can-modal",
         choices: [
@@ -274,7 +274,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "You made it! Are you hungry?", zh: "你来啦！饿了吗？", voice: "ho" },
         skill: "dining",
-        grammarTag: "short-answer",
+        grammarTag: "courtesy",
         choices: [
           { text: "Yes, very! Thanks for having me.", zh: "嗯，很饿！谢谢你邀请我。", correct: true, xp: 10 },
           { text: "No, not really.", correct: false }
@@ -317,7 +317,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "So, do you like Toronto so far?", zh: "所以，你喜欢多伦多吗，目前为止？" },
         skill: "dining",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "I love it. Everyone is so kind.", zh: "很喜欢。这里的人都很友善。", correct: true, xp: 10 },
           { text: "Not really, sorry.", correct: false }

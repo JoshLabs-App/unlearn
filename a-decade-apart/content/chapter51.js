@@ -15,7 +15,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you hear that clicking sound too?", zh: "你也听到那个咔哒声了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "present-perfect",
         choices: [
           { text: "Yes, it's been going on for a few minutes.", zh: "是的，已经响了好几分钟了。", correct: true, xp: 10 },
           { text: "No, the car sounds completely silent to me.", correct: false }
@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This sound is worse than it was yesterday.", zh: "这个声音比昨天更严重了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It is, we should get it checked soon.", zh: "确实是，我们应该尽快检查一下。", correct: true, xp: 10 },
           { text: "It isn't, this sound has always been there.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "When does the noise happen, mostly?", zh: "这个声音大部分是什么时候出现的？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "connector",
         choices: [
           { text: "Mostly when I turn the steering wheel.", zh: "大部分是我转方向盘的时候。", correct: true, xp: 10 },
           { text: "It never happens at any particular time.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "I'll take it for a quick test drive to hear it.", zh: "我会开去简单试驾一下，听听这个声音。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Sounds good, let us know what you find.", zh: "好的，有发现告诉我们一声。", correct: true, xp: 10 },
           { text: "Sounds unnecessary, just guess what it is.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How much will the repair cost in total?", zh: "总共维修要花多少钱？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "About four hundred dollars, including labor.", zh: "大概四百块，包括人工费。", correct: true, xp: 10 },
           { text: "The repair costs absolutely nothing at all.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This quote is actually lower than I expected.", zh: "这个报价其实比我预想的要低。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "That's a relief, let's go ahead with it.", zh: "这让人松了口气，我们就修吧。", correct: true, xp: 10 },
           { text: "That's suspicious, prices this low seem fake.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How long is this repair usually going to take?", zh: "这次维修通常需要多长时间？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "Probably about two hours, they said.", zh: "他们说大概两个小时左右。", correct: true, xp: 10 },
           { text: "It takes zero time, cars fix themselves.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This waiting area is nicer than most shops I've been to.", zh: "这个等候区比我去过的大多数修车厂都要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "concession",
         choices: [
           { text: "It really is, at least there's free coffee.", zh: "确实是，至少还有免费咖啡。", correct: true, xp: 10 },
           { text: "It really isn't, this place feels awful.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We also topped off your fluids while it was here.", zh: "趁车在这儿，我们也把各种液体加满了。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "courtesy",
         choices: [
           { text: "Thank you, we really appreciate the extra care.", zh: "谢谢，我们很感激你们这份额外的用心。", correct: true, xp: 10 },
           { text: "Thank you, though we didn't ask for that.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This car should run more smoothly now.", zh: "现在这车应该开起来更顺畅了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "That's great, let's take it for a test drive.", zh: "太好了，我们去试驾一下吧。", correct: true, xp: 10 },
           { text: "That's fine, smoothness never really matters.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How often should we get an oil change?", zh: "我们应该多久换一次机油？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Every six months, or every eight thousand kilometers.", zh: "每六个月，或者每行驶八千公里。", correct: true, xp: 10 },
           { text: "Oil changes are something we never need.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you know how to change a tire?", zh: "你知道怎么换轮胎吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "Yes, I actually learned years ago.", zh: "知道，其实我很多年前就学过。", correct: true, xp: 10 },
           { text: "No, and I've never even tried before.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This spare tire looks smaller than the others.", zh: "这个备用轮胎看起来比其他轮胎小。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It is, but it should get us to a shop.", zh: "确实是，但应该能撑到我们到修车厂。", correct: true, xp: 10 },
           { text: "It isn't, all four tires look identical.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "These tires are rated for more kilometers than your old ones.", zh: "这些轮胎的额定里程比你们的旧轮胎更长。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "That sounds great, let's go with that brand.", zh: "听起来不错，我们就选这个牌子吧。", correct: true, xp: 10 },
           { text: "That doesn't sound great, kilometers never matter.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do you want all four tires replaced today?", zh: "您今天要换全部四个轮胎吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "concession",
         choices: [
           { text: "Yes, let's do all four while we're here.", zh: "好的，既然来了就都换了吧。", correct: true, xp: 10 },
           { text: "No, we only need one tire replaced.", correct: false }
@@ -381,7 +381,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This car will handle so much better on new tires.", zh: "换了新轮胎，这车的操控会好很多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "can-modal",
         choices: [
           { text: "I can already tell the difference, honestly.", zh: "说实话，我已经能感觉到不同了。", correct: true, xp: 10 },
           { text: "I can't tell any difference at all.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This car has been more reliable than I expected lately.", zh: "最近这车比我预想的更可靠了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really has, staying on top of it paid off.", zh: "确实如此，及时保养真的有回报。", correct: true, xp: 10 },
           { text: "It really hasn't, this car breaks down constantly.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We've learned so much about basic car care this year.", zh: "今年我们学到了很多基本的汽车保养知识。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "passive",
         choices: [
           { text: "We really have, and it's saved us money too.", zh: "确实如此，而且也帮我们省了钱。", correct: true, xp: 10 },
           { text: "We really haven't, we've learned nothing at all.", correct: false }

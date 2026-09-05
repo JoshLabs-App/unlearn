@@ -5,9 +5,17 @@
   --muted: #8a7f74;
   --accent: #3e8f4f;
   --accent-soft: #dcefe0;
+  --accent-deep: #296b38;
   --correct: #2f8f6f;
+  --correct-deep: #1f6650;
   --wrong: #cf5252;
+  --wrong-deep: #a13939;
   --border: #ece2d6;
+  --border-deep: #d8cabb;
+  /* 火苗/连胜/成就用暖色调，跟主 accent 绿分开，页面才不会从头到尾只有一种颜色。 */
+  --gold: #d9a63a;
+  --gold-soft: #faedcf;
+  --gold-deep: #a97c1f;
   --serif: "Songti SC", "STSong", Georgia, "Times New Roman", serif;
   font-family: -apple-system, "PingFang SC", "Segoe UI", sans-serif;
 }
@@ -20,6 +28,191 @@ body {
   color: var(--ink);
   min-height: 100vh;
 }
+
+/* 手机外壳：所有页面内容都包一层 .phone-shell。手机本身打开时它就是无样式的
+   透明容器，跟以前一样贴满整个视口；屏幕更宽时（电脑/平板）才在下面的
+   @media (min-width:641px) 里长出边框+圆角+阴影，变成"桌面上摆着一台手机"的样子。
+   宽屏下弹层/浮层还要贴着这台"手机"而不是跑到整个浏览器窗口——那部分交给下面
+   的 transform 让 .phone-shell 变成 position:fixed 子元素的定位基准。 */
+.phone-shell {
+  background: var(--bg);
+}
+
+/* 底部 Tab 栏 + 简化顶栏：对齐手机 app 的 (tabs)/_layout.tsx——三个 tab（首页/
+   角色成长/更多）切的是同一个页面里的三块 .view，不是三个不同 HTML 文件，
+   这样账号/成就/角色编辑这些弹层、还有游戏本身的全部状态都不用跨页面重新加载。
+   顶栏只剩一个标题（app 那边是原生 header，标题跟着当前 tab 换），
+   原来挤在头部的头像/火苗/汉堡菜单全部挪进下面的 .view（HUD 或"更多"页）。 */
+.top-bar {
+  padding: calc(14px + env(safe-area-inset-top)) 20px 8px;
+  text-align: center;
+}
+.top-bar h1 { margin: 0; font-size: 1.375rem; font-weight: 800; color: var(--ink); }
+
+/* 首页顶栏加了一个进地图的入口后不能再单靠 text-align:center 摆标题——
+   左边多出一个图标按钮，标题得靠 flex 的 flex:1 + 自己的 text-align 重新居中，
+   两侧留一个等宽占位块，不然标题会因为左边按钮的宽度被推偏。 */
+.top-bar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+.top-bar-row h1 { flex: 1; text-align: center; }
+.top-bar-icon-btn,
+.top-bar-icon-spacer {
+  width: 34px;
+  height: 34px;
+  flex: none;
+}
+.top-bar-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: transform 0.08s ease;
+}
+.top-bar-icon-btn:active { transform: scale(0.92); }
+
+.view { display: none; padding-bottom: 100px; }
+.view.active { display: block; }
+
+.tab-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 12px 8px calc(14px + env(safe-area-inset-bottom));
+}
+/* 五个 tab：首页/对话/生词/成长/更多，其中"对话""生词"是真正跳转到独立页面的
+   <a>（dialogue.html / vocab.html 各自有自己的正文内容，不适合塞进这个单页
+   SPA 的 .view 机制），另外三个是本页内 .view 切换的 <button>——共用同一套
+   .tab-btn/.tab-icon 样式，视觉上看不出差别。 */
+.tab-btn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  border: none;
+  background: none;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 2px 0;
+}
+/* 彩色 emoji 图标本身不吃 CSS color（跟手机 app 用 SF Symbol 描边图标不一样，
+   那边靠 tintColor 直接切换灰/绿），选中态改成图标外套一圈软底色的胶囊，
+   不指望颜色变化能被看出来——"⋯"这种纯文字符号会跟着变色，emoji 不会，
+   两种图标都要能看出选没选中，胶囊背景是唯一可靠的办法。 */
+.tab-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  padding: 6px 8px;
+  border-radius: 14px;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--muted);
+}
+.tab-btn.active .tab-icon { background: var(--accent-soft); color: var(--accent); }
+
+/* 常驻 HUD：心数/连胜/等级不随内容滚动，随时可见——对齐 app index.tsx 的
+   styles.hud（原来这三样混在滚动区里，往下翻答题就看不到自己还剩几颗心了）。 */
+.hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 2px 20px 10px;
+}
+.hud-flame { font-size: 0.95rem; font-weight: 800; color: var(--gold-deep); white-space: nowrap; }
+.hud-level-pill {
+  border: 1.5px solid var(--accent);
+  border-radius: 999px;
+  padding: 3px 12px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--accent);
+  background: var(--accent-soft);
+  white-space: nowrap;
+}
+.hud .hearts-display { margin: 0; }
+.hud .hearts-row { font-size: 1rem; }
+
+/* 场景进度：全 94 章合并进来快上千幕，一格一幕的圆点行挤成一条看不清的细线
+   （main.js 之前的 renderProgress 会给每一幕都建一个 dot，938 个格子塞一行）。
+   换成百分比进度条 + "第 N / M 幕" 文字，好在场景数怎么涨都不会散架，
+   也对齐 app index.tsx 用 AnimatedProgressBar 显示章节进度的做法。 */
+.scene-progress-bar { height: 6px; border-radius: 999px; background: var(--border); overflow: hidden; }
+.scene-progress-fill { height: 100%; background: var(--correct); border-radius: 999px; transition: width 0.4s ease; }
+.scene-progress-label { margin: 4px 0 14px; font-size: 0.78rem; color: var(--muted); text-align: right; }
+
+/* 场景卡：头像+标题+对话框套进一张按 sceneIndex 换色的卡片里（颜色由 main.js
+   的 SCENE_PALETTE 按场景序号循环设置），才有"进入了一个新场景"的画面感，
+   对齐 app index.tsx 的 styles.sceneCard + theme.scenePalette。 */
+.scene-card {
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: var(--accent-soft);
+}
+.scene-card .scene-head { margin-bottom: 16px; }
+
+/* 成长/更多两个 tab 共用的卡片语言：跟 app growth.tsx / more.tsx 的 .card 一样，
+   浅色底 + 细描边 + 柔和投影，不需要再靠一整块 .sidebar 边框把内容圈起来。 */
+.g-scroll { padding: 4px 20px 0; }
+.g-card {
+  background: var(--card);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 6px 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 10px rgba(43, 36, 32, 0.08);
+}
+.more-section-title { margin: 18px 0 8px; font-size: 1.19rem; font-weight: 800; }
+.more-section-title:first-child { margin-top: 4px; }
+.more-hint { color: var(--muted); font-size: 0.88rem; margin: 4px 0 12px; }
+
+/* "更多"页顶部的身份行：以前是右上角一个小胶囊按钮，现在挪进"更多"页当成
+   普通一行——头像+称号/名字，没登录时点一下直接弹登录框（逻辑不变，
+   见 main.js renderIdentityBadge / el.userBadge 的 click 监听）。 */
+.user-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 10px 0;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+}
+.user-badge-row .user-badge-avatar { width: 40px; height: 40px; font-size: 1.3rem; }
+#user-badge-label { font-size: 1rem; font-weight: 700; color: var(--ink); }
+
+.danger-btn {
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+  padding: 12px;
+  border: none;
+  background: none;
+  color: var(--wrong);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: center;
+  cursor: pointer;
+  font-family: inherit;
+}
+.danger-btn:active { opacity: 0.7; }
 
 .app-header {
   padding: calc(14px + env(safe-area-inset-top)) 20px 12px;
@@ -46,7 +239,9 @@ body {
   border: 1px solid var(--border);
   background: var(--card);
   color: var(--ink);
+  transition: transform 0.08s ease, opacity 0.08s ease;
 }
+.ghost-btn:active:not(:disabled) { transform: scale(0.94); background: var(--accent-soft); }
 .header-controls {
   display: flex;
   align-items: center;
@@ -91,8 +286,9 @@ body {
   align-items: center;
   padding: 8px 16px;
   border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--card);
+  border: 1.5px solid var(--gold);
+  background: var(--gold-soft);
+  color: var(--gold-deep);
   font-weight: 700;
   font-size: 0.9rem;
   white-space: nowrap;
@@ -106,24 +302,39 @@ body {
   text-align: center;
   font-size: 0.92rem;
   font-weight: 600;
-  background: var(--accent);
+  background: var(--gold);
   color: #fff;
   animation: streak-banner-pulse 2s ease-in-out infinite;
 }
 .streak-banner.hidden { display: none; }
 @keyframes streak-banner-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 var(--accent); }
+  0%, 100% { box-shadow: 0 0 0 0 var(--gold); }
   50% { box-shadow: 0 0 0 8px transparent; }
 }
 
+/* 按钮语言跟手机 app 对齐（components/game/PrimaryButton.tsx / ChoiceButton.tsx）：
+   app 那边试过一版"实体键"底部厚度边，发现窄按钮上那条边太像多余的杂线，
+   改成了纯靠柔和投影 + 按下轻微缩放/变暗来反馈——这里照抄同一套语言，
+   不再用 translateY 厚度边。 */
 .primary-btn {
   background: var(--accent);
   color: white;
   border: none;
-  font-size: 1rem;
-  padding: 10px 24px;
+  border-radius: 14px;
+  font-size: 1.0625rem;
+  font-weight: 800;
+  padding: 14px 24px;
+  box-shadow: 0 4px 10px rgba(43, 36, 32, 0.08);
+  transition: background 0.08s ease, transform 0.08s ease;
 }
-.primary-btn:hover { opacity: 0.9; }
+.primary-btn:active:not(:disabled) { background: var(--accent-deep); transform: scale(0.98); }
+.primary-btn:disabled { opacity: 0.5; cursor: default; }
+.primary-btn-surface {
+  background: var(--card);
+  color: var(--ink);
+  border: 1.5px solid var(--border);
+}
+.primary-btn-surface:active:not(:disabled) { background: var(--accent-soft); border-color: var(--accent); }
 
 .layout {
   display: flex;
@@ -212,15 +423,26 @@ body {
   gap: 14px;
   margin-bottom: 18px;
 }
+/* 头像跟手机 app 的 BreathingAvatar 对齐：白底 + 场景色描边（描边颜色由 JS 按
+   sceneIndex 取 SCENE_PALETTE.tint 设置，见 main.js renderSceneContent），
+   加一个很轻的呼吸缩放，不然场景一直在动、台词/选项都有反馈，唯独头像
+   一动不动会显得像个死图标。 */
 .avatar {
-  font-size: 2.4rem;
-  width: 60px;
-  height: 60px;
+  font-size: 2rem;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--accent-soft);
+  background: var(--card);
+  border: 2px solid var(--accent);
   border-radius: 50%;
+  flex: none;
+  animation: avatar-breathe 2.8s ease-in-out infinite;
+}
+@keyframes avatar-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
 }
 .scene-head h2 { margin: 0; font-family: var(--serif); font-weight: 600; font-size: 1.4rem; }
 .scene-subtitle { margin: 3px 0 0; color: var(--muted); font-size: 0.9rem; }
@@ -262,13 +484,37 @@ body {
   padding: 20px;
   margin-bottom: 20px;
 }
-.npc-en { margin: 0 0 8px; font-size: 1.32rem; font-weight: 600; line-height: 1.4; }
-.npc-zh { margin: 0; color: var(--muted); font-size: 1rem; }
+/* 播放按钮从独立的 PLAY 按钮改成直接点台词本身播放（对齐手机 app 的
+   <Pressable onPress={playLine}><Text>），playAudio() 播放中会照旧给传进去的
+   元素加 .playing，这里落到台词文字本身而不是按钮上。 */
+.npc-en { margin: 0 0 8px; font-size: 1.32rem; font-weight: 600; line-height: 1.4; cursor: pointer; }
+.npc-en.playing { color: var(--accent); }
+.npc-zh { margin: 0; color: var(--muted); font-size: 1.15rem; text-align: center; }
 body.hide-zh .npc-zh,
 body.hide-zh .scene-subtitle,
 body.hide-zh .zh-inline {
   display: none;
 }
+
+/* 盲听模式：台词本身先不给文字，只放音频靠耳朵猜——.npc-en 换成占位提示条，
+   轻触=重播，长按=临时露出中文当提示（见 main.js 的 pointerdown/up 计时逻辑）。
+   中文这里强制隐藏（不管全局"隐藏中文"开关是开是关），只有 .zh-peek 撑起来的
+   长按瞬间才露出来，松手/短按都不算——保持"先听再猜"的强制感。 */
+.npc-listen-hint {
+  display: none;
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.npc-listen-hint.playing { color: var(--accent); }
+body.blind-listen .npc-en { display: none; }
+body.blind-listen .npc-listen-hint { display: block; }
+body.blind-listen .npc-zh { display: none; }
+body.blind-listen.zh-peek .npc-zh { display: block; }
 
 .npc-en .word,
 .scene-head h2 .word,
@@ -330,6 +576,7 @@ body.hide-zh .zh-inline {
   display: block;
   width: 100%;
   margin-top: 14px;
+  margin-bottom: 4px;
   padding: 15px 18px;
   border-radius: 12px;
   border: 1.5px solid var(--border);
@@ -338,11 +585,13 @@ body.hide-zh .zh-inline {
   font-weight: 600;
   text-align: center;
   cursor: pointer;
-  transition: border-color 0.15s, background 0.15s, transform 0.15s;
+  box-shadow: 0 4px 0 var(--border-deep);
+  transition: border-color 0.15s, background 0.15s, transform 0.08s, box-shadow 0.08s;
 }
-.play-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
-.play-btn:active { transform: scale(0.98); }
-.play-btn.playing { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.play-btn:hover, .play-btn:active { border-color: var(--accent); background: var(--accent-soft); }
+.play-btn:active { transform: translateY(4px); box-shadow: 0 0 0 var(--border-deep); }
+.play-btn.playing { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); box-shadow: 0 4px 0 var(--accent-deep); }
+.play-btn.playing:active { box-shadow: 0 0 0 var(--accent-deep); }
 
 /* 心数：紧挨着选项上方，答错即时掉血、恢复倒计时也在这一行里一起显示
    （见 main.js renderHeartsDisplay）。心数清零时 #choices 会被换成 .heart-gate-msg
@@ -368,32 +617,37 @@ body.hide-zh .zh-inline {
 .choices {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
 .choice-btn {
-  text-align: left;
-  padding: 15px 18px;
-  border-radius: 12px;
+  text-align: center;
+  padding: 13px 24px;
+  border-radius: 16px;
   border: 1.5px solid var(--border);
   background: var(--card);
-  font-size: 1.08rem;
+  font-size: 1.19rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
+  box-shadow: 0 4px 10px rgba(43, 36, 32, 0.08);
+  transition: border-color 0.15s, background 0.15s, transform 0.08s;
 }
 .choice-btn:hover:not(:disabled) {
   border-color: var(--accent);
   background: var(--accent-soft);
 }
+.choice-btn:active:not(:disabled) { transform: scale(0.96); }
 .choice-btn:disabled { cursor: default; opacity: 0.6; }
 .choice-btn.wrong {
   border-color: var(--wrong);
   background: #fbe9e9;
+  color: var(--wrong);
   opacity: 1;
 }
 .choice-btn.correct {
   border-color: var(--correct);
   background: #e6f4ea;
+  color: var(--correct);
   opacity: 1;
 }
 .choice-btn.shake {
@@ -481,7 +735,7 @@ body.hide-zh .zh-inline {
   margin: -6px -6px 8px;
   transition: background 0.15s;
 }
-.skill-row:hover { background: var(--accent-soft); }
+.skill-row:hover, .skill-row:active { background: var(--accent-soft); }
 .skill-label { font-size: 0.94rem; margin-bottom: 6px; }
 .skill-bar {
   background: var(--border);
@@ -612,6 +866,117 @@ body.hide-zh .zh-inline {
 .flashback-zh { font-size: 1.4rem; font-weight: 700; margin: 0 0 18px; }
 .flashback-feedback { min-height: 1.4em; margin-top: 14px; font-size: 0.9rem; }
 
+/* 回忆闪回专用皮肤：只加在 #flashback-overlay 里，不影响登录/成就/编辑角色
+   共用的 .flashback-card——那几个是普通表单弹层，不需要这套游戏化放大。 */
+.flashback-card-game {
+  max-width: 440px;
+  padding: 34px 26px 30px;
+  animation: flashback-pop 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes flashback-pop {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.flashback-progress {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-bottom: 10px;
+}
+.flashback-progress-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background 0.2s, transform 0.2s;
+}
+.flashback-progress-dot.is-done { background: var(--correct); }
+.flashback-progress-dot.is-current { background: var(--accent); transform: scale(1.35); }
+.flashback-progress:empty { display: none; margin-bottom: 0; }
+
+.flashback-icon {
+  font-size: 3.4rem;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.flashback-label-game {
+  display: inline-block;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.98rem;
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin: 0 0 18px;
+}
+
+.flashback-zh-game {
+  font-size: 2.15rem;
+  line-height: 1.35;
+  margin: 0 0 26px;
+}
+
+.flashback-choices-game {
+  counter-reset: flashback-choice;
+  gap: 16px;
+}
+.flashback-choices-game .choice-btn {
+  counter-increment: flashback-choice;
+  position: relative;
+  padding: 22px 20px 22px 58px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: 16px;
+}
+.flashback-choices-game .choice-btn::before {
+  content: counter(flashback-choice, upper-alpha);
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flashback-choices-game .choice-btn:disabled::before { opacity: 0.6; }
+
+.flashback-feedback-game {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 18px;
+}
+
+#flashback-build .word-chip {
+  font-size: 1.15rem;
+  padding: 12px 16px;
+}
+
+.flashback-know-btn {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  padding: 10px;
+  border: none;
+  background: none;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.flashback-know-btn:hover:not(:disabled) { color: var(--accent); }
+.flashback-know-btn:disabled { cursor: default; opacity: 0.5; }
+.flashback-know-btn.hidden { display: none; }
+
 .transition-en { font-size: 1.1rem; font-style: italic; margin: 0 0 8px; }
 .transition-en.hidden, .transition-zh.hidden { display: none; }
 .transition-zh { color: var(--muted); font-size: 0.95rem; margin: 0 0 22px; }
@@ -665,11 +1030,13 @@ body.hide-zh .zh-inline {
   background: var(--card);
   font-size: 0.95rem;
   cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
+  box-shadow: 0 3px 0 var(--border-deep);
+  transition: border-color 0.15s, background 0.15s, transform 0.08s, box-shadow 0.08s;
 }
 .word-chip:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
-.word-chip:disabled { cursor: default; }
-.word-chip.placed { background: var(--accent-soft); border-color: var(--accent); }
+.word-chip:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 0 0 var(--border-deep); }
+.word-chip:disabled { cursor: default; box-shadow: none; }
+.word-chip.placed { background: var(--accent-soft); border-color: var(--accent); box-shadow: 0 3px 0 var(--accent-deep); }
 
 .end-screen {
   max-width: 480px;
@@ -697,6 +1064,53 @@ body.hide-zh .zh-inline {
   z-index: 60;
   text-align: left;
 }
+/* 手机上把这个菜单从"悬浮小方框"换成从底部弹出的 Sheet + 全屏遮罩——汉堡菜单
+   下拉一个方框列表是很典型的桌面网页交互，触屏上更接近原生 App 的做法是整条
+   底部抽屉，点击也不容易点空。遮罩用 :has() 纯 CSS 联动菜单的 hidden 状态，
+   不需要额外改 main.js 的开关逻辑。 */
+/* 汉堡菜单在手机（不管是真机还是电脑上模拟的那台"手机"）上都用从底部弹出的
+   Sheet + 全屏遮罩，而不是桌面网页那种"悬浮小方框"下拉——这样点击也不容易点空。
+   遮罩用 :has() 纯 CSS 联动菜单的 hidden 状态，不需要额外改 main.js 的开关逻辑。 */
+.account-wrap::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(43, 36, 32, 0);
+  pointer-events: none;
+  transition: background 0.2s ease;
+  z-index: 55;
+}
+.account-wrap:has(#account-menu:not(.hidden))::before {
+  background: rgba(43, 36, 32, 0.45);
+  pointer-events: auto;
+}
+.account-menu {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: auto;
+  bottom: 0;
+  border-radius: 20px 20px 0 0;
+  padding: 10px 18px calc(18px + env(safe-area-inset-bottom));
+  max-height: 75vh;
+  overflow-y: auto;
+  box-shadow: 0 -12px 30px rgba(0, 0, 0, 0.18);
+  animation: sheet-up 0.2s ease;
+}
+.account-menu::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--border);
+  margin: 4px auto 12px;
+}
+.account-menu .menu-item { padding: 13px 6px; font-size: 1rem; }
+@keyframes sheet-up {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0); }
+}
 .account-menu-email { font-size: 0.85rem; color: var(--muted); margin: 0 0 10px; word-break: break-all; }
 .menu-item {
   display: block;
@@ -713,7 +1127,7 @@ body.hide-zh .zh-inline {
   text-decoration: none;
   box-sizing: border-box;
 }
-.menu-item:hover { background: var(--accent-soft); color: var(--accent); }
+.menu-item:hover, .menu-item:active { background: var(--accent-soft); color: var(--accent); }
 .menu-divider { height: 1px; background: var(--border); margin: 6px 0; }
 
 .auth-card { max-width: 340px; position: relative; text-align: left; padding: 30px 26px 26px; }
@@ -732,7 +1146,7 @@ body.hide-zh .zh-inline {
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
 }
-.auth-close:hover { background: var(--accent-soft); color: var(--accent); }
+.auth-close:hover, .auth-close:active { background: var(--accent-soft); color: var(--accent); }
 
 .auth-header { text-align: center; margin: 0 0 20px; }
 .auth-header-icon {
@@ -771,13 +1185,13 @@ body.hide-zh .zh-inline {
   color: #fff;
   border: 1.5px solid #000;
 }
-.auth-oauth-apple:hover { opacity: 0.85; }
+.auth-oauth-apple:hover, .auth-oauth-apple:active { opacity: 0.85; }
 .auth-oauth-google {
   background: #fff;
   color: var(--ink);
   border: 1.5px solid var(--border);
 }
-.auth-oauth-google:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); }
+.auth-oauth-google:hover, .auth-oauth-google:active { border-color: var(--accent); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); }
 
 .auth-divider {
   display: flex;
@@ -830,7 +1244,7 @@ body.hide-zh .zh-inline {
   justify-content: center;
   transition: border-color 0.15s, background 0.15s;
 }
-.avatar-option:hover { border-color: var(--accent); }
+.avatar-option:hover, .avatar-option:active { border-color: var(--accent); }
 .avatar-option.selected { border-color: var(--accent); background: var(--accent-soft); }
 
 /* 上传照片当头像：跟 emoji 选项二选一，见 main.js 的 pendingAvatarImage——
@@ -846,7 +1260,7 @@ body.hide-zh .zh-inline {
   cursor: pointer;
   transition: border-color 0.15s, background 0.15s;
 }
-.avatar-upload-row:hover { border-color: var(--accent); background: var(--accent-soft); }
+.avatar-upload-row:hover, .avatar-upload-row:active { border-color: var(--accent); background: var(--accent-soft); }
 .avatar-upload-preview {
   flex: none;
   width: 40px;
@@ -898,32 +1312,55 @@ body.hide-zh .zh-inline {
   opacity: 0.5;
   cursor: default;
 }
-.achievement-card.unlocked:hover { border-color: var(--accent); background: var(--accent-soft); }
-.achievement-card.equipped { border-color: var(--accent); background: var(--accent-soft); }
+.achievement-card.unlocked:hover,
+.achievement-card.unlocked:active { background: var(--accent-soft); }
+.achievement-card.equipped { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 3px var(--accent-soft); }
 .achievement-card-icon { font-size: 1.8rem; }
 .achievement-card-title { font-size: 0.78rem; text-align: center; line-height: 1.3; }
 
-/* 分类词表页（category.html）：独立页面，不是弹窗 */
+/* 稀有度分层：门槛越高的成就描边越显眼，解锁瞬间的托底"想集齐"的欲望——
+   青铜/白银朴素一点，金色/钻石带发光，一眼就能看出这张牌"值钱"。 */
+.achievement-card.rarity-bronze { border-color: #b8875a; }
+.achievement-card.rarity-silver { border-color: #9aa3ad; }
+.achievement-card.rarity-gold {
+  border-color: var(--gold);
+  background: var(--gold-soft);
+  box-shadow: 0 0 0 3px rgba(217, 166, 58, 0.18);
+}
+.achievement-card.rarity-diamond {
+  border-color: #6a5acd;
+  background: linear-gradient(160deg, #f0eefa, #ffffff);
+  box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.2), 0 4px 14px rgba(106, 90, 205, 0.25);
+}
+
+/* 分类词表页（category.html）/ 生词收藏页（vocab.html）：卡片网格图鉴，
+   不再是邮箱式的横线分隔列表——每句独立一张圆角卡片，单列铺满宽度（句子长度
+   不定，多列网格会导致卡片高矮不一很乱），卡片本身可点按有轻微下沉反馈。 */
 .category-list {
   display: flex;
   flex-direction: column;
+  gap: 12px;
 }
 .category-empty { color: var(--muted); font-size: 0.9rem; padding: 20px 0; }
 .category-row {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--border);
-}
-.category-row:last-child { border-bottom: none; }
-.category-play-btn {
-  flex-shrink: 0;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+  padding: 16px;
+  border-radius: 14px;
   border: 1.5px solid var(--border);
   background: var(--card);
+  box-shadow: 0 3px 0 var(--border-deep);
+  transition: border-color 0.15s, transform 0.08s, box-shadow 0.08s;
+}
+.category-row:active { transform: translateY(3px); box-shadow: 0 0 0 var(--border-deep); }
+.category-play-btn {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--bg);
   color: var(--accent);
   font-size: 0.75rem;
   cursor: pointer;
@@ -932,7 +1369,7 @@ body.hide-zh .zh-inline {
   justify-content: center;
   transition: border-color 0.15s, background 0.15s, color 0.15s;
 }
-.category-play-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
+.category-play-btn:hover, .category-play-btn:active { border-color: var(--accent); background: var(--accent-soft); }
 .category-play-btn.playing { background: var(--accent); border-color: var(--accent); color: #fff; }
 .category-text { flex: 1; min-width: 0; }
 .category-en { margin: 0; font-size: 1rem; font-weight: 500; line-height: 1.5; }
@@ -969,20 +1406,150 @@ body.hide-zh .zh-inline {
   100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
 }
 
+/* 学习地图页（roadmap.html）：把 94 章按 A1→A2→B1→B2 分段列成一条纵向列表，
+   每段前面插一张等级横幅。节点用"实心色+底部厚边"的立体徽章（.roadmap-row-puck），
+   已完成打勾、当前章节撞色高亮+轻微弹跳、未解锁换成哑光棕色且不可点。 */
+.roadmap-summary {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0 0 8px;
+  padding: 0 20px;
+}
+.roadmap-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 8px;
+  padding: 4px 20px 10px;
+  justify-content: center;
+}
+.roadmap-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px 5px 8px;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--muted);
+}
+.roadmap-legend-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+
+.roadmap-page { padding-bottom: 40px; }
+.roadmap-track {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 6px 20px 0;
+}
+
+.roadmap-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 18px;
+  padding: 12px 14px;
+  border: 1.5px solid transparent;
+  margin-top: 6px;
+}
+.roadmap-banner:first-child { margin-top: 0; }
+.roadmap-banner-badge {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: 0.98rem;
+  color: #fff;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4), 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+.roadmap-banner-text { display: flex; flex-direction: column; }
+.roadmap-banner-name { font-size: 0.95rem; font-weight: 800; }
+.roadmap-banner-desc { font-size: 0.78rem; margin-top: 2px; line-height: 1.4; }
+.roadmap-banner-range { font-size: 0.72rem; font-weight: 700; margin-top: 3px; opacity: 0.75; }
+
+.roadmap-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 6px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.08s ease, background 0.15s ease;
+}
+a.roadmap-row:active { transform: scale(0.98); background: var(--card); }
+
+.roadmap-row-puck { position: relative; width: 52px; height: 56px; flex: none; }
+.roadmap-row-puck-base {
+  position: absolute;
+  left: 2px;
+  top: 6px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+.roadmap-row-puck-top {
+  position: absolute;
+  left: 2px;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.roadmap-row-text { display: flex; flex-direction: column; min-width: 0; }
+.roadmap-row-tag {
+  align-self: flex-start;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 9px;
+  border-radius: 999px;
+  margin-bottom: 3px;
+  letter-spacing: 0.02em;
+}
+.roadmap-row-num { font-size: 0.72rem; font-weight: 700; color: var(--muted); }
+.roadmap-row-title { font-size: 1rem; font-weight: 700; color: var(--ink); margin-top: 1px; }
+
+.roadmap-row--locked .roadmap-row-num,
+.roadmap-row--locked .roadmap-row-title { color: var(--muted); }
+
+@keyframes roadmap-pulse-a2 {
+  0%, 100% { box-shadow: 0 0 0 3px var(--bg), 0 0 0 8px var(--pulse-color, rgba(58, 127, 176, 0.18)); }
+  50% { box-shadow: 0 0 0 3px var(--bg), 0 0 0 12px transparent; }
+}
+@keyframes roadmap-pulse-press {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(2px); }
+}
+
 .hidden { display: none; }
 
-@media (max-width: 640px) {
-  .layout { flex-direction: column; align-items: stretch; }
-  .scene-panel, .sidebar { min-width: 0; width: 100%; }
-  .app-topbar { flex-wrap: wrap; justify-content: center; }
-}
+/* 页面始终按手机宽度排版（单列、无侧边栏并排），不再按真实浏览器视口区分
+   桌面/手机两套布局——因为不管屏幕多宽，内容永远是装在一台"手机"的屏幕里，
+   见上面 .phone-shell 和下面 @media (min-width:641px) 里给它长出的边框。 */
+.layout { flex-direction: column; align-items: stretch; }
+.scene-panel, .sidebar { min-width: 0; width: 100%; }
+.app-topbar { flex-wrap: wrap; justify-content: center; }
 
 /* 对话总览页（dialogue.html）：把所有台词摊平列成聊天记录，
    NPC 靠左、玩家靠右，点单句播放/整段连续播放都在这一块样式里。 */
 .t-page {
   max-width: 720px;
   margin: 0 auto 60px;
-  padding: 0 20px;
+  padding: 0 20px 100px;
 }
 
 .t-toolbar {
@@ -1037,7 +1604,7 @@ body.hide-zh .zh-inline {
 .t-avatar-player { background: var(--border); }
 
 .t-bubble {
-  max-width: 76%;
+  max-width: 84%;
   background: var(--card);
   border: 1.5px solid var(--border);
   border-radius: 14px;
@@ -1045,7 +1612,7 @@ body.hide-zh .zh-inline {
   cursor: pointer;
   transition: border-color 0.15s, background 0.15s, transform 0.1s;
 }
-.t-bubble:hover { border-color: var(--accent); }
+.t-bubble:hover, .t-bubble:active { border-color: var(--accent); }
 .t-bubble:active { transform: scale(0.98); }
 .t-row-player .t-bubble { background: #fdf8f3; }
 .t-en { font-size: 1rem; font-weight: 600; line-height: 1.4; }
@@ -1064,6 +1631,58 @@ body.hide-zh .t-row.t-zh-reveal .t-zh.zh-inline {
 
 .t-sentinel { height: 1px; }
 
-@media (max-width: 640px) {
-  .t-bubble { max-width: 84%; }
+/* 宽屏下的手机边框模式：真机（视口本身 ≤640px）保持跟以前完全一样，边框/圆角/
+   阴影都不生效，.phone-shell 是个无样式的透明包装层。视口更宽时（电脑/平板）
+   才让 .phone-shell 长出实际的手机造型——固定宽高、圆角、外层阴影，自己滚动，
+   居中摆在页面正中央。
+   transform 是关键：给 .phone-shell 一个（视觉上无效的）transform 之后，它会
+   变成内部所有 position:fixed 元素（各种弹层/toast/词义气泡）的定位基准，这些
+   元素就会贴着"手机屏幕"走，而不是相对整个浏览器窗口——效果跟真机上
+   position:fixed 相对手机屏幕一样。对应地，main.js/dialogue.js/category.js/
+   vocab.js 里动态定位这些元素时也都改成了相对 .phone-shell 的矩形计算，
+   而不是 window.innerWidth / document.body。 */
+@media (min-width: 641px) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 32px 16px;
+    background: linear-gradient(160deg, #e7e0d3, #cdc3b1);
+  }
+  .phone-shell {
+    position: relative;
+    width: 430px;
+    max-width: 100%;
+    height: min(880px, 94vh);
+    transform: translateZ(0);
+    border-radius: 46px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    box-shadow:
+      0 0 0 10px #1c1a17,
+      0 0 0 13px #4a453c,
+      0 30px 70px rgba(0, 0, 0, 0.38);
+  }
+  .phone-shell::-webkit-scrollbar { display: none; }
+  /* 灵动岛下面留够空间，不然没有顶栏按钮行的页面（分类词表/对话总览/生词收藏/
+     首页-成长-更多三个 tab 用的简化顶栏）标题会被挡住。 */
+  .app-header, .top-bar { padding-top: 40px; }
+  /* 装饰性"灵动岛"，只在这个模拟手机边框里出现——真机屏幕本身已经有自己的
+     摄像头/听筒，不需要再画一个。position:fixed 是相对 .phone-shell 本身
+     （见上面注释），滚动内容时它会一直贴在屏幕顶部，不会被滚走。 */
+  .phone-shell::before {
+    content: "";
+    position: fixed;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 45;
+    width: 90px;
+    height: 24px;
+    border-radius: 999px;
+    background: #1c1a17;
+    pointer-events: none;
+  }
 }

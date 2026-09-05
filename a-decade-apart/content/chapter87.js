@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This lye is more dangerous than any ingredient we've used.", zh: "这个碱液比我们用过的任何原料都要危险。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, let's wear gloves and goggles.", zh: "确实是，我们戴上手套和护目镜吧。", correct: true, xp: 10 },
           { text: "Danger doesn't matter, let's just mix it barehanded.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Can you always add lye to water, never the other way around?", zh: "是不是一定要把碱液加进水里，绝不能反过来？" },
         skill: "community",
-        grammarTag: "can-modal",
+        grammarTag: "statement",
         choices: [
           { text: "That's right, the order really matters here.", zh: "没错，这里的顺序真的很重要。", correct: true, xp: 10 },
           { text: "Order doesn't matter, do it however you like.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This mixture is heating up faster than I expected.", zh: "这个混合液升温比我预想的要快。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, that's a normal chemical reaction apparently.", zh: "确实是，据说这是正常的化学反应。", correct: true, xp: 10 },
           { text: "Heat doesn't matter, let's touch it to check.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This is thickening faster than the tutorial said it would.", zh: "这变浓稠的速度比教程说的要快。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, let's stop blending pretty soon.", zh: "确实是，我们应该差不多要停止搅拌了。", correct: true, xp: 10 },
           { text: "Speed doesn't matter, let's blend for another hour.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Is this what they call reaching trace?", zh: "这就是他们说的达到皂化痕迹吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "It is, the drizzle leaves a mark now.", zh: "是的，现在滴下去会留下痕迹了。", correct: true, xp: 10 },
           { text: "It isn't, this still looks completely liquid.", correct: false }
@@ -209,7 +209,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's tap the molds gently to release any air bubbles.", zh: "我们轻轻敲一下模具，把气泡排出来吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, that should smooth out the tops.", zh: "好主意，这样能让表面更平整。", correct: true, xp: 10 },
           { text: "Let's just leave the bubbles trapped inside.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we peek at these before we go to bed?", zh: "我们睡觉前要不要瞄一眼？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Just once, then let's leave them alone.", zh: "就看一次，之后我们就不动它们了。", correct: true, xp: 10 },
           { text: "No, let's stir them every single hour tonight.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This process is happening slower than I expected.", zh: "这个过程发生得比我预想的要慢。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It is, but good soap takes real time.", zh: "确实是，不过好皂需要真正的时间。", correct: true, xp: 10 },
           { text: "Speed doesn't matter, let's throw them in the oven.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This came out cleaner than I expected it to.", zh: "这个脱模比我预想的要更干净利落。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It did, the silicone molds really helped.", zh: "确实如此，硅胶模具真的帮了大忙。", correct: true, xp: 10 },
           { text: "It didn't, this bar looks completely ruined.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Look, you can still see swirls of the mint color.", zh: "看，还能看到薄荷色的漩涡纹路。" },
         skill: "community",
-        grammarTag: "can-modal",
+        grammarTag: "past-simple",
         choices: [
           { text: "I see it, that turned out beautifully.", zh: "我看到了，效果做得真好看。", correct: true, xp: 10 },
           { text: "I don't see any pattern at all.", correct: false }
@@ -295,7 +295,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This smells lovelier than I imagined homemade soap would.", zh: "这闻起来比我想象的自制皂要更宜人。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really does, the lavender is just right.", zh: "确实如此，薰衣草的比例正好。", correct: true, xp: 10 },
           { text: "It really doesn't, this smells quite unpleasant.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Have we ever waited this long for a bar of soap?", zh: "我们以前有为一块肥皂等这么久吗？" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "present-continuous",
         choices: [
           { text: "We haven't, and it's teaching us to slow down.", zh: "还没有过，这也让我们学会了放慢脚步。", correct: true, xp: 10 },
           { text: "We've waited weeks for soap dozens of times.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This lathers more richly than any soap we've bought.", zh: "这个起泡比我们买过的任何肥皂都要丰富。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really does, I'm genuinely surprised by that.", zh: "确实如此，这真的让我很惊喜。", correct: true, xp: 10 },
           { text: "It really doesn't, this barely lathers at all.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This wrapping looks nicer than I expected for a first attempt.", zh: "以第一次尝试来说，这个包装比我预想的要好看。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, the twine really ties it together.", zh: "确实是，这麻绳把整体感觉衬托出来了。", correct: true, xp: 10 },
           { text: "Looks don't matter, let's just toss it in a bag.", correct: false }
@@ -424,7 +424,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This hobby turned out to be more rewarding than we imagined.", zh: "这个爱好带来的成就感比我们想象的要多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It did, I'm so glad we tried something new.", zh: "确实如此，我很高兴我们尝试了新事物。", correct: true, xp: 10 },
           { text: "It didn't, this hobby was disappointing overall.", correct: false }

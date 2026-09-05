@@ -37,7 +37,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's read the instructions before we start heating anything.", zh: "我们开始加热之前先读一下说明书吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good call, safety first with hot wax.", zh: "很有道理，热蜡这件事安全第一。", correct: true, xp: 10 },
           { text: "Let's just heat it and figure it out later.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This is melting slower than I expected it to.", zh: "这融化的速度比我预想的要慢。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It is, but low heat keeps it from burning.", zh: "确实是，不过小火能防止它烧焦。", correct: true, xp: 10 },
           { text: "Speed doesn't matter, let's just crank up the heat.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Which scent do you want for our first candle?", zh: "我们的第一支蜡烛你想要什么香味？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "I'd love something warm, like vanilla and cinnamon.", zh: "我想要暖调的香味，像香草和肉桂那样的。", correct: true, xp: 10 },
           { text: "I don't want any scent added at all.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Is this wick centered enough in the jar?", zh: "这根烛芯在罐子里居中够了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "Almost, let's nudge it just a bit left.", zh: "差不多了，我们再往左推一点点吧。", correct: true, xp: 10 },
           { text: "It doesn't matter where the wick sits.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This wick clip is trickier to use than I expected.", zh: "这个烛芯夹比我预想的要更难用。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-perfect",
         choices: [
           { text: "It is, but I think I've got it now.", zh: "确实是，不过我觉得我现在弄好了。", correct: true, xp: 10 },
           { text: "Difficulty doesn't matter, let's just skip this step.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we peek at them before we go to bed?", zh: "我们睡觉前要不要瞄一眼？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "will-future",
         choices: [
           { text: "Just a quick peek, then we'll leave them alone.", zh: "就瞄一眼，然后我们就不动它们了。", correct: true, xp: 10 },
           { text: "No, we should stir them every hour tonight.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "These are cooling slower than I thought they would.", zh: "这些冷却的速度比我预想的要慢。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's fine, good things take a little time.", zh: "没关系，好东西总需要一点时间。", correct: true, xp: 10 },
           { text: "Speed doesn't matter, let's throw them in the freezer.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "These turned out better than I ever expected.", zh: "这些做出来比我曾经预想的要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "They really did, look how smooth the tops are.", zh: "确实如此，看看顶面多光滑。", correct: true, xp: 10 },
           { text: "They really didn't, these look messy and uneven.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should we trim the wicks before lighting one?", zh: "点燃之前我们要不要先修剪一下烛芯？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Yes, a shorter wick burns more evenly.", zh: "要，短一点的烛芯燃烧得更均匀。", correct: true, xp: 10 },
           { text: "No, let's light it exactly as it is.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This flame is steadier than I expected for a first try.", zh: "以第一次尝试来说，这火苗比我预想的要稳定。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, the wick size must have been just right.", zh: "确实是，烛芯的粗细一定刚刚好。", correct: true, xp: 10 },
           { text: "Steadiness doesn't matter, let's blow it out already.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "The whole room smells warmer than usual tonight.", zh: "今晚整个房间闻起来比平时更暖。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "can-modal",
         choices: [
           { text: "It does, I could get used to this.", zh: "确实如此，我可能会习惯这样的感觉。", correct: true, xp: 10 },
           { text: "Smell doesn't matter, let's open the windows now.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How many candles should we make for everyone?", zh: "我们要给大家做多少支蜡烛？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Maybe a dozen, one for each family we know.", zh: "大概十二支吧，认识的每个家庭一支。", correct: true, xp: 10 },
           { text: "We shouldn't make any candles for anyone.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This batch is going faster now that we know the steps.", zh: "现在我们熟悉步骤了，这批做得更快了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, practice really does make a difference.", zh: "确实是，多练习真的很有用。", correct: true, xp: 10 },
           { text: "Speed doesn't matter, let's slow everything down.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Did you two really make this candle by hand?", zh: "你们俩真的是手工做的这支蜡烛吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "We did, right in our own kitchen.", zh: "是的，就在我们自己的厨房做的。", correct: true, xp: 10 },
           { text: "We didn't, we bought this at a store.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This is more personal than any candle I've ever received.", zh: "这比我收到过的任何蜡烛都更有心意。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That means so much, we're glad you love it.", zh: "这话对我们意义太大了，很高兴你喜欢。", correct: true, xp: 10 },
           { text: "Personal touches don't matter, it's just wax.", correct: false }

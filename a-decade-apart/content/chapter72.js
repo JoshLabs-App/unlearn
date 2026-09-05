@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should we call a plumber, or should we try it ourselves?", zh: "我们要请水管工，还是自己试试？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "wh-question",
         choices: [
           { text: "Let's try it ourselves first, how hard can it be?", zh: "我们先自己试试吧，能有多难呢？", correct: true, xp: 10 },
           { text: "Let's just call someone without even trying.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What tools do we actually need for this?", zh: "我们实际上需要哪些工具？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "A wrench, a screwdriver, and a new washer.", zh: "一把扳手、一把螺丝刀，还有一个新垫圈。", correct: true, xp: 10 },
           { text: "We don't need any tools at all for this.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Turn it clockwise until it stops moving.", zh: "顺时针转动，直到转不动为止。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "present-continuous",
         choices: [
           { text: "Okay, I'm turning it slowly right now.", zh: "好的，我现在正在慢慢转动。", correct: true, xp: 10 },
           { text: "Sorry, I'd rather turn it the other way.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This screw is looser than I expected.", zh: "这颗螺丝比我预想的要松。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's convenient, this should come off easily.", zh: "这挺方便的，应该很容易就能拆下来。", correct: true, xp: 10 },
           { text: "That's concerning, let's tighten it more first.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you ready to turn the water back on?", zh: "你准备好重新打开水了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "I am, here goes nothing.", zh: "准备好了，豁出去了。", correct: true, xp: 10 },
           { text: "I'm not, let's leave the water off forever.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This faucet is quieter now than it was this morning.", zh: "这水龙头现在比今早要安静多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really is, I don't hear any dripping at all.", zh: "确实是，我一点滴水声都听不到了。", correct: true, xp: 10 },
           { text: "It really isn't, it's dripping louder than before.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you see any water pooling underneath?", zh: "你看到下面有积水吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "No, everything looks completely dry down here.", zh: "没有，这下面看起来完全干燥。", correct: true, xp: 10 },
           { text: "Yes, there's a huge puddle forming already.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This connection is tighter than it was before we started.", zh: "这个接口比我们开始修之前要更紧固了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It is, we did a solid job on this part.", zh: "确实是，这部分我们做得很扎实。", correct: true, xp: 10 },
           { text: "It isn't, this connection feels loose still.", correct: false }
@@ -295,7 +295,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's check back on it tomorrow, just to be sure.", zh: "为保险起见，我们明天再检查一次吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "comparative",
         choices: [
           { text: "Good idea, one more check won't hurt.", zh: "好主意，再检查一次也无妨。", correct: true, xp: 10 },
           { text: "Let's not bother, we're already confident enough.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We saved more money than I expected by doing this ourselves.", zh: "我们自己动手省下的钱比我预想的要多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "We really did, that's a nice bonus.", zh: "确实是，这真是个不错的额外收获。", correct: true, xp: 10 },
           { text: "We really didn't, this cost us more overall.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What other small repairs should we try next?", zh: "我们接下来还应该尝试哪些小修理？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Maybe that squeaky door hinge in the hallway.", zh: "也许试试走廊那扇吱呀作响的门吧。", correct: true, xp: 10 },
           { text: "We shouldn't try anything else, ever again.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We're more capable than we ever gave ourselves credit for.", zh: "我们比自己曾经想象的要能干得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "We really are, this whole thing was empowering.", zh: "确实如此，这整件事让人感到很有力量。", correct: true, xp: 10 },
           { text: "We really aren't, that was just a lucky fix.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "They're more interested in this than any toy lately.", zh: "他们最近对这个的兴趣比对任何玩具都要大。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "They really are, maybe they'll be handy someday too.", zh: "确实如此，也许他们以后也会很会动手。", correct: true, xp: 10 },
           { text: "They really aren't, they'd rather watch television.", correct: false }

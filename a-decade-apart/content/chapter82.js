@@ -37,7 +37,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's stay calm and move slowly around the hives.", zh: "我们在蜂箱周围要保持冷静、动作放慢。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, sudden movements might startle them.", zh: "好主意，突然的动作可能会惊到它们。", correct: true, xp: 10 },
           { text: "Let's just run past them as fast as possible.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "The queen lays more eggs than any other bee in the hive.", zh: "蜂后产的卵比蜂箱里任何其他蜜蜂都要多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "She does, thousands a day sometimes.", zh: "确实如此，有时一天能产上千颗。", correct: true, xp: 10 },
           { text: "Egg-laying doesn't matter, let's ignore that.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Where should we place the hive in the yard?", zh: "我们该把蜂箱放在院子的哪里？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "connector",
         choices: [
           { text: "Somewhere sunny but away from the walking path.", zh: "找个阳光充足但远离走道的地方。", correct: true, xp: 10 },
           { text: "It doesn't matter where at all.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This box is trickier to assemble than the instructions suggested.", zh: "这个箱子组装起来比说明书说的要更棘手。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "passive",
         choices: [
           { text: "It is, let's read the steps again slowly.", zh: "确实是，我们再慢慢读一遍步骤吧。", correct: true, xp: 10 },
           { text: "Difficulty doesn't matter, let's just guess randomly.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This package is buzzing louder than I imagined it would.", zh: "这个箱子嗡嗡响得比我想象的要大声。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, there must be thousands inside.", zh: "确实是，里面一定有成千上万只。", correct: true, xp: 10 },
           { text: "Volume doesn't matter, let's just toss it aside.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should we release them into the hive right away?", zh: "我们要不要马上把它们放进蜂箱？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, but let's move slowly and calmly.", zh: "好，不过我们动作要慢一点、保持冷静。", correct: true, xp: 10 },
           { text: "No, let's just leave them in the box forever.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "These bees are busier in the morning than in the evening.", zh: "这些蜜蜂早上比傍晚要忙碌得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "relative-clause",
         choices: [
           { text: "They are, that's when the flowers are freshest.", zh: "确实是，那时候花朵最新鲜。", correct: true, xp: 10 },
           { text: "Timing doesn't matter, they're always the same.", correct: false }
@@ -209,7 +209,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This hive is turning nectar into honey right now.", zh: "这个蜂箱现在正在把花蜜酿成蜂蜜。" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "relative-clause",
         choices: [
           { text: "It is, imagine how much work that takes.", zh: "是的，想想这需要多少工夫。", correct: true, xp: 10 },
           { text: "It isn't, this hive is completely empty.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Why do the bees keep going in and out?", zh: "为什么蜜蜂一直进进出出？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "They're bringing flower nectar back to the hive.", zh: "它们在把花蜜带回蜂箱。", correct: true, xp: 10 },
           { text: "They just enjoy flying around for no reason.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do bees ever get tired from all that flying?", zh: "蜜蜂飞这么多会不会累？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "connector",
         choices: [
           { text: "They probably do, but they rarely stop working.", zh: "它们大概会累，不过它们很少停下工作。", correct: true, xp: 10 },
           { text: "They never get tired, bees don't feel anything.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Can we see the honey they made yet?", zh: "我们现在能看到它们酿的蜂蜜了吗？" },
         skill: "community",
-        grammarTag: "can-modal",
+        grammarTag: "comparative",
         choices: [
           { text: "Not yet, we'll have to wait a few more weeks.", zh: "还不行，我们还得再等几周。", correct: true, xp: 10 },
           { text: "We can see it right now, it's already full.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This frame is heavier than the one we checked last time.", zh: "这个框架比我们上次检查的那个要重。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, that means it's full of honey.", zh: "确实是，说明里面装满了蜂蜜。", correct: true, xp: 10 },
           { text: "Weight doesn't matter, let's put it right back.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This honey tastes sweeter than anything I've bought at a store.", zh: "这蜂蜜比我在商店买的任何蜂蜜都要甜。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really does, I'm so proud of our little hive.", zh: "确实如此，我为我们的小蜂箱感到骄傲。", correct: true, xp: 10 },
           { text: "It really doesn't, store honey tastes better.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How many jars did we fill from just one hive?", zh: "光是一个蜂箱我们就装满了多少罐？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "We filled six jars, more than I expected.", zh: "我们装满了六罐，比我预想的要多。", correct: true, xp: 10 },
           { text: "We didn't fill any jars at all.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "You made this yourselves, from your own backyard bees?", zh: "这是你们自己做的，用自家后院的蜜蜂？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "present-perfect",
         choices: [
           { text: "We did, it's been such a fun project.", zh: "是的，这是个特别有趣的项目。", correct: true, xp: 10 },
           { text: "We didn't, we just bought this at a store.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This is more thoughtful than any gift I've received all year.", zh: "这比我今年收到的任何礼物都更用心。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That means a lot, we're glad you like it.", zh: "这话对我们意义很大，很高兴你喜欢。", correct: true, xp: 10 },
           { text: "Thoughtfulness doesn't matter, it's just honey.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This hive will be quieter than it was all summer.", zh: "这个蜂箱会比整个夏天都要安静。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "concession",
         choices: [
           { text: "It will, but they're still working inside.", zh: "会的，不过它们里面还在忙活。", correct: true, xp: 10 },
           { text: "It won't, winter changes nothing at all.", correct: false }

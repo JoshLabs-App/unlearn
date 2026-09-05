@@ -19,7 +19,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we RSVP for both of us, even this pregnant?", zh: "都这么大肚子了，我们还要回复两人都参加吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, I really don't want to miss this.", zh: "是的，我真的不想错过这场婚礼。", correct: true, xp: 10 },
           { text: "No, weddings have never mattered to us.", correct: false }
@@ -41,7 +41,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'll check with the doctor before we confirm.", zh: "我们确认之前先问问医生。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "comparative",
         choices: [
           { text: "Good idea, better safe than sorry.", zh: "好主意，安全第一。", correct: true, xp: 10 },
           { text: "Bad idea, the doctor never needs to know.", correct: false }
@@ -62,7 +62,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What's still left on their registry?", zh: "他们的登记清单上还剩什么没被认领？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "A few kitchen items and some bedding.", zh: "还有一些厨房用品和床上用品。", correct: true, xp: 10 },
           { text: "Nothing at all, everything's already taken.", correct: false }
@@ -73,7 +73,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This set is nicer than the one we almost bought.", zh: "这一套比我们差点买的那套更漂亮。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "concession",
         choices: [
           { text: "It is, let's go with this one instead.", zh: "确实是，那我们就选这一套吧。", correct: true, xp: 10 },
           { text: "It isn't, let's stick with the other one.", correct: false }
@@ -84,7 +84,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Should we add a card with a personal note?", zh: "我们要不要附一张写了寄语的卡片？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, a personal note would mean a lot.", zh: "好，一句寄语会很有意义。", correct: true, xp: 10 },
           { text: "No, cards are a complete waste of paper.", correct: false }
@@ -116,7 +116,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This color suits you more than the other options.", zh: "这个颜色比其他选择更适合你。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "You're right, I'll take this one.", zh: "你说得对，我就要这件了。", correct: true, xp: 10 },
           { text: "You're wrong, the other colors suit me better.", correct: false }
@@ -191,7 +191,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Which table are we assigned to?", zh: "我们被安排在哪一桌？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "We're at table seven, near the dance floor.", zh: "我们在七号桌，靠近舞池。", correct: true, xp: 10 },
           { text: "We're not assigned to any table at all.", correct: false }
@@ -234,7 +234,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "I've known the groom since we were kids.", zh: "我从小就认识新郎了。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "That's such a sweet way to start a toast.", zh: "用这种方式开场祝酒真是太温馨了。", correct: true, xp: 10 },
           { text: "That's odd, why mention childhood at a wedding?", correct: false }
@@ -245,7 +245,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "If you'd told me back then he'd marry his best friend, I wouldn't have believed you.", zh: "如果那时候有人告诉我他会娶自己最好的朋友，我肯定不会相信。" },
         skill: "community",
-        grammarTag: "conditional",
+        grammarTag: "past-simple",
         choices: [
           { text: "That line got a laugh from the whole room.", zh: "那句话逗笑了全场的人。", correct: true, xp: 10 },
           { text: "That line felt completely inappropriate for a wedding.", correct: false }
@@ -288,7 +288,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "You look even more radiant than I remember.", zh: "你比我记忆中的样子还要神采奕奕。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "courtesy",
         choices: [
           { text: "Aw, thank you, pregnancy agrees with me I guess.", zh: "哎呀，谢谢，看来我挺适合怀孕的。", correct: true, xp: 10 },
           { text: "Aw, thank you, though I feel exhausted every day.", correct: false }
@@ -320,7 +320,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you remember our first dance at our own wedding?", zh: "你还记得我们自己婚礼上的第一支舞吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "I remember every single second of it.", zh: "我记得每一秒钟。", correct: true, xp: 10 },
           { text: "I don't remember anything about that day.", correct: false }
@@ -331,7 +331,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This song is even more beautiful live than on the radio.", zh: "这首歌现场听起来比在广播里更好听。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really is, live music just hits different.", zh: "确实如此，现场音乐就是不一样。", correct: true, xp: 10 },
           { text: "It really isn't, the radio version sounds better.", correct: false }
@@ -363,7 +363,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you getting tired? We can leave whenever you want.", zh: "你累了吗？我们随时可以走。" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "A little, but tonight was worth every minute.", zh: "有点累，但今晚的每一分钟都值得。", correct: true, xp: 10 },
           { text: "No, I could stay here all night long.", correct: false }
@@ -428,7 +428,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Even after everything, I'd choose this life with you again.", zh: "即使经历了这一切，我还是会再次选择和你一起过这样的生活。" },
         skill: "community",
-        grammarTag: "concession",
+        grammarTag: "statement",
         choices: [
           { text: "Even after everything, I'd choose you every time.", zh: "即使经历了这一切，我每次都会选择你。", correct: true, xp: 10 },
           { text: "Even after everything, I'd choose something simpler.", correct: false }

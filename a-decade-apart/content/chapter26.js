@@ -19,7 +19,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Neither of us has ever gotten a driver's license.", zh: "我们俩谁都从没考过驾照。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "connector",
         choices: [
           { text: "Neither of us has, but maybe it's time.", zh: "确实都没有，但也许是时候了。", correct: true, xp: 10 },
           { text: "Neither of us needs one, honestly.", correct: false }
@@ -146,7 +146,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Please signal before you change lanes.", zh: "变道前请打转向灯。", voice: "official" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "short-answer",
         choices: [
           { text: "Of course, signaling now.", zh: "好的，正在打灯。", correct: true, xp: 10 },
           { text: "I'd rather not signal, honestly.", correct: false }
@@ -188,7 +188,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you looking for something new or used?", zh: "您是想要新车还是二手车？" },
         skill: "banking",
-        grammarTag: "do-question",
+        grammarTag: "concession",
         choices: [
           { text: "Used, if it's still reliable.", zh: "二手的，如果还可靠的话。", correct: true, xp: 10 },
           { text: "New, and money doesn't matter.", correct: false }
@@ -210,7 +210,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Would you like to take it for a test drive?", zh: "您想试驾一下吗？" },
         skill: "banking",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's take it around the block.", zh: "好的，我们绕街区开一圈吧。", correct: true, xp: 10 },
           { text: "No, I'll just buy it blindly.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How does the steering feel to you?", zh: "转向手感怎么样？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "It feels smoother than I expected.", zh: "比我预期的要顺滑。", correct: true, xp: 10 },
           { text: "It feels the same as every other car.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "So, what do you think? Is this the one?", zh: "那，你怎么想？就是这辆了吗？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "I think this is exactly the one.", zh: "我觉得就是这辆了。", correct: true, xp: 10 },
           { text: "I think we should keep looking elsewhere.", correct: false }
@@ -272,7 +272,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Would you like to pay in full or finance monthly?", zh: "您想一次付清，还是按月分期？" },
         skill: "banking",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "We'd like to finance it monthly.", zh: "我们想按月分期。", correct: true, xp: 10 },
           { text: "We'd like to skip payment entirely.", correct: false }
@@ -294,7 +294,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Sign here, and the car is officially yours.", zh: "在这儿签字，这辆车就正式是您的了。" },
         skill: "banking",
-        grammarTag: "please-request",
+        grammarTag: "statement",
         choices: [
           { text: "Signing right now, no hesitation.", zh: "现在就签，毫不犹豫。", correct: true, xp: 10 },
           { text: "I need another week to think it over.", correct: false }
@@ -314,7 +314,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Would you like basic coverage or full coverage?", zh: "您想要基础险还是全险？" },
         skill: "banking",
-        grammarTag: "do-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Full coverage, better safe than sorry.", zh: "全险吧，安全总比后悔好。", correct: true, xp: 10 },
           { text: "No coverage at all, we'll take our chances.", correct: false }
@@ -325,7 +325,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Since neither of you has had a ticket, your rate is quite low.", zh: "由于你们俩都没有违章记录，费率相当低。" },
         skill: "banking",
-        grammarTag: "concession",
+        grammarTag: "connector",
         choices: [
           { text: "Since it's low, that's a relief to hear.", zh: "既然费率低，那真是让人松了口气。", correct: true, xp: 10 },
           { text: "Since it's low, something must be wrong.", correct: false }
@@ -336,7 +336,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "You're fully insured and ready to drive off the lot.", zh: "您已经全额投保，可以把车开走了。" },
         skill: "banking",
-        grammarTag: "passive",
+        grammarTag: "past-simple",
         choices: [
           { text: "Fully insured, and finally free to drive.", zh: "全额投保了，终于能开车走了。", correct: true, xp: 10 },
           { text: "Fully insured, though I'm still nervous to drive.", correct: false }

@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Please never step past this line when someone is throwing.", zh: "有人在投掷时，请千万不要越过这条线。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "past-simple",
         choices: [
           { text: "Understood, I'll always stay well behind it.", zh: "明白了，我会一直待在线后面的。", correct: true, xp: 10 },
           { text: "Sorry, that line seems unnecessary to follow.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This axe is heavier than I expected it to be.", zh: "这把斧头比我预想的要重。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "It is, I'll need both hands for this.", zh: "确实是，我这次要用两只手了。", correct: true, xp: 10 },
           { text: "Weight doesn't matter, let's just throw it fast.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Always wait for a clear signal before retrieving your axe.", zh: "取回你的斧头前一定要等待明确的信号。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "past-simple",
         choices: [
           { text: "Got it, I'll wait for the all-clear.", zh: "明白了，我会等待安全信号的。", correct: true, xp: 10 },
           { text: "Sorry, I'd rather just grab it whenever.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This is harder than it looks in the videos.", zh: "这比视频里看起来要难得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It really is, let's just keep practicing.", zh: "确实如此，我们继续多练几次吧。", correct: true, xp: 10 },
           { text: "It really isn't, this feels completely simple.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Keep your eyes on the target, not on the axe.", zh: "眼睛要盯着靶子，不要盯着斧头。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Okay, I'll focus on the target this time.", zh: "好的，这次我会盯着靶子。", correct: true, xp: 10 },
           { text: "Sorry, I'd rather just close my eyes entirely.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Your form is looking more consistent than it was earlier.", zh: "你的动作比刚才要稳定多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "Thanks, I think I finally found a rhythm.", zh: "谢谢，我觉得我终于找到节奏了。", correct: true, xp: 10 },
           { text: "Thanks, though nothing has changed at all.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "That felt more like luck than actual skill, honestly.", zh: "说实话，那感觉更像是运气，不是真本事。", },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "Maybe, but I'll take it either way!", zh: "也许吧，但不管怎样我都收下这次成功！", correct: true, xp: 10 },
           { text: "That's true, skill has nothing to do with it.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we keep score for the rest of the session?", zh: "剩下的时间我们要记分吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's make this a friendly little contest.", zh: "好啊，我们把这变成一场友好的小比赛吧。", correct: true, xp: 10 },
           { text: "No, scores would just ruin all the fun.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "You're doing better than everyone else right now.", zh: "你现在的表现比其他所有人都要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's just beginner's luck, honestly.", zh: "这只是新手运气罢了，说实话。", correct: true, xp: 10 },
           { text: "That's expected, I'm clearly the best here.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This is more fun than I expected friendly competition to be.", zh: "这次友好比赛比我预想的要有趣得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-perfect",
         choices: [
           { text: "It really is, this whole night has been a blast.", zh: "确实如此，整晚都玩得很开心。", correct: true, xp: 10 },
           { text: "It really isn't, competition always feels tense.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This score is closer than any round we've had tonight.", zh: "这个比分比今晚任何一轮都要接近。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, every throw counts now.", zh: "确实是，现在每一投都很重要。", correct: true, xp: 10 },
           { text: "It isn't, this round isn't close at all.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What was your favorite moment from tonight?", zh: "今晚你最喜欢的瞬间是什么？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Definitely that surprise bullseye earlier.", zh: "肯定是之前那次意外的靶心。", correct: true, xp: 10 },
           { text: "Nothing tonight was memorable, honestly.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We laughed more tonight than we have in months.", zh: "今晚我们笑的次数比过去几个月都多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "We really did, this group makes everything fun.", zh: "确实如此，这个团体让一切都变得有趣。", correct: true, xp: 10 },
           { text: "We really didn't, tonight felt pretty quiet.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Tonight was more fun than I ever expected axe throwing to be.", zh: "今晚比我曾经想象的飞斧活动要有趣得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really was, we should try this again soon.", zh: "确实如此，我们应该尽快再试一次。", correct: true, xp: 10 },
           { text: "It really wasn't, tonight felt pretty forgettable.", correct: false }

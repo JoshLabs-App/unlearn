@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Have you ever painted anything since school?", zh: "你从上学以后画过什么吗？" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "past-simple",
         choices: [
           { text: "I've never once picked up a paintbrush since then.", zh: "从那以后我一次都没拿过画笔。", correct: true, xp: 10 },
           { text: "I've painted something every single week since.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This canvas looks bigger than I expected it to be.", zh: "这幅画布比我预想的要大。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, that's a lot of space to fill.", zh: "确实是，要填满的空间不少。", correct: true, xp: 10 },
           { text: "It doesn't, this canvas looks tiny to me.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "What would you like to drink while you paint?", zh: "画画的时候你想喝点什么？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "will-future",
         choices: [
           { text: "I'll just have a glass of sparkling water, thanks.", zh: "我就来一杯气泡水吧，谢谢。", correct: true, xp: 10 },
           { text: "I don't want anything to drink at all.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's grab our aprons before we get started.", zh: "我们开始前先拿上围裙吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, I don't want paint on my shirt.", zh: "好主意，我可不想把颜料弄到衣服上。", correct: true, xp: 10 },
           { text: "Let's skip that, we'll be perfectly careful.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "First, mix these two colors to create the background.", zh: "首先，把这两种颜色混合，画出背景色。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Okay, I'll try to blend them evenly.", zh: "好的，我会尽量把它们混合均匀。", correct: true, xp: 10 },
           { text: "Sorry, mixing colors sounds too complicated.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "My color came out darker than the instructor's sample.", zh: "我调出的颜色比讲师的样本要深。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's fine, mine looks pretty good like this too.", zh: "没关系，我这样也挺好看的。", correct: true, xp: 10 },
           { text: "That's terrible, let's just stop right now.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Don't worry about perfection, just have fun with it.", zh: "别在意完不完美，享受这个过程就好。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Good advice, I'll try to relax a little.", zh: "好建议，我会尽量放松一点。", correct: true, xp: 10 },
           { text: "Sorry, I can only focus on perfection.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This is more relaxing than I ever thought painting could be.", zh: "这比我曾经想象的画画要放松得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really is, I forgot how nice this feels.", zh: "确实如此，我都忘了这种感觉有多好了。", correct: true, xp: 10 },
           { text: "It really isn't, this feels stressful, honestly.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This brush is thinner than the one we used before.", zh: "这支画笔比我们之前用的要细。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, that should help with the small details.", zh: "确实是，这应该能帮上处理细节的忙。", correct: true, xp: 10 },
           { text: "It isn't, this brush looks exactly the same.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Yours turned out even better than the sample painting.", zh: "你画的效果比示范画还要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "concession",
         choices: [
           { text: "That's so kind, thank you, though yours is great too.", zh: "你真是太客气了，谢谢你，不过你的也很棒。", correct: true, xp: 10 },
           { text: "That's not true, the sample was clearly better.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "These will look better once they're fully dry.", zh: "等完全干了之后会更好看。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "I bet they will, I can already picture it.", zh: "我相信会的，我都能想象出来了。", correct: true, xp: 10 },
           { text: "I doubt it, these will only look worse.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This wall gets more light than the one in the hallway.", zh: "这面墙比走廊那面采光更好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "concession",
         choices: [
           { text: "It does, let's hang them here instead.", zh: "确实是，我们改挂在这儿吧。", correct: true, xp: 10 },
           { text: "Light doesn't matter, let's just pick randomly.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This time feels more comfortable than the first.", zh: "这次感觉比第一次更自在了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, we already know what to expect.", zh: "确实是，我们已经知道会是什么样了。", correct: true, xp: 10 },
           { text: "It doesn't, this feels harder than before.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We've gotten better at this than I ever expected we would.", zh: "我们的水平比我曾经预想的要好得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "phrasal-verb",
         choices: [
           { text: "We really have, practice must be paying off.", zh: "确实如此，练习一定有了回报。", correct: true, xp: 10 },
           { text: "We really haven't, we've barely improved at all.", correct: false }

@@ -60,7 +60,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "The instructions say to wait exactly three minutes.", zh: "说明书上说要精确等三分钟。", voice: "emma" },
         skill: "work",
-        grammarTag: "reported-speech",
+        grammarTag: "past-simple",
         choices: [
           { text: "It said three minutes, so let's time it.", zh: "上面说三分钟，那我们计时吧。", correct: true, xp: 10 },
           { text: "It said three minutes, but let's just guess.", correct: false }
@@ -156,7 +156,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Would you like to hear the heartbeat?", zh: "你们想听听胎心吗？", voice: "doctor" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Yes, more than anything.", zh: "想，比任何事都想。", correct: true, xp: 10 },
           { text: "No, we'd rather not know yet.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How's Emma doing this morning?", zh: "Emma今天早上怎么样？" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "statement",
         choices: [
           { text: "She's not feeling great, honestly.", zh: "说实话，她感觉不太好。", correct: true, xp: 10 },
           { text: "She's feeling perfectly fine, actually.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We're expecting a baby in April.", zh: "我们四月份要迎来一个宝宝了。", voice: "emma" },
         skill: "work",
-        grammarTag: "present-continuous",
+        grammarTag: "statement",
         choices: [
           { text: "A baby! This calls for a celebration.", zh: "宝宝！这值得庆祝一下。", correct: true, xp: 10 },
           { text: "A baby? That's unfortunate timing.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This house is about to have a whole new generation in it.", zh: "这栋房子马上就要迎来新的一代人了。" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "statement",
         choices: [
           { text: "A new generation, right here with us.", zh: "新的一代人，就在我们身边。", correct: true, xp: 10 },
           { text: "A new generation, far away from here.", correct: false }
@@ -283,7 +283,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Lily. It's a name that's already part of our story.", zh: "Lily。这是个已经属于我们故事的名字了。", voice: "emma" },
         skill: "work",
-        grammarTag: "relative-clause",
+        grammarTag: "statement",
         choices: [
           { text: "A name that's already part of us — perfect.", zh: "一个已经属于我们的名字——太完美了。", correct: true, xp: 10 },
           { text: "A name that's already part of us feels wrong.", correct: false }
@@ -294,7 +294,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We don't even know if it's a girl yet, and I already love that name.", zh: "我们还不知道是不是女孩，但我已经爱上了这个名字。", voice: "emma" },
         skill: "work",
-        grammarTag: "present-perfect",
+        grammarTag: "relative-clause",
         choices: [
           { text: "Whatever we have, that name will fit somehow.", zh: "不管生的是什么，这个名字总会有办法用上。", correct: true, xp: 10 },
           { text: "Whatever we have, we should pick something else.", correct: false }
@@ -314,7 +314,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Can you help me assemble this crib this weekend?", zh: "这周末你能帮我组装这个婴儿床吗？" },
         skill: "housing",
-        grammarTag: "can-modal",
+        grammarTag: "present-perfect",
         choices: [
           { text: "Sure, I've watched a few videos on it.", zh: "没问题，我看过几个教程视频了。", correct: true, xp: 10 },
           { text: "I can't put furniture together at all.", correct: false }
@@ -368,7 +368,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Everyone wanted to be part of welcoming this baby.", zh: "大家都想参与迎接这个宝宝。", voice: "ho" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "passive",
         choices: [
           { text: "This baby is loved before even arriving.", zh: "这个宝宝还没出生就已经被这么多人爱着了。", correct: true, xp: 10 },
           { text: "This baby will grow up without much love.", correct: false }

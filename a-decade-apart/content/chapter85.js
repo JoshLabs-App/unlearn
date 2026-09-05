@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This recipe looks trickier than the yogurt one we tried.", zh: "这个食谱看起来比我们试过的酸奶食谱更棘手。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "concession",
         choices: [
           { text: "It does, but let's give it a shot anyway.", zh: "确实是，不过我们还是试试吧。", correct: true, xp: 10 },
           { text: "Difficulty doesn't matter, let's skip this recipe entirely.", correct: false }
@@ -37,7 +37,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's warm the milk slowly on low heat first.", zh: "我们先小火慢慢把牛奶加热吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, patience matters with cheese.", zh: "好主意，做奶酪需要耐心。", correct: true, xp: 10 },
           { text: "Let's just blast it on high heat instead.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This milk needs to rest longer than I expected.", zh: "这牛奶需要静置的时间比我预想的要长。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, an hour should be about right.", zh: "确实是，大概一小时就差不多了。", correct: true, xp: 10 },
           { text: "Time doesn't matter, let's rush this step.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This is separating faster than I thought it would.", zh: "这个分离得比我想的要快。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, the rennet must be working well.", zh: "确实是，凝乳酶一定在起作用。", correct: true, xp: 10 },
           { text: "Speed doesn't matter, let's just stir it more.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Look, this part is turning into soft little clumps.", zh: "看，这部分正在变成软软的小凝块。" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "statement",
         choices: [
           { text: "I see it, those must be the curds forming.", zh: "我看到了，那一定是正在形成的凝乳。", correct: true, xp: 10 },
           { text: "I don't see any change happening at all.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "The whey looks clearer than I expected it to be.", zh: "这乳清比我预想的要更清澈。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, that's a good sign apparently.", zh: "确实是，据说这是个好迹象。", correct: true, xp: 10 },
           { text: "Clarity doesn't matter, let's throw it all away.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This cloth is straining out more whey than I expected.", zh: "这块布滤出的乳清比我预想的要多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, look how much liquid is left behind.", zh: "确实是，看留下了多少液体。", correct: true, xp: 10 },
           { text: "Amount doesn't matter, let's just squeeze it dry.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How much salt do you think we should add?", zh: "你觉得我们该加多少盐？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Just a pinch, we can always add more.", zh: "一小撮就行，后面还可以再加。", correct: true, xp: 10 },
           { text: "We shouldn't add any salt at all.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This tastes creamier than I imagined homemade cheese would.", zh: "这尝起来比我想象的自制奶酪要更绵密。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really does, I'm genuinely impressed with it.", zh: "确实如此，我真的对它很满意。", correct: true, xp: 10 },
           { text: "It really doesn't, this tastes pretty bland.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you like it, is it good?", zh: "你喜欢吗，好吃吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "They're nodding, that's a very good sign.", zh: "他们在点头，这是个很好的信号。", correct: true, xp: 10 },
           { text: "They hated it and spit it out immediately.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "They're asking for a second spoonful already!", zh: "他们已经又要了一勺了！" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "comparative",
         choices: [
           { text: "That's the best review we could ask for.", zh: "这是我们能得到的最好评价了。", correct: true, xp: 10 },
           { text: "That means they didn't like it at all.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This turned out better than any cheese we've bought.", zh: "这做出来比我们买过的任何奶酪都要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, I'm so proud of us.", zh: "确实如此，我为我们感到骄傲。", correct: true, xp: 10 },
           { text: "It really didn't, store cheese tastes better.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This cheese needs pressing longer than the soft one did.", zh: "这种奶酪需要压制的时间比软奶酪更长。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It does, let's set a timer for tomorrow.", zh: "确实是，我们设个明天的提醒吧。", correct: true, xp: 10 },
           { text: "Time doesn't matter, let's unwrap it right now.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This rind looks firmer than it did last week.", zh: "这层外皮比上周要更结实了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "It does, the aging process is really working.", zh: "确实是，熟成过程真的在起作用。", correct: true, xp: 10 },
           { text: "Firmness doesn't matter, let's just eat it now.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Have we ever waited this long for food before?", zh: "我们以前有为食物等这么久吗？" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "We haven't, this patience feels new to us.", zh: "还没有过，这种耐心对我们来说挺新鲜的。", correct: true, xp: 10 },
           { text: "We've waited for hours for every single meal.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This flavor is sharper than I ever expected homemade cheese to be.", zh: "这个味道比我曾经预想的自制奶酪要更浓郁。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really is, aging made a huge difference.", zh: "确实如此，熟成带来了巨大的变化。", correct: true, xp: 10 },
           { text: "It really isn't, this tastes exactly like milk.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What kind of cheese should we try making next?", zh: "我们接下来该尝试做哪种奶酪？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "Maybe something smoked, that sounds interesting.", zh: "也许试试烟熏口味的，听起来很有意思。", correct: true, xp: 10 },
           { text: "We shouldn't make any cheese ever again.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This hobby has become more rewarding than I expected.", zh: "这个爱好比我预想的要更有成就感。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "phrasal-verb",
         choices: [
           { text: "It has, I look forward to it every week now.", zh: "确实如此，我现在每周都期待它。", correct: true, xp: 10 },
           { text: "Reward doesn't matter, let's just stop entirely.", correct: false }

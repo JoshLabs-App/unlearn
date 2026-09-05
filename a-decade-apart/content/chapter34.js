@@ -19,7 +19,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What should we cook for both of our families?", zh: "我们该给两家人做什么菜？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Let's make something that mixes both traditions.", zh: "我们做一道融合两边传统的菜吧。", correct: true, xp: 10 },
           { text: "It doesn't matter, food isn't important tonight.", correct: false }
@@ -30,7 +30,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Does anyone have food allergies we should know about?", zh: "有没有谁对食物过敏，我们需要知道？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "can-modal",
         choices: [
           { text: "Yes, my mother can't have shellfish.", zh: "有的，我妈妈不能吃贝类海鲜。", correct: true, xp: 10 },
           { text: "No, allergies have never existed in either family.", correct: false }
@@ -41,7 +41,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This dish takes longer to make than the others.", zh: "这道菜做起来比其他的要花更长时间。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Then let's start on that one first.", zh: "那我们就先做那道菜吧。", correct: true, xp: 10 },
           { text: "Then let's just skip that dish entirely.", correct: false }
@@ -73,7 +73,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This cut of meat looks fresher than that one.", zh: "这块肉看起来比那块更新鲜。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "concession",
         choices: [
           { text: "You're right, let's get this one instead.", zh: "你说得对，那我们就买这块吧。", correct: true, xp: 10 },
           { text: "You're wrong, they look exactly the same.", correct: false }
@@ -84,7 +84,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We're going to need a bigger cart at this rate.", zh: "照这个速度我们得换个更大的购物车了。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "statement",
         choices: [
           { text: "Ha, you're probably right about that.", zh: "哈哈，你说的大概没错。", correct: true, xp: 10 },
           { text: "Ha, this cart is already way too big.", correct: false }
@@ -105,7 +105,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How many place settings do we need in total?", zh: "我们总共需要摆多少套餐具？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "We need twelve settings, counting both families.", zh: "算上两家人，我们需要十二套。", correct: true, xp: 10 },
           { text: "We need zero settings, everyone will stand.", correct: false }
@@ -116,7 +116,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should the kids sit at their own small table?", zh: "孩子们要不要坐在他们自己的小桌子？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Yes, that'll be easier for everyone.", zh: "好，这样对大家来说都更方便。", correct: true, xp: 10 },
           { text: "No, the kids should stand the entire meal.", correct: false }
@@ -127,7 +127,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's add some candles to make it feel special.", zh: "我们加几支蜡烛，让气氛更特别一点。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "will-future",
         choices: [
           { text: "Great idea, I'll grab some from the drawer.", zh: "好主意，我去抽屉里拿几支。", correct: true, xp: 10 },
           { text: "Let's skip the candles, they're unnecessary.", correct: false }
@@ -159,7 +159,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Can I take your coats for you?", zh: "我能帮你们把外套拿去挂起来吗？" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "courtesy",
         choices: [
           { text: "Yes, thank you, that's very kind of you.", zh: "好的，谢谢你，你真是太贴心了。", correct: true, xp: 10 },
           { text: "No, I'd rather wear my coat all evening.", correct: false }
@@ -170,7 +170,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This house looks even nicer than the last time.", zh: "这房子比上次看起来还要漂亮。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-perfect",
         choices: [
           { text: "Thank you, we've done some renovations lately.", zh: "谢谢，我们最近做了一些装修。", correct: true, xp: 10 },
           { text: "Thank you, though nothing here has changed at all.", correct: false }
@@ -191,7 +191,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This smells absolutely incredible, who made it?", zh: "这闻起来简直太香了，是谁做的？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "We made it together, actually, all afternoon.", zh: "其实是我们俩一起做的，做了一下午。", correct: true, xp: 10 },
           { text: "Nobody made it, it appeared from nowhere.", correct: false }
@@ -202,7 +202,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Please, help yourselves before it gets cold.", zh: "大家请自便，趁热吃吧。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "courtesy",
         choices: [
           { text: "Thank you, everything looks absolutely delicious.", zh: "谢谢，看起来一切都太好吃了。", correct: true, xp: 10 },
           { text: "Thank you, but I'd rather wait until it's cold.", correct: false }
@@ -213,7 +213,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This is better than the version we had at the restaurant.", zh: "这个比我们在餐厅吃的那道还要好吃。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "courtesy",
         choices: [
           { text: "That means a lot, thank you so much.", zh: "这话对我们意义重大，非常感谢。", correct: true, xp: 10 },
           { text: "That's rude, the restaurant version was clearly better.", correct: false }
@@ -256,7 +256,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This baby is going to be so loved.", zh: "这个宝宝会被这么多人疼爱。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "statement",
         choices: [
           { text: "That's exactly why tonight means so much.", zh: "这正是今晚意义如此重大的原因。", correct: true, xp: 10 },
           { text: "That's why we're not excited about this at all.", correct: false }
@@ -331,7 +331,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This dessert is even sweeter than I remembered.", zh: "这个甜点比我记忆中的还要甜。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really is, I might need a second slice.", zh: "确实是，我可能得再来一块。", correct: true, xp: 10 },
           { text: "It really isn't, this dessert has no flavor.", correct: false }
@@ -385,7 +385,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Drive safe, and text us when you get home.", zh: "开车小心，到家了发个消息给我们。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "We will, thank you for worrying about us.", zh: "我们会的，谢谢你们为我们担心。", correct: true, xp: 10 },
           { text: "We won't, texting after driving feels pointless.", correct: false }
@@ -406,7 +406,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Tonight went even better than I hoped it would.", zh: "今晚比我期望的还要顺利。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, I'm so glad we did this.", zh: "确实如此，我很高兴我们办了这场聚会。", correct: true, xp: 10 },
           { text: "It really didn't, tonight was a total disaster.", correct: false }

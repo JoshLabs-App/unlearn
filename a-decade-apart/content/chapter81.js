@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This lens is heavier than I expected it to be.", zh: "这个镜片比我预想的要重。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, let's be careful carrying it outside.", zh: "确实是，我们搬出去的时候要小心点。", correct: true, xp: 10 },
           { text: "Weight doesn't matter, let's just toss it around.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This star looks brighter than all the others tonight.", zh: "这颗星今晚看起来比其他所有的都要亮。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, that must be the North Star.", zh: "确实是，那一定是北极星。", correct: true, xp: 10 },
           { text: "Brightness doesn't matter, let's ignore it.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "These craters look more detailed than I ever imagined.", zh: "这些环形山看起来比我曾经想象的要更加清晰。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "can-modal",
         choices: [
           { text: "They really do, I can see every little shadow.", zh: "确实如此，每一处小阴影我都能看到。", correct: true, xp: 10 },
           { text: "They really don't, this just looks like a blur.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Is our toddler tall enough to look through the eyepiece?", zh: "我们家孩子够高能看到目镜里吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Almost, let's lift them up for a peek.", zh: "差不多了，我们把他们抱起来看一眼吧。", correct: true, xp: 10 },
           { text: "Not at all, let's just skip it entirely.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Look, look, I can see the moon so close!", zh: "快看快看，我能看到月亮离得好近！" },
         skill: "community",
-        grammarTag: "can-modal",
+        grammarTag: "do-question",
         choices: [
           { text: "Isn't it amazing how close it looks?", zh: "是不是很神奇它看起来这么近？", correct: true, xp: 10 },
           { text: "It's not that close, don't get excited.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Which constellation is that bright cluster over there?", zh: "那边那一片亮亮的星群是哪个星座？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "The app says that's Orion, the hunter.", zh: "应用说那是猎户座，猎人星座。", correct: true, xp: 10 },
           { text: "It doesn't have a name at all.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This constellation is easier to spot than I expected.", zh: "这个星座比我预想的要更容易找到。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "phrasal-verb",
         choices: [
           { text: "It is, those three stars in a line really stand out.", zh: "确实是，那三颗排成一线的星特别显眼。", correct: true, xp: 10 },
           { text: "Difficulty doesn't matter, let's just move on.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "What did you wish for just now?", zh: "你刚才许了什么愿？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "I wished for more nights like this one.", zh: "我许愿希望能有更多像今晚这样的夜晚。", correct: true, xp: 10 },
           { text: "I didn't wish for anything at all.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should we let our toddler stay up that late?", zh: "我们要不要让孩子那么晚还不睡？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Just this once, it's a rare event.", zh: "就这一次吧，这是件难得的事。", correct: true, xp: 10 },
           { text: "Never, bedtime rules can't ever bend.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How many have we counted so far tonight?", zh: "我们今晚到目前为止数到多少颗了？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "concession",
         choices: [
           { text: "We've counted twelve, and it's still early.", zh: "我们数到十二颗了，而且还早呢。", correct: true, xp: 10 },
           { text: "We haven't counted a single one tonight.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This is more meteors than I've ever seen in one night.", zh: "这是我一夜之间见过最多的流星了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really is, tonight was worth every minute.", zh: "确实如此，今晚每一分钟都值得。", correct: true, xp: 10 },
           { text: "It really isn't, tonight has been disappointing.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "They fell asleep faster than I expected out there.", zh: "他们在外面睡着的速度比我预想的要快。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "They did, the fresh air must have helped.", zh: "确实是，新鲜空气一定帮了忙。", correct: true, xp: 10 },
           { text: "They didn't, they stayed awake the entire time.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This park is farther from city lights than anywhere nearby.", zh: "这个公园比附近任何地方都离城市灯光更远。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's perfect, the sky should be incredibly clear.", zh: "太完美了，那里的天空应该会非常清澈。", correct: true, xp: 10 },
           { text: "Distance doesn't matter, let's just stay home instead.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should we camp overnight or just drive there for the evening?", zh: "我们要露营过夜，还是傍晚开车过去就行？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Let's camp, it'll make the whole trip better.", zh: "我们露营吧，这会让整趟旅程更棒。", correct: true, xp: 10 },
           { text: "Neither one, let's cancel the whole trip.", correct: false }

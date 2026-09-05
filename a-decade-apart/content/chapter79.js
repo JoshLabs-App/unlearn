@@ -15,7 +15,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you think our toddler is ready for something like this?", zh: "你觉得我们家孩子准备好试这个了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "I think so, kids' classes are usually pretty gentle.", zh: "我觉得可以，儿童课程通常都挺温和的。", correct: true, xp: 10 },
           { text: "No, martial arts are only for adults.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This uniform feels stiffer than regular clothes.", zh: "这套道服比平常的衣服要硬挺一些。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It does, but it looks pretty official.", zh: "确实是，不过看起来挺正式的。", correct: true, xp: 10 },
           { text: "Stiffness doesn't matter, let's just wear our own clothes.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We all look more official than I expected.", zh: "我们都比我预想的看起来更专业了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "We really do, we look like a real family team.", zh: "确实是，我们看起来像真正的一家人小团队。", correct: true, xp: 10 },
           { text: "We really don't, we all look ridiculous.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Please bow whenever you enter or leave the mat.", zh: "进出垫子时请一定要鞠躬。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "past-simple",
         choices: [
           { text: "Understood, we'll remember to bow every time.", zh: "明白了，我们会每次都记得鞠躬的。", correct: true, xp: 10 },
           { text: "Sorry, bowing seems too formal for us.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This ceremony feels more meaningful than I expected.", zh: "这个仪式比我预想的更有意义。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, respect really is at the heart of this.", zh: "确实是，尊重确实是这一切的核心。", correct: true, xp: 10 },
           { text: "It doesn't, this feels completely unnecessary.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This stance is harder to hold than it looks.", zh: "这个站姿比看起来要难保持。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "It is, my legs are already shaking a little.", zh: "确实是，我的腿已经开始有点抖了。", correct: true, xp: 10 },
           { text: "It isn't, this feels completely effortless.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Keep your knees bent and your weight balanced.", zh: "膝盖保持弯曲，重心保持平衡。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Okay, I'll try to stay low like this.", zh: "好的，我会尽量保持这么低。", correct: true, xp: 10 },
           { text: "Sorry, I'd rather just stand up straight.", correct: false }
@@ -166,7 +166,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "You're holding this better than you did a minute ago.", zh: "你现在保持得比一分钟前要好了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "Thanks, I think I'm finding my balance.", zh: "谢谢，我觉得我开始找到平衡感了。", correct: true, xp: 10 },
           { text: "Thanks, though I feel exactly the same as before.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Your form is looking sharper than it was a few minutes ago.", zh: "你的动作比几分钟前要利落多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "Thanks, I'm honestly starting to enjoy this.", zh: "谢谢，说实话我开始喜欢上这个了。", correct: true, xp: 10 },
           { text: "Thanks, though nothing has really changed.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "That board broke more easily than I expected it to.", zh: "那块板碎得比我预想的要容易。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "concession",
         choices: [
           { text: "It did, though I bet it still takes real skill.", zh: "确实是，不过我猜这还是需要真本事的。", correct: true, xp: 10 },
           { text: "It didn't, that board was completely unbreakable.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This requires more focus than raw strength, honestly.", zh: "说实话，这需要的专注度比蛮力更多。", },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That makes sense, focus over force, I like that.", zh: "有道理，专注胜过蛮力，我喜欢这个理念。", correct: true, xp: 10 },
           { text: "That's odd, strength should always matter most.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "They're smiling more than I've seen them smile all week.", zh: "他们的笑容比这周任何时候都要灿烂。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "They really are, this is bringing them so much joy.", zh: "确实如此，这给他们带来了这么多快乐。", correct: true, xp: 10 },
           { text: "They really aren't, they look completely uninterested.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "My arms are more tired than they've been in ages.", zh: "我的手臂比很久以来任何时候都要累。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "Mine too, but that was honestly a great workout.", zh: "我也是，但说实话这真是一次很棒的锻炼。", correct: true, xp: 10 },
           { text: "Mine feel perfectly fine, actually.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This turned out more fun than I ever expected it to be.", zh: "这次的体验比我曾经想象的要有趣得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, we should keep coming back.", zh: "确实如此，我们应该继续来上课。", correct: true, xp: 10 },
           { text: "It really didn't, once was more than enough.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Our child looks up to us more since we started training together.", zh: "自从我们一起训练以来，我们的孩子更崇拜我们了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "That's true, and I love that we're learning together.", zh: "确实如此，我很喜欢我们一起学习的感觉。", correct: true, xp: 10 },
           { text: "That's not true, they don't notice this at all.", correct: false }

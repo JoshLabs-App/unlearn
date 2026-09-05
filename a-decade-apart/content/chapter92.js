@@ -37,7 +37,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's put on our life jackets before we launch.", zh: "下水之前我们先穿上救生衣吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, safety comes first on the water.", zh: "好主意，在水上安全永远第一。", correct: true, xp: 10 },
           { text: "Let's just skip the jackets, we'll be fine.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This stroke is trickier to master than it looks.", zh: "这个划桨动作比看起来更难掌握。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "It is, but I'm slowly getting the rhythm.", zh: "确实是，不过我慢慢找到节奏了。", correct: true, xp: 10 },
           { text: "Difficulty doesn't matter, let's just splash randomly.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This water is calmer than I expected for a river.", zh: "作为一条河，这水面比我预想的要平静。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, perfect conditions for our first try.", zh: "确实是，是我们第一次尝试的绝佳条件。", correct: true, xp: 10 },
           { text: "Calmness doesn't matter, let's paddle as fast as possible.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This feels more peaceful than I imagined it would be.", zh: "这比我想象的要更平静宜人。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "can-modal",
         choices: [
           { text: "It does, I could paddle like this for hours.", zh: "确实是，我可以这样划上好几个小时。", correct: true, xp: 10 },
           { text: "Peace doesn't matter, let's race each other now.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you comfortable back there in your little seat?", zh: "你坐在那个小座位上舒服吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "They are, they seem completely at ease.", zh: "很舒服，他们看起来完全放松。", correct: true, xp: 10 },
           { text: "They aren't, they want to get out right now.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Look, they're pointing at a duck swimming right beside us!", zh: "看，他们在指着游在我们旁边的一只鸭子！" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "statement",
         choices: [
           { text: "I see it, wildlife is everywhere out here.", zh: "我看到了，这附近到处都是野生动物。", correct: true, xp: 10 },
           { text: "I don't see any animals nearby at all.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should we paddle harder on the left to turn right?", zh: "我们要不要左边多用力划来向右转？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, that's exactly how steering works apparently.", zh: "对，据说操控就是这个原理。", correct: true, xp: 10 },
           { text: "No, direction doesn't matter at all here.", correct: false }
@@ -209,7 +209,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This is starting to feel more natural now.", zh: "这现在开始感觉更自然了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-perfect",
         choices: [
           { text: "It is, I think we've got the hang of it.", zh: "确实是，我觉得我们摸到窍门了。", correct: true, xp: 10 },
           { text: "Naturalness doesn't matter, let's just drift aimlessly.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "That splash was colder than I expected it to be!", zh: "那水花比我预想的要更凉！" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It was, but it actually feels refreshing.", zh: "确实是，不过感觉挺清爽的。", correct: true, xp: 10 },
           { text: "Temperature doesn't matter, let's splash back harder.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's be a little more careful with the paddle from now on.", zh: "从现在起我们用桨的时候小心点吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, wet clothes aren't ideal out here.", zh: "好主意，穿着湿衣服在这可不太理想。", correct: true, xp: 10 },
           { text: "Let's splash even more, it's actually fun.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This bird is more patient than any hunter I've seen.", zh: "这只鸟比我见过的任何猎手都要有耐心。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "It is, it's waiting for the perfect moment.", zh: "确实是，它在等待完美的时机。", correct: true, xp: 10 },
           { text: "Patience doesn't matter, let's paddle right at it.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This sand feels warmer than the water we've been sitting in.", zh: "这沙子比我们坐着的水要更暖和。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, this is a perfect little break spot.", zh: "确实是，这是个休息的绝佳小地方。", correct: true, xp: 10 },
           { text: "Warmth doesn't matter, let's get back in the water now.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "My arms are more tired than I expected after that stretch.", zh: "划了那一段之后，我的胳膊比我预想的要更累。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "Mine too, but it's a good kind of tired.", zh: "我也是，不过是那种好的累。", correct: true, xp: 10 },
           { text: "Tiredness doesn't matter, let's paddle twice as far.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This is harder than paddling with the current was.", zh: "这比顺着水流划要更费力。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, let's paddle steadily and pace ourselves.", zh: "确实是，我们要稳稳地划，控制节奏。", correct: true, xp: 10 },
           { text: "Difficulty doesn't matter, let's just sprint the whole way.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We're closer to the dock now than we were an hour ago.", zh: "我们现在离码头比一小时前要近多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "We are, we're almost back now.", zh: "确实是，我们快到了。", correct: true, xp: 10 },
           { text: "Distance doesn't matter, let's just stop paddling here.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Today turned out more adventurous than I ever expected.", zh: "今天比我曾经预想的要更有冒险精神。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, I'm so glad we tried this.", zh: "确实如此，我很高兴我们尝试了这个。", correct: true, xp: 10 },
           { text: "It really didn't, today felt pretty ordinary.", correct: false }

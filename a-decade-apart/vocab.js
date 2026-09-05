@@ -4,6 +4,7 @@
 // 已经把这份数据存进去了，这里只是换个角度把它按句子摊出来。
 
 const el = {
+  phoneShell: document.querySelector(".phone-shell"),
   count: document.getElementById("vocab-count"),
   list: document.getElementById("vocab-list"),
   zhToggleBtn: document.getElementById("zh-toggle-btn"),
@@ -85,13 +86,16 @@ function showWordPopup(wordEl) {
   el.wordPopup.textContent = `${wordEl.textContent} ${meaning}`;
   el.wordPopup.classList.remove("hidden");
 
+  // .word-popup 的定位基准是 .phone-shell（见 style.css 里的 transform 注释），
+  // 坐标要相对 shellRect 算，不能直接用 window.innerWidth。
+  const shellRect = el.phoneShell.getBoundingClientRect();
   const rect = wordEl.getBoundingClientRect();
   const popRect = el.wordPopup.getBoundingClientRect();
-  let left = rect.left + rect.width / 2 - popRect.width / 2;
-  left = Math.max(8, Math.min(left, window.innerWidth - popRect.width - 8));
+  let left = rect.left - shellRect.left + rect.width / 2 - popRect.width / 2;
+  left = Math.max(8, Math.min(left, shellRect.width - popRect.width - 8));
   const CLEARANCE = 36;
-  let top = rect.top - popRect.height - CLEARANCE;
-  if (top < 8) top = rect.bottom + CLEARANCE;
+  let top = rect.top - shellRect.top - popRect.height - CLEARANCE;
+  if (top < 8) top = rect.bottom - shellRect.top + CLEARANCE;
   el.wordPopup.style.left = left + "px";
   el.wordPopup.style.top = top + "px";
 

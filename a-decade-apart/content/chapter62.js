@@ -15,7 +15,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do children need their own library card here?", zh: "在这儿小朋友需要办自己的借书证吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "can-modal",
         choices: [
           { text: "Yes, even babies can have their own card.", zh: "需要的，就算是婴儿也能有自己的卡。", correct: true, xp: 10 },
           { text: "No, children aren't allowed inside libraries.", correct: false }
@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This children's section is bigger than I expected.", zh: "这个儿童区比我预想的要大。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It is, and it looks so colorful too.", zh: "确实是，而且看起来也很多彩。", correct: true, xp: 10 },
           { text: "It isn't, this section looks tiny to me.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you have proof of your home address?", zh: "您有家庭住址的证明吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, here's a bill with our address on it.", zh: "有的，这是一张有我们地址的账单。", correct: true, xp: 10 },
           { text: "No, addresses have never mattered to us.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This card lets you borrow more books than the basic one.", zh: "这张卡能借的书比基础卡要多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "That's great, let's get that one then.", zh: "太好了，那我们就办这种吧。", correct: true, xp: 10 },
           { text: "That doesn't matter, we'll never borrow much.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Which book should we pick first?", zh: "我们应该先选哪本书？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "The one with the bright animal pictures.", zh: "那本有鲜艳动物图片的吧。", correct: true, xp: 10 },
           { text: "None of them, books are boring anyway.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This program looks more fun than I expected.", zh: "这个活动看起来比我预想的更好玩。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, songs and stories sound perfect for them.", zh: "确实是，儿歌和故事对他们来说正合适。", correct: true, xp: 10 },
           { text: "It doesn't, this looks pretty boring, honestly.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This circle is bigger than I imagined it would be.", zh: "这个圈子比我想象的要大。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, so many families come to this.", zh: "确实是，好多家庭都来参加这个活动。", correct: true, xp: 10 },
           { text: "It isn't, we're pretty much the only ones here.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Are they clapping along with the song?", zh: "他们在跟着歌曲拍手吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "They are, look at that little smile.", zh: "是的，看看那个小小的笑容。", correct: true, xp: 10 },
           { text: "They aren't, they seem completely uninterested.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How old is your little one?", zh: "你们家宝宝多大了？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "They just turned one a few months ago.", zh: "他们几个月前刚满一岁。", correct: true, xp: 10 },
           { text: "Age isn't something we keep track of.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "They seem more social here than at home, honestly.", zh: "说实话，他们在这儿比在家更合群。", },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "Same with ours, kids love being around others.", zh: "我们家也一样，孩子喜欢和其他人在一起。", correct: true, xp: 10 },
           { text: "That's odd, home should always feel more comfortable.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This one was requested more often than the others.", zh: "这一本被要求读的次数比其他几本都多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It was, let's check that one out again.", zh: "确实是，我们再借一次这本吧。", correct: true, xp: 10 },
           { text: "It wasn't, we barely opened this one at all.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "I've read this page more times than I can count.", zh: "这一页我读的次数已经数不清了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "Same here, I've practically memorized it.", zh: "我也是，我基本上都背下来了。", correct: true, xp: 10 },
           { text: "Same here, though I've only read it once.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This search is taking longer than I expected.", zh: "这次找书花的时间比我预想的要长。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, let's check under the couch cushions.", zh: "确实是，我们查查沙发垫子底下吧。", correct: true, xp: 10 },
           { text: "It isn't, let's just give up looking already.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "They've started bringing books to us on their own now.", zh: "他们现在已经开始自己主动把书拿给我们了。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "They really have, that melts my heart every time.", zh: "确实是，这每次都让我心都化了。", correct: true, xp: 10 },
           { text: "They really haven't, they've never touched a book.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This little habit means more to me than I expected.", zh: "这个小小的习惯对我来说比我预想的意义更大。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really does, this feels like such a gift.", zh: "确实如此，这感觉像是一份珍贵的礼物。", correct: true, xp: 10 },
           { text: "It doesn't, reading habits never really matter.", correct: false }

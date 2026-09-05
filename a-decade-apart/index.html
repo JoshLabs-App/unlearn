@@ -14,76 +14,71 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="app-header">
-    <div class="app-topbar">
-      <button id="user-badge" class="ghost-btn user-badge" type="button">
-        <span id="user-badge-avatar" class="user-badge-avatar"></span>
-        <span id="user-badge-label">请登录</span>
-      </button>
-      <div class="header-controls">
-        <div id="streak-badge" class="streak-badge">🔥 0</div>
-        <div class="account-wrap">
-          <button id="account-btn" class="ghost-btn" type="button">☰</button>
-          <div id="account-menu" class="account-menu hidden">
-            <button id="zh-toggle-btn" class="menu-item" type="button" aria-pressed="true">隐藏中文</button>
-            <a href="dialogue.html" class="menu-item">📖 全部对话</a>
-            <a href="vocab.html" class="menu-item">📗 生词收藏</a>
-            <button id="character-edit-btn" class="menu-item" type="button">✏️ 编辑角色</button>
-            <button id="achievements-btn" class="menu-item" type="button">🏆 成就</button>
-            <button id="reset-btn" class="menu-item" type="button">重新开始</button>
-            <div class="menu-divider"></div>
-            <div id="account-logged-out-item">
-              <button id="account-login-btn" class="menu-item" type="button">登录账号</button>
-            </div>
-            <div id="account-logged-in-item" class="hidden">
-              <p id="account-menu-email" class="account-menu-email"></p>
-              <button id="auth-sign-out-btn" class="menu-item" type="button">退出登录</button>
+<div class="phone-shell">
+  <div class="top-bar">
+    <div class="top-bar-row">
+      <a href="roadmap.html" class="top-bar-icon-btn" aria-label="学习地图">🗺️</a>
+      <h1 id="view-title">A Decade Apart</h1>
+      <span class="top-bar-icon-spacer" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  <section id="view-game" class="view active">
+    <div class="hud">
+      <div id="streak-badge" class="hud-flame">🔥 0</div>
+      <div id="hud-level-pill" class="hud-level-pill"></div>
+      <div id="hearts-display" class="hearts-display"></div>
+    </div>
+
+    <p id="streak-banner" class="streak-banner hidden"></p>
+
+    <main id="game-screen" class="layout">
+      <section class="scene-panel">
+        <div class="scene-progress-bar"><div id="scene-progress-fill" class="scene-progress-fill"></div></div>
+        <p id="scene-progress-label" class="scene-progress-label"></p>
+
+        <div id="level-indicator" class="level-indicator">
+          <div class="level-bar"><div id="level-bar-mask" class="level-bar-mask"></div></div>
+          <p id="level-label" class="level-label"></p>
+        </div>
+
+        <div id="scene-card" class="scene-card">
+          <div class="scene-head">
+            <span id="avatar" class="avatar">👮</span>
+            <div>
+              <h2 id="scene-title">Heathrow Airport</h2>
+              <p id="scene-subtitle" class="scene-subtitle">希思罗机场 · 入境检查</p>
             </div>
           </div>
+
+          <div class="dialogue-bubble">
+            <p id="npc-en" class="npc-en"></p>
+            <p id="npc-listen-hint" class="npc-listen-hint">🎧 轻触重新播放 · 长按查看中文提示</p>
+            <p id="npc-zh" class="npc-zh"></p>
+          </div>
         </div>
-      </div>
-    </div>
-    <h1>🍁 A Decade Apart <span class="zh-inline">十年之约</span></h1>
-    <p class="tagline">A Decade Apart <span class="zh-inline">· 用英语能力推进剧情的养成 + 视觉小说游戏</span></p>
-  </header>
 
-  <p id="streak-banner" class="streak-banner hidden"></p>
+        <div id="choices" class="choices"></div>
 
-  <main id="game-screen" class="layout">
-    <section class="scene-panel">
-      <div id="scene-progress" class="scene-progress"></div>
-      <div id="level-indicator" class="level-indicator">
-        <div class="level-bar"><div id="level-bar-mask" class="level-bar-mask"></div></div>
-        <p id="level-label" class="level-label"></p>
-      </div>
-      <div class="scene-head">
-        <span id="avatar" class="avatar">👮</span>
-        <div>
-          <h2 id="scene-title">Heathrow Airport</h2>
-          <p id="scene-subtitle" class="scene-subtitle">希思罗机场 · 入境检查</p>
+        <p id="history-banner" class="history-banner hidden">🕰 回顾模式 · 这是你之前答对的内容</p>
+        <div class="history-nav">
+          <button id="history-prev-btn" class="ghost-btn history-nav-btn" type="button">◀ PREVIOUS</button>
+          <button id="history-next-btn" class="ghost-btn history-nav-btn" type="button" disabled>NEXT ▶</button>
         </div>
-      </div>
 
-      <div class="dialogue-bubble">
-        <p id="npc-en" class="npc-en"></p>
-        <p id="npc-zh" class="npc-zh"></p>
-      </div>
+        <p id="hint" class="hint"></p>
+      </section>
+    </main>
 
-      <div id="hearts-display" class="hearts-display"></div>
-      <div id="choices" class="choices"></div>
-      <button id="npc-audio-btn" class="play-btn" type="button">PLAY</button>
-
-      <p id="history-banner" class="history-banner hidden">🕰 回顾模式 · 这是你之前答对的内容</p>
-      <div class="history-nav">
-        <button id="history-prev-btn" class="ghost-btn history-nav-btn" type="button">◀ PREVIOUS</button>
-        <button id="history-next-btn" class="ghost-btn history-nav-btn" type="button" disabled>NEXT ▶</button>
-      </div>
-
-      <p id="hint" class="hint"></p>
+    <section id="end-screen" class="end-screen hidden">
+      <h2>📖 未完待续</h2>
+      <div id="end-summary"></div>
+      <button id="restart-btn" class="primary-btn">再玩一次</button>
     </section>
+  </section>
 
-    <aside class="sidebar">
-      <h3>Character Growth <span class="zh-inline">角色成长</span></h3>
+  <section id="view-growth" class="view">
+    <div class="g-scroll">
       <div id="skill-panel" class="skill-panel"></div>
       <div class="stat-row">
         <span>Total XP <span class="zh-inline">总经验值</span></span><strong id="xp-total">0</strong>
@@ -92,7 +87,7 @@
         <span>Vocabulary Learned <span class="zh-inline">已学词汇</span></span><strong id="vocab-count">0</strong>
       </div>
 
-      <div id="daily-goal-card" class="daily-goal-card">
+      <div id="daily-goal-card" class="daily-goal-card g-card">
         <div class="daily-goal-head">
           <span>🎯 Daily Goal <span class="zh-inline">今日目标</span></span>
           <span id="daily-goal-count" class="daily-goal-count">0/3</span>
@@ -100,7 +95,7 @@
         <div class="daily-goal-bar"><div id="daily-goal-fill" class="daily-goal-fill"></div></div>
       </div>
 
-      <div class="leaderboard-card">
+      <div class="leaderboard-card g-card">
         <h3>🏆 Leaderboard <span class="zh-inline">排行榜</span></h3>
         <ol id="leaderboard-list" class="leaderboard-list"></ol>
         <p id="leaderboard-empty" class="leaderboard-note hidden">登录后你的分数就会上榜</p>
@@ -108,14 +103,50 @@
           <span>Your Total XP <span class="zh-inline">你的总经验值</span></span><strong id="leaderboard-self-xp">0</strong>
         </div>
       </div>
-    </aside>
-  </main>
-
-  <section id="end-screen" class="end-screen hidden">
-    <h2>📖 未完待续</h2>
-    <div id="end-summary"></div>
-    <button id="restart-btn" class="primary-btn">再玩一次</button>
+    </div>
   </section>
+
+  <section id="view-more" class="view">
+    <div class="g-scroll">
+      <h3 class="more-section-title">账号</h3>
+      <div class="g-card">
+        <button id="user-badge" class="user-badge-row" type="button">
+          <span id="user-badge-avatar" class="user-badge-avatar"></span>
+          <span id="user-badge-label">请登录</span>
+        </button>
+        <div id="account-logged-out-item">
+          <p class="more-hint zh-inline">登录后进度可跨设备同步</p>
+          <button id="account-login-btn" class="primary-btn auth-full-btn" type="button">登录账号</button>
+        </div>
+        <div id="account-logged-in-item" class="hidden">
+          <p id="account-menu-email" class="account-menu-email"></p>
+          <button id="auth-sign-out-btn" class="primary-btn primary-btn-surface auth-full-btn" type="button">退出登录</button>
+        </div>
+      </div>
+
+      <h3 class="more-section-title">显示设置</h3>
+      <div class="g-card">
+        <button id="zh-toggle-btn" class="menu-item" type="button" aria-pressed="true">隐藏中文</button>
+        <button id="blind-listen-toggle-btn" class="menu-item" type="button" aria-pressed="false">🎧 盲听模式</button>
+      </div>
+
+      <h3 class="more-section-title">更多</h3>
+      <div class="g-card">
+        <button id="achievements-btn" class="menu-item" type="button">🏆 成就</button>
+        <button id="character-edit-btn" class="menu-item" type="button">✏️ 编辑角色</button>
+      </div>
+
+      <button id="reset-btn" class="danger-btn" type="button">重新开始游戏</button>
+    </div>
+  </section>
+
+  <nav class="tab-bar">
+    <button class="tab-btn active" data-view="game" type="button" aria-label="首页"><span class="tab-icon">📖</span></button>
+    <a class="tab-btn" href="dialogue.html" aria-label="全部对话"><span class="tab-icon">💬</span></a>
+    <a class="tab-btn" href="vocab.html" aria-label="生词收藏"><span class="tab-icon">📗</span></a>
+    <button class="tab-btn" data-view="growth" type="button" aria-label="角色成长"><span class="tab-icon">📊</span></button>
+    <button class="tab-btn" data-view="more" type="button" aria-label="更多"><span class="tab-icon">⋯</span></button>
+  </nav>
 
   <div id="transition-overlay" class="overlay">
     <div class="flashback-card">
@@ -130,15 +161,18 @@
   </div>
 
   <div id="flashback-overlay" class="overlay">
-    <div class="flashback-card">
-      <p id="flashback-label" class="flashback-label">🧳 回忆闪回 · 这个词是？</p>
-      <p id="flashback-zh" class="flashback-zh"></p>
-      <div id="flashback-choices" class="choices"></div>
+    <div class="flashback-card flashback-card-game">
+      <div id="flashback-progress" class="flashback-progress"></div>
+      <div id="flashback-icon" class="flashback-icon">🎴</div>
+      <p id="flashback-label" class="flashback-label flashback-label-game">🧳 回忆闪回 · 这个词是？</p>
+      <p id="flashback-zh" class="flashback-zh flashback-zh-game"></p>
+      <div id="flashback-choices" class="choices flashback-choices-game"></div>
       <div id="flashback-build" class="flashback-build hidden">
         <div id="flashback-answer" class="flashback-answer"></div>
         <div id="flashback-wordbank" class="flashback-wordbank"></div>
       </div>
-      <p id="flashback-feedback" class="flashback-feedback"></p>
+      <button id="flashback-know-btn" class="flashback-know-btn" type="button">✅ 我已经学会了，跳过</button>
+      <p id="flashback-feedback" class="flashback-feedback flashback-feedback-game"></p>
     </div>
   </div>
 
@@ -211,6 +245,7 @@
       </div>
     </div>
   </div>
+</div>
 
   <script src="content/chapter1.js"></script>
   <script src="content/chapter2.js"></script>
@@ -306,6 +341,7 @@
   <script src="content/chapter92.js"></script>
   <script src="content/chapter93.js"></script>
   <script src="content/chapter94.js"></script>
+  <script src="content/chapter95.js"></script>
   <script src="content/chapter-index.js"></script>
   <script src="content/audio-manifest.js"></script>
   <script src="content/word-audio-manifest.js"></script>

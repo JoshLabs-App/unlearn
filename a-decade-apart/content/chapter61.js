@@ -15,7 +15,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you think they're old enough for this?", zh: "你觉得他们年纪够大能学这个了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, this age is actually a great time to start.", zh: "是的，这个年纪其实正是开始学的好时机。", correct: true, xp: 10 },
           { text: "No, swimming should wait until high school.", correct: false }
@@ -37,7 +37,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's sign up for the parent-and-child class.", zh: "我们报名亲子班吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, that way we're in the water too.", zh: "好主意，这样我们也能一起在水里。", correct: true, xp: 10 },
           { text: "Let's skip that, we'd rather just watch.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What do we actually need to bring?", zh: "我们实际上需要带什么？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Swimsuits, towels, and a swim diaper.", zh: "泳衣、毛巾，还有一个游泳专用尿布。", correct: true, xp: 10 },
           { text: "Nothing at all, the pool provides everything.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This swim diaper fits tighter than the regular one.", zh: "这个游泳尿布比普通的更紧一些。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's the point, it needs to hold in water.", zh: "这正是它的作用，得能防水。", correct: true, xp: 10 },
           { text: "That's bad, let's just use a regular diaper.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's also grab some floaties, just in case.", zh: "我们也拿几个浮圈，以防万一吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, extra safety never hurts.", zh: "好主意，多一份安全保障总没坏处。", correct: true, xp: 10 },
           { text: "Let's not bother, floaties seem unnecessary.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please hold them close for the first few minutes.", zh: "前几分钟请把他们抱紧一些。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Of course, I won't let go at first.", zh: "当然，一开始我不会松手的。", correct: true, xp: 10 },
           { text: "Sorry, I'd rather let them float alone.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are they crying, or are those happy sounds?", zh: "他们是在哭吗，还是开心的声音？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Those are happy sounds, they seem excited.", zh: "是开心的声音，他们看起来很兴奋。", correct: true, xp: 10 },
           { text: "They're definitely crying, let's leave right now.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "They're kicking more confidently than I expected.", zh: "他们踢水的样子比我预想的要自信多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "They really are, they seem like a natural.", zh: "确实如此，他们看起来还挺有天赋的。", correct: true, xp: 10 },
           { text: "They really aren't, they seem terrified of water.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "They're floating longer than they did a minute ago.", zh: "他们漂浮的时间比一分钟前要长了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "They really are, this is such great progress.", zh: "确实如此，这真是很大的进步。", correct: true, xp: 10 },
           { text: "They really aren't, they're barely floating at all.", correct: false }
@@ -209,7 +209,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "You're doing great, keep that grip nice and steady.", zh: "你做得很好，继续保持稳稳的托举。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Thank you, I'll hold steady just like this.", zh: "谢谢，我就这样稳稳地托着。", correct: true, xp: 10 },
           { text: "Thank you, though my arms are getting tired.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Never leave your child alone near the water.", zh: "永远不要让孩子独自靠近水边。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "past-simple",
         choices: [
           { text: "Understood, we'll always stay within arm's reach.", zh: "明白了，我们会一直保持在能伸手够到的距离。", correct: true, xp: 10 },
           { text: "Understood, though we'll probably step away sometimes.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'll follow every rule, no exceptions.", zh: "我们会遵守每一条规则，绝无例外。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "statement",
         choices: [
           { text: "That's exactly the right attitude to have.", zh: "这正是应该有的正确态度。", correct: true, xp: 10 },
           { text: "That's too strict, rules are meant to be bent.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are they okay? That splash startled them.", zh: "他们没事吧？那次水花把他们吓到了。" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "They're okay, just a little surprised.", zh: "他们没事，只是有点被吓到了。", correct: true, xp: 10 },
           { text: "They're not okay, we should quit swimming forever.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This happens more often than you'd think at their age.", zh: "在他们这个年纪，这种情况比你想的要常见得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "That's reassuring, we won't overreact then.", zh: "这让人放心，那我们就不会反应过度了。", correct: true, xp: 10 },
           { text: "That's alarming, let's stop the lesson right now.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you ready to try again?", zh: "你准备好再试一次了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "We are, they seem calm now.", zh: "准备好了，他们现在看起来很平静。", correct: true, xp: 10 },
           { text: "We're not, let's just go home instead.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "They're smiling more than I expected after that scare.", zh: "经历了那次惊吓后，他们的笑容比我预想的要多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "They really are, kids bounce back so fast.", zh: "确实如此，孩子恢复得真快。", correct: true, xp: 10 },
           { text: "They really aren't, they still look terrified.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "They did better today than most kids do on their first try.", zh: "他们今天的表现比大多数孩子第一次尝试要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's wonderful to hear, we're really proud.", zh: "听到这个真好，我们真的很骄傲。", correct: true, xp: 10 },
           { text: "That's surprising, we thought they did terribly.", correct: false }
@@ -381,7 +381,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Thank you for being so patient with them today.", zh: "谢谢你今天对他们这么有耐心。" },
         skill: "community",
-        grammarTag: "courtesy",
+        grammarTag: "statement",
         choices: [
           { text: "Of course, it's honestly a joy watching them learn.", zh: "不客气，看着他们学习真的是一种乐趣。", correct: true, xp: 10 },
           { text: "Of course, though patience wasn't really needed.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "That went so much better than I imagined it would.", zh: "结果比我想象的要好得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, I'm honestly relieved.", zh: "确实如此，说实话我松了一口气。", correct: true, xp: 10 },
           { text: "It really didn't, today felt like a disaster.", correct: false }

@@ -73,7 +73,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "You'll know. It's less about timing and more about certainty.", zh: "你会知道的。这与其说是时机，不如说是确定感。", voice: "ho" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "relative-clause",
         choices: [
           { text: "Certainty over timing — that makes sense.", zh: "确定感比时机更重要——这说得通。", correct: true, xp: 10 },
           { text: "Timing over certainty — I disagree completely.", correct: false }
@@ -84,7 +84,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Whatever you choose, do it in a way that feels like you.", zh: "不管你选什么方式，都要让它像你自己的风格。", voice: "ho" },
         skill: "community",
-        grammarTag: "relative-clause",
+        grammarTag: "statement",
         choices: [
           { text: "A way that feels like me — I know exactly what that is.", zh: "像我自己的风格——我很清楚那是什么。", correct: true, xp: 10 },
           { text: "A way that feels like me sounds too hard to plan.", correct: false }
@@ -116,7 +116,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do you know her ring size, or should we guess?", zh: "您知道她的戒指尺寸吗，还是我们得猜？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "I do, actually — I checked secretly.", zh: "我知道，其实我偷偷查过了。", correct: true, xp: 10 },
           { text: "I don't, and I've never thought about it.", correct: false }
@@ -127,7 +127,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This one was made by a local designer. It suits a simple, honest style.", zh: "这一枚是本地设计师做的。适合简约、真诚的风格。" },
         skill: "community",
-        grammarTag: "passive",
+        grammarTag: "comparative",
         choices: [
           { text: "Made locally? That makes it even more perfect.", zh: "本地做的？那就更完美了。", correct: true, xp: 10 },
           { text: "Made locally? That doesn't matter to me.", correct: false }
@@ -201,7 +201,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Why are your hands shaking?", zh: "你的手怎么在抖？", voice: "emma" },
         skill: "work",
-        grammarTag: "wh-question",
+        grammarTag: "will-future",
         choices: [
           { text: "You'll understand in just a moment.", zh: "你马上就会明白的。", correct: true, xp: 10 },
           { text: "My hands never shake, honestly.", correct: false }
@@ -243,7 +243,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "What are you doing? Wait — is that a ring?", zh: "你在干嘛？等等——那是戒指吗？", voice: "emma" },
         skill: "work",
-        grammarTag: "wh-question",
+        grammarTag: "will-future",
         choices: [
           { text: "It is. Will you marry me?", zh: "是的。你愿意嫁给我吗？", correct: true, xp: 10 },
           { text: "It's nothing, don't worry about it.", correct: false }
@@ -274,7 +274,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "I can't stop looking at this ring.", zh: "我一直忍不住看这枚戒指。", voice: "emma" },
         skill: "work",
-        grammarTag: "phrasal-verb",
+        grammarTag: "statement",
         choices: [
           { text: "Look at it forever, it's yours now.", zh: "尽情看吧，它现在是你的了。", correct: true, xp: 10 },
           { text: "Stop looking at it, it's not real.", correct: false }
@@ -328,7 +328,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This calls for the biggest celebration this house has ever seen.", zh: "这值得办一场这栋房子有史以来最大的庆祝会。", voice: "ho" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "comparative",
         choices: [
           { text: "The biggest one it's ever seen, I agree.", zh: "有史以来最大的一场，我同意。", correct: true, xp: 10 },
           { text: "A small quiet one would be enough.", correct: false }
@@ -401,7 +401,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What if we got married exactly ten years after we reunited?", zh: "要是我们在重逢十周年的那天结婚呢？", voice: "emma" },
         skill: "work",
-        grammarTag: "wh-question",
+        grammarTag: "relative-clause",
         choices: [
           { text: "What a perfect date that would be.", zh: "那真是个完美的日子。", correct: true, xp: 10 },
           { text: "What a strange date to pick.", correct: false }
@@ -423,7 +423,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Ten years apart, and now a lifetime together.", zh: "分开十年，如今是相守一生。", voice: "emma" },
         skill: "work",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "A lifetime together, worth every year of waiting.", zh: "相守一生，这么多年的等待都值了。", correct: true, xp: 10 },
           { text: "A lifetime together, though the wait feels wasted.", correct: false }

@@ -15,7 +15,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "When was the last time you had a checkup?", zh: "你上次体检是什么时候？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Honestly, it's probably been three years.", zh: "说实话，大概已经三年了。", correct: true, xp: 10 },
           { text: "I just had one earlier this morning.", correct: false }
@@ -37,7 +37,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's ask around for recommendations first.", zh: "我们先问问身边人有没有推荐吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "will-future",
         choices: [
           { text: "Good idea, I'll ask my coworkers.", zh: "好主意，我去问问我的同事。", correct: true, xp: 10 },
           { text: "Let's just pick a random name from a list.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Is this your first time visiting our clinic?", zh: "这是您第一次来我们诊所吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, this is actually our very first visit.", zh: "是的，这其实是我们第一次来。", correct: true, xp: 10 },
           { text: "No, we've been coming here for decades.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please bring your health card and any medications you take.", zh: "请带上您的医保卡和您正在服用的药物。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Of course, we'll have everything ready.", zh: "当然，我们会准备好一切的。", correct: true, xp: 10 },
           { text: "Sorry, bringing anything sounds too complicated.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This waiting room feels calmer than most clinics.", zh: "这个候诊室感觉比大多数诊所都更安静。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, that's a good sign, honestly.", zh: "确实是，说实话这是个好兆头。", correct: true, xp: 10 },
           { text: "It doesn't, this place feels chaotic.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Your blood pressure is a bit higher than average.", zh: "您的血压比平均值稍微高一点。", voice: "doctor" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "do-question",
         choices: [
           { text: "Should I be worried about that number?", zh: "我应该为这个数字感到担心吗？", correct: true, xp: 10 },
           { text: "Numbers like that never worry me at all.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Does anything run in your family that I should know about?", zh: "您的家族有什么疾病史是我需要知道的吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, high blood pressure runs on my father's side.", zh: "有的，高血压在我父亲那边有家族史。", correct: true, xp: 10 },
           { text: "No, nothing has ever happened in our family.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How often do you exercise in a typical week?", zh: "您通常一周锻炼几次？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Maybe two or three times, honestly.", zh: "说实话，大概两三次吧。", correct: true, xp: 10 },
           { text: "Exercise isn't something I've ever tried.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you okay with needles, generally?", zh: "您一般对打针没问题吧？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "Yes, needles have never really bothered me.", zh: "没问题，打针从来没让我太在意。", correct: true, xp: 10 },
           { text: "No, needles have always terrified me completely.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This will just feel like a small pinch.", zh: "这只会有轻微的刺痛感。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "relative-clause",
         choices: [
           { text: "Okay, I'm ready whenever you are.", zh: "好的，你准备好就开始吧。", correct: true, xp: 10 },
           { text: "Okay, though I'd rather wait a few more minutes.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "I'm a little more nervous than I expected to be.", zh: "我比预想的要紧张一些。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "I feel that too, but I'm sure it's fine.", zh: "我也有同感，但我相信没事的。", correct: true, xp: 10 },
           { text: "I don't feel nervous at all, honestly.", correct: false }
@@ -295,7 +295,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Whatever the results say, we'll handle it together.", zh: "不管结果如何，我们都会一起面对。" },
         skill: "community",
-        grammarTag: "concession",
+        grammarTag: "relative-clause",
         choices: [
           { text: "Whatever they say, together, always.", zh: "不管结果如何，我们都在一起，永远如此。", correct: true, xp: 10 },
           { text: "Whatever they say, I'd rather face it alone.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Your results came back mostly normal.", zh: "您的检测结果大部分正常。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "statement",
         choices: [
           { text: "That's such good news to hear.", zh: "听到这个真是个好消息。", correct: true, xp: 10 },
           { text: "That's disappointing, we hoped for something exciting.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Your cholesterol is slightly higher than we'd like.", zh: "您的胆固醇比我们希望的稍高一些。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "wh-question",
         choices: [
           { text: "Okay, what should we do about that?", zh: "好的，我们应该怎么处理呢？", correct: true, xp: 10 },
           { text: "That's fine, cholesterol doesn't matter to us.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we start cooking with less oil?", zh: "我们要不要开始少放点油做饭？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's start with that this week.", zh: "好，我们这周就开始吧。", correct: true, xp: 10 },
           { text: "No, oil has never really mattered much.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This meal tastes lighter than what we usually make.", zh: "这顿饭吃起来比我们平常做的清淡一些。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It does, and it's actually really tasty too.", zh: "确实是，而且其实也很好吃。", correct: true, xp: 10 },
           { text: "It doesn't, this tastes exactly the same.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Your numbers have improved quite a bit since last time.", zh: "您的各项数值比上次改善了不少。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "past-simple",
         choices: [
           { text: "That's wonderful news, all that effort paid off.", zh: "这真是好消息，所有的努力都值得了。", correct: true, xp: 10 },
           { text: "That's disappointing, we expected way more change.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How does it feel seeing your hard work pay off like this?", zh: "看到自己的努力有了回报，你感觉怎么样？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "It feels really motivating, honestly.", zh: "说实话，感觉特别有动力。", correct: true, xp: 10 },
           { text: "It doesn't feel like anything to me.", correct: false }

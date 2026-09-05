@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This one is closer than the others on the list.", zh: "这个比清单上其他的要近。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Let's start with that one, it's convenient.", zh: "我们从这个开始吧，比较方便。", correct: true, xp: 10 },
           { text: "Distance doesn't matter, let's pick the farthest one.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This difficulty level looks easier than the others.", zh: "这个难度看起来比其他的要简单。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Perfect, let's start easy for our first try.", zh: "太好了，我们第一次先从简单的开始吧。", correct: true, xp: 10 },
           { text: "Let's skip the easy ones, we want a challenge.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's pack a small trinket to leave behind, too.", zh: "我们也带上一个小玩意儿留在那儿吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, that's part of the fun, apparently.", zh: "好主意，据说这也是乐趣的一部分。", correct: true, xp: 10 },
           { text: "Let's not bother, we'll just take without giving.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "The arrow says we're getting closer!", zh: "箭头显示我们越来越近了！" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "phrasal-verb",
         choices: [
           { text: "We're almost there, let's keep going!", zh: "我们快到了，继续走吧！", correct: true, xp: 10 },
           { text: "We're getting farther away, let's turn back.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This spot looks more promising than anywhere else.", zh: "这个地方比其他任何地方都更有希望。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It does, let's search this area carefully.", zh: "确实是，我们仔细搜索这片区域吧。", correct: true, xp: 10 },
           { text: "It doesn't, let's just wander off randomly.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "These caches are often hidden more cleverly than you'd expect.", zh: "这些藏宝点隐藏的方式通常比你想的要巧妙。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "That makes sense, let's check under things too.", zh: "有道理，我们也检查一下东西下面吧。", correct: true, xp: 10 },
           { text: "That's odd, hiding spots should always be obvious.", correct: false }
@@ -166,7 +166,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Wait, this rock feels lighter than a real rock should.", zh: "等等，这块石头感觉比真石头要轻。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's it, this must be a fake rock container.", zh: "就是这个，这肯定是个假石头容器。", correct: true, xp: 10 },
           { text: "That's normal, all rocks feel exactly the same.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should we sign the logbook before we leave?", zh: "我们走之前要不要在日志上签名？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's write today's date and our names.", zh: "好的，我们写上今天的日期和名字吧。", correct: true, xp: 10 },
           { text: "No, signing seems unnecessary for this.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "They're more excited about this than I expected.", zh: "他们对这个的兴奋程度比我预想的要高。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "They really are, treasure hunts are magical at this age.", zh: "确实如此，寻宝游戏在这个年纪真的很神奇。", correct: true, xp: 10 },
           { text: "They really aren't, they seem completely bored.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we leave a note about how we found each cache?", zh: "我们要不要留言说明是怎么找到每个藏宝点的？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "relative-clause",
         choices: [
           { text: "Yes, that might help the next person who searches.", zh: "好，这可能对下一位来寻找的人有帮助。", correct: true, xp: 10 },
           { text: "No, other players never actually read those notes.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We found two caches today, more than I expected for our first try.", zh: "我们今天找到了两个藏宝点，比我预想的第一次成果要多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's a great start, I'm really proud of us.", zh: "这是个很好的开始，我为我们感到骄傲。", correct: true, xp: 10 },
           { text: "That's disappointing, we expected to find at least ten.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "We've discovered more hidden spots than we ever knew existed.", zh: "我们发现的隐秘地点比我们曾经知道的要多得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "We really have, this city feels new again.", zh: "确实如此，这座城市感觉焕然一新了。", correct: true, xp: 10 },
           { text: "We really haven't, we've found absolutely nothing.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This hobby has honestly become better than I ever expected.", zh: "说实话，这个爱好变得比我曾经预想的要好得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "phrasal-verb",
         choices: [
           { text: "It really has, I look forward to it every week.", zh: "确实如此，我每周都很期待。", correct: true, xp: 10 },
           { text: "It hasn't, this feels boring most of the time.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Where should we hide our first cache?", zh: "我们的第一个藏宝点应该藏在哪儿？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Somewhere near the bench by the old oak tree.", zh: "就藏在老橡树旁边的长椅附近吧。", correct: true, xp: 10 },
           { text: "It doesn't matter, let's hide it in our house.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This container should be sturdier than a simple box.", zh: "这个容器应该比一个简单的盒子更结实。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "concession",
         choices: [
           { text: "You're right, let's use a waterproof one instead.", zh: "你说得对，我们改用一个防水的吧。", correct: true, xp: 10 },
           { text: "Durability doesn't matter, any old box will do.", correct: false }

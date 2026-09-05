@@ -76,7 +76,7 @@ GAME_CONTENT.scenes.push(
         avatar: "👴",
         npcLine: { en: "Can I bring my famous tea?", zh: "我能带上我那有名的茶吗？", voice: "ho" },
         skill: "community",
-        grammarTag: "can-modal",
+        grammarTag: "please-request",
         choices: [
           { text: "Yes, please! Everyone would love that.", zh: "太好了！大家一定会喜欢的。", correct: true, xp: 10 },
           { text: "No tea, please, thanks.", correct: false }
@@ -88,7 +88,7 @@ GAME_CONTENT.scenes.push(
         avatar: "🧓",
         npcLine: { en: "I've never been invited to something like this before.", zh: "我以前从没被邀请参加过这样的活动。", voice: "ho" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "passive",
         choices: [
           { text: "Well, you're invited now, Mr. Grant.", zh: "那现在你被邀请了，Grant先生。", correct: true, xp: 10 },
           { text: "It's not really a big deal.", correct: false }
@@ -130,7 +130,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "A place where new families could be welcomed, like we were.", zh: "一个能像当年我们一样，接纳新家庭的地方。", voice: "ho" },
         skill: "community",
-        grammarTag: "passive",
+        grammarTag: "statement",
         choices: [
           { text: "New families would be so lucky.", zh: "新家庭一定会很幸运的。", correct: true, xp: 10 },
           { text: "New families should find their own way.", correct: false }
@@ -173,7 +173,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This has been the best morning I've had in ages.", zh: "这是我很久以来最开心的一个早晨了。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "Mine too, honestly.", zh: "说实话，我也是。", correct: true, xp: 10 },
           { text: "It's been a pretty normal morning.", correct: false }
@@ -236,7 +236,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "A year ago, none of us knew each other.", zh: "一年前，我们谁都不认识谁。", voice: "ho" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "can-modal",
         choices: [
           { text: "And now we can't imagine life without each other.", zh: "而现在，我们已经无法想象没有彼此的生活了。", correct: true, xp: 10 },
           { text: "And it's still a little strange.", correct: false }
@@ -331,7 +331,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "A place has been needed here for a long time.", zh: "这里其实一直都需要这样一个地方。" },
         skill: "community",
-        grammarTag: "passive",
+        grammarTag: "statement",
         choices: [
           { text: "It's exactly what's been needed here.", zh: "这正是这里一直需要的东西。", correct: true, xp: 10 },
           { text: "I don't think it's been needed.", correct: false }

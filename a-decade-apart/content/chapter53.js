@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Does our baby even have a passport yet?", zh: "我们的宝宝有护照了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "No, we've never actually applied for one.", zh: "还没有，我们从没申请过。", correct: true, xp: 10 },
           { text: "Yes, babies are born with passports already.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This checklist is longer than I expected.", zh: "这份清单比我预想的要长。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, let's go through it item by item.", zh: "确实是，我们一项一项来吧。", correct: true, xp: 10 },
           { text: "It isn't, this checklist looks pretty short.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Getting the baby to hold still is harder than I imagined.", zh: "让宝宝保持不动比我想象的要难。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really is, this might take a few tries.", zh: "确实如此，这可能得试好几次。", correct: true, xp: 10 },
           { text: "It really isn't, they're sitting perfectly still.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Does this section ask for our home address?", zh: "这个部分是问我们的家庭住址吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, it wants the full mailing address.", zh: "是的，它需要完整的邮寄地址。", correct: true, xp: 10 },
           { text: "No, addresses aren't required on this form.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This form is more detailed than the old one.", zh: "这份表格比旧版更详细。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, let's just take it slow and careful.", zh: "确实是，我们就慢慢来，仔细填吧。", correct: true, xp: 10 },
           { text: "It isn't, let's just rush through it.", correct: false }
@@ -166,7 +166,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'll need a guarantor to sign the baby's application.", zh: "宝宝的申请需要一位保证人签字。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Right, let's ask a family friend to help.", zh: "对，我们请一位家庭朋友帮忙吧。", correct: true, xp: 10 },
           { text: "Right, though guarantors seem unnecessary here.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you have all three applications with you?", zh: "三份申请材料你们都带齐了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, everything is right here in this folder.", zh: "带齐了，都在这个文件夹里。", correct: true, xp: 10 },
           { text: "No, we forgot to bring anything at all.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This line is moving faster than I expected.", zh: "这条队伍移动得比我预想的要快。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, that's a relief, honestly.", zh: "确实是，说实话这让人松了口气。", correct: true, xp: 10 },
           { text: "It isn't, this line hasn't moved at all.", correct: false }
@@ -209,7 +209,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please have a seat, we'll call your number shortly.", zh: "请坐一下，我们很快会叫您的号码。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "courtesy",
         choices: [
           { text: "Thank you, we don't mind waiting at all.", zh: "谢谢，我们完全不介意等待。", correct: true, xp: 10 },
           { text: "Thank you, though waiting isn't something we do.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Everything looks in order, which is more than I expected.", zh: "一切都井井有条，比我预想的还要顺利。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "courtesy",
         choices: [
           { text: "That's such a relief, thank you for reviewing it.", zh: "这真让人松了口气，谢谢您的审核。", correct: true, xp: 10 },
           { text: "That's disappointing, we thought something was missing.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "I'm checking the tracking number again.", zh: "我又在查快递追踪号了。" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "present-perfect",
         choices: [
           { text: "You've checked that about ten times today.", zh: "你今天已经查了大概十次了。", correct: true, xp: 10 },
           { text: "You've never checked that once, I'm sure.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "The baby's photo turned out cuter than any of ours.", zh: "宝宝的照片比我们俩的都可爱。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, that photo is adorable.", zh: "确实如此，那张照片太可爱了。", correct: true, xp: 10 },
           { text: "It really didn't, that photo looks blurry.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Where should our baby's first trip abroad be?", zh: "宝宝的第一次出国旅行应该去哪儿？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Somewhere close, maybe just across the border.", zh: "近一点的地方，也许就跨个边境。", correct: true, xp: 10 },
           { text: "Nowhere, first trips are always a bad idea.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Traveling with a baby is more work than traveling alone.", zh: "带着宝宝旅行比一个人旅行要费劲得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "It is, but it'll be worth it, definitely.", zh: "确实是，但绝对值得。", correct: true, xp: 10 },
           { text: "It isn't, babies never make anything harder.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you remember the first time you used this passport?", zh: "你还记得第一次用这本护照是什么时候吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "I remember it perfectly, it was that first trip here.", zh: "我记得很清楚，是我第一次来这里的那趟旅行。", correct: true, xp: 10 },
           { text: "I don't remember using a passport ever.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "So much has changed since that very first stamp.", zh: "从那第一个印章开始，已经发生了这么多变化。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really has, everything led to this moment.", zh: "确实如此，一切都指向了这一刻。", correct: true, xp: 10 },
           { text: "It really hasn't, nothing feels different at all.", correct: false }

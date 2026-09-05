@@ -15,7 +15,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This bag is heavier than it should be for one week.", zh: "这个袋子对一周的垃圾来说太重了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "It is, we're throwing away too much food.", zh: "确实是，我们扔掉的食物太多了。", correct: true, xp: 10 },
           { text: "It isn't, this feels perfectly normal to me.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This countertop bin is smaller than the outdoor one.", zh: "这个台面堆肥箱比室外那个要小。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Let's get the small one for the kitchen first.", zh: "我们先买这个小的放厨房吧。", correct: true, xp: 10 },
           { text: "Size doesn't matter, let's just grab any bin.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Does this bin have a filter to control the smell?", zh: "这个箱子有过滤器来控制气味吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, it comes with a charcoal filter.", zh: "有的，它配了一个活性炭过滤器。", correct: true, xp: 10 },
           { text: "No, smell has never been a concern for us.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'll also need bags that are compostable themselves.", zh: "我们还需要一些本身可堆肥的垃圾袋。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Right, let's grab a box of those too.", zh: "对，我们也拿一盒吧。", correct: true, xp: 10 },
           { text: "Right, though regular bags should work fine.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Meat and dairy are trickier to compost than vegetables.", zh: "肉类和乳制品比蔬菜更难堆肥。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "That makes sense, let's avoid those for now.", zh: "有道理，那我们现在先避开这些吧。", correct: true, xp: 10 },
           { text: "That's odd, meat should compost the fastest.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's print out a simple list for the fridge.", zh: "我们打印一份简单的清单贴在冰箱上吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "will-future",
         choices: [
           { text: "Good idea, that'll help us remember the rules.", zh: "好主意，这样能帮我们记住规则。", correct: true, xp: 10 },
           { text: "Let's just guess every time instead.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Does this plastic actually get recycled here?", zh: "这种塑料在这儿真的会被回收吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "conditional",
         choices: [
           { text: "Yes, but only if we rinse it out first.", zh: "会的，但前提是我们要先冲洗干净。", correct: true, xp: 10 },
           { text: "No, all plastic just gets thrown away anyway.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This new bin system is more organized than before.", zh: "这套新的分类箱系统比之前更有条理了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "It is, I think we'll actually stick with it.", zh: "确实是，我觉得我们这次真的能坚持下去。", correct: true, xp: 10 },
           { text: "It isn't, the old system was much better.", correct: false }
@@ -166,7 +166,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's label each bin clearly so nothing gets mixed up.", zh: "我们把每个箱子都标清楚，这样就不会弄混了。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "will-future",
         choices: [
           { text: "Good call, I'll make the labels tonight.", zh: "好主意，我今晚就来做标签。", correct: true, xp: 10 },
           { text: "Let's not bother, we'll remember somehow.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Sorting everything is faster now than it was the first week.", zh: "现在分类比第一周要快多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-perfect",
         choices: [
           { text: "It is, we've finally gotten the hang of it.", zh: "确实是，我们终于摸到门道了。", correct: true, xp: 10 },
           { text: "It isn't, sorting still takes forever every time.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Something in here smells worse than usual.", zh: "这里面有什么东西闻起来比平常更难闻。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It does, let's check what we put in yesterday.", zh: "确实是，我们检查一下昨天放了什么进去吧。", correct: true, xp: 10 },
           { text: "It doesn't, everything smells completely normal.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's double-check the list before adding anything from now on.", zh: "从现在起，添加任何东西之前都先检查一下清单。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "comparative",
         choices: [
           { text: "Good idea, mistakes happen, we'll be more careful.", zh: "好主意，难免出错，我们以后会更小心。", correct: true, xp: 10 },
           { text: "Let's just give up on composting entirely.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This compost looks richer than anything we bought before.", zh: "这堆肥看起来比我们之前买的任何肥料都更肥沃。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really does, I can't believe we made this.", zh: "确实如此，真不敢相信这是我们自己做的。", correct: true, xp: 10 },
           { text: "It really doesn't, this looks like plain dirt.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we switch to reusable grocery bags?", zh: "我们要不要换成可重复使用的购物袋？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's keep a few in the car always.", zh: "好，我们车里一直放几个吧。", correct: true, xp: 10 },
           { text: "No, plastic bags are honestly just as good.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "These glass containers are more durable than plastic ones.", zh: "这些玻璃容器比塑料容器更耐用。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "They are, and they don't stain like plastic does.", zh: "确实如此，而且它们也不像塑料那样会染色。", correct: true, xp: 10 },
           { text: "They aren't, plastic containers last forever.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "They're getting better at this than I expected already.", zh: "他们做这件事的水平已经比我预想的要好了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "They really are, kids pick things up so fast.", zh: "确实是，小孩子学东西真的很快。", correct: true, xp: 10 },
           { text: "They really aren't, they still get confused every time.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "We've cut our trash down more than I ever expected.", zh: "我们减少的垃圾量比我曾经预想的要多得多。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "past-simple",
         choices: [
           { text: "We really have, and it started with one small change.", zh: "确实如此，而这一切都始于一个小小的改变。", correct: true, xp: 10 },
           { text: "We really haven't, nothing about our habits changed.", correct: false }

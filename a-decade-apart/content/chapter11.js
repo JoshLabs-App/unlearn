@@ -135,7 +135,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Everything we owned was packed into two suitcases.", zh: "我们所有的家当都装进了两只行李箱里。" },
         skill: "community",
-        grammarTag: "passive",
+        grammarTag: "statement",
         choices: [
           { text: "Two suitcases for a whole life.", zh: "两只箱子装下了整个人生。", correct: true, xp: 10 },
           { text: "That doesn't seem like much.", correct: false }
@@ -146,7 +146,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "But we were welcomed here, eventually.", zh: "但最终，我们在这里被接纳了。" },
         skill: "community",
-        grammarTag: "passive",
+        grammarTag: "past-simple",
         choices: [
           { text: "I'm glad you were welcomed here.", zh: "我很高兴你们最终在这里被接纳了。", correct: true, xp: 10 },
           { text: "That took a long time, I bet.", correct: false }
@@ -166,7 +166,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "The first place we lived was found by a kind stranger.", zh: "我们住的第一个地方，是一个好心的陌生人帮我们找到的。" },
         skill: "community",
-        grammarTag: "passive",
+        grammarTag: "past-simple",
         choices: [
           { text: "A kind stranger changed everything, then.", zh: "那么一个好心的陌生人改变了一切。", correct: true, xp: 10 },
           { text: "That stranger sounds suspicious.", correct: false }
@@ -177,7 +177,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Her name was Lily. She ran a tiny shop nearby.", zh: "她叫Lily。她在附近开了一家小店。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "statement",
         choices: [
           { text: "Lily again — she's everywhere in this story.", zh: "又是Lily——她在这个故事里无处不在。", correct: true, xp: 10 },
           { text: "That's just a common name.", correct: false }
@@ -208,7 +208,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "My grandmother's shop... it was called Ten Letters too.", zh: "我祖母的店……当年也叫「十封信」。", voice: "emma" },
         skill: "work",
-        grammarTag: "passive",
+        grammarTag: "past-simple",
         choices: [
           { text: "It was named after the letters she wrote, wasn't it?", zh: "是以她写的那些信命名的，对吧？", correct: true, xp: 10 },
           { text: "That's just a coincidence, probably.", correct: false }
@@ -292,7 +292,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This letter was written the night before Lily left Hong Kong.", zh: "这封信是Lily离开香港前一晚写的。", voice: "emma" },
         skill: "work",
-        grammarTag: "passive",
+        grammarTag: "past-simple",
         choices: [
           { text: "That night was probably very hard.", zh: "那一晚大概非常难熬。", correct: true, xp: 10 },
           { text: "That night was probably easy.", correct: false }
@@ -303,7 +303,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "She wrote, 'I hope this new place learns to love you as I have.'", zh: "她写道：'希望这个新地方能像我一样爱上你们。'", voice: "emma" },
         skill: "work",
-        grammarTag: "present-perfect",
+        grammarTag: "comparative",
         choices: [
           { text: "It clearly has, all these years later.", zh: "这么多年过去，它显然做到了。", correct: true, xp: 10 },
           { text: "It clearly hasn't, unfortunately.", correct: false }
@@ -376,7 +376,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "So, what happens now?", zh: "那，现在打算怎么办？", voice: "ho" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Now we keep writing the story.", zh: "现在我们继续把这个故事写下去。", correct: true, xp: 10 },
           { text: "Now we forget about it.", correct: false }
@@ -430,7 +430,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This whole mystery... it was never really about a house, was it?", zh: "这整个谜团……其实从来都不是关于一栋房子的，对吧？" },
         skill: "community",
-        grammarTag: "passive",
+        grammarTag: "past-simple",
         choices: [
           { text: "No, it was about the people who lived in it.", zh: "不，是关于住在里面的人。", correct: true, xp: 10 },
           { text: "No, it was about the money.", correct: false }
@@ -441,7 +441,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "A decade apart, and somehow it all came back together.", zh: "分开了十年，却又以某种方式重新聚在了一起。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "statement",
         choices: [
           { text: "A decade apart, and worth every bit of the wait.", zh: "分开了十年，但每一刻的等待都值得。", correct: true, xp: 10 },
           { text: "A decade apart, and mostly a waste of time.", correct: false }

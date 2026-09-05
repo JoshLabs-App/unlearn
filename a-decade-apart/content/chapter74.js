@@ -15,7 +15,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Have either of us ever skied before?", zh: "我们俩有人滑过雪吗？" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "will-future",
         choices: [
           { text: "Neither of us has, this will be our first time.", zh: "我们俩都没有，这将是我们第一次。", correct: true, xp: 10 },
           { text: "Both of us have skied since childhood.", correct: false }
@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do you think our toddler is old enough for the bunny hill?", zh: "你觉得我们家孩子的年纪够上初级雪道了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "I think so, plenty of kids start this young.", zh: "我觉得可以，很多孩子这个年纪就开始了。", correct: true, xp: 10 },
           { text: "No, skiing is only for teenagers and adults.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What size boots do you usually wear?", zh: "您平常穿多大码的靴子？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "I usually wear a size nine, I think.", zh: "我一般穿九码，我觉得。", correct: true, xp: 10 },
           { text: "I never wear boots, ever, at all.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please make sure the helmet fits snugly.", zh: "请确保头盔戴得贴合。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "past-simple",
         choices: [
           { text: "Got it, I'll adjust the strap now.", zh: "明白了，我现在就调整一下带子。", correct: true, xp: 10 },
           { text: "Sorry, helmets seem unnecessary for beginners.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This is harder than I ever imagined it would be.", zh: "这比我曾经想象的要难得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really is, standing alone feels impossible.", zh: "确实如此，光是站着都感觉不可能。", correct: true, xp: 10 },
           { text: "It really isn't, this feels completely natural.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you okay? That looked like a soft landing at least.", zh: "你还好吗？至少看起来摔得挺软的。" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "I'm okay, snow is surprisingly forgiving.", zh: "我没事，雪比想象中要软得多。", correct: true, xp: 10 },
           { text: "I'm not okay, call an ambulance right now.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Getting back up is trickier than falling down.", zh: "重新站起来比摔倒本身要棘手。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really is, I have no idea how to do this.", zh: "确实如此，我完全不知道该怎么做。", correct: true, xp: 10 },
           { text: "It isn't, standing back up is completely simple.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Your child is picking this up faster than most adults do.", zh: "您的孩子学得比大多数成年人还要快。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's amazing, kids really do learn quickly.", zh: "太厉害了，孩子学东西确实快。", correct: true, xp: 10 },
           { text: "That's odd, adults always learn faster than kids.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "They're braver on this hill than I expected them to be.", zh: "他们在这个雪坡上比我预想的要勇敢。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "They really are, I'm learning from them, honestly.", zh: "确实如此，说实话，我都在向他们学习。", correct: true, xp: 10 },
           { text: "They really aren't, they seem terrified up there.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "That felt more natural than I expected it to feel.", zh: "那种感觉比我预想的要自然。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, maybe we're getting the hang of this.", zh: "确实如此，也许我们开始上手了。", correct: true, xp: 10 },
           { text: "It really didn't, that felt completely wrong.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This chairlift is higher off the ground than I expected.", zh: "这个缆车离地面比我预想的要高。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It is, but the view up here is worth it.", zh: "确实是，但这上面的景色很值得。", correct: true, xp: 10 },
           { text: "It isn't, this chairlift feels perfectly low.", correct: false }
@@ -295,7 +295,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Getting off might be trickier than getting on.", zh: "下车可能比上车更棘手。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Let's stay calm and just slide off gently.", zh: "我们保持冷静，轻轻滑下去就好。", correct: true, xp: 10 },
           { text: "Let's just jump off as fast as possible.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "My legs are shaking more than they ever have before!", zh: "我的腿比以往任何时候都抖得厉害！" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "Mine too, but we're actually doing this!", zh: "我也是，但我们真的在做这件事！", correct: true, xp: 10 },
           { text: "Mine feel completely steady, honestly.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This run is definitely scarier than the bunny hill.", zh: "这条道肯定比初级道更吓人。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It is, but the thrill is honestly kind of fun.", zh: "确实是，但说实话这种刺激感挺有意思的。", correct: true, xp: 10 },
           { text: "It is, so let's just stop here and walk down.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This hot chocolate tastes better than any I've had before.", zh: "这杯热可可比我以前喝过的任何一杯都要好喝。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really does, maybe it's the cold weather.", zh: "确实如此，也许是因为天气冷的缘故。", correct: true, xp: 10 },
           { text: "It really doesn't, this tastes exactly the same.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "My whole body feels more sore than it has in years.", zh: "我全身比这些年来任何时候都要酸痛。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "Mine too, but it's the good kind of sore.", zh: "我也是，但这是一种舒服的酸痛。", correct: true, xp: 10 },
           { text: "Mine feels perfectly fine, actually.", correct: false }
@@ -381,7 +381,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This turned out to be more fun than I ever expected.", zh: "这次的乐趣比我曾经预想的要多得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, let's make this a yearly trip.", zh: "确实如此，我们把这变成每年一次的旅行吧。", correct: true, xp: 10 },
           { text: "It really didn't, this was a waste of a day.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "We've come further than I ever thought we would today.", zh: "今天我们进步的程度超出了我曾经的想象。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "We really have, and it's only our first day.", zh: "确实如此，而这才只是我们的第一天。", correct: true, xp: 10 },
           { text: "We really haven't, we barely improved at all.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Our child might end up skiing better than both of us.", zh: "我们家孩子可能最终会滑得比我们俩都好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "That's true, and I'd be honestly delighted about that.", zh: "确实如此，说实话我会很乐意看到这一点。", correct: true, xp: 10 },
           { text: "That's impossible, kids never surpass their parents.", correct: false }

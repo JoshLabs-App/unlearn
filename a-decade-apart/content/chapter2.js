@@ -212,7 +212,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's have dinner together, then.", zh: "那我们一起吃晚饭吧。" },
         skill: "housing",
-        grammarTag: "lets-suggestion",
+        grammarTag: "courtesy",
         choices: [
           { text: "Sounds great, thank you!", zh: "太好了，谢谢！", correct: true, xp: 10 },
           { text: "No, thanks.", correct: false }
@@ -414,7 +414,7 @@ GAME_CONTENT.scenes.push(
         avatar: "🤔",
         npcLine: { en: "Near the lake? Do you know that area?", zh: "湖边？你了解那一带吗？", voice: "emma" },
         skill: "direction",
-        grammarTag: "do-question",
+        grammarTag: "wh-question",
         choices: [
           { text: "Not really. Where exactly is it?", zh: "不太了解。具体在哪儿呢？", correct: true, xp: 10 },
           { text: "I know everything.", correct: false }

@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "These rows look longer than any orchard I've seen in photos.", zh: "这些行列比我在照片里见过的任何果园都要长。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "can-modal",
         choices: [
           { text: "They do, we could be here all afternoon.", zh: "确实是，我们可能要在这待一整个下午了。", correct: true, xp: 10 },
           { text: "Length doesn't matter, let's just pick five apples.", correct: false }
@@ -37,7 +37,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's grab some baskets before we start picking.", zh: "开始摘之前我们先拿几个果篮吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "will-future",
         choices: [
           { text: "Good idea, we'll need somewhere to put them.", zh: "好主意，我们总得有地方放苹果。", correct: true, xp: 10 },
           { text: "Let's just carry them all in our arms.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This apple feels heavier than it looks.", zh: "这颗苹果摸起来比看上去要重。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, it must be really ripe.", zh: "确实是，它一定很熟了。", correct: true, xp: 10 },
           { text: "Weight doesn't matter, let's just toss it in.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Look how quickly this basket is filling up!", zh: "看这个果篮装得多快！" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "statement",
         choices: [
           { text: "I see it, we're a pretty good team.", zh: "我看到了，我们配合得挺不错的。", correct: true, xp: 10 },
           { text: "I don't see any apples in that basket.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Which variety do you think tastes the sweetest?", zh: "你觉得哪个品种尝起来最甜？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Probably this one, it smells amazing already.", zh: "大概是这种吧，闻起来就已经很香了。", correct: true, xp: 10 },
           { text: "None of them have any taste at all.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This variety is crunchier than the ones we usually buy.", zh: "这个品种比我们平时买的要更脆。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "can-modal",
         choices: [
           { text: "It is, I could get used to this kind.", zh: "确实是，我可能会喜欢上这个品种。", correct: true, xp: 10 },
           { text: "Crunch doesn't matter, let's just grab any apple.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How many pounds do you think we picked today?", zh: "你觉得我们今天摘了多少磅？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "Maybe thirty pounds, we filled two full baskets.", zh: "大概三十磅吧，我们装满了两整篮。", correct: true, xp: 10 },
           { text: "We didn't pick any apples at all today.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This basket weighs more than I expected it to.", zh: "这个果篮比我预想的要重。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "passive",
         choices: [
           { text: "It does, we really got carried away picking.", zh: "确实是，我们摘得太投入了。", correct: true, xp: 10 },
           { text: "Weight doesn't matter, let's dump some apples out.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This crank is harder to turn than I expected.", zh: "这个摇柄比我预想的要更难转动。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, let's take turns cranking it.", zh: "确实是，我们轮流来转吧。", correct: true, xp: 10 },
           { text: "Difficulty doesn't matter, let's just give up.", correct: false }
@@ -209,7 +209,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This is producing more juice than I thought apples could hold.", zh: "这榨出的汁比我以为苹果能装的要多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, apples are mostly water it seems.", zh: "确实是，看来苹果大部分是水分。", correct: true, xp: 10 },
           { text: "Amount doesn't matter, let's stop cranking now.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This tastes fresher than any juice from a bottle.", zh: "这尝起来比瓶装果汁要新鲜得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really does, nothing compares to this.", zh: "确实如此，没什么能比得上这个。", correct: true, xp: 10 },
           { text: "It really doesn't, bottled juice tastes better.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Their whole face is lighting up from that first sip!", zh: "他们喝了第一口整张脸都亮了起来！" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "can-modal",
         choices: [
           { text: "I can see that, they clearly love it.", zh: "我看得出来，他们显然很喜欢。", correct: true, xp: 10 },
           { text: "I don't see any change on their face.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This ride is bumpier than I expected it to be.", zh: "这趟车程比我预想的要更颠簸。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "phrasal-verb",
         choices: [
           { text: "It is, hold on tight to the rail.", zh: "确实是，扶紧栏杆吧。", correct: true, xp: 10 },
           { text: "Bumpiness doesn't matter, let's stand up now.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Are you having fun back there on the hay?", zh: "你们在后面坐干草上玩得开心吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "present-perfect",
         choices: [
           { text: "They are, they haven't stopped smiling.", zh: "很开心，他们一直笑个不停。", correct: true, xp: 10 },
           { text: "They aren't, they want to get off right now.", correct: false }
@@ -295,7 +295,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This view of the orchard is prettier from up here.", zh: "从这里看果园的风景更美。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, the whole valley looks golden.", zh: "确实是，整个山谷看起来一片金黄。", correct: true, xp: 10 },
           { text: "Beauty doesn't matter, let's just look at our phones.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Which pumpkin do you want to bring home with us?", zh: "你想带哪个南瓜回家？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "They're pointing at the biggest one, of course.", zh: "他们当然是指着最大的那个啦。", correct: true, xp: 10 },
           { text: "They don't want any pumpkin at all.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This one is rounder than the others in the patch.", zh: "这个比南瓜地里其他的要更圆。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "It is, it'll look great on our porch.", zh: "确实是，放在我们门廊上会很好看。", correct: true, xp: 10 },
           { text: "Shape doesn't matter, let's just grab any one.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This trunk is fuller than it's ever been before.", zh: "这个后备箱比以前任何时候都要装得满。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It is, we really went all in today.", zh: "确实是，我们今天真是尽兴了。", correct: true, xp: 10 },
           { text: "Fullness doesn't matter, let's buy even more apples.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "What should we make first with all these apples?", zh: "用这么多苹果我们该先做什么？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Let's start with a big apple pie tonight.", zh: "我们今晚先做一个大苹果派吧。", correct: true, xp: 10 },
           { text: "We shouldn't make anything with these apples.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This kitchen smells better than it has in weeks.", zh: "这厨房闻起来比过去几周都要香。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "can-modal",
         choices: [
           { text: "It does, I could smell this forever.", zh: "确实是，我可以永远闻着这个味道。", correct: true, xp: 10 },
           { text: "Smell doesn't matter, let's open the windows.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This pie came out better than any we've ever made.", zh: "这个派做出来比我们做过的任何一个都要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, fresh apples made all the difference.", zh: "确实如此，新鲜的苹果带来了全然不同的效果。", correct: true, xp: 10 },
           { text: "It really didn't, this pie tastes pretty bland.", correct: false }

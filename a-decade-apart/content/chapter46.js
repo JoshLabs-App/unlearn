@@ -62,7 +62,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This plot gets more sunlight than I expected.", zh: "这块地的日照比我预想的要多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, this should be perfect for tomatoes.", zh: "确实是，这应该很适合种西红柿。", correct: true, xp: 10 },
           { text: "It doesn't, this plot looks completely shaded.", correct: false }
@@ -73,7 +73,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "What should we plant first?", zh: "我们应该先种什么？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Something easy, like lettuce or radishes.", zh: "种点简单的，比如生菜或者萝卜。", correct: true, xp: 10 },
           { text: "Nothing at all, planting sounds too difficult.", correct: false }
@@ -116,7 +116,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This soil looks richer than what we had last year.", zh: "这块土看起来比我们去年那块要肥沃。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, that should help everything grow.", zh: "确实是，这应该对作物生长有帮助。", correct: true, xp: 10 },
           { text: "It doesn't, this soil looks completely dead.", correct: false }
@@ -148,7 +148,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How deep should we plant these seeds?", zh: "这些种子应该种多深？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "About an inch deep, according to the packet.", zh: "按照种子包上写的，大概一英寸深。", correct: true, xp: 10 },
           { text: "Depth doesn't matter for seeds at all.", correct: false }
@@ -202,7 +202,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "These sprouts look healthier than I expected.", zh: "这些嫩芽看起来比我预想的更健康。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "They really do, we must be doing something right.", zh: "确实是，我们一定是做对了什么。", correct: true, xp: 10 },
           { text: "They really don't, they look completely wilted.", correct: false }
@@ -288,7 +288,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Your tomatoes look far more impressive than ours.", zh: "你的西红柿看起来比我们的漂亮多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "courtesy",
         choices: [
           { text: "Thank you, I'd be happy to share some tips.", zh: "谢谢，我很乐意分享一些经验。", correct: true, xp: 10 },
           { text: "Thank you, though yours look terrible, honestly.", correct: false }
@@ -320,7 +320,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we go cover the plants before the storm hits?", zh: "暴雨来之前我们要不要去给植物盖上防护？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's hurry before it starts raining.", zh: "好，我们趁还没下雨赶紧去吧。", correct: true, xp: 10 },
           { text: "No, the plants can handle anything.", correct: false }
@@ -331,7 +331,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This wind is stronger than the forecast predicted.", zh: "这风比天气预报预测的要强。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, let's finish up and get inside.", zh: "确实是，我们赶紧弄完然后进去吧。", correct: true, xp: 10 },
           { text: "It isn't, this wind feels perfectly calm.", correct: false }
@@ -374,7 +374,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "These tomatoes taste even better than store-bought ones.", zh: "这些西红柿吃起来比超市买的还要好吃。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "They really do, homegrown just tastes different.", zh: "确实如此，自己种的味道就是不一样。", correct: true, xp: 10 },
           { text: "They really don't, store-bought is always better.", correct: false }
@@ -406,7 +406,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "We grew way more than we could ever eat.", zh: "我们种的比我们能吃完的多太多了。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "statement",
         choices: [
           { text: "That's a good problem to have, honestly.", zh: "说实话，这是个幸福的烦恼。", correct: true, xp: 10 },
           { text: "That's a shame, we should have planted less.", correct: false }
@@ -417,7 +417,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We brought you some fresh vegetables from our garden.", zh: "我们从自家花园带了些新鲜蔬菜给你们。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "courtesy",
         choices: [
           { text: "That's so thoughtful, thank you so much.", zh: "你们真是太贴心了，非常感谢。", correct: true, xp: 10 },
           { text: "That's unnecessary, we don't eat vegetables.", correct: false }
@@ -428,7 +428,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Growing food to share feels more meaningful than I expected.", zh: "种菜分享给别人，比我预想的更有意义。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really does, I love this whole experience.", zh: "确实如此，我很享受整个过程。", correct: true, xp: 10 },
           { text: "It really doesn't, sharing feels pointless to me.", correct: false }
@@ -449,7 +449,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What should we grow differently next year?", zh: "明年我们应该有什么不同的种植方式？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Maybe fewer tomatoes and more herbs.", zh: "也许少种点西红柿，多种点香草。", correct: true, xp: 10 },
           { text: "Nothing, next year we should stop gardening.", correct: false }
@@ -460,7 +460,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We've learned so much more than we expected this year.", zh: "今年我们学到的比预想的多多了。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "past-simple",
         choices: [
           { text: "We really have, and I loved every part of it.", zh: "确实如此，我很享受这一切。", correct: true, xp: 10 },
           { text: "We really haven't, we learned nothing at all.", correct: false }

@@ -15,7 +15,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Did you know this market was here every Saturday?", zh: "你知道这个市集每周六都在这儿吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "I had no idea, this is a happy surprise.", zh: "我完全不知道，这真是个惊喜。", correct: true, xp: 10 },
           { text: "Yes, I've known about it for years already.", correct: false }
@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This produce looks fresher than what we get at the store.", zh: "这些农产品看起来比我们平常在超市买的要新鲜。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It does, let's start shopping here on weekends.", zh: "确实是，我们周末就来这儿买菜吧。", correct: true, xp: 10 },
           { text: "It doesn't, the store produce always looks better.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "These are sweeter than any strawberries I've ever had.", zh: "这些草莓比我吃过的任何草莓都要甜。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "They really are, we'll take two baskets.", zh: "确实是，我们要两篮。", correct: true, xp: 10 },
           { text: "They're not sweet at all, honestly.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Did you remember to bring the reusable bags?", zh: "你记得带环保袋了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, they're right here in my backpack.", zh: "带了，就在我的背包里。", correct: true, xp: 10 },
           { text: "No, we've never once used reusable bags.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Have either of you ever cooked with kohlrabi before?", zh: "你们俩有人用大头菜做过菜吗？" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "connector",
         choices: [
           { text: "Neither of us has, but we're curious to try.", zh: "我们俩都没有，但很想尝试一下。", correct: true, xp: 10 },
           { text: "Both of us have cooked it for years.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This vegetable is milder than you might expect.", zh: "这种蔬菜的味道比你想的要清淡。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "Good to know, we'll grab a couple then.", zh: "很高兴知道这个，那我们就买几个吧。", correct: true, xp: 10 },
           { text: "Taste doesn't matter, let's skip it entirely.", correct: false }
@@ -209,7 +209,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Can I try a taste before deciding?", zh: "我能先尝一下再决定吗？" },
         skill: "community",
-        grammarTag: "can-modal",
+        grammarTag: "statement",
         choices: [
           { text: "Of course, here's a little spoon for you.", zh: "当然可以，这是给您的小勺子。", correct: true, xp: 10 },
           { text: "No, tasting isn't allowed at this stall.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Which flower do you want to bring home?", zh: "你想带哪朵花回家？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "They're pointing at the biggest sunflower.", zh: "他们正指着那朵最大的向日葵。", correct: true, xp: 10 },
           { text: "They don't want any flowers at all.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This sunflower is taller than they are!", zh: "这朵向日葵比他们还要高！" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really is, that's such a funny sight.", zh: "确实是，这画面真有趣。", correct: true, xp: 10 },
           { text: "It really isn't, this flower is quite short.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This bread was baked earlier than most, just this morning.", zh: "这面包比大多数烤得更早，今天早上刚出炉的。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "concession",
         choices: [
           { text: "That's exciting, let's grab a loaf while it's fresh.", zh: "太好了，我们趁新鲜买一条吧。", correct: true, xp: 10 },
           { text: "That doesn't matter, freshness never really matters.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do you have anything without gluten?", zh: "您有无麸质的面包吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, we have a gluten-free option over here.", zh: "有的，这边有一款无麸质的可以选。", correct: true, xp: 10 },
           { text: "No, everything here contains gluten, sorry.", correct: false }
@@ -295,7 +295,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This will be gone by lunchtime, it always sells out fast.", zh: "这个到午饭时间就会卖完了，一直卖得很快。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Let's grab two loaves then, just to be safe.", zh: "那我们买两条吧，保险起见。", correct: true, xp: 10 },
           { text: "That's fine, we'll come back tomorrow instead.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Back again this week, I see!", zh: "这周又来啦，我看到了！" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "statement",
         choices: [
           { text: "We're becoming regulars, honestly.", zh: "说实话，我们已经算是常客了。", correct: true, xp: 10 },
           { text: "We're never coming back after this.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This little one has grown taller since we last saw them.", zh: "这个小家伙比我们上次见到时长高了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "They really have, it happens so fast.", zh: "确实是，长得真快。", correct: true, xp: 10 },
           { text: "They really haven't, they look exactly the same.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Everything in this meal came from the market today.", zh: "今天这顿饭的所有食材都来自市集。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "statement",
         choices: [
           { text: "That's amazing, this feels extra special somehow.", zh: "太棒了，不知怎么这感觉格外特别。", correct: true, xp: 10 },
           { text: "That's odd, none of this tastes any different.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This meal tastes fresher than anything from a grocery store.", zh: "这顿饭吃起来比任何超市买的都要新鲜。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "can-modal",
         choices: [
           { text: "It really does, you can taste the difference.", zh: "确实如此，能尝出来这种差别。", correct: true, xp: 10 },
           { text: "It doesn't, everything tastes exactly the same.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Saturdays have become more meaningful than I expected.", zh: "周六变得比我预想的更有意义。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "phrasal-verb",
         choices: [
           { text: "They really have, and I look forward to them now.", zh: "确实如此，我现在很期待周六。", correct: true, xp: 10 },
           { text: "They haven't, Saturdays feel exactly the same.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We've built such a nice little routine as a family.", zh: "我们全家建立了一个非常好的小小惯例。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "connector",
         choices: [
           { text: "We really have, and I hope it lasts for years.", zh: "确实如此，我希望这能持续很多年。", correct: true, xp: 10 },
           { text: "We really haven't, our weekends still feel messy.", correct: false }

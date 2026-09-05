@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This place feels spookier than I expected already.", zh: "这地方比我预想的还要更阴森一些。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, I love the atmosphere already.", zh: "确实是，我已经很喜欢这种氛围了。", correct: true, xp: 10 },
           { text: "It doesn't, this feels perfectly ordinary.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This clue is trickier than I expected right off the bat.", zh: "这条线索一开始就比我预想的更棘手。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, let's look at it from another angle.", zh: "确实是，我们换个角度看看吧。", correct: true, xp: 10 },
           { text: "It isn't, this seems way too obvious.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What number should we try on this lock?", zh: "我们应该在这把锁上试哪个数字？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Let's try the numbers we found earlier.", zh: "我们试试刚才找到的那些数字吧。", correct: true, xp: 10 },
           { text: "Numbers don't matter, let's just guess randomly.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "That combination is wrong, but we're closer than before.", zh: "这个组合是错的，但我们比之前更接近了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Let's rearrange the numbers and try again.", zh: "我们把数字重新排列一下再试试吧。", correct: true, xp: 10 },
           { text: "Let's just give up on this drawer entirely.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "We're working better together than I expected.", zh: "我们合作得比我预想的要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "We really are, everyone's contributing something.", zh: "确实如此，每个人都在贡献力量。", correct: true, xp: 10 },
           { text: "We really aren't, everyone's working alone here.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This is more stressful with the timer counting down.", zh: "看着计时器倒数，感觉压力更大了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It is, but the pressure is honestly kind of fun.", zh: "确实是，但说实话这种压力挺有意思的。", correct: true, xp: 10 },
           { text: "It isn't, the timer doesn't bother me at all.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Which clue confused you the most tonight?", zh: "今晚哪条线索让你最困惑？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "Honestly, that locked drawer nearly broke me.", zh: "说实话，那个上锁的抽屉差点把我逼疯了。", correct: true, xp: 10 },
           { text: "Nothing confused me at all tonight, honestly.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We worked together better tonight than any group I've been in.", zh: "今晚我们的配合比我参加过的任何一组都要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That means a lot, we make a great team.", zh: "这话意义重大，我们真是个很棒的团队。", correct: true, xp: 10 },
           { text: "That's odd, tonight felt pretty disorganized to me.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Tonight was more fun than I've had in a long time.", zh: "今晚是我很长时间以来玩得最开心的一次。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really was, nights like this remind me why we do this.", zh: "确实如此，像这样的夜晚让我想起我们为什么要这样做。", correct: true, xp: 10 },
           { text: "It really wasn't, tonight felt pretty ordinary.", correct: false }

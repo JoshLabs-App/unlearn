@@ -19,7 +19,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "I've been thinking about selling my baking online.", zh: "我一直在考虑把我做的烘焙拿去网上卖。" },
         skill: "workplace",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "I think that's a wonderful idea, honestly.", zh: "说实话，我觉得这是个很棒的主意。", correct: true, xp: 10 },
           { text: "I think that's a complete waste of time.", correct: false }
@@ -30,7 +30,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do you really think people would pay for this?", zh: "你真觉得会有人愿意花钱买吗？" },
         skill: "workplace",
-        grammarTag: "do-question",
+        grammarTag: "relative-clause",
         choices: [
           { text: "Yes, everyone who's tried it loves it.", zh: "会的，每个尝过的人都喜欢。", correct: true, xp: 10 },
           { text: "No, nobody would ever pay for baked goods.", correct: false }
@@ -62,7 +62,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What should we call the business?", zh: "我们应该给这门生意起什么名字？" },
         skill: "workplace",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Something warm, like Grandma's Kitchen.", zh: "起个温暖点的名字，比如“奶奶的厨房”。", correct: true, xp: 10 },
           { text: "It doesn't need a name at all.", correct: false }
@@ -73,7 +73,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This name feels more personal than the other options.", zh: "这个名字比其他几个选项更有个人色彩。" },
         skill: "workplace",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It does, and it honors her memory too.", zh: "确实是，而且也是对她的一种纪念。", correct: true, xp: 10 },
           { text: "It doesn't, all the names sound the same.", correct: false }
@@ -84,7 +84,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'll need to figure out pricing next.", zh: "接下来我们需要研究定价问题。" },
         skill: "workplace",
-        grammarTag: "will-future",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Right, let's compare prices at local bakeries.", zh: "对，我们来比较一下本地烘焙店的价格吧。", correct: true, xp: 10 },
           { text: "Right, though pricing shouldn't matter at all.", correct: false }
@@ -105,7 +105,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you have a business name already picked out?", zh: "你已经选好营业名称了吗？" },
         skill: "workplace",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, it's called Grandma's Kitchen.", zh: "选好了，叫“奶奶的厨房”。", correct: true, xp: 10 },
           { text: "No, names have never mattered to us.", correct: false }
@@ -116,7 +116,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "You'll also need a food handling permit.", zh: "你们还需要一份食品处理许可证。" },
         skill: "workplace",
-        grammarTag: "will-future",
+        grammarTag: "past-simple",
         choices: [
           { text: "Got it, where do we apply for that?", zh: "明白了，我们在哪儿申请呢？", correct: true, xp: 10 },
           { text: "Got it, though permits sound unnecessary to us.", correct: false }
@@ -148,7 +148,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How much do the ingredients cost for one batch?", zh: "一批的食材成本是多少？" },
         skill: "workplace",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "About fifteen dollars for a dozen cupcakes.", zh: "大概十五块钱能做一打杯子蛋糕。", correct: true, xp: 10 },
           { text: "Ingredients cost nothing, they're always free.", correct: false }
@@ -170,7 +170,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This price feels more reasonable than what we first considered.", zh: "这个价格比我们最初想的更合理一些。" },
         skill: "workplace",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It does, let's go with this number.", zh: "确实是，我们就用这个数字吧。", correct: true, xp: 10 },
           { text: "It doesn't, let's double the price instead.", correct: false }
@@ -202,7 +202,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This photo looks better than the others.", zh: "这张照片比其他几张更好看。" },
         skill: "workplace",
-        grammarTag: "comparative",
+        grammarTag: "passive",
         choices: [
           { text: "It does, let's put it on the homepage.", zh: "确实是，我们把它放到主页上吧。", correct: true, xp: 10 },
           { text: "It doesn't, let's use a blurry one instead.", correct: false }
@@ -234,7 +234,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "We just got our very first order!", zh: "我们刚收到了第一笔订单！" },
         skill: "workplace",
-        grammarTag: "past-simple",
+        grammarTag: "present-continuous",
         choices: [
           { text: "I can't believe this is actually happening.", zh: "我不敢相信这真的发生了。", correct: true, xp: 10 },
           { text: "I already knew this would happen eventually.", correct: false }
@@ -245,7 +245,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "What did they order, and when do they need it?", zh: "他们订了什么，什么时候需要？" },
         skill: "workplace",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Two dozen cookies, ready by Friday.", zh: "两打饼干，周五之前要好。", correct: true, xp: 10 },
           { text: "Nothing was ordered, this must be a mistake.", correct: false }
@@ -277,7 +277,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you doing okay staying up this late?", zh: "熬到这么晚你还好吗？" },
         skill: "workplace",
-        grammarTag: "do-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "Yes, the excitement is keeping me awake.", zh: "我还好，兴奋感让我一直清醒着。", correct: true, xp: 10 },
           { text: "No, I fell asleep an hour ago.", correct: false }
@@ -288,7 +288,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This batch smells even better than the test batch.", zh: "这一批闻起来比试做的那批还要香。" },
         skill: "workplace",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really does, I think we nailed it.", zh: "确实如此，我觉得我们做成了。", correct: true, xp: 10 },
           { text: "It really doesn't, something's clearly gone wrong.", correct: false }
@@ -320,7 +320,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "These look even better than the photos online.", zh: "这些实物比网上的照片看起来还要好。" },
         skill: "workplace",
-        grammarTag: "comparative",
+        grammarTag: "courtesy",
         choices: [
           { text: "Thank you so much, we hope you love them.", zh: "太感谢了，希望您会喜欢。", correct: true, xp: 10 },
           { text: "Thank you, though the photos were much nicer.", correct: false }
@@ -331,7 +331,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How long have you two been baking together?", zh: "你们俩一起烘焙多久了？" },
         skill: "workplace",
-        grammarTag: "present-perfect",
+        grammarTag: "past-simple",
         choices: [
           { text: "We've actually just started this business.", zh: "我们其实刚开始做这门生意不久。", correct: true, xp: 10 },
           { text: "We've never once baked anything together.", correct: false }
@@ -342,7 +342,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "I'll definitely be ordering from you again.", zh: "我一定还会再向你们下单的。", },
         skill: "workplace",
-        grammarTag: "will-future",
+        grammarTag: "courtesy",
         choices: [
           { text: "That means so much, thank you for the support.", zh: "这对我们意义重大，谢谢您的支持。", correct: true, xp: 10 },
           { text: "That's fine, though we'd rather not have repeat customers.", correct: false }
@@ -363,7 +363,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you feeling overwhelmed with everything lately?", zh: "最近这些事让你觉得应接不暇吗？" },
         skill: "workplace",
-        grammarTag: "do-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "A little, but I'm managing okay.", zh: "有一点，但我还应付得来。", correct: true, xp: 10 },
           { text: "Not at all, everything feels effortless.", correct: false }
@@ -406,7 +406,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "We've already filled over thirty orders this month.", zh: "我们这个月已经完成了三十多份订单。" },
         skill: "workplace",
-        grammarTag: "present-perfect",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "That's incredible, we should be proud.", zh: "太厉害了，我们应该为此感到骄傲。", correct: true, xp: 10 },
           { text: "That's disappointing, we expected way more.", correct: false }
@@ -417,7 +417,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How does it feel building something of our own?", zh: "打造属于我们自己的东西，感觉怎么样？" },
         skill: "workplace",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "It feels incredibly fulfilling, honestly.", zh: "说实话，感觉特别有成就感。", correct: true, xp: 10 },
           { text: "It doesn't feel like anything special.", correct: false }

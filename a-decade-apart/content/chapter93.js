@@ -27,7 +27,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This dome looks bigger than any ceiling we've stood under.", zh: "这个穹顶比我们站过的任何天花板都要大。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "It does, I wonder what it'll show us.", zh: "确实是，我很好奇它会给我们展示什么。", correct: true, xp: 10 },
           { text: "Size doesn't matter, let's just look at the floor.", correct: false }
@@ -38,7 +38,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's find seats near the middle of the theater.", zh: "我们找靠近影厅中间的座位吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, the view should be best from there.", zh: "好主意，那里的视野应该最好。", correct: true, xp: 10 },
           { text: "Let's sit right against the back wall instead.", correct: false }
@@ -59,7 +59,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This looks more real than any picture I've seen of space.", zh: "这看起来比我见过的任何太空照片都更真实。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, I feel like I'm actually up there.", zh: "确实是，我感觉自己好像真的身在其中。", correct: true, xp: 10 },
           { text: "Realism doesn't matter, let's just close our eyes.", correct: false }
@@ -81,7 +81,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This whole room is turning into outer space right now.", zh: "整个房间现在正在变成外太空。" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "present-perfect",
         choices: [
           { text: "It is, I've never seen anything like it.", zh: "确实是，我从没见过这样的场景。", correct: true, xp: 10 },
           { text: "It isn't, this still looks like a normal room.", correct: false }
@@ -102,7 +102,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Which planet do you think looks the most beautiful?", zh: "你觉得哪颗行星看起来最美？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Saturn, those rings are absolutely stunning.", zh: "土星吧，那些光环真是美极了。", correct: true, xp: 10 },
           { text: "None of them look interesting at all.", correct: false }
@@ -113,7 +113,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This planet is bigger than every other one combined.", zh: "这颗行星比其他所有行星加起来都要大。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, Jupiter really is enormous.", zh: "确实是，木星真的太庞大了。", correct: true, xp: 10 },
           { text: "Size doesn't matter, let's skip past it quickly.", correct: false }
@@ -124,7 +124,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Our whole planet looks smaller than I ever imagined from here.", zh: "从这里看，我们整个星球比我曾经想象的要小得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, it puts everything into perspective.", zh: "确实是，这让人重新看待一切。", correct: true, xp: 10 },
           { text: "Size doesn't matter, Earth is still the biggest.", correct: false }
@@ -156,7 +156,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This is the most amazed I've ever seen them look.", zh: "这是我见过他们看起来最惊叹的一次。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really is, this trip is worth it just for that.", zh: "确实如此，光凭这一点这趟就值了。", correct: true, xp: 10 },
           { text: "Amazement doesn't matter, let's just leave already.", correct: false }
@@ -188,7 +188,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This nebula is more colorful than anything I've ever seen.", zh: "这片星云比我见过的任何东西都要绚丽。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "can-modal",
         choices: [
           { text: "It really is, I could watch this forever.", zh: "确实如此，我可以一直看着它。", correct: true, xp: 10 },
           { text: "Color doesn't matter, let's fast forward past it.", correct: false }
@@ -199,7 +199,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do you know that stars are actually born inside these clouds?", zh: "你知道恒星其实是在这些云团里诞生的吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "I didn't, that's a genuinely fascinating fact.", zh: "我不知道，这真是个非常有意思的知识。", correct: true, xp: 10 },
           { text: "I did, everyone already knows that fact.", correct: false }
@@ -231,7 +231,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This ceiling looks plainer now than it did during the show.", zh: "这个天花板现在看起来比放映时要朴素多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, hard to believe it's the same room.", zh: "确实是，很难相信是同一个房间。", correct: true, xp: 10 },
           { text: "Appearance doesn't matter, let's just leave right now.", correct: false }
@@ -242,7 +242,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "What was your favorite part of the whole show?", zh: "整场影片里你最喜欢哪部分？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "Definitely the nebula, those colors were incredible.", zh: "绝对是星云，那些颜色太震撼了。", correct: true, xp: 10 },
           { text: "I didn't have any favorite part at all.", correct: false }
@@ -274,7 +274,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This model is more detailed than the poster we saw earlier.", zh: "这个模型比我们之前看到的海报要更精细。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "can-modal",
         choices: [
           { text: "It is, you can even see the little rings.", zh: "确实是，甚至能看到那些小光环。", correct: true, xp: 10 },
           { text: "Detail doesn't matter, let's just grab a magnet.", correct: false }
@@ -285,7 +285,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should we get this for their room at home?", zh: "我们要不要给他们的房间买这个？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "will-future",
         choices: [
           { text: "Yes, they'll love falling asleep under it.", zh: "要，他们会喜欢在它下面入睡的。", correct: true, xp: 10 },
           { text: "No, let's leave it here on the shelf.", correct: false }
@@ -317,7 +317,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "These real stars look dimmer than the ones inside the dome.", zh: "这些真实的星星看起来比穹顶里那些要暗淡一些。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "They do, but they're actually really out there.", zh: "确实是，不过它们是真的存在于那里。", correct: true, xp: 10 },
           { text: "Brightness doesn't matter, the show was fake anyway.", correct: false }
@@ -360,7 +360,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This looks even better in the dark than it did in the shop.", zh: "这个在暗处看起来比在店里还要好看。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, the glow is so soft and calming.", zh: "确实是，光晕柔和又让人平静。", correct: true, xp: 10 },
           { text: "Looks don't matter, let's leave the lights on.", correct: false }
@@ -403,7 +403,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Today made me feel smaller than I've ever felt before.", zh: "今天让我感觉自己比以往任何时候都要渺小。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "Me too, but in a good, humbling way.", zh: "我也是，不过是那种很好的、让人谦卑的方式。", correct: true, xp: 10 },
           { text: "Size doesn't matter, let's not think about it.", correct: false }
@@ -414,7 +414,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Have we ever talked about the universe like this before?", zh: "我们以前有像这样谈论过宇宙吗？" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "We haven't, tonight feels like a first for us.", zh: "还没有过，今晚对我们来说感觉是第一次。", correct: true, xp: 10 },
           { text: "We've talked about this every single night for years.", correct: false }

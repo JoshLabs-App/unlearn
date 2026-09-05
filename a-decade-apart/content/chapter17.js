@@ -27,7 +27,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Hi, I read the article. I work with the city's community programs.", zh: "你好，我看了那篇报道。我在市政府的社区项目部门工作。", voice: "official" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "wh-question",
         choices: [
           { text: "Oh, welcome! What brings you here?", zh: "哦，欢迎！是什么风把您吹来了？", correct: true, xp: 10 },
           { text: "We're not interested, sorry.", correct: false }
@@ -176,7 +176,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "In exchange, we'd get funding that's been guaranteed for three years.", zh: "作为交换，我们会得到一笔保证发放三年的资助。", voice: "ho" },
         skill: "community",
-        grammarTag: "passive",
+        grammarTag: "past-simple",
         choices: [
           { text: "Three years guaranteed sounds worth it.", zh: "保证三年，这听起来很值得。", correct: true, xp: 10 },
           { text: "Three years guaranteed sounds too risky.", correct: false }
@@ -302,7 +302,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Sam, as our newest teacher, what do you think?", zh: "Sam，作为我们最新的老师，你怎么想？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "What I think is, let's take the risk together.", zh: "我的想法是，我们一起冒这个险吧。", correct: true, xp: 10 },
           { text: "What I think doesn't really matter here.", correct: false }

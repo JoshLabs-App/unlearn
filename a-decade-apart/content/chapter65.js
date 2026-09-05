@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's grab an apron before we start.", zh: "我们开始前先拿件围裙吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, clay sounds like it gets messy.", zh: "好主意，陶土听起来会弄得很脏。", correct: true, xp: 10 },
           { text: "Let's skip that, we won't get dirty at all.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Have either of you used a pottery wheel before?", zh: "你们俩有人用过陶轮吗？" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "Neither of us has, we're both complete beginners.", zh: "我们俩都没有，都是彻底的新手。", correct: true, xp: 10 },
           { text: "Both of us have used it since childhood.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This wheel spins faster than you might expect at first.", zh: "这个陶轮转起来可能比你一开始想的要快。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "Good to know, we'll start slow and careful.", zh: "很高兴知道这个，我们会慢慢来、小心一点。", correct: true, xp: 10 },
           { text: "Speed doesn't matter, let's just spin it wildly.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please keep your hands wet while you shape the clay.", zh: "塑形的时候请保持双手湿润。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "past-simple",
         choices: [
           { text: "Got it, we'll keep the water nearby.", zh: "明白了，我们会把水放在旁边。", correct: true, xp: 10 },
           { text: "Sorry, we'd rather keep our hands dry.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This is more frustrating than I expected it to be.", zh: "这比我预想的要更让人沮丧。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, but let's laugh about it and try again.", zh: "确实是，但我们就笑笑，再试一次吧。", correct: true, xp: 10 },
           { text: "It is, so let's just give up right now.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Your hands are steadier now than they were ten minutes ago.", zh: "你的手现在比十分钟前要稳多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "They are, I think I finally found the rhythm.", zh: "确实是，我觉得我终于找到节奏了。", correct: true, xp: 10 },
           { text: "They aren't, I'm shakier than when we started.", correct: false }
@@ -209,7 +209,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's slow down and center the clay carefully.", zh: "我们放慢速度，仔细把陶土居中吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, patience seems to be the whole trick.", zh: "好主意，耐心似乎就是全部的诀窍。", correct: true, xp: 10 },
           { text: "Let's just rush through this part instead.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Which glaze should we put on the inside of the bowl?", zh: "我们碗内侧应该上哪种釉？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Let's use a lighter shade for the inside.", zh: "内侧用浅一点的颜色吧。", correct: true, xp: 10 },
           { text: "The inside doesn't need any glaze at all.", correct: false }
@@ -295,7 +295,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This will take about two weeks to fire and cool.", zh: "烧制加冷却大概需要两周时间。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "statement",
         choices: [
           { text: "That's fine, good things are worth waiting for.", zh: "没关系，好东西值得等待。", correct: true, xp: 10 },
           { text: "That's too long, we need it done today.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This wait feels longer than it actually is.", zh: "这次等待感觉比实际时间要长。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, good things always feel far away.", zh: "确实是，好事总是感觉很遥远。", correct: true, xp: 10 },
           { text: "It doesn't, two weeks feel like nothing at all.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "These came out even better than I imagined.", zh: "这些成品比我想象的还要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "They really did, I can't stop staring at them.", zh: "确实如此，我怎么看都看不够。", correct: true, xp: 10 },
           { text: "They really didn't, these look completely ruined.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "The glaze turned out more vibrant than I expected.", zh: "釉色的效果比我预想的要鲜艳。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, the color is stunning in the light.", zh: "确实如此，在光线下颜色美极了。", correct: true, xp: 10 },
           { text: "It really didn't, the color looks pretty dull.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This bowl has become more meaningful than I expected.", zh: "这个碗变得比我预想的更有意义。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really has, it holds a whole memory now.", zh: "确实如此，它现在承载了一整段回忆。", correct: true, xp: 10 },
           { text: "It hasn't, it's honestly just a plain old bowl.", correct: false }

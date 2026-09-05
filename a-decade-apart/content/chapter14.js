@@ -79,7 +79,7 @@ GAME_CONTENT.scenes.push(
         avatar: "🧑",
         npcLine: { en: "I could probably help too, if it's just simple conversation.", zh: "如果只是简单对话，我大概也能帮上忙。" },
         skill: "work",
-        grammarTag: "conditional",
+        grammarTag: "statement",
         choices: [
           { text: "Simple conversation is exactly what's needed.", zh: "简单对话正是需要的。", correct: true, xp: 10 },
           { text: "Simple conversation isn't really teaching.", correct: false }
@@ -132,7 +132,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "By the time class starts tomorrow, we should have everything ready.", zh: "明天上课之前，我们应该把一切都准备好。", voice: "emma" },
         skill: "work",
-        grammarTag: "past-perfect",
+        grammarTag: "will-future",
         choices: [
           { text: "By tomorrow, we'll have had a whole night to prepare.", zh: "到明天，我们会有一整晚的时间来准备。", correct: true, xp: 10 },
           { text: "By tomorrow, nothing will be ready.", correct: false }
@@ -345,7 +345,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This calls for a celebration, don't you think?", zh: "这值得庆祝一下吧，你说呢？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "It absolutely calls for one.", zh: "绝对值得庆祝。", correct: true, xp: 10 },
           { text: "I don't think it's necessary.", correct: false }
@@ -431,7 +431,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Class, please welcome our newest teacher, Sam.", zh: "同学们，请欢迎我们最新的老师，Sam。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "courtesy",
         choices: [
           { text: "Welcome, Sam — we're so glad you're here.", zh: "欢迎，Sam——很高兴你在这儿。", correct: true, xp: 10 },
           { text: "Welcome, Sam, I guess this is fine.", correct: false }

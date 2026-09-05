@@ -10,7 +10,7 @@
 GAME_CONTENT.scenes.push(
   {
     id: "the-performance-review",
-    transition: { en: "At work, the manager calls him in for an annual review.", zh: "在公司，经理叫他进去做年度绩效评估。" },
+    transition: { en: "At the office job he took on the side last year to help save for the baby, his manager calls him in for an annual review.", zh: "去年为了多攒点钱迎接宝宝，他还兼了一份公司的工作——今天经理叫他进去做年度绩效评估。" },
     title: "The Performance Review",
     subtitle: "公司 · 绩效评估",
     avatar: "👔",
@@ -30,7 +30,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How do you feel about taking on more responsibility?", zh: "你对承担更多责任有什么想法？" },
         skill: "workplace",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "I feel ready to take that step now.", zh: "我觉得自己已经准备好迈出这一步了。", correct: true, xp: 10 },
           { text: "I feel like responsibility isn't for me.", correct: false }
@@ -41,7 +41,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'd like to consider you for a promotion.", zh: "我们想考虑给你升职。" },
         skill: "workplace",
-        grammarTag: "will-future",
+        grammarTag: "statement",
         choices: [
           { text: "That would mean a great deal to me.", zh: "这对我来说意义重大。", correct: true, xp: 10 },
           { text: "That would mean nothing to me at all.", correct: false }
@@ -73,7 +73,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "They're considering me for a promotion!", zh: "他们在考虑给我升职！" },
         skill: "workplace",
-        grammarTag: "present-continuous",
+        grammarTag: "statement",
         choices: [
           { text: "That's amazing, I'm so proud of you!", zh: "太棒了，我为你感到骄傲！", correct: true, xp: 10 },
           { text: "That's boring, I don't really care.", correct: false }
@@ -105,7 +105,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Why do you think you're ready for this role?", zh: "你为什么认为自己已经准备好胜任这个职位？" },
         skill: "workplace",
-        grammarTag: "wh-question",
+        grammarTag: "present-perfect",
         choices: [
           { text: "I've built strong relationships across every team.", zh: "我在各个团队之间都建立了牢固的关系。", correct: true, xp: 10 },
           { text: "I've never actually worked with any teams.", correct: false }
@@ -127,7 +127,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "That answer was clearer than I expected.", zh: "这个回答比我预期的更清晰。" },
         skill: "workplace",
-        grammarTag: "comparative",
+        grammarTag: "courtesy",
         choices: [
           { text: "Thank you, I prepared quite a bit for this.", zh: "谢谢，我为这个准备了不少。", correct: true, xp: 10 },
           { text: "Thank you, though I didn't prepare at all.", correct: false }
@@ -159,7 +159,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do you have any questions about the new title?", zh: "关于新的职位头衔你有什么问题吗？" },
         skill: "workplace",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, I'm curious about the reporting structure.", zh: "有的，我想了解一下汇报结构。", correct: true, xp: 10 },
           { text: "No, titles have never mattered to me.", correct: false }
@@ -288,7 +288,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Who's taking over your client accounts?", zh: "谁来接手你的客户账户？" },
         skill: "workplace",
-        grammarTag: "wh-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "A colleague from another team is taking them.", zh: "另一个团队的同事会接手它们。", correct: true, xp: 10 },
           { text: "Nobody, those accounts will just disappear.", correct: false }
@@ -299,7 +299,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please make sure the handoff meeting is well documented.", zh: "请确保交接会议有详细的记录。" },
         skill: "workplace",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Of course, I'll take detailed notes myself.", zh: "当然，我自己会做详细的记录。", correct: true, xp: 10 },
           { text: "Sorry, documenting meetings isn't really my thing.", correct: false }
@@ -331,7 +331,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "What changes are you hoping to make first?", zh: "你希望首先做出什么改变？" },
         skill: "workplace",
-        grammarTag: "wh-question",
+        grammarTag: "please-request",
         choices: [
           { text: "I'd like to understand the team before changing anything.", zh: "我想先了解团队，再考虑做出改变。", correct: true, xp: 10 },
           { text: "I'd like to change absolutely everything today.", correct: false }
@@ -374,7 +374,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How does the new title feel so far?", zh: "到目前为止，这个新头衔感觉怎么样？" },
         skill: "workplace",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "It feels surreal, honestly, in the best way.", zh: "说实话，感觉有点不真实，但是是最好的那种。", correct: true, xp: 10 },
           { text: "It doesn't feel any different at all.", correct: false }
@@ -406,7 +406,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you worried the new role will take too much time?", zh: "你担心新职位会占用太多时间吗？" },
         skill: "workplace",
-        grammarTag: "do-question",
+        grammarTag: "will-future",
         choices: [
           { text: "A little, but I'll set clear boundaries.", zh: "有一点，但我会设定清晰的边界。", correct: true, xp: 10 },
           { text: "Not at all, work is the only thing that matters.", correct: false }

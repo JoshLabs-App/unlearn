@@ -30,7 +30,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How far apart are they so far?", zh: "目前两次之间间隔多久？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "About eight minutes apart, I think.", zh: "我觉得大概间隔八分钟。", correct: true, xp: 10 },
           { text: "They aren't apart at all, they're constant.", correct: false }
@@ -62,7 +62,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How often are the contractions coming now?", zh: "现在宫缩多久来一次？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "They're coming about every five minutes.", zh: "大概每五分钟一次。", correct: true, xp: 10 },
           { text: "They aren't coming at all right now.", correct: false }
@@ -84,7 +84,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Drive safely, and try to stay calm.", zh: "开车小心，尽量保持冷静。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "We will, thank you for your help.", zh: "我们会的，谢谢你的帮助。", correct: true, xp: 10 },
           { text: "We won't, calm feels impossible right now.", correct: false }
@@ -105,7 +105,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you okay? Just breathe through it.", zh: "你还好吗？跟着呼吸就好。" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "comparative",
         choices: [
           { text: "I'm okay, just drive a little faster please.", zh: "我没事，麻烦开快一点。", correct: true, xp: 10 },
           { text: "I'm okay, there's no need to hurry at all.", correct: false }
@@ -116,7 +116,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This traffic is worse than I expected at this hour.", zh: "这个点的交通比我预想的还要糟糕。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "concession",
         choices: [
           { text: "It is, let's take the side street instead.", zh: "确实是，我们走小路吧。", correct: true, xp: 10 },
           { text: "It isn't, this traffic looks perfectly light.", correct: false }
@@ -148,7 +148,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How far along are you, and how frequent are the contractions?", zh: "您现在孕几周，宫缩频率如何？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Thirty-nine weeks, and about four minutes apart.", zh: "三十九周了，大概每四分钟一次。", correct: true, xp: 10 },
           { text: "I have no idea how far along I am.", correct: false }
@@ -159,7 +159,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Please have a seat, a nurse will call you shortly.", zh: "请坐一下，护士很快会叫您的名字。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Thank you, we'll wait right over there.", zh: "谢谢，我们就在那边等着。", correct: true, xp: 10 },
           { text: "Thank you, but waiting isn't an option right now.", correct: false }
@@ -170,7 +170,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We're getting a wheelchair for you right away.", zh: "我们马上给您准备轮椅。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "courtesy",
         choices: [
           { text: "Thank you, that would help a lot right now.", zh: "谢谢，现在这真的很有帮助。", correct: true, xp: 10 },
           { text: "Thank you, though I'd rather just walk instead.", correct: false }
@@ -202,7 +202,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "You're already more dilated than most people at this stage.", zh: "您现在开的口比这个阶段大多数人都要大。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "do-question",
         choices: [
           { text: "That's good news, isn't it?", zh: "这是好消息吧？", correct: true, xp: 10 },
           { text: "That's bad news, something must be wrong.", correct: false }
@@ -234,7 +234,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Breathe in slowly, and let it out just as slowly.", zh: "慢慢吸气，再同样慢慢地呼出来。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "comparative",
         choices: [
           { text: "Okay, I'm trying my best to focus.", zh: "好，我在尽力集中精神。", correct: true, xp: 10 },
           { text: "Okay, though breathing feels impossible right now.", correct: false }
@@ -245,7 +245,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "You're doing better than you think you are.", zh: "你做得比你自己想象的要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "courtesy",
         choices: [
           { text: "Thank you, that really helps to hear.", zh: "谢谢，听到这个真的很有帮助。", correct: true, xp: 10 },
           { text: "Thank you, though I feel like I'm failing.", correct: false }
@@ -256,7 +256,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "I'm right here, and I'm not going anywhere.", zh: "我就在这里，哪儿也不去。" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "connector",
         choices: [
           { text: "I know, and that means everything to me.", zh: "我知道，这对我意义非凡。", correct: true, xp: 10 },
           { text: "I know, though I wish you'd leave right now.", correct: false }
@@ -277,7 +277,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "On the next contraction, I need you to push hard.", zh: "下一次宫缩时，我需要您用力。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "short-answer",
         choices: [
           { text: "Okay, I'm ready, tell me when.", zh: "好的，我准备好了，告诉我什么时候。", correct: true, xp: 10 },
           { text: "Sorry, pushing isn't something I want to do.", correct: false }
@@ -299,7 +299,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "One more big push, and your baby will be here.", zh: "再用一次力，宝宝就要出生了。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "statement",
         choices: [
           { text: "Okay, this is it, here we go.", zh: "好，就是现在了，开始吧。", correct: true, xp: 10 },
           { text: "Okay, though I'd rather wait a bit longer.", correct: false }
@@ -363,7 +363,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How are you feeling right now, honestly?", zh: "老实说，你现在感觉怎么样？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "present-perfect",
         choices: [
           { text: "Exhausted, but happier than I've ever been.", zh: "很累，但比以往任何时候都幸福。", correct: true, xp: 10 },
           { text: "I feel exactly the same as before.", correct: false }
@@ -385,7 +385,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Everything we've been through led us to this moment.", zh: "我们经历的一切都指向了这一刻。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "past-simple",
         choices: [
           { text: "It has, and it was all worth it.", zh: "确实如此，一切都值得。", correct: true, xp: 10 },
           { text: "It hasn't, none of it led anywhere.", correct: false }
@@ -397,7 +397,7 @@ GAME_CONTENT.scenes.push(
   },
   {
     id: "choosing-the-name",
-    transition: { en: "As the sun rises, they finally settle on a name.", zh: "太阳升起时，他们终于确定了名字。" },
+    transition: { en: "As the sun rises, they finally settle on a name: Lily — after the woman whose kindness started it all.", zh: "太阳升起时，他们终于确定了名字：Lily——纪念那位善良开启了这一切的女士。" },
     title: "Choosing the Name",
     subtitle: "产房 · 定下名字",
     avatar: "📝",
@@ -406,7 +406,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are we finally deciding on the name?", zh: "我们终于要定下名字了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, I think we both already know it.", zh: "是的，我觉得我们俩其实早就知道了。", correct: true, xp: 10 },
           { text: "No, we'll just pick something random later.", correct: false }

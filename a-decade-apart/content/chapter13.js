@@ -176,7 +176,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This is one of the best proposals I've seen this year.", zh: "这是我今年看过最好的提案之一。" },
         skill: "banking",
-        grammarTag: "comparative",
+        grammarTag: "courtesy",
         choices: [
           { text: "That means so much, thank you.", zh: "这对我们意义重大，谢谢您。", correct: true, xp: 10 },
           { text: "I doubt that's really true.", correct: false }
@@ -251,7 +251,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Can you help carry these boards?", zh: "你能帮忙搬一下这些木板吗？" },
         skill: "community",
-        grammarTag: "can-modal",
+        grammarTag: "short-answer",
         choices: [
           { text: "Sure, hand them over.", zh: "没问题，递给我吧。", correct: true, xp: 10 },
           { text: "I can't lift anything today.", correct: false }
@@ -305,7 +305,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "What is this place going to be, exactly?", zh: "这地方具体会变成什么呢？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "A place for people just like you.", zh: "一个专为像你这样的人准备的地方。", correct: true, xp: 10 },
           { text: "I honestly have no idea.", correct: false }
@@ -325,7 +325,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Honestly, we haven't found our way around the city yet.", zh: "说实话，我们对这座城市还不太熟。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "past-simple",
         choices: [
           { text: "We hadn't either, once.", zh: "我们也曾经不熟。", correct: true, xp: 10 },
           { text: "That's not our problem, sorry.", correct: false }
@@ -380,7 +380,7 @@ GAME_CONTENT.scenes.push(
         avatar: "😊",
         npcLine: { en: "It was Lily's kindness that started all of this.", zh: "是Lily的善意开启了这一切。", voice: "emma" },
         skill: "work",
-        grammarTag: "past-simple",
+        grammarTag: "statement",
         choices: [
           { text: "Then it should carry her name somehow.", zh: "那它应该以某种方式带上她的名字。", correct: true, xp: 10 },
           { text: "Then it shouldn't be named after anyone.", correct: false }
@@ -412,7 +412,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "It's not finished yet, but it's ready enough to open.", zh: "还没完全弄好，但已经够开放了。", voice: "ho" },
         skill: "community",
-        grammarTag: "passive",
+        grammarTag: "connector",
         choices: [
           { text: "It's ready enough, and that's what matters.", zh: "已经够好了，这才是最重要的。", correct: true, xp: 10 },
           { text: "It should have been finished by now.", correct: false }
@@ -434,7 +434,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "A decade ago, someone had already started this story without knowing it.", zh: "十年前，有人在不知情的情况下，就已经开启了这个故事。", voice: "ho" },
         skill: "community",
-        grammarTag: "past-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "And we're the ones finishing it.", zh: "而我们是把它继续写下去的人。", correct: true, xp: 10 },
           { text: "And it means nothing to us now.", correct: false }

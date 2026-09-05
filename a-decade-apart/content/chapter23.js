@@ -104,7 +104,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Can I see your passports and booking confirmation, please?", zh: "可以看一下您的护照和订票确认单吗？" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "short-answer",
         choices: [
           { text: "Of course, here they are.", zh: "当然，给您。", correct: true, xp: 10 },
           { text: "We don't have any of that.", correct: false }
@@ -115,7 +115,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Would you like a window seat or an aisle seat?", zh: "您想要靠窗还是靠过道的座位？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "conditional",
         choices: [
           { text: "A window seat, if that's available.", zh: "靠窗的，如果还有的话。", correct: true, xp: 10 },
           { text: "Neither, I'd like to stand the whole flight.", correct: false }
@@ -157,7 +157,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do you have any liquids over 100 milliliters?", zh: "您有超过100毫升的液体吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "No, I don't have anything like that.", zh: "没有，我没带这类东西。", correct: true, xp: 10 },
           { text: "Yes, I have several full bottles.", correct: false }
@@ -189,7 +189,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Would you like chicken or pasta for your meal?", zh: "您的正餐想要鸡肉还是意面？", voice: "emma" },
         skill: "work",
-        grammarTag: "do-question",
+        grammarTag: "courtesy",
         choices: [
           { text: "Pasta sounds good to me, thanks.", zh: "意面听起来不错，谢谢。", correct: true, xp: 10 },
           { text: "Neither, I'll just skip the meal.", correct: false }
@@ -274,7 +274,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Welcome! Do you have a reservation with us?", zh: "欢迎光临！您有在我们这儿预订吗？", voice: "official" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, it's under my wife's name.", zh: "有的，是在我妻子名下订的。", correct: true, xp: 10 },
           { text: "No, we just walked in randomly.", correct: false }
@@ -296,7 +296,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Breakfast is served until ten, and checkout is at noon.", zh: "早餐供应到十点，退房时间是中午十二点。", voice: "official" },
         skill: "community",
-        grammarTag: "passive",
+        grammarTag: "courtesy",
         choices: [
           { text: "Good to know, thank you for explaining.", zh: "知道了，谢谢您的说明。", correct: true, xp: 10 },
           { text: "That schedule doesn't work for us at all.", correct: false }
@@ -338,7 +338,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Here's your cash, all in smaller bills as you asked.", zh: "这是您的现金，都按您说的换成了小面额。" },
         skill: "banking",
-        grammarTag: "reported-speech",
+        grammarTag: "past-simple",
         choices: [
           { text: "I asked for that, and you delivered perfectly.", zh: "我确实是这么要求的，您办得太好了。", correct: true, xp: 10 },
           { text: "I never asked for smaller bills at all.", correct: false }

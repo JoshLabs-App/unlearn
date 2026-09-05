@@ -15,7 +15,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Your father fell in the kitchen this morning.", zh: "你父亲今天早上在厨房摔倒了。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "present-continuous",
         choices: [
           { text: "Is he okay? I'm coming over right now.", zh: "他没事吧？我现在就过去。", correct: true, xp: 10 },
           { text: "That's fine, falls happen sometimes.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What kind of help do they actually need?", zh: "他们实际上需要什么样的帮助？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "phrasal-verb",
         choices: [
           { text: "Someone to check in a few times a week.", zh: "需要有人每周去看看几次。", correct: true, xp: 10 },
           { text: "They need nothing at all, honestly.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This agency has more experience than the others we found.", zh: "这家机构比我们找到的其他几家更有经验。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "That's reassuring, let's contact them first.", zh: "这让人安心，我们先联系他们吧。", correct: true, xp: 10 },
           { text: "Experience doesn't matter, let's just pick randomly.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'll need to talk to your parents about this too.", zh: "我们也需要跟你父母谈谈这件事。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Right, let's approach it gently with them.", zh: "对，跟他们谈的时候我们要委婉一点。", correct: true, xp: 10 },
           { text: "Right, though their opinion doesn't matter here.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "We're not trying to take away your independence.", zh: "我们不是想剥夺你们的独立自主。" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "statement",
         choices: [
           { text: "We know, we just want you both to be safe.", zh: "我们知道，我们只是希望你们俩都安全。", correct: true, xp: 10 },
           { text: "We're doing exactly that, actually.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do you feel comfortable with someone visiting a few times a week?", zh: "每周有人来看看你们几次，你们能接受吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "I think that would actually be nice.", zh: "我觉得那其实挺好的。", correct: true, xp: 10 },
           { text: "No, strangers should never come here.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How many years of experience do you have?", zh: "您有多少年的经验？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "I have about eight years, mostly with seniors.", zh: "我大概有八年经验，主要是照顾老年人。", correct: true, xp: 10 },
           { text: "Experience isn't something I have at all.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This candidate seems more patient than the last one.", zh: "这位候选人看起来比上一位更有耐心。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "She does, I really like her approach.", zh: "确实是，我很喜欢她的方式。", correct: true, xp: 10 },
           { text: "She doesn't, they both seem identical to me.", correct: false }
@@ -209,7 +209,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's also remove that loose rug by the stairs.", zh: "我们也把楼梯旁那块松动的地毯拿走吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good call, that's exactly the kind of hazard we need to fix.", zh: "好主意，这正是我们要解决的隐患。", correct: true, xp: 10 },
           { text: "Let's leave it, rugs are never actually dangerous.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How did today's visit go?", zh: "今天的探访情况怎么样？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "It went really well, better than I hoped.", zh: "非常顺利，比我期望的还要好。", correct: true, xp: 10 },
           { text: "It didn't go at all, nobody showed up.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Your dad seemed more relaxed than I expected too.", zh: "你爸爸看起来也比我预想的要放松。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "He really was, they got along right away.", zh: "确实是，他们一见面就相处得很好。", correct: true, xp: 10 },
           { text: "He really wasn't, he seemed uncomfortable the whole time.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Maybe this will end up being easier than we feared.", zh: "也许这最终会比我们担心的要容易得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "I hope so, that would be such a relief.", zh: "希望如此，那真会让人松一口气。", correct: true, xp: 10 },
           { text: "I doubt it, this will only get harder.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Your dad has been walking more confidently lately.", zh: "你爸最近走路更有信心了。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "past-simple",
         choices: [
           { text: "That's wonderful, all the changes really helped.", zh: "太好了，所有这些改变真的有帮助。", correct: true, xp: 10 },
           { text: "That's disappointing, nothing has improved at all.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "These visits seem to be helping him more than the exercises.", zh: "这些探访对他的帮助似乎比那些锻炼还要大。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "I believe it, family is powerful medicine too.", zh: "我相信这个，家人也是一种强大的良药。", correct: true, xp: 10 },
           { text: "I doubt it, visits never really help anyone.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How do you feel about everything that's changed this year?", zh: "对今年发生的这一切变化，你有什么感受？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Grateful, honestly, for every extra moment with them.", zh: "说实话，很感激能和他们多待的每一刻。", correct: true, xp: 10 },
           { text: "I don't feel anything about it at all.", correct: false }

@@ -77,7 +77,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Come in, come in. Can I get you some tea?", zh: "快进来快进来。要不要喝点茶？" },
         skill: "community",
-        grammarTag: "can-modal",
+        grammarTag: "please-request",
         choices: [
           { text: "Yes, please. Thank you.", zh: "好的，谢谢您。", correct: true, xp: 10 },
           { text: "No, I don't drink tea.", correct: false }
@@ -119,7 +119,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "I remember that house. Let me tell you about it.", zh: "我记得那栋房子。我跟你说说吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "please-request",
         choices: [
           { text: "Please, I'd love to hear it.", zh: "请说吧，我很想听。", correct: true, xp: 10 },
           { text: "Only if it's short.", correct: false }
@@ -130,7 +130,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We arrived here with very little money. Our parents worked two jobs each. It wasn't easy, but that little house became our whole world.", zh: "我们刚到这里时身上没多少钱。我们父母各打两份工。日子不容易，但那栋小房子成了我们的整个世界。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "statement",
         choices: [
           { text: "That sounds like a hard beginning.", zh: "听起来是个艰难的开始。", correct: true, xp: 10 },
           { text: "That must have taken real strength.", correct: false }
@@ -161,7 +161,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Exactly. And that's why we always write letters — to remember who helped us.", zh: "没错。这也是为什么我们一直保持写信的传统——为了记住谁曾经帮过我们。" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "do-question",
         choices: [
           { text: "Is that why letters matter so much to you?", zh: "这就是为什么信件对你们这么重要吗？", correct: true, xp: 10 },
           { text: "I never write letters, sorry.", correct: false }
@@ -234,7 +234,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "One neighbor helped us more than anyone. A young woman who ran a small shop nearby.", zh: "有一位邻居帮了我们特别多。是一个在附近开小店的年轻女人。" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "do-question",
         choices: [
           { text: "Do you remember her name?", zh: "您还记得她的名字吗？", correct: true, xp: 10 },
           { text: "That's not important now.", correct: false }

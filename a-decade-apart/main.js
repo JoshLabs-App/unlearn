@@ -3,13 +3,14 @@
 const SAVE_KEY = "eng-rpg-london-day1";
 
 const el = {
+  phoneShell: document.querySelector(".phone-shell"),
   scenePanel: document.querySelector(".scene-panel"),
   sceneTitle: document.getElementById("scene-title"),
   sceneSubtitle: document.getElementById("scene-subtitle"),
   avatar: document.getElementById("avatar"),
   npcEn: document.getElementById("npc-en"),
+  npcListenHint: document.getElementById("npc-listen-hint"),
   npcZh: document.getElementById("npc-zh"),
-  npcAudioBtn: document.getElementById("npc-audio-btn"),
   choices: document.getElementById("choices"),
   hint: document.getElementById("hint"),
   skillPanel: document.getElementById("skill-panel"),
@@ -23,7 +24,13 @@ const el = {
   flashbackAnswer: document.getElementById("flashback-answer"),
   flashbackWordbank: document.getElementById("flashback-wordbank"),
   flashbackFeedback: document.getElementById("flashback-feedback"),
-  sceneProgress: document.getElementById("scene-progress"),
+  flashbackProgress: document.getElementById("flashback-progress"),
+  flashbackIcon: document.getElementById("flashback-icon"),
+  flashbackKnowBtn: document.getElementById("flashback-know-btn"),
+  sceneProgressFill: document.getElementById("scene-progress-fill"),
+  sceneProgressLabel: document.getElementById("scene-progress-label"),
+  sceneCard: document.getElementById("scene-card"),
+  hudLevelPill: document.getElementById("hud-level-pill"),
   levelBarMask: document.getElementById("level-bar-mask"),
   levelLabel: document.getElementById("level-label"),
   endScreen: document.getElementById("end-screen"),
@@ -32,6 +39,7 @@ const el = {
   resetBtn: document.getElementById("reset-btn"),
   restartBtn: document.getElementById("restart-btn"),
   zhToggleBtn: document.getElementById("zh-toggle-btn"),
+  blindListenBtn: document.getElementById("blind-listen-toggle-btn"),
   wordPopup: document.getElementById("word-popup"),
   transitionOverlay: document.getElementById("transition-overlay"),
   transitionChapterCard: document.getElementById("transition-chapter-card"),
@@ -53,8 +61,6 @@ const el = {
   leaderboardList: document.getElementById("leaderboard-list"),
   leaderboardEmpty: document.getElementById("leaderboard-empty"),
   userBadge: document.getElementById("user-badge"),
-  accountBtn: document.getElementById("account-btn"),
-  accountMenu: document.getElementById("account-menu"),
   accountMenuEmail: document.getElementById("account-menu-email"),
   accountLoginBtn: document.getElementById("account-login-btn"),
   accountLoggedOutItem: document.getElementById("account-logged-out-item"),
@@ -119,6 +125,19 @@ const CEFR_VOCAB_THRESHOLDS = [
   { level: "B2", words: 4000 }
 ];
 
+// 场景配色：按 sceneIndex 循环取一组柔和背景+强调色，让"换场景"有视觉提示
+// （对齐手机 app lib/theme.ts 的 scenePalette，颜色照抄那边），而不是从头到尾
+// 同一块米色卡片。见 renderSceneContent() 里怎么把它套到 .scene-card / .avatar /
+// 顶部 HUD 的等级胶囊上。
+const SCENE_PALETTE = [
+  { bg: "#eef6ee", tint: "#3e8f4f" },
+  { bg: "#eaf2fa", tint: "#3a7fb0" },
+  { bg: "#f8eef4", tint: "#a8477a" },
+  { bg: "#fbf3e2", tint: "#d9a63a" },
+  { bg: "#f0eefa", tint: "#6a5acd" },
+  { bg: "#fbeee4", tint: "#c06a3a" }
+];
+
 // 按本地时区拼"今天是几号"——不能用 toISOString()，那是 UTC，会在时区边界
 // （比如晚上八九点后，UTC 已经跨到第二天）把"今天"算错，连续打卡就会莫名其妙断掉。
 function localDateStr(d = new Date()) {
@@ -131,6 +150,198 @@ function localDateStr(d = new Date()) {
 function tokenizeWords(text) {
   if (!text) return [];
   return text.toLowerCase().match(/[a-z]+'?[a-z]*/g) || [];
+}
+
+// —— 词元归并（与 apps/mobile/lib/game/lemma.ts、scripts/lemma.mjs 逻辑相同，改一处同步三处）——
+const LEMMA_IRREGULAR = {
+  am: "be", is: "be", are: "be", was: "be", were: "be", been: "be", being: "be",
+  has: "have", had: "have", having: "have", does: "do", did: "do", done: "do", doing: "do",
+  went: "go", gone: "go", goes: "go", going: "go", came: "come", comes: "come", coming: "come",
+  got: "get", gotten: "get", gets: "get", getting: "get", made: "make", makes: "make", making: "make",
+  took: "take", taken: "take", takes: "take", taking: "take", saw: "see", seen: "see", sees: "see", seeing: "see",
+  said: "say", says: "say", saying: "say", knew: "know", known: "know", knows: "know", knowing: "know",
+  thought: "think", thinks: "think", thinking: "think", told: "tell", tells: "tell", telling: "tell",
+  gave: "give", given: "give", gives: "give", giving: "give", found: "find", finds: "find", finding: "find",
+  felt: "feel", feels: "feel", feeling: "feel", kept: "keep", keeps: "keep", keeping: "keep",
+  left: "leave", leaves: "leave", leaving: "leave", met: "meet", meets: "meet", meeting: "meet",
+  ran: "run", runs: "run", running: "run", paid: "pay", pays: "pay", paying: "pay",
+  bought: "buy", buys: "buy", buying: "buy", brought: "bring", brings: "bring", bringing: "bring",
+  sold: "sell", sells: "sell", selling: "sell", built: "build", builds: "build", building: "build",
+  won: "win", wins: "win", winning: "win", lost: "lose", loses: "lose", losing: "lose",
+  held: "hold", holds: "hold", holding: "hold", began: "begin", begun: "begin", begins: "begin", beginning: "begin",
+  spoke: "speak", spoken: "speak", speaks: "speak", speaking: "speak", forgot: "forget", forgotten: "forget", forgets: "forget",
+  wrote: "write", written: "write", writes: "write", writing: "write", heard: "hear", hears: "hear", hearing: "hear",
+  ate: "eat", eaten: "eat", eats: "eat", eating: "eat", drank: "drink", drunk: "drink", drinks: "drink", drinking: "drink",
+  slept: "sleep", sleeps: "sleep", sleeping: "sleep", woke: "wake", woken: "wake", wakes: "wake", waking: "wake",
+  stood: "stand", stands: "stand", standing: "stand", sat: "sit", sits: "sit", sitting: "sit",
+  children: "child", men: "man", women: "woman", feet: "foot", teeth: "tooth", mice: "mouse", people: "person",
+  better: "good", best: "good", worse: "bad", worst: "bad", more: "many", most: "many", less: "little", least: "little",
+  "i'm": "i", "i've": "i", "i'll": "i", "i'd": "i", "you're": "you", "you've": "you", "you'll": "you", "you'd": "you",
+  "we're": "we", "we've": "we", "we'll": "we", "we'd": "we", "they're": "they", "they've": "they", "they'll": "they", "they'd": "they",
+  "he's": "he", "he'll": "he", "he'd": "he", "she's": "she", "she'll": "she", "she'd": "she", "it's": "it", "it'll": "it", "it'd": "it",
+  "that's": "that", "there's": "there", "here's": "here", "what's": "what", "who's": "who", "where's": "where", "how's": "how", "let's": "let",
+  "don't": "do", "doesn't": "do", "didn't": "do", "can't": "can", cannot: "can", "couldn't": "could", "won't": "will", "wouldn't": "would",
+  "isn't": "be", "aren't": "be", "wasn't": "be", "weren't": "be", "haven't": "have", "hasn't": "have", "hadn't": "have",
+  "shouldn't": "should", "mustn't": "must", "needn't": "need",
+};
+const LEMMA_NO_STRIP = new Set(["tired", "excited", "interested", "bored", "worried", "scared", "pleased", "relieved", "exhausted", "thrilled", "amazed", "confused", "embarrassed", "disappointed", "annoyed", "satisfied", "delighted", "married", "engaged", "retired", "used", "supposed", "need", "seed", "feed", "speed", "bed", "red", "shed", "wed", "indeed", "tied", "died", "lied"]);
+const LEMMA_STOP = new Set(["the", "a", "an", "and", "or", "but", "so", "of", "to", "in", "on", "at", "by", "for", "with", "from", "as", "is", "be", "am", "are", "was", "were", "it", "its", "this", "that", "these", "those", "i", "me", "my", "you", "your", "we", "us", "our", "they", "them", "their", "he", "him", "his", "she", "her", "do", "does", "did", "have", "has", "had", "not", "no", "yes", "if", "then", "than", "too", "very", "just", "here", "there", "up", "down", "out", "off", "over", "s", "t", "ll", "ve", "re", "d", "m", "let", "oh", "ok", "okay", "hi", "hey", "wow", "ah", "um", "hmm"]);
+function lemmatize(word, vocab) {
+  const w = word.toLowerCase();
+  if (LEMMA_IRREGULAR[w]) return LEMMA_IRREGULAR[w];
+  if (LEMMA_NO_STRIP.has(w)) return w;
+  const base = w.replace(/'(s|re|ve|ll|d|m)$/, "");
+  if (base !== w) return lemmatize(base, vocab);
+  if (w.length <= 3) return w;
+  const has = (c) => (vocab ? vocab.has(c) : true);
+  const cands = [];
+  const dbl = (st) => (/([^aeiou])\1$/.test(st) ? [st.slice(0, -1)] : []);
+  if (w.endsWith("ies") && w.length > 4) cands.push(w.slice(0, -3) + "y");
+  if (w.endsWith("ied") && w.length > 4) cands.push(w.slice(0, -3) + "y");
+  if (w.endsWith("ing") && w.length > 5) { const st = w.slice(0, -3); cands.push(st + "e", st, ...dbl(st)); }
+  if (w.endsWith("ed") && w.length >= 4) { const st = w.slice(0, -2); cands.push(st + "e", st, ...dbl(st)); }
+  if (w.endsWith("iest") && w.length > 5) cands.push(w.slice(0, -4) + "y");
+  if (w.endsWith("est") && w.length > 5) { const st = w.slice(0, -3); cands.push(st, st + "e", ...dbl(st)); }
+  if (w.endsWith("ier") && w.length > 4) cands.push(w.slice(0, -3) + "y");
+  if (w.endsWith("er") && w.length > 4) { const st = w.slice(0, -2); cands.push(st, st + "e", ...dbl(st)); }
+  if (w.endsWith("es") && /(sh|ch|ss|x|z|o)es$/.test(w)) cands.push(w.slice(0, -2));
+  if (w.endsWith("s") && !w.endsWith("ss") && !w.endsWith("us") && !w.endsWith("is")) cands.push(w.slice(0, -1));
+  if (w.endsWith("ly") && w.length > 5) { cands.push(w.slice(0, -2)); if (w.endsWith("ily")) cands.push(w.slice(0, -3) + "y"); }
+  for (const c of cands) if (c.length >= 2 && has(c)) return c;
+  return w;
+}
+function isStopword(lemma) { return LEMMA_STOP.has(lemma) || lemma.length < 2; }
+
+// —— 诚实计数（设计精华第 7 条）："接触过"和"掌握了"分开数，等级按"掌握"算 ——
+// 只统计 NPC 句 + 正确选项，不算错误选项；按词元不按词形，去停用词。
+// "掌握" = 出现 ≥ MASTERY_EXPOSURES 次，且玩家产出过（主线里亲口选过 / 闪回最终确认答对过）。
+// 与 apps/mobile/lib/game/progress.ts 的 computeVocabStats 逻辑相同。
+const MASTERY_EXPOSURES = 5;
+let corpusVocabCache = null;
+function corpusVocab() {
+  if (corpusVocabCache) return corpusVocabCache;
+  const vocab = new Set();
+  for (const scene of GAME_CONTENT.scenes) {
+    for (const node of Object.values(scene.nodes)) {
+      tokenizeWords(node.npcLine.en).forEach((w) => vocab.add(w));
+      for (const c of node.choices) tokenizeWords(c.text).forEach((w) => vocab.add(w));
+    }
+  }
+  corpusVocabCache = vocab;
+  return vocab;
+}
+function exposureCounts(upToSceneIndex) {
+  const vocab = corpusVocab();
+  const count = new Map();
+  for (let i = 0; i <= upToSceneIndex && i < GAME_CONTENT.scenes.length; i++) {
+    for (const node of Object.values(GAME_CONTENT.scenes[i].nodes)) {
+      const right = node.choices.find((c) => c.correct);
+      const lines = right ? [node.npcLine.en, right.text] : [node.npcLine.en];
+      for (const line of lines) {
+        for (const w of tokenizeWords(line)) {
+          const lm = lemmatize(w, vocab);
+          if (isStopword(lm)) continue;
+          count.set(lm, (count.get(lm) || 0) + 1);
+        }
+      }
+    }
+  }
+  return count;
+}
+function computeVocabStats(upToSceneIndex) {
+  const vocab = corpusVocab();
+  const count = exposureCounts(upToSceneIndex);
+  const produced = new Set();
+  for (const v of state.learnedVocab) for (const w of tokenizeWords(v.en)) produced.add(lemmatize(w, vocab));
+  for (const w of state.confirmedWords || []) produced.add(lemmatize(w, vocab));
+  let mastered = 0;
+  for (const [lm, c] of count) if (c >= MASTERY_EXPOSURES && produced.has(lm)) mastered++;
+  return { encountered: count.size, mastered };
+}
+
+// —— 复习不等答错（设计精华第 6 条）：一幕结束时，曝光刚好达到阈值的新词自动入队 ——
+// 与 apps/mobile/lib/game/review.ts 的 enqueueExposureReviews 逻辑相同。
+const EXPOSURE_REVIEW_THRESHOLD = 3;
+const EXPOSURE_REVIEW_PER_SCENE = 2;
+function enqueueExposureReviews(sceneIndex) {
+  const scene = GAME_CONTENT.scenes[sceneIndex];
+  if (!scene || typeof WORD_DICT === "undefined") return 0;
+  const vocab = corpusVocab();
+  const before = sceneIndex > 0 ? exposureCounts(sceneIndex - 1) : new Map();
+  const inQueue = new Set(state.reviewQueue.map((r) => lemmatize(r.en, vocab)));
+  const confirmed = new Set((state.confirmedWords || []).map((w) => lemmatize(w, vocab)));
+  const seenHere = new Map();
+  for (const node of Object.values(scene.nodes)) {
+    const right = node.choices.find((c) => c.correct);
+    const lines = [{ en: node.npcLine.en, zh: node.npcLine.zh }];
+    if (right) lines.push({ en: right.text, zh: right.zh || node.npcLine.zh });
+    for (const line of lines) {
+      for (const w of tokenizeWords(line.en)) {
+        const lm = lemmatize(w, vocab);
+        if (isStopword(lm)) continue;
+        const cur = seenHere.get(lm);
+        if (cur) cur.count++;
+        else seenHere.set(lm, { word: w, sentence: line.en, sentenceZh: line.zh, count: 1 });
+      }
+    }
+  }
+  const candidates = [];
+  for (const [lm, info] of seenHere) {
+    const prev = before.get(lm) || 0;
+    if (prev >= EXPOSURE_REVIEW_THRESHOLD || prev + info.count < EXPOSURE_REVIEW_THRESHOLD) continue;
+    if (info.word.length < 4 || inQueue.has(lm) || confirmed.has(lm)) continue;
+    const meaning = WORD_DICT[info.word] || WORD_DICT[lm];
+    if (!meaning) continue;
+    candidates.push({ word: info.word, meaning, sentence: info.sentence, sentenceZh: info.sentenceZh });
+  }
+  candidates.sort((a, b) => b.word.length - a.word.length || a.word.localeCompare(b.word));
+  let added = 0;
+  for (const c of candidates.slice(0, EXPOSURE_REVIEW_PER_SCENE)) {
+    state.reviewQueue.push({ en: c.word, zh: c.meaning, kind: "word", source: "exposure", streak: 0, status: "active", queuedAtScene: sceneIndex, sentence: c.sentence, sentenceZh: c.sentenceZh });
+    added++;
+  }
+  return added;
+}
+// 通过最终确认的条目：把它的实词记进 confirmedWords（"掌握"的第二条证据）
+function recordConfirmed(item) {
+  const vocab = corpusVocab();
+  const set = new Set(state.confirmedWords || []);
+  for (const w of tokenizeWords(item.en)) { const lm = lemmatize(w, vocab); if (!isStopword(lm)) set.add(lm); }
+  state.confirmedWords = [...set];
+}
+
+// —— 第三个选项（设计精华第 5 条）：从附近节点借一句"通顺但答非所问"的玩家句 ——
+// 与 apps/mobile/lib/game/distractor.ts 逻辑相同。同一节点每次渲染都拿到同一句（确定性哈希）。
+function pickContextualDistractor(sceneIndex, nodeId, node) {
+  const WINDOW = 10, MIN_WORDS = 4;
+  const hash = (str) => { let h = 2166136261; for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; };
+  const correct = node.choices.find((c) => c.correct);
+  if (!correct) return null;
+  const cLen = tokenizeWords(correct.text).length;
+  if (cLen < MIN_WORDS) return null;
+  const own = new Set(node.choices.map((c) => c.text.trim().toLowerCase()));
+  const context = new Set([...tokenizeWords(node.npcLine.en), ...node.choices.flatMap((c) => tokenizeWords(c.text))]);
+  const lo = Math.max(0, sceneIndex - WINDOW), hi = Math.min(GAME_CONTENT.scenes.length - 1, sceneIndex + WINDOW);
+  const pool = [];
+  for (let i = lo; i <= hi; i++) {
+    if (i === sceneIndex) continue;
+    for (const [nid, n] of Object.entries(GAME_CONTENT.scenes[i].nodes)) {
+      const right = n.choices.find((c) => c.correct);
+      if (!right) continue;
+      const ws = tokenizeWords(right.text);
+      if (ws.length < MIN_WORDS || ws.length < cLen * 0.6 || ws.length > cLen * 1.5) continue;
+      if (own.has(right.text.trim().toLowerCase())) continue;
+      if (/\?$/.test(right.text.trim()) !== /\?$/.test(correct.text.trim())) continue;
+      // 语境词重叠越少越"答非所问"；同一技能领域（同话题）再加 1 分惩罚，优先借别的话题的句子
+      const overlap = ws.filter((w) => w.length > 3 && context.has(w)).length * 2 + (n.skill === node.skill ? 1 : 0);
+      pool.push({ text: right.text, zh: right.zh, overlap, key: `${i}:${nid}` });
+    }
+  }
+  if (pool.length === 0) return null;
+  const minOverlap = Math.min(...pool.map((p) => p.overlap));
+  const best = pool.filter((p) => p.overlap === minOverlap);
+  const pick = best[hash(`${sceneIndex}:${nodeId}`) % best.length];
+  return { text: pick.text, zh: pick.zh };
 }
 
 // 只统计玩家实际会读到的文字（NPC 台词 + 场景里出现过的选项），不算 vocabBank——
@@ -186,20 +397,23 @@ const BONUS_XP_MULTIPLIER = 2;
 // （复用 CEFR_VOCAB_THRESHOLDS 的门槛，两处口径保持一致）、技能精通（点满某个
 // 技能的 XP）、连续打卡天数。技能精通那组是从 GAME_CONTENT.skillMeta 动态生成的，
 // 跟 computeSkillMax() 一样的思路——以后内容层加新技能，成就自动跟上，不用手动同步。
+// rarity 只影响成就墙里的描边/发光配色（见 style.css .achievement-card.rarity-*），
+// 越靠后门槛越高就给越显眼的稀有度，纯视觉分层，不影响解锁判定。
 const ACHIEVEMENTS = [
-  { id: "vocab-a1", icon: "📖", title: "词汇破500 · A1达成", check: (s, vocab) => vocab >= 500 },
-  { id: "vocab-a2", icon: "📚", title: "词汇破1100 · A2达成", check: (s, vocab) => vocab >= 1100 },
-  { id: "vocab-b1", icon: "🎓", title: "词汇破2250 · B1达成", check: (s, vocab) => vocab >= 2250 },
-  { id: "vocab-b2", icon: "🏆", title: "词汇破4000 · B2达成", check: (s, vocab) => vocab >= 4000 },
+  { id: "vocab-a1", icon: "📖", title: "词汇破500 · A1达成", rarity: "bronze", check: (s, vocab) => vocab >= 500 },
+  { id: "vocab-a2", icon: "📚", title: "词汇破1100 · A2达成", rarity: "silver", check: (s, vocab) => vocab >= 1100 },
+  { id: "vocab-b1", icon: "🎓", title: "词汇破2250 · B1达成", rarity: "gold", check: (s, vocab) => vocab >= 2250 },
+  { id: "vocab-b2", icon: "🏆", title: "词汇破4000 · B2达成", rarity: "diamond", check: (s, vocab) => vocab >= 4000 },
   ...Object.entries(GAME_CONTENT.skillMeta).map(([key, meta]) => ({
     id: "skill-" + key,
     icon: meta.icon,
     title: meta.label + "达人",
+    rarity: "silver",
     check: (s) => (s.skills[key] || 0) >= (SKILL_MAX[key] || Infinity)
   })),
-  { id: "streak-3", icon: "🔥", title: "连续学习3天", check: (s) => (s.streak || 0) >= 3 },
-  { id: "streak-7", icon: "🔥", title: "连续学习7天", check: (s) => (s.streak || 0) >= 7 },
-  { id: "streak-30", icon: "🔥", title: "连续学习30天", check: (s) => (s.streak || 0) >= 30 }
+  { id: "streak-3", icon: "🔥", title: "连续学习3天", rarity: "bronze", check: (s) => (s.streak || 0) >= 3 },
+  { id: "streak-7", icon: "🔥", title: "连续学习7天", rarity: "gold", check: (s) => (s.streak || 0) >= 7 },
+  { id: "streak-30", icon: "🔥", title: "连续学习30天", rarity: "diamond", check: (s) => (s.streak || 0) >= 30 }
 ];
 
 // 找出这次新解锁的成就（跟上次存的 unlockedAchievements 比对），记下来 + 逐个弹庆祝提示。
@@ -234,8 +448,25 @@ function showAchievementToast(achievement) {
     setTimeout(() => toast.remove(), 250);
   };
   toast.addEventListener("click", dismiss);
-  document.body.appendChild(toast);
+  // 挂在 .phone-shell 下面而不是 document.body——它是 position:fixed，
+  // 定位基准跟着 shell 走，才会居中在"手机屏幕"里，不会跑到宽屏手机边框外面。
+  el.phoneShell.appendChild(toast);
   setTimeout(dismiss, 3800);
+}
+
+// 纯文字提示条，复用成就 toast 的卡片样式（没有图标/双行结构，就一行字）。
+// 目前只用来在第一次打开盲听模式时告诉玩家怎么操作。
+function showTextToast(text, ms) {
+  const toast = document.createElement("div");
+  toast.className = "achievement-toast";
+  toast.textContent = text;
+  const dismiss = () => {
+    toast.classList.add("achievement-toast-out");
+    setTimeout(() => toast.remove(), 250);
+  };
+  toast.addEventListener("click", dismiss);
+  el.phoneShell.appendChild(toast);
+  setTimeout(dismiss, ms || 4200);
 }
 
 function freshState() {
@@ -262,7 +493,8 @@ function freshState() {
     playerAvatar: "🍎",
     playerAvatarImage: null, // 上传的照片：压缩过的方形头像，data URL；设了就优先于 emoji
     equippedTitle: null,
-    unlockedAchievements: []
+    unlockedAchievements: [],
+    confirmedWords: [] // 闪回最终确认答对过的词元（"掌握"的第二条证据）
   };
 }
 
@@ -288,7 +520,18 @@ let state = loadState();
 // 上次存档时间到这次打开的间隔——loadState() 读到的是上一次会话留下的旧值，
 // 必须在第一次 saveState() 覆盖掉它之前算出来，才能判断这次是不是"回访"。
 const reconnectGapMs = state.lastActiveAt ? Date.now() - state.lastActiveAt : 0;
+
+// 打开 App 就预热当前章 + 下一章的音频缓存：新玩家等于自动把第1章下载好，
+// 回访玩家（比如清过缓存、或这个功能是后来上的）也能补上当前进度所在章节。
+if (typeof CHAPTER_INDEX !== "undefined") {
+  const resumeChapter = [...CHAPTER_INDEX].reverse().find((c) => c.sceneIndex <= state.sceneIndex);
+  if (resumeChapter) {
+    prefetchChapterAudio(resumeChapter.chapter);
+    prefetchChapterAudio(resumeChapter.chapter + 1);
+  }
+}
 let pendingFlashback = []; // queue of items to review before advancing scene
+let flashbackTotal = 0; // 本轮闪回队列的初始长度，只用来画进度点，随 pendingFlashback 一起在下面几处赋值点同步设置
 let flashbackOnComplete = goToNextScene; // 闪回队列清空后要做什么：正常翻页，或断点热身后继续当前场景
 let wrongButtonsThisNode = new Set();
 // 当前这次闪回是不是"心数清零后，靠复习赚回一颗心"触发的——是的话，
@@ -309,6 +552,19 @@ function applyZhVisibility() {
   el.zhToggleBtn.textContent = hideZh ? "显示中文" : "隐藏中文";
   el.zhToggleBtn.setAttribute("aria-pressed", String(!hideZh));
   document.title = hideZh ? TITLE_EN : TITLE_ZH;
+}
+
+// 盲听模式：全局开关，跟 hideZh 一样存 localStorage。开启后台词区域换成
+// .npc-listen-hint 占位提示（英文原句和中文翻译都先不给），逼着玩家先听音频
+// 再从选项里挑答案；轻触=重播，长按=临时露出中文当提示（见下面 pointerdown 逻辑）。
+const BLIND_LISTEN_KEY = "eng-rpg-blind-listen";
+const BLIND_LISTEN_TIP_KEY = "eng-rpg-blind-listen-tip-seen";
+let blindListen = localStorage.getItem(BLIND_LISTEN_KEY) === "1";
+
+function applyBlindListenVisibility() {
+  document.body.classList.toggle("blind-listen", blindListen);
+  el.blindListenBtn.textContent = blindListen ? "🎧 退出盲听模式" : "🎧 盲听模式";
+  el.blindListenBtn.setAttribute("aria-pressed", String(blindListen));
 }
 
 // 点词查词：把英文台词拆成单词 span，点一下弹出中文释义，几秒后自动收起。
@@ -365,15 +621,20 @@ function showWordPopup(wordEl) {
   el.wordPopup.textContent = `${wordEl.textContent} ${meaning}`;
   el.wordPopup.classList.remove("hidden");
 
+  // .word-popup 是 position:fixed，但定位基准是 .phone-shell（见 style.css 里
+  // .phone-shell 的 transform 注释），所以这里所有坐标都要减去 shellRect 的偏移，
+  // 不能直接用 window.innerWidth——宽屏手机边框模式下 shell 是居中悬浮的一小块，
+  // 跟真实浏览器窗口对不上。
+  const shellRect = el.phoneShell.getBoundingClientRect();
   const rect = wordEl.getBoundingClientRect();
   const popRect = el.wordPopup.getBoundingClientRect();
-  let left = rect.left + rect.width / 2 - popRect.width / 2;
-  left = Math.max(8, Math.min(left, window.innerWidth - popRect.width - 8));
+  let left = rect.left - shellRect.left + rect.width / 2 - popRect.width / 2;
+  left = Math.max(8, Math.min(left, shellRect.width - popRect.width - 8));
   // 手指点的地方会挡住紧贴单词上方的位置，隔远一点（不是10px那种贴着），
   // 弹出层才不会被指尖本身盖住。
   const CLEARANCE = 36;
-  let top = rect.top - popRect.height - CLEARANCE;
-  if (top < 8) top = rect.bottom + CLEARANCE;
+  let top = rect.top - shellRect.top - popRect.height - CLEARANCE;
+  if (top < 8) top = rect.bottom - shellRect.top + CLEARANCE;
   el.wordPopup.style.left = left + "px";
   el.wordPopup.style.top = top + "px";
 
@@ -469,12 +730,16 @@ function renderHistoryView(entry) {
   const node = entry.node;
 
   hideWordPopup();
+  document.body.classList.remove("zh-peek");
+  const scenePalette = SCENE_PALETTE[entry.sceneIndex % SCENE_PALETTE.length];
+  el.sceneCard.style.background = scenePalette.bg;
+  el.avatar.style.borderColor = scenePalette.tint;
   el.sceneTitle.innerHTML = wrapWordsHTML(scene.title);
   el.sceneSubtitle.innerHTML = wrapWordsHTML(scene.subtitle);
   el.avatar.textContent = node.avatar || scene.avatar;
   el.npcEn.innerHTML = wrapWordsHTML(node.npcLine.en, node.npcLine.zh);
   el.npcZh.textContent = node.npcLine.zh;
-  playAudio(node.npcLine.en, el.npcAudioBtn);
+  playAudio(node.npcLine.en, el.npcEn);
   el.hint.textContent = "";
   el.hint.classList.remove("visible");
 
@@ -576,7 +841,10 @@ function celebrateDailyGoal() {
   void el.dailyGoalCard.offsetWidth;
   el.dailyGoalCard.classList.add("goal-complete");
 
-  const originX = window.innerWidth / 2;
+  // 跟 showAchievementToast 一样，坐标和挂载点都相对 .phone-shell，
+  // 宽屏手机边框模式下才不会飘到"手机"外面去。
+  const shellRect = el.phoneShell.getBoundingClientRect();
+  const originX = shellRect.width / 2;
   for (let i = 0; i < 24; i++) {
     const piece = document.createElement("span");
     piece.className = "confetti-piece";
@@ -584,7 +852,7 @@ function celebrateDailyGoal() {
     piece.style.top = "110px";
     piece.style.background = CONFETTI_COLORS[i % CONFETTI_COLORS.length];
     piece.style.animationDelay = Math.random() * 0.25 + "s";
-    document.body.appendChild(piece);
+    el.phoneShell.appendChild(piece);
     setTimeout(() => piece.remove(), 1600);
   }
 }
@@ -629,25 +897,6 @@ function renderHeartsDisplay() {
   rowEl.className = "hearts-row";
   rowEl.textContent = heartsRow;
   el.heartsDisplay.appendChild(rowEl);
-  if (hearts < MAX_HEARTS) {
-    const msLeft = Math.max(0, state.lastHeartAt + HEART_REGEN_MS - Date.now());
-    const mins = Math.ceil(msLeft / 60000);
-    const h = Math.floor(mins / 60);
-    const m = mins % 60;
-    const countdown = h > 0 ? `${h}小时${m}分钟后` : `${m}分钟后`;
-    const tipEl = document.createElement("div");
-    tipEl.className = "hearts-tip";
-    // 只要还没满血就一直提示这条路，不是等心用完了才第一次让人知道——
-    // 复习队列没东西可清的话，这条路也走不通，就不提这茬，只显示倒计时。
-    tipEl.textContent = state.reviewQueue.length > 0
-      ? `下一颗 ${countdown} · 复习一条也能立刻回血 →`
-      : `下一颗 ${countdown}`;
-    if (state.reviewQueue.length > 0) {
-      tipEl.classList.add("hearts-tip-clickable");
-      tipEl.addEventListener("click", startHeartRecoveryFlashback);
-    }
-    el.heartsDisplay.appendChild(tipEl);
-  }
 }
 
 // 心数清零时不硬卡关：不让玩家点新的选项，但给一条出路——去复习队列里
@@ -678,6 +927,7 @@ function startHeartRecoveryFlashback() {
     renderScene();
   };
   pendingFlashback = [state.reviewQueue[0]];
+  flashbackTotal = pendingFlashback.length;
   showFlashback();
 }
 
@@ -737,19 +987,19 @@ async function renderLeaderboard() {
 }
 
 function renderProgress() {
-  el.sceneProgress.innerHTML = "";
-  GAME_CONTENT.scenes.forEach((_, idx) => {
-    const dot = document.createElement("div");
-    dot.className = "dot";
-    if (idx < state.sceneIndex) dot.classList.add("done");
-    else if (idx === state.sceneIndex) dot.classList.add("active");
-    el.sceneProgress.appendChild(dot);
-  });
+  // 百分比进度条 + "第 N / M 幕" 文字，对齐手机 app 的做法——全 94 章合并进来
+  // 快上千幕，一格一幕的圆点行会挤成一条看不清的细线（见上面 .scene-progress-bar
+  // 的注释）。
+  const pct = Math.round(((state.sceneIndex + 1) / GAME_CONTENT.scenes.length) * 100);
+  el.sceneProgressFill.style.width = pct + "%";
+  el.sceneProgressLabel.textContent = `第 ${state.sceneIndex + 1} / ${GAME_CONTENT.scenes.length} 幕`;
 
-  const wordCount = computeVocabExposure(state.sceneIndex);
-  const { level, globalPct, target } = computeLevelProgress(wordCount);
+  // 诚实计数：等级按"掌握"的词元数算，"接触"数只做参考（设计精华第 7 条）
+  const stats = computeVocabStats(state.sceneIndex);
+  const { level, globalPct, target } = computeLevelProgress(stats.mastered);
   el.levelBarMask.style.width = 100 - globalPct + "%";
-  el.levelLabel.textContent = `${level} · ${wordCount}/${target} 词`;
+  el.levelLabel.textContent = `${level} · 掌握 ${stats.mastered}/${target} · 接触 ${stats.encountered}`;
+  el.hudLevelPill.textContent = level;
 }
 
 // 配音播放：按台词原文去 AUDIO_MANIFEST 里查对应的音频文件。
@@ -778,6 +1028,71 @@ function playAudio(text, btnEl, manifest) {
     audio.addEventListener("error", done, { once: true });
     audio.play().catch(done);
   });
+}
+
+// 章节音频预加载：边学边在后台把下一章的配音下载好，做到"翻到下一章即点即播放"。
+// 缓存名必须跟 sw.js 里的 CACHE_NAME 保持一致——这样离线时 sw.js 的 fetch 兜底
+// (caches.match) 才能命中这里提前存好的文件，不需要额外改 Service Worker。
+const AUDIO_CACHE_NAME = "unlearn-english-v1";
+
+function getChapterSceneRange(chapterNum) {
+  if (typeof CHAPTER_INDEX === "undefined") return null;
+  const entry = CHAPTER_INDEX.find((c) => c.chapter === chapterNum);
+  if (!entry) return null;
+  const nextEntry = CHAPTER_INDEX.find((c) => c.chapter === chapterNum + 1);
+  return { start: entry.sceneIndex, end: nextEntry ? nextEntry.sceneIndex : GAME_CONTENT.scenes.length };
+}
+
+// 按章节号收集这一章所有台词（NPC 台词 + 选项文案）对应的音频文件地址，
+// 去 AUDIO_MANIFEST 里查不到（没配音的文案）就跳过。
+function collectChapterAudioUrls(chapterNum) {
+  const range = getChapterSceneRange(chapterNum);
+  if (!range || typeof AUDIO_MANIFEST === "undefined") return [];
+  const urls = new Set();
+  for (let i = range.start; i < range.end; i++) {
+    const scene = GAME_CONTENT.scenes[i];
+    if (!scene || !scene.nodes) continue;
+    for (const node of Object.values(scene.nodes)) {
+      const texts = [];
+      if (node.npcLine && node.npcLine.en) texts.push(node.npcLine.en);
+      if (Array.isArray(node.choices)) {
+        for (const choice of node.choices) if (choice.text) texts.push(choice.text);
+      }
+      for (const text of texts) {
+        const url = AUDIO_MANIFEST[text];
+        if (url) urls.add(url);
+      }
+    }
+  }
+  return Array.from(urls);
+}
+
+// 限流并发地把音频塞进 Cache Storage；已经缓存过的文件直接跳过，避免重复占流量。
+// 省流量模式下（Data Saver）不做预加载，尊重用户的网络设置。
+async function prefetchAudioUrls(urls) {
+  if (!urls.length || !("caches" in window)) return;
+  if (navigator.connection && navigator.connection.saveData) return;
+  try {
+    const cache = await caches.open(AUDIO_CACHE_NAME);
+    let i = 0;
+    async function worker() {
+      while (i < urls.length) {
+        const url = urls[i++];
+        const hit = await cache.match(url);
+        if (hit) continue;
+        try {
+          const res = await fetch(url);
+          if (res.ok) await cache.put(url, res);
+        } catch (e) {} // 离线或单个文件失败不影响其他文件，也不影响正常游戏
+      }
+    }
+    await Promise.all(Array.from({ length: 4 }, worker)); // 4路并发，兼顾速度和不占满带宽
+  } catch (e) {}
+}
+
+function prefetchChapterAudio(chapterNum) {
+  const urls = collectChapterAudioUrls(chapterNum);
+  if (urls.length) prefetchAudioUrls(urls);
 }
 
 // 音效：用 Web Audio API 合成，不依赖外部音频文件。
@@ -845,13 +1160,14 @@ function playBonusXpSfx() {
 }
 
 function spawnXpFloat(fromEl, amount, isBonus) {
+  const shellRect = el.phoneShell.getBoundingClientRect();
   const rect = fromEl.getBoundingClientRect();
   const float = document.createElement("span");
   float.className = isBonus ? "xp-float xp-float-bonus" : "xp-float";
   float.textContent = isBonus ? `🎉 双倍 XP! +${amount}` : `+${amount} XP`;
-  float.style.left = rect.right - (isBonus ? 100 : 60) + "px";
-  float.style.top = rect.top - 6 + "px";
-  document.body.appendChild(float);
+  float.style.left = rect.right - shellRect.left - (isBonus ? 100 : 60) + "px";
+  float.style.top = rect.top - shellRect.top - 6 + "px";
+  el.phoneShell.appendChild(float);
   setTimeout(() => float.remove(), isBonus ? 1400 : 900);
 }
 
@@ -890,14 +1206,26 @@ function renderSceneContent() {
 
   browseIndex = null; // 任何一次正常的直播渲染，都代表玩家不在翻页回看状态
   hideWordPopup();
+  document.body.classList.remove("zh-peek"); // 换台词了，上一句长按露出的中文提示不该带过来
   renderProgress();
+
+  // 场景卡+头像描边+HUD 等级胶囊都按当前场景取同一组配色，见 SCENE_PALETTE 顶部注释。
+  const scenePalette = SCENE_PALETTE[state.sceneIndex % SCENE_PALETTE.length];
+  el.sceneCard.style.background = scenePalette.bg;
+  el.avatar.style.borderColor = scenePalette.tint;
+  el.hudLevelPill.style.borderColor = scenePalette.tint;
+  el.hudLevelPill.style.color = scenePalette.tint;
+  el.hudLevelPill.style.background = scenePalette.bg;
+
   el.sceneTitle.innerHTML = wrapWordsHTML(scene.title);
   el.sceneSubtitle.innerHTML = wrapWordsHTML(scene.subtitle);
   el.avatar.textContent = node.avatar || scene.avatar;
   el.npcEn.innerHTML = wrapWordsHTML(node.npcLine.en, node.npcLine.zh);
   el.npcZh.textContent = node.npcLine.zh;
-  // 进节点自动放一遍就够了，不再循环提醒——想再听就点对话框空白处（见下面的监听器）。
-  playAudio(node.npcLine.en, el.npcAudioBtn);
+  // 进节点自动放一遍就够了，不再循环提醒——想再听就点台词本身（对齐手机 app
+  // 用 <Pressable onPress={playLine}> 包住台词文字，不再单独放一个 PLAY 按钮，
+  // 见下面 el.npcEn 的 click 监听）。
+  playAudio(node.npcLine.en, el.npcEn);
   el.hint.textContent = "";
   el.hint.classList.remove("visible");
   wrongButtonsThisNode = new Set();
@@ -911,12 +1239,17 @@ function renderSceneContent() {
   } else {
     // 内容里为了方便写作，正确选项总是排第一个——渲染时打乱顺序，
     // 不然正确答案永远在同一个位置，玩家不用看台词也能蒙对。
-    const shuffled = node.choices.map((choice, idx) => ({ choice, idx })).sort(() => Math.random() - 0.5);
+    // 再动态补第三个选项：从附近节点借一句通顺但答非所问的玩家句（idx = -1，一律算错）——
+    // 内容里现成的两个选项大多靠常识就能排除，测不到英文（设计精华第 5 条）。
+    const extra = pickContextualDistractor(state.sceneIndex, state.nodeId, node);
+    const all = node.choices.map((choice, idx) => ({ choice, idx }));
+    if (extra) all.push({ choice: { text: extra.text, zh: extra.zh, correct: false }, idx: -1 });
+    const shuffled = all.sort(() => Math.random() - 0.5);
     shuffled.forEach(({ choice, idx }) => {
       const btn = document.createElement("button");
       btn.className = "choice-btn";
       btn.innerHTML = wrapWordsHTML(choice.text, choice.zh || node.npcLine.zh);
-      btn.addEventListener("click", () => handleChoice(idx, btn));
+      btn.addEventListener("click", () => handleChoice(idx, btn, choice.text));
       el.choices.appendChild(btn);
     });
   }
@@ -927,9 +1260,10 @@ function renderSceneContent() {
   updateHistoryNavUI();
 }
 
-function handleChoice(idx, btnEl) {
+function handleChoice(idx, btnEl, extraText) {
   const node = currentNode();
-  const choice = node.choices[idx];
+  // idx = -1 是渲染时动态补的第三个选项，不在 node.choices 里，一律按答错处理
+  const choice = idx < 0 ? { text: extraText || "", correct: false } : node.choices[idx];
   playAudio(choice.text, btnEl);
 
   if (choice.correct) {
@@ -1001,7 +1335,10 @@ function advance(nextNodeId) {
   // scene finished -> maybe show flashback review, then move to next scene
   el.flashbackLabel.textContent = "🧳 回忆闪回 · 这个词是？";
   flashbackOnComplete = goToNextScene;
+  // 先把这一幕里曝光够次数的新词自动入队（复习不等答错），再挑要考的
+  if (enqueueExposureReviews(state.sceneIndex) > 0) saveState();
   pendingFlashback = pickFlashbackItems();
+  flashbackTotal = pendingFlashback.length;
   if (pendingFlashback.length > 0) {
     showFlashback();
   } else {
@@ -1035,6 +1372,7 @@ function showReconnectWarmup() {
       : "👋 欢迎回来，先复习一下";
   flashbackOnComplete = renderScene;
   pendingFlashback = [state.reviewQueue[0]];
+  flashbackTotal = pendingFlashback.length;
   showFlashback();
 }
 
@@ -1057,6 +1395,7 @@ function goToNextScene() {
   const chapterEntry =
     typeof CHAPTER_INDEX !== "undefined" ? CHAPTER_INDEX.find((c) => c.sceneIndex === nextIndex) : null;
   if (transition || chapterEntry) {
+    if (chapterEntry) prefetchChapterAudio(chapterEntry.chapter + 1); // 一进入新章节就后台下载下一章的配音
     showTransition(transition, chapterEntry);
   } else {
     renderScene();
@@ -1066,7 +1405,7 @@ function goToNextScene() {
 function showTransition(transition, chapterEntry) {
   el.transitionChapterCard.classList.toggle("hidden", !chapterEntry);
   if (chapterEntry) {
-    el.transitionChapterNum.textContent = `第 ${chapterEntry.chapter} 章`;
+    el.transitionChapterNum.textContent = `第 ${chapterEntry.chapter} 章${chapterEntry.kind === "side" ? " · 番外" : ""}`;
     el.transitionChapterTitle.textContent = chapterEntry.title;
   }
   el.transitionEn.classList.toggle("hidden", !transition);
@@ -1081,11 +1420,27 @@ function showTransition(transition, chapterEntry) {
 // 检索难度随熟练度升级：还在 active 阶段（第一次见到 / 之前答错过）用选择题，
 // 门槛低；进了 pendingFinal（短期已连对2次，等长间隔做最终确认）就换成拼词，
 // 逼玩家真正拼出整句，而不是靠排除法认出来。
+const FLASHBACK_ICONS = { word: "🃏", sentence: "🎴" };
+
 function showFlashback() {
   const item = pendingFlashback[0];
   el.flashbackOverlay.classList.add("visible");
   el.flashbackFeedback.textContent = "";
   el.flashbackZh.textContent = item.zh;
+  el.flashbackIcon.textContent = FLASHBACK_ICONS[item.kind] || "🎴";
+  renderFlashbackProgress();
+  // 复习赚心模式必须真答对才给心，不能靠"已经学会"白嫖，这个通道只在正常闪回里开放。
+  el.flashbackKnowBtn.classList.toggle("hidden", heartRecoveryMode);
+  el.flashbackKnowBtn.disabled = false;
+
+  // 重新触发弹出动画：同一个卡片元素连续复用（队列里下一题），
+  // 不移除再加类名的话动画只会在第一次弹层打开时播放一次。
+  const card = el.flashbackOverlay.querySelector(".flashback-card-game");
+  if (card) {
+    card.classList.remove("flashback-card-game");
+    void card.offsetWidth;
+    card.classList.add("flashback-card-game");
+  }
 
   // 单个单词没法拆词拼句，pendingFinal 阶段也一直用选择题，不进拼词模式。
   if (item.status === "pendingFinal" && item.kind !== "word") {
@@ -1093,6 +1448,34 @@ function showFlashback() {
   } else {
     renderFlashbackChoices(item);
   }
+}
+
+function renderFlashbackProgress() {
+  el.flashbackProgress.innerHTML = "";
+  if (flashbackTotal <= 1) return; // 只有一条待复习时不需要进度点
+  const doneCount = flashbackTotal - pendingFlashback.length;
+  for (let i = 0; i < flashbackTotal; i++) {
+    const dot = document.createElement("span");
+    dot.className = "flashback-progress-dot";
+    if (i < doneCount) dot.classList.add("is-done");
+    else if (i === doneCount) dot.classList.add("is-current");
+    el.flashbackProgress.appendChild(dot);
+  }
+}
+
+// 整句条目的干扰项：从 vocabBank 里挑"长度接近、也是整句"的句子——不能混进
+// "tandem kayak" 这种单词条目，一眼就能排除，测不到记忆（设计精华第 5 条）。
+// 与 apps/mobile/lib/game/review.ts 的 buildFlashbackChoiceOptions 逻辑相同。
+function pickSentenceDistractors(targetEn, n) {
+  const len = tokenizeWords(targetEn).length;
+  const isQ = /\?\s*$/.test(targetEn);
+  const all = GAME_CONTENT.vocabBank.filter((v) => v.en !== targetEn);
+  const near = all.filter((v) => {
+    const l = tokenizeWords(v.en).length;
+    return l >= 3 && l >= len * 0.6 && l <= len * 1.5 && /\?\s*$/.test(v.en) === isQ;
+  });
+  const pool = near.length >= n ? near : all.filter((v) => tokenizeWords(v.en).length >= 3);
+  return pool.sort(() => Math.random() - 0.5).slice(0, n).map((v) => v.en);
 }
 
 function renderFlashbackChoices(item) {
@@ -1105,11 +1488,7 @@ function renderFlashbackChoices(item) {
         .filter((w) => w !== item.en)
         .sort(() => Math.random() - 0.5)
         .slice(0, 2)
-    : GAME_CONTENT.vocabBank
-        .filter((v) => v.en !== item.en)
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 2)
-        .map((v) => v.en);
+    : pickSentenceDistractors(item.en, 2);
 
   const options = [item.en, ...distractors].sort(() => Math.random() - 0.5);
 
@@ -1119,8 +1498,10 @@ function renderFlashbackChoices(item) {
     btn.innerHTML = wrapWordsHTML(text);
     btn.addEventListener("click", () => {
       Array.from(el.flashbackChoices.children).forEach((b) => (b.disabled = true));
+      // 点了就立刻选中变绿——不靠这个提示对错（下面播的都是正确答案的读音），
+      // 只是给"我点了这个"一个马上能看见的反馈，跟音频同时发生。
+      btn.classList.add("correct");
       const isCorrect = text === item.en;
-      // 不管选没选对都放正确答案的读音，复习看的是记没记住，不靠颜色提示对错。
       const audioDone = playAudio(item.en, btn);
       resolveFlashback(isCorrect, item, audioDone);
     });
@@ -1193,8 +1574,9 @@ function resolveFlashback(isCorrect, item, audioDone) {
     el.flashbackFeedback.textContent = heartRecoveryMode ? "✅ 记住了！回一颗心 ❤️" : "✅ 记住了！";
     if (target) {
       if (target.status === "pendingFinal") {
-        // 长间隔之后再考一次也答对了：真正学会，移出队列
+        // 长间隔之后再考一次也答对了：真正学会，移出队列，并记为"已确认掌握"
         state.reviewQueue = state.reviewQueue.filter((r) => r.en !== item.en);
+        recordConfirmed(item);
       } else {
         target.streak += 1;
         if (target.streak >= 2) {
@@ -1220,18 +1602,41 @@ function resolveFlashback(isCorrect, item, audioDone) {
   }
   saveState();
 
-  // 等配音播完，再留一点时间看反馈文字，才翻页——不是固定 1200ms 硬切
-  Promise.resolve(audioDone).then(() => {
-    setTimeout(() => {
-      pendingFlashback.shift();
-      if (pendingFlashback.length > 0) {
-        showFlashback();
-      } else {
-        el.flashbackOverlay.classList.remove("visible");
-        flashbackOnComplete();
-      }
-    }, 500);
-  });
+  // 等配音播完，再留1秒看清反馈文字，才翻页——不是配音一结束就硬切。
+  Promise.resolve(audioDone).then(() => finishFlashbackTurn());
+}
+
+// 闪回队列翻页的公共尾巴：resolveFlashback（选择题/拼词）和"已经学会了"
+// 跳过按钮都要"停留一会儿再进下一题"，抽出来共用，延迟统一改成1秒。
+function finishFlashbackTurn(delayMs = 1000) {
+  setTimeout(() => {
+    pendingFlashback.shift();
+    if (pendingFlashback.length > 0) {
+      showFlashback();
+    } else {
+      el.flashbackOverlay.classList.remove("visible");
+      flashbackOnComplete();
+    }
+  }, delayMs);
+}
+
+// "我已经学会了"：跳过复习、直接判定学会并移出队列——跟长间隔真答对
+// 的效果一样，但不走选择/拼词那套判定，也照样有音效+1秒停留再翻页。
+// 复习赚心模式下按钮本身是隐藏的（见 showFlashback），这里再挡一层防止误触发。
+function markFlashbackKnown() {
+  const item = pendingFlashback[0];
+  if (!item || heartRecoveryMode) return;
+  Array.from(el.flashbackChoices.children).forEach((b) => (b.disabled = true));
+  Array.from(el.flashbackWordbank.children).forEach((b) => (b.disabled = true));
+  Array.from(el.flashbackAnswer.children).forEach((b) => (b.disabled = true));
+  el.flashbackKnowBtn.disabled = true;
+
+  state.reviewQueue = state.reviewQueue.filter((r) => r.en !== item.en);
+  playCorrectSfx();
+  el.flashbackFeedback.textContent = "✅ 已标记为学会，不再复习";
+  saveState();
+
+  finishFlashbackTurn();
 }
 
 function showEndScreen() {
@@ -1263,13 +1668,45 @@ function resetGame() {
 }
 
 el.resetBtn.addEventListener("click", () => {
-  el.accountMenu.classList.add("hidden");
   if (confirm("确定要重新开始吗？当前进度会清空。")) resetGame();
 });
 el.restartBtn.addEventListener("click", resetGame);
-el.npcAudioBtn.addEventListener("click", () => {
-  playAudio(currentNode().npcLine.en, el.npcAudioBtn);
+// 播放按钮改成直接点台词本身（对齐手机 app 用 Pressable 包住台词文字），
+// 但点单词查释义（.word span）不该顺带把整句也放一遍音，所以先排除掉。
+el.npcEn.addEventListener("click", (e) => {
+  if (e.target.closest(".word")) return;
+  playAudio(currentNode().npcLine.en, el.npcEn);
 });
+// 盲听模式下台词换成这个占位提示条：短按=重播音频，长按=临时露出中文提示。
+// 用 pointerdown 起一个计时器，计时器跑完前松手就当短按；跑完了就翻译成
+// "长按确认"，松手时不再重播、只是把中文提示收回去。
+let listenHintPressTimer = null;
+let listenHintLongPressed = false;
+const LISTEN_HINT_LONG_PRESS_MS = 380;
+
+function endListenHintPress() {
+  clearTimeout(listenHintPressTimer);
+  if (listenHintLongPressed) {
+    document.body.classList.remove("zh-peek");
+  } else {
+    playAudio(currentNode().npcLine.en, el.npcListenHint);
+  }
+  listenHintLongPressed = false;
+}
+
+el.npcListenHint.addEventListener("pointerdown", () => {
+  listenHintLongPressed = false;
+  listenHintPressTimer = setTimeout(() => {
+    listenHintLongPressed = true;
+    document.body.classList.add("zh-peek");
+  }, LISTEN_HINT_LONG_PRESS_MS);
+});
+el.npcListenHint.addEventListener("pointerup", endListenHintPress);
+el.npcListenHint.addEventListener("pointercancel", endListenHintPress);
+el.npcListenHint.addEventListener("pointerleave", () => {
+  if (listenHintLongPressed) endListenHintPress();
+});
+el.flashbackKnowBtn.addEventListener("click", markFlashbackKnown);
 el.transitionContinueBtn.addEventListener("click", () => {
   el.transitionOverlay.classList.remove("visible");
   renderScene();
@@ -1278,7 +1715,15 @@ el.zhToggleBtn.addEventListener("click", () => {
   hideZh = !hideZh;
   localStorage.setItem(ZH_HIDE_KEY, hideZh ? "1" : "0");
   applyZhVisibility();
-  el.accountMenu.classList.add("hidden");
+});
+el.blindListenBtn.addEventListener("click", () => {
+  blindListen = !blindListen;
+  localStorage.setItem(BLIND_LISTEN_KEY, blindListen ? "1" : "0");
+  applyBlindListenVisibility();
+  if (blindListen && !localStorage.getItem(BLIND_LISTEN_TIP_KEY)) {
+    localStorage.setItem(BLIND_LISTEN_TIP_KEY, "1");
+    showTextToast("🎧 轻触台词重新播放，长按台词查看中文提示");
+  }
 });
 
 // 昵称：登录后随机配一个"形容词+蔬果"的花名（比如"奔跑的土豆"），不用邮箱本身，
@@ -1440,7 +1885,6 @@ el.avatarUploadInput.addEventListener("change", (e) => {
 });
 
 el.characterEditBtn.addEventListener("click", () => {
-  el.accountMenu.classList.add("hidden");
   el.characterNameInput.value = state.playerName || "";
   pendingAvatarImage = state.playerAvatarImage || null;
   avatarUploadToken++; // 作废上一次打开这个编辑器时可能还没传完的上传
@@ -1471,7 +1915,10 @@ function renderAchievementsGrid() {
     const isEquipped = state.equippedTitle === a.id;
     const card = document.createElement("button");
     card.type = "button";
-    card.className = "achievement-card" + (isUnlocked ? " unlocked" : " locked") + (isEquipped ? " equipped" : "");
+    card.className =
+      "achievement-card" +
+      (isUnlocked ? " unlocked rarity-" + a.rarity : " locked") +
+      (isEquipped ? " equipped" : "");
     card.innerHTML = `
       <div class="achievement-card-icon">${isUnlocked ? a.icon : "🔒"}</div>
       <div class="achievement-card-title">${isUnlocked ? a.title : "？？？"}</div>
@@ -1491,7 +1938,6 @@ function renderAchievementsGrid() {
 }
 
 el.achievementsBtn.addEventListener("click", () => {
-  el.accountMenu.classList.add("hidden");
   renderAchievementsGrid();
   el.achievementsOverlay.classList.add("visible");
 });
@@ -1507,29 +1953,14 @@ function resetAuthForm() {
 
 if (window.GameAuth) window.GameAuth.onAuthChange(renderAuthPanel);
 
-el.accountBtn.addEventListener("click", () => {
-  el.accountMenu.classList.toggle("hidden");
-});
-// 点菜单外部的地方，自动收起菜单——左上角的身份标签不算"外部"，
-// 不然它自己的点击事件冒泡到这里，会跟它下面的登录逻辑打架。
-document.addEventListener("click", (e) => {
-  if (
-    !el.accountMenu.classList.contains("hidden") &&
-    !e.target.closest(".account-wrap") &&
-    e.target !== el.userBadge
-  ) {
-    el.accountMenu.classList.add("hidden");
-  }
-});
-// 左上角身份标签：没登录时点一下直接弹登录框；登录了就只是个花名标签，不做别的——
-// 退出登录走右上角菜单里的入口，两边不重复。
+// "更多" tab 里的身份行：没登录时点一下直接弹登录框；登录了就只是个花名标签，
+// 不做别的——退出登录走"账号"卡片里的独立按钮，两边不重复。
 el.userBadge.addEventListener("click", () => {
   if (window.GameAuth && window.GameAuth.getUser()) return;
   resetAuthForm();
   el.authOverlay.classList.add("visible");
 });
 el.accountLoginBtn.addEventListener("click", () => {
-  el.accountMenu.classList.add("hidden");
   resetAuthForm();
   el.authOverlay.classList.add("visible");
 });
@@ -1567,14 +1998,39 @@ el.authAppleBtn.addEventListener("click", () => {
 });
 el.authSignOutBtn.addEventListener("click", async () => {
   await window.GameAuth.signOut();
-  el.accountMenu.classList.add("hidden");
 });
 
 applyZhVisibility();
+applyBlindListenVisibility();
+
+// 底部 Tab 栏：五个入口里"首页/角色成长/更多"三个切的是同一页里的三块 .view，
+// 不跳转页面，也不重新渲染游戏状态；"对话/生词"两个是真的 <a> 跳到独立页面
+// （对齐手机 app 的 (tabs)/_layout.tsx，只是 app 那边这两个还没做，网页先保留
+// 原有的两个独立页面当入口）。顶栏标题跟着当前 tab 换一下文字就够了。
+const VIEW_TITLES = { game: "A Decade Apart", growth: "角色成长", more: "更多" };
+function activateView(view) {
+  if (!VIEW_TITLES[view]) return;
+  document.querySelectorAll(".tab-btn[data-view]").forEach((b) => b.classList.toggle("active", b.dataset.view === view));
+  document.querySelectorAll(".view").forEach((v) => v.classList.toggle("active", v.id === "view-" + view));
+  document.getElementById("view-title").textContent = VIEW_TITLES[view];
+  // 宽屏手机边框模式下滚动条在 .phone-shell 自己身上，真机上是整个页面在滚——
+  // 切 tab 都得回到顶部，两种情况都处理一下（不适用的那个是无害的空操作）。
+  window.scrollTo(0, 0);
+  if (el.phoneShell) el.phoneShell.scrollTop = 0;
+}
+document.querySelectorAll(".tab-btn[data-view]").forEach((btn) => {
+  btn.addEventListener("click", () => activateView(btn.dataset.view));
+});
+// 从 dialogue.html/vocab.html 的 tab 栏点"角色成长"/"更多"跳过来时带的是
+// index.html#growth / index.html#more，进页面先按 hash 把对应的 view 打开，
+// 不然永远只会落在默认的"首页"。
+if (location.hash === "#growth" || location.hash === "#more") {
+  activateView(location.hash.slice(1));
+}
 
 // 进页面直接开始，不额外插入"点击开始"的确认步骤。手机浏览器不允许没有用户
 // 手势就自动放声音，所以第一句台词的自动配音在部分设备上可能放不出来——
-// 玩家可以点台词旁边的 🔊 按钮手动听，不为了保证自动配音去插一个额外的点击关卡。
+// 玩家可以点台词本身手动听，不为了保证自动配音去插一个额外的点击关卡。
 function startGame() {
   renderIdentityBadge(); // 不用等 GameAuth 的登录回调，playerName 设置了就先显示出来
   checkAchievements(); // 补一次成就检查——老玩家可能早就摸到某些门槛了，回来这次先算清楚

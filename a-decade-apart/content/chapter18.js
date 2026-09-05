@@ -204,7 +204,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Now I'm the one who's running a whole location.", zh: "现在我是负责整个分点的人了。" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "relative-clause",
         choices: [
           { text: "You're the one who's earned this, truly.", zh: "你才是真正配得上这一切的人。", correct: true, xp: 10 },
           { text: "You're the one who's rushing into this.", correct: false }
@@ -236,7 +236,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This is the wall where we should hang the welcome sign.", zh: "这面墙就是该挂欢迎标牌的地方。" },
         skill: "community",
-        grammarTag: "relative-clause",
+        grammarTag: "will-future",
         choices: [
           { text: "This is the wall where everyone will see it first.", zh: "这面墙是大家会第一眼看到的地方。", correct: true, xp: 10 },
           { text: "This is the wall where nobody will look.", correct: false }
@@ -247,7 +247,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Can you help me carry this bookshelf inside?", zh: "你能帮我把这个书架搬进去吗？" },
         skill: "community",
-        grammarTag: "can-modal",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Sure, let's carry it in together.", zh: "没问题，我们一起搬进去吧。", correct: true, xp: 10 },
           { text: "I can't lift anything heavy today.", correct: false }
@@ -278,7 +278,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Is this the place that was in the newspaper?", zh: "这是不是报纸上写的那个地方？" },
         skill: "community",
-        grammarTag: "relative-clause",
+        grammarTag: "past-simple",
         choices: [
           { text: "Yes, this is the place that was in the paper.", zh: "对，这就是报纸上写的那个地方。", correct: true, xp: 10 },
           { text: "No, you're thinking of somewhere else.", correct: false }
@@ -300,7 +300,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "When does the first class start here?", zh: "这儿的第一堂课什么时候开始？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "It starts this Saturday morning.", zh: "这周六早上就开始。", correct: true, xp: 10 },
           { text: "It doesn't have a start date yet.", correct: false }
@@ -384,7 +384,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Keep it somewhere close. Ten Letters started with just one.", zh: "把它放在身边吧。「十封信」当年也是从一封开始的。", voice: "ho" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "will-future",
         choices: [
           { text: "This one will always be close to me.", zh: "这一封会一直被我珍藏在身边。", correct: true, xp: 10 },
           { text: "This one probably won't matter much later.", correct: false }
@@ -416,7 +416,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This building is one that has seen a lot of new beginnings.", zh: "这栋楼见证过很多新的开始。" },
         skill: "community",
-        grammarTag: "relative-clause",
+        grammarTag: "passive",
         choices: [
           { text: "A building that's seen beginnings deserves one more.", zh: "一栋见证过开始的楼，值得再多迎来一个。", correct: true, xp: 10 },
           { text: "A building that's seen beginnings means nothing special.", correct: false }

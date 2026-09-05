@@ -30,7 +30,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "What days are you both available to help?", zh: "你们俩哪几天有空来帮忙？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "We're free on Saturday mornings, mostly.", zh: "我们大部分时候周六早上有空。", correct: true, xp: 10 },
           { text: "We're never free on any day of the week.", correct: false }
@@ -62,7 +62,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Please wash your hands before handling any food.", zh: "接触食物前请先洗手。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Of course, I'll wash them right now.", zh: "当然，我现在就去洗。", correct: true, xp: 10 },
           { text: "Sorry, washing hands seems unnecessary here.", correct: false }
@@ -84,7 +84,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's start you off sorting canned goods.", zh: "我们先安排你们做罐头食品的分类。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Sounds good, show us where to start.", zh: "好的，告诉我们从哪儿开始。", correct: true, xp: 10 },
           { text: "Let's skip sorting, it sounds too boring.", correct: false }
@@ -116,7 +116,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This box is heavier than the last one.", zh: "这箱比上一箱要重。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, let's carry it together this time.", zh: "确实是，这次我们一起抬吧。", correct: true, xp: 10 },
           { text: "It isn't, this box feels lighter than air.", correct: false }
@@ -127,7 +127,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Where should the expired items go?", zh: "过期的物品应该放哪儿？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "They should go in the discard bin over there.", zh: "应该放到那边的废弃箱里。", correct: true, xp: 10 },
           { text: "They should go straight back on the shelf.", correct: false }
@@ -170,7 +170,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We've packed almost fifty boxes already.", zh: "我们已经打包了差不多五十箱了。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "comparative",
         choices: [
           { text: "That's incredible, we're moving faster than I thought.", zh: "太厉害了，我们的速度比我想的还快。", correct: true, xp: 10 },
           { text: "That's disappointing, we're moving way too slowly.", correct: false }
@@ -202,7 +202,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do you have kids of your own?", zh: "你们自己有孩子吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "Not yet, but we're expecting one soon.", zh: "还没有，不过我们很快就要有一个了。", correct: true, xp: 10 },
           { text: "No, and we never plan to have any.", correct: false }
@@ -234,7 +234,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Could you serve the soup while I hand out bread?", zh: "我发面包的时候你能盛汤吗？" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Sure, I'll take care of the soup.", zh: "好的，汤我来负责。", correct: true, xp: 10 },
           { text: "Sorry, serving soup isn't something I want to do.", correct: false }
@@ -245,7 +245,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This line is longer than it was an hour ago.", zh: "这条队伍比一小时前更长了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "phrasal-verb",
         choices: [
           { text: "It is, let's pick up the pace a bit.", zh: "确实是，我们加快点速度吧。", correct: true, xp: 10 },
           { text: "It isn't, the line looks shorter to me.", correct: false }
@@ -256,7 +256,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Everyone's been so patient waiting in this line.", zh: "大家在队伍里等待都非常有耐心。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "They really have, it's touching to see.", zh: "确实如此，看着挺让人感动的。", correct: true, xp: 10 },
           { text: "They really haven't, everyone seems furious.", correct: false }
@@ -277,7 +277,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How are you feeling after a full day of this?", zh: "忙了一整天，你现在感觉怎么样？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "I'm exhausted, but it was worth every minute.", zh: "我很累，但每一分钟都值得。", correct: true, xp: 10 },
           { text: "I'm not tired at all, this was way too easy.", correct: false }
@@ -320,7 +320,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we come back and do this once a month?", zh: "我们要不要每个月都回来做一次？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's commit to once a month.", zh: "好，我们就定每月一次吧。", correct: true, xp: 10 },
           { text: "No, once was already more than enough.", correct: false }
@@ -342,7 +342,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This is going to become a real family tradition.", zh: "这会成为我们家真正的传统。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "statement",
         choices: [
           { text: "I love that idea, I really do.", zh: "我很喜欢这个主意，真的很喜欢。", correct: true, xp: 10 },
           { text: "I hate that idea, traditions feel pointless to me.", correct: false }
@@ -363,7 +363,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What surprised you most about today?", zh: "今天最让你意外的是什么？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "How grateful everyone was, honestly.", zh: "说实话，是大家的感激之情。", correct: true, xp: 10 },
           { text: "Nothing surprised me about today at all.", correct: false }
@@ -417,7 +417,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "You two are much faster than you were last time.", zh: "你们俩比上次快多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "Practice really does make a difference.", zh: "练习确实会带来不同。", correct: true, xp: 10 },
           { text: "We're actually much slower than last time.", correct: false }

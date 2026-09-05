@@ -19,7 +19,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you looking to sign up for a membership today?", zh: "你们今天是想办理会员吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, we'd like to join together.", zh: "是的，我们想一起加入。", correct: true, xp: 10 },
           { text: "No, we've already joined elsewhere.", correct: false }
@@ -41,7 +41,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Have you worked out at a gym before?", zh: "你们以前在健身房锻炼过吗？" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "past-simple",
         choices: [
           { text: "We've never really worked out before.", zh: "我们以前几乎没怎么锻炼过。", correct: true, xp: 10 },
           { text: "We're working out here right now.", correct: false }
@@ -62,7 +62,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What are your fitness goals?", zh: "你们的健身目标是什么？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "We just want to build some healthy habits.", zh: "我们只是想养成一些健康的习惯。", correct: true, xp: 10 },
           { text: "We don't really have any goals.", correct: false }
@@ -84,7 +84,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "I'll design a program based on your level.", zh: "我会根据你们的水平设计一套训练计划。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "courtesy",
         choices: [
           { text: "That would be really helpful, thank you.", zh: "那真的会很有帮助，谢谢你。", correct: true, xp: 10 },
           { text: "We'd rather just guess on our own.", correct: false }
@@ -116,7 +116,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Your flexibility is better than most beginners.", zh: "你的柔韧性比大多数新手都要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's nice to hear, I do stretch often.", zh: "听到这个真好，我确实经常拉伸。", correct: true, xp: 10 },
           { text: "That's surprising, I never stretch at all.", correct: false }
@@ -170,7 +170,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please keep your back straight during this exercise.", zh: "做这个动作时请保持背部挺直。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Of course, I'll keep it straight.", zh: "当然，我会保持挺直的。", correct: true, xp: 10 },
           { text: "Sorry, straight backs aren't really my thing.", correct: false }
@@ -202,7 +202,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This class is more intense than yoga.", zh: "这堂课比瑜伽课强度更大。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's fine, I like a challenge.", zh: "没关系，我喜欢挑战。", correct: true, xp: 10 },
           { text: "That's fine, I hate any kind of effort.", correct: false }
@@ -245,7 +245,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How many times a week are you training?", zh: "你现在一周训练几次？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "I'm training about four times a week.", zh: "我现在大概一周训练四次。", correct: true, xp: 10 },
           { text: "Training isn't something I do at all.", correct: false }
@@ -256,7 +256,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Your resting heart rate has dropped quite a bit.", zh: "你的静息心率已经降低了不少。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "That's a great sign, I'm relieved to hear it.", zh: "这是个好迹象，听到这个我松了口气。", correct: true, xp: 10 },
           { text: "That's a bad sign, I'm worried about it now.", correct: false }
@@ -277,7 +277,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What happened to your shoulder?", zh: "你的肩膀怎么了？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "I strained it lifting too much weight.", zh: "我举太重的重量拉伤了它。", correct: true, xp: 10 },
           { text: "Nothing happened, my shoulder is perfectly fine.", correct: false }
@@ -331,7 +331,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do these squats feel okay on your shoulder?", zh: "做这些深蹲你的肩膀感觉还好吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, my shoulder feels totally fine here.", zh: "是的，我的肩膀在这个动作里完全没问题。", correct: true, xp: 10 },
           { text: "No, I've never done a squat in my life.", correct: false }
@@ -342,7 +342,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'll add the shoulder work back in gradually.", zh: "我们会逐渐把肩膀训练加回来。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "statement",
         choices: [
           { text: "That sounds like a smart, careful approach.", zh: "这听起来是个明智又谨慎的做法。", correct: true, xp: 10 },
           { text: "That sounds way too slow for me.", correct: false }
@@ -374,7 +374,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How does it feel to reach this goal?", zh: "达成这个目标感觉怎么样？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "It feels amazing, all the work paid off.", zh: "感觉太棒了，所有的努力都值得了。", correct: true, xp: 10 },
           { text: "It doesn't feel like anything at all.", correct: false }
@@ -406,7 +406,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Once the baby comes, how will we keep exercising?", zh: "宝宝出生以后，我们要怎么继续锻炼？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "will-future",
         choices: [
           { text: "We'll probably take turns watching the baby.", zh: "我们大概会轮流照看宝宝。", correct: true, xp: 10 },
           { text: "We'll probably just stop exercising forever.", correct: false }

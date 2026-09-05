@@ -15,7 +15,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we do a theme, or keep it simple?", zh: "我们要定个主题，还是保持简单？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Let's do a theme, something fun and colorful.", zh: "定个主题吧，有趣又多彩的那种。", correct: true, xp: 10 },
           { text: "No theme at all, themes are overrated.", correct: false }
@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How many people should we invite?", zh: "我们应该邀请多少人？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Just close family and a few friends.", zh: "就近亲和几个朋友吧。", correct: true, xp: 10 },
           { text: "Nobody, first birthdays don't need guests.", correct: false }
@@ -37,7 +37,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'll need to book the space soon.", zh: "我们得尽快预订场地了。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Right, let's call the community hall today.", zh: "对，我们今天就打电话给社区礼堂吧。", correct: true, xp: 10 },
           { text: "Right, though the space doesn't matter much.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This jungle theme looks more fun than the space one.", zh: "这个丛林主题看起来比太空主题更有趣。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It does, let's go with the jungle theme.", zh: "确实是，那我们就选丛林主题吧。", correct: true, xp: 10 },
           { text: "It doesn't, the space theme looks way better.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should we match the invitations to the theme too?", zh: "请柬要不要也配合主题？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, that would tie everything together nicely.", zh: "好，这样能让一切都更协调统一。", correct: true, xp: 10 },
           { text: "No, invitations should always be plain.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This design looks cuter than the last one we tried.", zh: "这个设计比我们之前试的那个更可爱。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It does, let's use this one for sure.", zh: "确实是，那我们就用这个吧。", correct: true, xp: 10 },
           { text: "It doesn't, let's go back to the old one.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please RSVP by the end of next week.", zh: "请在下周末之前回复是否出席。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Of course, we'll add that to the card.", zh: "当然，我们会把这个加到卡片上。", correct: true, xp: 10 },
           { text: "Sorry, deadlines feel unnecessary for a party.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This cake turned out better than the photo we sent.", zh: "这个蛋糕做出来比我们发的照片还要好看。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, this exceeded every expectation.", zh: "确实是，这超出了我们所有的预期。", correct: true, xp: 10 },
           { text: "It really didn't, this looks nothing like it.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Is there also a small smash cake for the baby?", zh: "有给宝宝准备的小份专用蛋糕吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, it's right here in this small box.", zh: "有的，就在这个小盒子里。", correct: true, xp: 10 },
           { text: "No, babies don't need their own cake.", correct: false }
@@ -209,7 +209,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please keep it in the fridge until the party starts.", zh: "请把它放在冰箱里直到派对开始。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Of course, we'll take good care of it.", zh: "当然，我们会好好保管的。", correct: true, xp: 10 },
           { text: "Sorry, we're planning to leave it in the car.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This place looks even better than I imagined!", zh: "这地方看起来比我想象的还要漂亮！" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "Thank you, we worked hard on the decorations.", zh: "谢谢，我们在装饰上花了不少心思。", correct: true, xp: 10 },
           { text: "Thank you, though we barely decorated at all.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Where should we put this gift?", zh: "这份礼物应该放哪儿？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "can-modal",
         choices: [
           { text: "You can put it on the gift table over there.", zh: "您可以放在那边的礼物桌上。", correct: true, xp: 10 },
           { text: "Gifts aren't allowed at this party.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This party is even more fun than I expected.", zh: "这场派对比我预想的还要有趣。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really is, everyone seems to be enjoying it.", zh: "确实如此，大家看起来都很开心。", correct: true, xp: 10 },
           { text: "It really isn't, everyone looks bored.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "The kids are laughing more than the adults right now.", zh: "现在孩子们比大人笑得还开心。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "They are, and that's exactly the point.", zh: "确实是，这正是我们想要的效果。", correct: true, xp: 10 },
           { text: "They aren't, the adults are having more fun.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you ready for this to get messy?", zh: "你准备好接受这场混乱了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "present-perfect",
         choices: [
           { text: "I am, I've got the camera ready.", zh: "准备好了，相机也拿好了。", correct: true, xp: 10 },
           { text: "I'm not, let's skip this part entirely.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "They're getting more cake on their face than in their mouth!", zh: "他们脸上沾的蛋糕比嘴里吃到的还多！" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "relative-clause",
         choices: [
           { text: "That's exactly how it's supposed to go!", zh: "这正是它该有的样子！", correct: true, xp: 10 },
           { text: "That seems like a total waste of cake.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This year has changed us more than any other.", zh: "这一年比其他任何一年都更让我们发生了改变。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It really has, and I wouldn't trade it for anything.", zh: "确实如此，我不会用它换任何东西。", correct: true, xp: 10 },
           { text: "It really hasn't, nothing has changed at all.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How do you feel looking back on everything we've been through?", zh: "回顾我们经历的一切，你有什么感受？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "Grateful, exhausted, and completely fulfilled.", zh: "感激、疲惫，又充满成就感。", correct: true, xp: 10 },
           { text: "I don't feel anything looking back, honestly.", correct: false }
@@ -424,7 +424,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Whatever the next year brings, we're ready for it, together.", zh: "无论下一年带来什么，我们都已经准备好了，一起面对。" },
         skill: "community",
-        grammarTag: "concession",
+        grammarTag: "relative-clause",
         choices: [
           { text: "Whatever comes next, hand in hand.", zh: "无论接下来发生什么，我们都手牵着手。", correct: true, xp: 10 },
           { text: "Whatever comes next, we'll probably face it apart.", correct: false }

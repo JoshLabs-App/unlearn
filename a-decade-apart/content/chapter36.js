@@ -19,7 +19,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "A friend offered us her cottage by the lake.", zh: "一个朋友把她湖边的度假屋借给我们了。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "That's so generous, we should say yes.", zh: "她真是太大方了，我们应该答应。", correct: true, xp: 10 },
           { text: "That's odd, we should probably say no.", correct: false }
@@ -30,7 +30,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How long is the drive up there?", zh: "开车到那里要多久？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "It's about three hours, give or take.", zh: "大概三个小时左右。", correct: true, xp: 10 },
           { text: "It's not a drive, it's a five-minute walk.", correct: false }
@@ -62,7 +62,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Did you remember to pack the cooler?", zh: "你记得带保温箱了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, it's already in the trunk.", zh: "是的，已经放在后备箱了。", correct: true, xp: 10 },
           { text: "No, coolers have never mattered to us.", correct: false }
@@ -73,7 +73,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This route looks more scenic than the highway.", zh: "这条路线看起来比高速公路更有风景。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Let's take this route, then, we're in no rush.", zh: "那我们走这条路吧，反正也不赶时间。", correct: true, xp: 10 },
           { text: "Let's take the highway, scenery doesn't matter.", correct: false }
@@ -84,7 +84,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "I'm so ready to just relax for a few days.", zh: "我真的很想好好放松几天了。" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "comparative",
         choices: [
           { text: "Same here, this trip couldn't come at a better time.", zh: "我也是，这趟旅行来得正是时候。", correct: true, xp: 10 },
           { text: "Same here, though I'd rather keep working instead.", correct: false }
@@ -105,7 +105,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This view is even better than the photos showed.", zh: "这景色比照片上看到的还要美。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "can-modal",
         choices: [
           { text: "It really is, I can't stop staring at it.", zh: "确实如此，我怎么看都看不够。", correct: true, xp: 10 },
           { text: "It really isn't, the photos looked much nicer.", correct: false }
@@ -159,7 +159,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This lake is calmer than I expected today.", zh: "今天这个湖比我预想的要平静。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really is, perfect conditions for us.", zh: "确实如此，条件对我们来说太完美了。", correct: true, xp: 10 },
           { text: "It really isn't, the waves are terrifying.", correct: false }
@@ -202,7 +202,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Once the baby comes, quiet afternoons like this will be rare.", zh: "宝宝出生后，这样安静的午后会变得很少见。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "relative-clause",
         choices: [
           { text: "That's exactly why we should enjoy this moment.", zh: "这正是我们要好好珍惜这一刻的原因。", correct: true, xp: 10 },
           { text: "That's why we shouldn't have come here at all.", correct: false }
@@ -245,7 +245,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Everything tastes better cooked over a real fire.", zh: "用真正的篝火做的东西吃起来更香。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really does, there's something special about it.", zh: "确实如此，这样做出来的东西有种特别的味道。", correct: true, xp: 10 },
           { text: "It doesn't, this tastes exactly like at home.", correct: false }
@@ -256,7 +256,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Watch out, that pan is hotter than it looks.", zh: "小心点，那个平底锅比看起来要烫。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "Thanks for the warning, I'll be careful.", zh: "谢谢提醒，我会小心的。", correct: true, xp: 10 },
           { text: "Thanks, though I'll just grab it with my hands.", correct: false }
@@ -288,7 +288,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "What do you think our lives will look like in a year?", zh: "你觉得一年后我们的生活会是什么样子？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Busier, but happier, I think.", zh: "我觉得会更忙，但也更幸福。", correct: true, xp: 10 },
           { text: "Exactly the same as it is right now.", correct: false }
@@ -342,7 +342,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Even the rainy days here feel special somehow.", zh: "就连这里下雨的日子都有种特别的感觉。" },
         skill: "community",
-        grammarTag: "concession",
+        grammarTag: "statement",
         choices: [
           { text: "Even the rain, I have to admit, feels nice.", zh: "即使是下雨，我也不得不承认感觉很好。", correct: true, xp: 10 },
           { text: "Even the rain proves this trip was a mistake.", correct: false }
@@ -363,7 +363,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Have we left everything the way we found it?", zh: "我们有把一切都恢复成原来的样子吗？" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "past-simple",
         choices: [
           { text: "I've double-checked, and everything looks good.", zh: "我又检查了一遍，一切都没问题。", correct: true, xp: 10 },
           { text: "I've never once checked anything in this cottage.", correct: false }
@@ -374,7 +374,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This trip went by faster than I wanted it to.", zh: "这趟旅行过得比我希望的要快。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, I already miss it.", zh: "确实如此，我已经开始想念了。", correct: true, xp: 10 },
           { text: "It really didn't, this trip felt endless.", correct: false }
@@ -417,7 +417,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How do you feel about everything that's coming next?", zh: "对于接下来即将到来的一切，你感觉怎么样？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "I feel calm, and honestly, really excited.", zh: "我感觉很平静，说实话，也非常期待。", correct: true, xp: 10 },
           { text: "I feel nothing at all about any of it.", correct: false }
@@ -428,7 +428,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Whatever happens next, we're doing this together.", zh: "不管接下来发生什么，我们都会一起面对。" },
         skill: "community",
-        grammarTag: "concession",
+        grammarTag: "relative-clause",
         choices: [
           { text: "Whatever happens, together, always.", zh: "不管发生什么，我们都一起面对，永远如此。", correct: true, xp: 10 },
           { text: "Whatever happens, we'll probably face it apart.", correct: false }

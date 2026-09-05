@@ -30,7 +30,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do you think we're good enough to join?", zh: "你觉得我们水平够加入吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "courtesy",
         choices: [
           { text: "It says all skill levels are welcome.", zh: "上面写着欢迎各种水平的人加入。", correct: true, xp: 10 },
           { text: "No, this league sounds far too advanced.", correct: false }
@@ -41,7 +41,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'll need to find a few more teammates first.", zh: "我们得先再找几个队友。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "True, let's ask some friends tonight.", zh: "没错，我们今晚就问问朋友吧。", correct: true, xp: 10 },
           { text: "True, though we'd rather play completely alone.", correct: false }
@@ -62,7 +62,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How many players do we actually need on a team?", zh: "一支队伍实际需要多少名球员？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "concession",
         choices: [
           { text: "We need at least six players total.", zh: "我们总共至少需要六名球员。", correct: true, xp: 10 },
           { text: "We don't need any players at all.", correct: false }
@@ -84,7 +84,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "What should we name our team?", zh: "我们的队伍要叫什么名字？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Something fun, like the Bump Setters.", zh: "起个有趣点的名字，比如“垫传高手”。", correct: true, xp: 10 },
           { text: "It doesn't need a name, honestly.", correct: false }
@@ -105,7 +105,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you already have a team name picked out?", zh: "你们已经选好队名了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "Yes, we're calling ourselves the Bump Setters.", zh: "选好了，我们叫“垫传高手”。", correct: true, xp: 10 },
           { text: "No, names have never mattered to us.", correct: false }
@@ -159,7 +159,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "You're better at serving than I expected.", zh: "你的发球比我预想的要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-perfect",
         choices: [
           { text: "Thanks, I've been practicing at home actually.", zh: "谢谢，其实我一直在家练习。", correct: true, xp: 10 },
           { text: "Thanks, though I've never played before this.", correct: false }
@@ -191,7 +191,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you nervous about our first real game?", zh: "对我们的第一场正式比赛你紧张吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "connector",
         choices: [
           { text: "A little, but mostly I'm excited.", zh: "有一点，但主要还是兴奋。", correct: true, xp: 10 },
           { text: "No, nothing about tonight matters to me.", correct: false }
@@ -213,7 +213,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Whatever the score is tonight, let's have fun out there.", zh: "不管今晚比分如何，我们都要在场上玩得开心。" },
         skill: "community",
-        grammarTag: "concession",
+        grammarTag: "relative-clause",
         choices: [
           { text: "Whatever happens, having fun is the whole point.", zh: "不管结果如何，玩得开心才是重点。", correct: true, xp: 10 },
           { text: "Whatever happens, winning is the only thing that matters.", correct: false }
@@ -234,7 +234,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This set is closer than I thought it would be.", zh: "这一局比我想的要焦灼多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really is, every point matters now.", zh: "确实如此，现在每一分都很重要。", correct: true, xp: 10 },
           { text: "It really isn't, we're way ahead already.", correct: false }
@@ -277,7 +277,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "That was a much harder loss than usual.", zh: "这次输球比平常要难受多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It was, but we'll bounce back.", zh: "确实是，但我们会振作起来的。", correct: true, xp: 10 },
           { text: "It wasn't, losing never bothers us at all.", correct: false }
@@ -288,7 +288,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Even after a loss like this, I still love this team.", zh: "即使输了这样的比赛，我依然喜欢这支队伍。" },
         skill: "community",
-        grammarTag: "concession",
+        grammarTag: "connector",
         choices: [
           { text: "Even after this, so do I, completely.", zh: "即使经历了这些，我也完全一样喜欢。", correct: true, xp: 10 },
           { text: "Even after this, I want to quit right now.", correct: false }
@@ -320,7 +320,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This team has become closer than I ever expected.", zh: "这支队伍变得比我预想的还要亲密。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really has, I'm grateful for all of you.", zh: "确实如此，我很感激你们所有人。", correct: true, xp: 10 },
           { text: "It really hasn't, we're all still strangers.", correct: false }
@@ -331,7 +331,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How did you two even get into volleyball?", zh: "你们俩到底是怎么开始接触排球的？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "We just saw a flyer and decided to try it.", zh: "我们就是看到一张传单，决定试试看。", correct: true, xp: 10 },
           { text: "Volleyball is something we've never actually played.", correct: false }
@@ -363,7 +363,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "We've made it further than we ever imagined.", zh: "我们走到的这一步比我们想象的还要远。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "concession",
         choices: [
           { text: "We really have, no matter what happens tonight.", zh: "确实如此，不管今晚结果如何。", correct: true, xp: 10 },
           { text: "We really haven't, we barely made progress.", correct: false }
@@ -374,7 +374,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Whatever happens, I'm proud of how far we've come.", zh: "无论结果如何，我为我们走过的路感到骄傲。" },
         skill: "community",
-        grammarTag: "concession",
+        grammarTag: "relative-clause",
         choices: [
           { text: "Whatever happens, this season has been amazing.", zh: "无论结果如何，这个赛季都很棒。", correct: true, xp: 10 },
           { text: "Whatever happens, none of this was worth it.", correct: false }
@@ -417,7 +417,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How do you feel now that the season is finally over?", zh: "赛季终于结束了，你感觉怎么样？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "connector",
         choices: [
           { text: "A little sad, but really grateful for it all.", zh: "有点伤感，但对这一切非常感激。", correct: true, xp: 10 },
           { text: "I don't feel anything about it, honestly.", correct: false }

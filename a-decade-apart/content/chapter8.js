@@ -193,7 +193,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Excuse me, do you have any books about Toronto's history?", zh: "打扰一下，你们有关于多伦多历史的书吗？" },
         skill: "work",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, we do. Follow me.", zh: "有的，跟我来。", correct: true, xp: 10 },
           { text: "No idea, sorry.", correct: false }
@@ -236,7 +236,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Can you lock the front door?", zh: "你能把前门锁上吗？", voice: "emma" },
         skill: "work",
-        grammarTag: "can-modal",
+        grammarTag: "will-future",
         choices: [
           { text: "Sure, I'll lock it now.", zh: "没问题，我现在就去锁。", correct: true, xp: 10 },
           { text: "I've never used that lock.", correct: false }
@@ -279,7 +279,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Have you found the house from that photo yet?", zh: "你找到照片里那栋房子了吗？", voice: "emma" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "short-answer",
         choices: [
           { text: "Not yet, but we're close.", zh: "还没，但我们快找到了。", correct: true, xp: 10 },
           { text: "I've given up on it.", correct: false }

@@ -19,7 +19,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are we filing jointly this year, since we're married now?", zh: "既然我们结婚了，今年是不是要联合报税？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, filing jointly should save us money.", zh: "是的，联合报税应该能帮我们省钱。", correct: true, xp: 10 },
           { text: "No, married couples can't file taxes together.", correct: false }
@@ -62,7 +62,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Did you buy a house or have a child last year?", zh: "你们去年买房了或者有孩子了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "No, but we're expecting a baby this year.", zh: "没有，不过我们今年会迎来一个宝宝。", correct: true, xp: 10 },
           { text: "No, and nothing has changed in years.", correct: false }
@@ -84,7 +84,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "I'll have everything ready for you by next week.", zh: "下周之前我会把一切都准备好给你们。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "statement",
         choices: [
           { text: "Perfect, we really appreciate your help with this.", zh: "太好了，非常感谢你在这方面的帮助。", correct: true, xp: 10 },
           { text: "Perfect, though we don't actually need any help.", correct: false }
@@ -105,7 +105,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Why do we have so many receipts from last spring?", zh: "为什么我们有这么多去年春天的收据？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "We probably saved them for the renovation deductions.", zh: "我们大概是为了装修抵扣才留下的。", correct: true, xp: 10 },
           { text: "We probably saved them for no reason at all.", correct: false }
@@ -116,7 +116,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This pile is more organized than that one over there.", zh: "这一堆比那边那一堆整理得更好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Let's use this pile as our system, then.", zh: "那我们就用这一堆的方式来整理吧。", correct: true, xp: 10 },
           { text: "Let's ignore that and mix them all together.", correct: false }
@@ -148,7 +148,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How many days a week do you work from home?", zh: "你一周有几天在家办公？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "I work from home about three days a week.", zh: "我一周大概有三天在家办公。", correct: true, xp: 10 },
           { text: "Working from home isn't something I do.", correct: false }
@@ -191,7 +191,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Does this total match what you expected?", zh: "这个总数和你预期的一致吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "Yes, it's actually pretty close to what I expected.", zh: "是的，和我预期的其实挺接近的。", correct: true, xp: 10 },
           { text: "No, taxes are something I never think about.", correct: false }
@@ -234,7 +234,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "I'm submitting it online right now.", zh: "我现在正在网上提交。" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "statement",
         choices: [
           { text: "Great, let me know once it goes through.", zh: "太好了，提交成功了告诉我一声。", correct: true, xp: 10 },
           { text: "Great, though I don't care when it's done.", correct: false }
@@ -245,7 +245,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "It's submitted, and you should get a confirmation email.", zh: "已经提交了，你们应该会收到一封确认邮件。" },
         skill: "community",
-        grammarTag: "connector",
+        grammarTag: "courtesy",
         choices: [
           { text: "Great, and thank you for handling everything so well.", zh: "太好了，也谢谢你把一切都处理得这么好。", correct: true, xp: 10 },
           { text: "Great, but I doubt we'll get any email.", correct: false }
@@ -256,7 +256,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "How long does it usually take to hear back?", zh: "通常要多久才能收到回复？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "It usually takes a few weeks, I believe.", zh: "我记得通常要几周时间。", correct: true, xp: 10 },
           { text: "It usually takes about ten seconds total.", correct: false }
@@ -299,7 +299,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "What should we do with the extra money?", zh: "我们要怎么用这笔多出来的钱？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "passive",
         choices: [
           { text: "Let's put it toward the baby's savings.", zh: "我们把它存进宝宝的储蓄里吧。", correct: true, xp: 10 },
           { text: "It doesn't matter, money isn't important to us.", correct: false }
@@ -320,7 +320,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we keep a folder for receipts all year round?", zh: "我们要不要一年到头都留一个文件夹放收据？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, that would save us a lot of stress.", zh: "好，那样能省掉我们不少压力。", correct: true, xp: 10 },
           { text: "No, a shoebox works better for us.", correct: false }
@@ -342,7 +342,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'll keep the same accountant for next year too.", zh: "明年我们也会继续找同一位会计师。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "past-simple",
         choices: [
           { text: "Good call, she made this whole process easy.", zh: "这个决定不错，她让整个过程都很轻松。", correct: true, xp: 10 },
           { text: "Bad call, we should find someone new instead.", correct: false }
@@ -363,7 +363,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How much should we put toward the baby fund?", zh: "我们应该拿出多少放进宝宝基金？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "passive",
         choices: [
           { text: "Let's put about half of it toward that.", zh: "我们把大约一半放进去吧。", correct: true, xp: 10 },
           { text: "None of it, the baby fund doesn't need anything.", correct: false }
@@ -385,7 +385,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This year has honestly gone better than we imagined.", zh: "老实说，今年比我们想象的顺利多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It really has, and I'm grateful for that.", zh: "确实如此，我对此心存感激。", correct: true, xp: 10 },
           { text: "It really hasn't, this year's been a disaster.", correct: false }
@@ -417,7 +417,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We've handled a lot together this past year.", zh: "过去这一年我们一起处理了很多事情。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "connector",
         choices: [
           { text: "We really have, and we make a good team.", zh: "确实如此，我们真是很棒的搭档。", correct: true, xp: 10 },
           { text: "We really haven't, we've done nothing together.", correct: false }

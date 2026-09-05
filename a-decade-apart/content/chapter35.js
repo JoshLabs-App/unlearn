@@ -19,7 +19,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This bill is higher than it was last year.", zh: "这份账单比去年要高。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "phrasal-verb",
         choices: [
           { text: "It is, we should look into other plans.", zh: "确实是，我们应该看看其他套餐。", correct: true, xp: 10 },
           { text: "It isn't, this bill looks lower than ever.", correct: false }
@@ -30,7 +30,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Have we ever actually compared other providers?", zh: "我们真的比较过其他运营商吗？" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "past-simple",
         choices: [
           { text: "We've never really compared them, honestly.", zh: "老实说，我们从来没真正比较过。", correct: true, xp: 10 },
           { text: "We're comparing them at this exact second.", correct: false }
@@ -62,7 +62,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How can I help you today?", zh: "今天有什么可以帮您的？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "please-request",
         choices: [
           { text: "I'd like to ask about lowering my monthly bill.", zh: "我想问问怎样能降低我的月账单。", correct: true, xp: 10 },
           { text: "I don't need any help at all today.", correct: false }
@@ -73,7 +73,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Are you currently under contract with us?", zh: "您目前和我们有合约吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "No, my contract actually ended last month.", zh: "没有，我的合约实际上上个月就结束了。", correct: true, xp: 10 },
           { text: "Yes, I signed a lifetime contract at birth.", correct: false }
@@ -116,7 +116,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Which provider has the best coverage in our area?", zh: "哪家运营商在我们这个地区信号覆盖最好？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "This one seems to have the best reviews.", zh: "这一家看起来评价最好。", correct: true, xp: 10 },
           { text: "Coverage doesn't matter to us at all.", correct: false }
@@ -148,7 +148,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are there any cancellation fees if we leave early?", zh: "如果我们提前离开会有取消费用吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "conditional",
         choices: [
           { text: "Yes, there's a fee if you cancel within a year.", zh: "有的，如果一年内取消会有费用。", correct: true, xp: 10 },
           { text: "No, cancellation is always completely free.", correct: false }
@@ -159,7 +159,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This clause is more confusing than the rest of the contract.", zh: "这一条比合约的其他部分更让人困惑。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, let's ask the agent to explain it.", zh: "确实是，我们让客服解释一下吧。", correct: true, xp: 10 },
           { text: "It isn't, every clause here is perfectly clear.", correct: false }
@@ -202,7 +202,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "The transfer will take about two business days.", zh: "转移大约需要两个工作日。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "statement",
         choices: [
           { text: "That's fine, two days works for us.", zh: "没问题，两天对我们来说可以接受。", correct: true, xp: 10 },
           { text: "That's too long, we need it done instantly.", correct: false }
@@ -234,7 +234,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Where would you like the router placed?", zh: "您想把路由器放在哪里？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Somewhere central would give us the best signal.", zh: "放在中间位置信号应该会最好。", correct: true, xp: 10 },
           { text: "It doesn't matter, signal isn't important to us.", correct: false }
@@ -245,7 +245,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This new connection is much faster than your old one.", zh: "这个新网络比你们之前的快多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "courtesy",
         choices: [
           { text: "That's a huge improvement, thank you.", zh: "这真是个巨大的提升，谢谢你。", correct: true, xp: 10 },
           { text: "That's disappointing, we expected it to be slower.", correct: false }
@@ -256,7 +256,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please restart your devices to connect to the new network.", zh: "请重启您的设备以连接新网络。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Sure, I'll restart everything right now.", zh: "好的，我现在就重启所有设备。", correct: true, xp: 10 },
           { text: "Sorry, restarting devices sounds too complicated.", correct: false }
@@ -277,7 +277,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Look, this bill is way lower than the old one.", zh: "看，这张账单比之前的低多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really is, I'm so glad we switched.", zh: "确实如此，很高兴我们换了。", correct: true, xp: 10 },
           { text: "It really isn't, this bill looks higher to me.", correct: false }
@@ -288,7 +288,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We've saved almost forty dollars a month already.", zh: "我们每月已经省了差不多四十块钱。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "That's incredible, that adds up fast.", zh: "太厉害了，这样积累起来很快。", correct: true, xp: 10 },
           { text: "That's disappointing, forty dollars means nothing.", correct: false }
@@ -320,7 +320,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Is your internet working right now?", zh: "你的网络现在能用吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "No, it stopped working about an hour ago.", zh: "不能，大概一小时前就断了。", correct: true, xp: 10 },
           { text: "Yes, it's working perfectly, no issues at all.", correct: false }
@@ -363,7 +363,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Have we actually been using all this data?", zh: "我们真的用完了这么多流量吗？" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "We haven't used nearly that much, actually.", zh: "其实我们根本没用那么多。", correct: true, xp: 10 },
           { text: "We've used every bit of it every month.", correct: false }
@@ -406,7 +406,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "We've handled so many little things this year.", zh: "今年我们处理了这么多小事。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "We really have, piece by piece it all adds up.", zh: "确实如此，一点一点地积累起来。", correct: true, xp: 10 },
           { text: "We really haven't, nothing has changed all year.", correct: false }
@@ -417,7 +417,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How do you feel about all of this coming together?", zh: "看到这一切都逐渐就绪，你感觉怎么样？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "relative-clause",
         choices: [
           { text: "I feel calm, which surprises me a little.", zh: "我感觉很平静，这让我自己都有点意外。", correct: true, xp: 10 },
           { text: "I feel nothing about any of this at all.", correct: false }

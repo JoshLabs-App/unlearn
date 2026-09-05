@@ -117,7 +117,8 @@ const CONTENT_PATHS = [
   join(ROOT, "content", "chapter91.js"),
   join(ROOT, "content", "chapter92.js"),
   join(ROOT, "content", "chapter93.js"),
-  join(ROOT, "content", "chapter94.js")
+  join(ROOT, "content", "chapter94.js"),
+  join(ROOT, "content", "chapter95.js")
 ];
 const AUDIO_DIR = join(ROOT, "content", "audio");
 const MANIFEST_PATH = join(ROOT, "content", "audio-manifest.js");

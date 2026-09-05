@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "These sharks are closer than I ever expected to get.", zh: "这些鲨鱼离得比我曾经预想的要近得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "They are, this glass is doing a lot of work.", zh: "确实是，这玻璃真是起到了大作用。", correct: true, xp: 10 },
           { text: "They aren't, this glass feels far too thin.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Look up, there's one swimming right above us!", zh: "往上看，有一条就在我们头顶上游着！" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "statement",
         choices: [
           { text: "I see it, this is honestly incredible.", zh: "我看到了，这真的太震撼了。", correct: true, xp: 10 },
           { text: "I don't see anything up there at all.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Their eyes are wider than I've ever seen them.", zh: "他们的眼睛睁得比我以前见过的任何时候都大。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "They really are, this is pure wonder for them.", zh: "确实如此，这对他们来说完全是种惊奇。", correct: true, xp: 10 },
           { text: "They really aren't, they look completely bored.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please always keep sea creatures underwater while touching.", zh: "触摸时请一定要让海洋生物一直待在水下。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "past-simple",
         choices: [
           { text: "Understood, we'll keep our hands in the water.", zh: "明白了，我们会把手一直放在水里的。", correct: true, xp: 10 },
           { text: "Sorry, we'd rather lift them out to look closer.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "These jellyfish move more gracefully than anything I've ever seen.", zh: "这些水母移动的姿态比我见过的任何东西都要优雅。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "They really do, it's almost hypnotic to watch.", zh: "确实如此，看着几乎有种催眠的感觉。", correct: true, xp: 10 },
           { text: "They really don't, they just float around aimlessly.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This tank is glowing brighter than the last one we saw.", zh: "这个水箱发光比我们看过的上一个要更亮。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, the colors keep shifting too.", zh: "确实是，颜色也一直在变化。", correct: true, xp: 10 },
           { text: "It isn't, this tank looks completely dark.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "These penguins are noisier than I expected them to be.", zh: "这些企鹅比我预想的要更吵闹。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "They are, but it's honestly kind of charming.", zh: "确实是，不过说实话还挺有魅力的。", correct: true, xp: 10 },
           { text: "They aren't, they're completely silent right now.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "They're getting sleepier than I expected this early.", zh: "才这么早他们就比我预想的要困了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "They are, all this excitement wore them out.", zh: "确实是，今天这些兴奋的活动把他们累坏了。", correct: true, xp: 10 },
           { text: "They aren't, they're wide awake and full of energy.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should we take a break in the café for a while?", zh: "我们要不要在咖啡厅休息一会儿？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's rest and get them a snack.", zh: "好，我们休息一下，给他们买点零食吧。", correct: true, xp: 10 },
           { text: "No, let's keep pushing through the whole aquarium.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Which stuffed animal do you want to bring home?", zh: "你想带哪个毛绒玩具回家？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "They're pointing at the little shark, of course.", zh: "他们当然是指着那只小鲨鱼啦。", correct: true, xp: 10 },
           { text: "They don't want any toy at all.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This shark toy is softer than I expected it to be.", zh: "这只鲨鱼玩具比我预想的要软。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, perfect for cuddling at bedtime.", zh: "确实是，睡前抱着正合适。", correct: true, xp: 10 },
           { text: "Softness doesn't matter, let's grab something else.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "They fell asleep faster than I've ever seen them fall asleep.", zh: "他们睡着的速度比我见过的任何时候都要快。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "That's a good sign, today really wore them out.", zh: "这是个好迹象，今天确实把他们累坏了。", correct: true, xp: 10 },
           { text: "That's odd, they usually fight sleep for hours.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Today turned out more magical than I ever expected it to be.", zh: "今天比我曾经想象的要更加神奇。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, watching them discover it all was priceless.", zh: "确实如此，看着他们发现这一切真是无价的。", correct: true, xp: 10 },
           { text: "It really didn't, today felt pretty ordinary.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This drawing means more to me than any photo we took today.", zh: "这幅画对我的意义比我们今天拍的任何照片都要大。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really does, I want to keep this one forever.", zh: "确实如此，我想把这幅永远留着。", correct: true, xp: 10 },
           { text: "It doesn't, photos are always more valuable.", correct: false }

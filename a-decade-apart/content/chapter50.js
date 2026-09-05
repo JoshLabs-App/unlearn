@@ -15,7 +15,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This house feels smaller every single month.", zh: "这房子感觉每个月都变得更小了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "It really does, we're bursting at the seams.", zh: "确实是，我们已经快住不下了。", correct: true, xp: 10 },
           { text: "It really doesn't, this house feels huge.", correct: false }
@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should we start looking at bigger places?", zh: "我们要开始看更大的房子了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's start browsing listings tonight.", zh: "好，我们今晚就开始看房源吧。", correct: true, xp: 10 },
           { text: "No, we'll just live in a smaller space forever.", correct: false }
@@ -37,7 +37,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'll need to talk to a real estate agent soon.", zh: "我们很快就得找一位房产中介聊聊了。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "True, let's get a recommendation from a friend.", zh: "没错，我们找朋友推荐一个吧。", correct: true, xp: 10 },
           { text: "True, though agents seem completely unnecessary.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What's your budget for the new place?", zh: "你们买新房子的预算是多少？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "We're hoping to stay under six hundred thousand.", zh: "我们希望控制在六十万以内。", correct: true, xp: 10 },
           { text: "Budget doesn't matter to us at all.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How many bedrooms are you looking for?", zh: "你们想要几间卧室？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "concession",
         choices: [
           { text: "At least three, plus a home office.", zh: "至少三间，再加一个家庭办公室。", correct: true, xp: 10 },
           { text: "We don't need any bedrooms at all.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This kitchen is bigger than the one we have now.", zh: "这个厨房比我们现在的要大。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really is, I love how open it feels.", zh: "确实是，我很喜欢这种开阔的感觉。", correct: true, xp: 10 },
           { text: "It really isn't, our current kitchen is bigger.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Which house has the better school district?", zh: "哪套房子的学区更好？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "The second one has a much better district.", zh: "第二套的学区好得多。", correct: true, xp: 10 },
           { text: "Neither house is near any school district.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "The first house is closer to your bakery kitchen.", zh: "第一套离你的烘焙厨房更近。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "That's true, and that matters a lot to me.", zh: "确实如此，这对我来说很重要。", correct: true, xp: 10 },
           { text: "That's true, though distance doesn't matter.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How much would you like to offer?", zh: "你们想出价多少？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "We'd like to offer the full asking price.", zh: "我们想按全价出价。", correct: true, xp: 10 },
           { text: "We'd like to offer absolutely nothing.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "There's another offer that came in higher than yours.", zh: "有另一份出价比你们的高。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "conditional-advanced",
         choices: [
           { text: "If that's true, we might raise our offer.", zh: "如果真是这样，我们可能会提高出价。", correct: true, xp: 10 },
           { text: "If that's true, let's just walk away entirely.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Whatever happens, we'll find the right house eventually.", zh: "不管结果如何，我们最终都会找到合适的房子。" },
         skill: "community",
-        grammarTag: "concession",
+        grammarTag: "relative-clause",
         choices: [
           { text: "Whatever happens, that thought helps a lot.", zh: "不管结果如何，这个想法真的很有帮助。", correct: true, xp: 10 },
           { text: "Whatever happens, I can't stop worrying.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Congratulations, your offer was accepted!", zh: "恭喜，你们的出价被接受了！" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "statement",
         choices: [
           { text: "I'm honestly speechless right now.", zh: "我现在真的说不出话来。", correct: true, xp: 10 },
           { text: "I already knew this would happen anyway.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "The roof looks newer than I expected.", zh: "这屋顶看起来比我预想的要新。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's a relief, roofs are expensive to replace.", zh: "这让人松了口气，换屋顶很贵的。", correct: true, xp: 10 },
           { text: "That's odd, roofs never really matter.", correct: false }
@@ -338,7 +338,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Overall, this house is in better shape than most I inspect.", zh: "总的来说，这房子的状况比我检查过的大多数房子都要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "courtesy",
         choices: [
           { text: "That's great to hear, thank you for checking.", zh: "听到这个真好，谢谢你的检查。", correct: true, xp: 10 },
           { text: "That's disappointing, we hoped for a perfect score.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Please sign at the bottom of each page.", zh: "请在每一页底部签名。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "statement",
         choices: [
           { text: "Of course, just point me to the first one.", zh: "好的，告诉我第一页在哪儿就行。", correct: true, xp: 10 },
           { text: "Sorry, I'd rather not sign anything today.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This new place already feels more like home than I expected.", zh: "这个新家已经比我预想的更有家的感觉了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-perfect",
         choices: [
           { text: "It really does, and we've barely unpacked.", zh: "确实如此，而且我们才刚开始拆箱。", correct: true, xp: 10 },
           { text: "It really doesn't, this place still feels foreign.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Where should we put the crib first?", zh: "我们应该先把婴儿床放哪儿？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "phrasal-verb",
         choices: [
           { text: "Let's set it up in the room by ours.", zh: "我们把它摆在我们旁边的房间吧。", correct: true, xp: 10 },
           { text: "The crib doesn't need a room at all.", correct: false }
@@ -424,7 +424,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This house is going to hold so many new memories.", zh: "这座房子将会承载许多新的回忆。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "can-modal",
         choices: [
           { text: "It really is, and I can't wait for all of them.", zh: "确实会的，我已经迫不及待了。", correct: true, xp: 10 },
           { text: "It won't, memories only happen in the old house.", correct: false }

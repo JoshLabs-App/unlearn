@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This selection looks bigger than any store we've visited.", zh: "这个选择范围比我们去过的任何店都要大。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, we might be here for hours.", zh: "确实是，我们可能要在这待好几个小时了。", correct: true, xp: 10 },
           { text: "Size doesn't matter, let's just grab the first box.", correct: false }
@@ -37,7 +37,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's ask the staff for a beginner recommendation.", zh: "我们问问店员推荐个适合新手的游戏吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "will-future",
         choices: [
           { text: "Good idea, they'll know what's easiest.", zh: "好主意，他们会知道哪个最简单。", correct: true, xp: 10 },
           { text: "Let's just grab the hardest game on the shelf.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Which game sounds more fun to you, this one or that one?", zh: "这个和那个，你觉得哪个听起来更有趣？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "This one, the artwork looks really charming.", zh: "这个吧，画风看起来特别有魅力。", correct: true, xp: 10 },
           { text: "Neither one sounds interesting at all.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This box is heavier than I expected for a card game.", zh: "以一款卡牌游戏来说，这盒子比我预想的要重。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, there must be a lot of pieces.", zh: "确实是，里面一定有很多配件。", correct: true, xp: 10 },
           { text: "Weight doesn't matter, let's just pick randomly.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's read the rules together before we start.", zh: "开始之前我们一起读一下规则吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, no one likes learning mid-game.", zh: "好主意，没人喜欢一边玩一边现学规则。", correct: true, xp: 10 },
           { text: "Let's just start playing without reading anything.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "These rules are trickier to understand than I expected.", zh: "这些规则比我预想的要更难理解。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "They are, let's go through them slowly.", zh: "确实是，我们慢慢读一遍吧。", correct: true, xp: 10 },
           { text: "Difficulty doesn't matter, let's just guess how to play.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This roll is luckier than any I've had all night.", zh: "这次掷骰比我今晚掷过的任何一次都要幸运。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, that's exactly the number I needed.", zh: "确实是，正好是我需要的那个数字。", correct: true, xp: 10 },
           { text: "Luck doesn't matter, let's just skip this turn.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This decision matters more than any move so far.", zh: "这个决定比目前为止任何一步都要重要。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It does, let's think this through carefully.", zh: "确实是，我们要仔细考虑一下。", correct: true, xp: 10 },
           { text: "Importance doesn't matter, let's just pick randomly.", correct: false }
@@ -209,7 +209,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This game is more strategic than I gave it credit for.", zh: "这游戏比我最初想的要更有策略性。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, I'm impressed with how deep it goes.", zh: "确实是，我对它的深度挺佩服的。", correct: true, xp: 10 },
           { text: "Strategy doesn't matter, this is basically luck.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Look, they rolled a higher number than I did!", zh: "看，他们掷出的数字比我的还要高！" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "They did, they might just be a lucky charm.", zh: "确实是，他们可能就是幸运符。", correct: true, xp: 10 },
           { text: "Numbers don't matter, let's ignore that roll.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This score is closer than any game we've played tonight.", zh: "这个比分比我们今晚玩的任何一局都要接近。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "can-modal",
         choices: [
           { text: "It is, this could really go either way.", zh: "确实是，这局真的谁赢都有可能。", correct: true, xp: 10 },
           { text: "Score doesn't matter, let's just stop playing now.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Who do you think is going to win this round?", zh: "你觉得这一局谁会赢？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Honestly, I have no idea, it's that close.", zh: "说实话，我完全猜不出来，就是这么接近。", correct: true, xp: 10 },
           { text: "No one is going to win this game.", correct: false }
@@ -338,7 +338,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This was more fun than any game night we've had.", zh: "这比我们之前任何一次游戏之夜都更好玩。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really was, let's make this a regular thing.", zh: "确实如此，我们把这变成常规活动吧。", correct: true, xp: 10 },
           { text: "It really wasn't, I found tonight pretty boring.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Which game should we try on our next visit?", zh: "我们下次来该试试哪个游戏？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Maybe this cooperative one, working together sounds fun.", zh: "也许试试这个合作类的，一起合作听起来挺有趣。", correct: true, xp: 10 },
           { text: "We shouldn't try any new games ever again.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This box looks more complex than the one we just played.", zh: "这盒子看起来比我们刚玩的那个更复杂。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "It does, but we'll grow into it eventually.", zh: "确实是，不过我们最终会慢慢适应的。", correct: true, xp: 10 },
           { text: "Complexity doesn't matter, let's avoid it forever.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "They're talking faster than they have all week!", zh: "他们说话的速度比这周任何时候都要快！" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "They are, tonight really got them excited.", zh: "确实是，今晚真的让他们很兴奋。", correct: true, xp: 10 },
           { text: "Speed doesn't matter, let's tell them to be quiet.", correct: false }

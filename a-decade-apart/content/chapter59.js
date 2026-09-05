@@ -37,7 +37,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'll both need to attend the whole session.", zh: "我们俩都需要参加整节课。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Right, let's clear our schedules for that day.", zh: "对，我们把那天的日程都空出来吧。", correct: true, xp: 10 },
           { text: "Right, though only one of us really needs to go.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please practice on the dummies, not on each other.", zh: "请在模拟人身上练习，不要互相练习。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "past-simple",
         choices: [
           { text: "Understood, we'll stick to the dummies.", zh: "明白了，我们会用模拟人练习的。", correct: true, xp: 10 },
           { text: "Sorry, we already practiced on each other.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Your rhythm is more consistent than it was a minute ago.", zh: "你的节奏比一分钟前更稳定了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "Thanks, I'm starting to feel the pattern now.", zh: "谢谢，我现在开始找到感觉了。", correct: true, xp: 10 },
           { text: "Thanks, though I feel completely lost still.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Count out loud, it helps keep the pace steady.", zh: "大声数数，这样有助于保持稳定的节奏。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Okay, I'll count each one out loud.", zh: "好的，我会大声数每一下。", correct: true, xp: 10 },
           { text: "Sorry, counting out loud feels silly.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What's the first thing you should check for?", zh: "你首先应该检查什么？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "concession",
         choices: [
           { text: "Whether they can still cough or make sounds.", zh: "看他们是否还能咳嗽或发出声音。", correct: true, xp: 10 },
           { text: "Nothing, you should just panic immediately.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This back blow technique is different from what I imagined.", zh: "这种拍背手法和我想象的不一样。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "It is, I'm glad we're learning it correctly.", zh: "确实是，很高兴我们能学到正确的方法。", correct: true, xp: 10 },
           { text: "It isn't, this is exactly what I expected.", correct: false }
@@ -166,7 +166,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Alternate between back blows and chest thrusts.", zh: "交替进行拍背和胸部冲击。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "past-simple",
         choices: [
           { text: "Got it, back and forth until it clears.", zh: "明白了，交替进行直到异物排出。", correct: true, xp: 10 },
           { text: "Sorry, that sounds too complicated to remember.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you feeling more confident with each try?", zh: "每练一次你有没有觉得更有自信了？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "I am, this is finally starting to click.", zh: "有的，这终于开始有点感觉了。", correct: true, xp: 10 },
           { text: "I'm not, I feel less confident each time.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Your technique is smoother than it was earlier.", zh: "你的手法比刚才更流畅了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "courtesy",
         choices: [
           { text: "Thank you, repetition really seems to help.", zh: "谢谢，反复练习确实很有帮助。", correct: true, xp: 10 },
           { text: "Thank you, though I feel exactly the same.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "I completely blanked for a second there.", zh: "我刚才有那么一秒完全脑子一片空白。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "statement",
         choices: [
           { text: "That's normal, just take a breath and restart.", zh: "这很正常，深呼吸一下重新开始吧。", correct: true, xp: 10 },
           { text: "That's a disaster, you should probably fail.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Take your time, there's no rush at all.", zh: "慢慢来，一点都不用赶。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "courtesy",
         choices: [
           { text: "Thank you, that actually helps me relax.", zh: "谢谢，这真的让我放松了一些。", correct: true, xp: 10 },
           { text: "Thank you, though I'd rather rush through it.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This new kit is more complete than the old one.", zh: "这个新的急救箱比旧的更齐全。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, let's keep it somewhere easy to reach.", zh: "确实是，我们把它放在容易拿到的地方吧。", correct: true, xp: 10 },
           { text: "It isn't, the old kit had everything we need.", correct: false }
@@ -338,7 +338,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's set a reminder to check it every six months.", zh: "我们设个提醒，每六个月检查一次吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "will-future",
         choices: [
           { text: "Good idea, that'll keep us on top of it.", zh: "好主意，这样我们就能一直保持更新。", correct: true, xp: 10 },
           { text: "Let's not bother, we'll remember on our own.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you know what to do if they start choking?", zh: "如果他们开始卡喉，你知道该怎么做吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "courtesy",
         choices: [
           { text: "I do now, thanks to this training.", zh: "现在知道了，多亏了这次培训。", correct: true, xp: 10 },
           { text: "I don't, and I don't need to know either.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This knowledge feels more important than I ever realized.", zh: "这些知识比我曾经意识到的要重要得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really does, I'm glad we finally learned it.", zh: "确实如此，很高兴我们终于学到了这些。", correct: true, xp: 10 },
           { text: "It doesn't, this knowledge feels unnecessary.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Being prepared feels safer than hoping for the best.", zh: "有所准备比一味期望顺利要安心得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really does, this brings a lot of peace of mind.", zh: "确实如此，这带来了很多安心感。", correct: true, xp: 10 },
           { text: "It doesn't, preparation is always a waste of time.", correct: false }

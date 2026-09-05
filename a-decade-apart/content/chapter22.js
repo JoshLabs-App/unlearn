@@ -29,7 +29,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Can you help set up the chairs before the guests arrive?", zh: "客人到之前，你能帮忙摆好椅子吗？" },
         skill: "community",
-        grammarTag: "can-modal",
+        grammarTag: "will-future",
         choices: [
           { text: "Sure, I'll have them set up in minutes.", zh: "没问题，我几分钟就能摆好。", correct: true, xp: 10 },
           { text: "I can't move chairs in this suit.", correct: false }
@@ -60,7 +60,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This tie has been in our family for three generations.", zh: "这条领带已经在我们家传了三代人了。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "do-question",
         choices: [
           { text: "Three generations? I'm honored to wear it.", zh: "三代人？我很荣幸能戴上它。", correct: true, xp: 10 },
           { text: "Three generations sounds like too much pressure.", correct: false }
@@ -103,7 +103,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "We are gathered here today to witness this union.", zh: "我们今天齐聚在这里，见证这段结合。", voice: "official" },
         skill: "community",
-        grammarTag: "passive",
+        grammarTag: "statement",
         choices: [
           { text: "We're honored to be witnesses to it.", zh: "能作为见证人，我们感到很荣幸。", correct: true, xp: 10 },
           { text: "We'd rather not be witnesses to this.", correct: false }
@@ -167,7 +167,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "By the power vested in me, I now pronounce you married.", zh: "以我被赋予的权力，我现在宣布你们结为夫妻。" },
         skill: "community",
-        grammarTag: "passive",
+        grammarTag: "can-modal",
         choices: [
           { text: "We're officially married. I can hardly believe it.", zh: "我们正式结婚了。我简直不敢相信。", correct: true, xp: 10 },
           { text: "We're officially married, and it feels ordinary.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "You may now kiss the bride.", zh: "你现在可以亲吻新娘了。", voice: "ho" },
         skill: "community",
-        grammarTag: "can-modal",
+        grammarTag: "present-perfect",
         choices: [
           { text: "I've been waiting all day for this.", zh: "我等这一刻等了一整天了。", correct: true, xp: 10 },
           { text: "I'd rather wait a little longer, actually.", correct: false }
@@ -272,7 +272,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "May I have this dance?", zh: "可以请你跳这支舞吗？", voice: "emma" },
         skill: "work",
-        grammarTag: "can-modal",
+        grammarTag: "statement",
         choices: [
           { text: "You may have every dance tonight.", zh: "今晚每一支舞都归你了。", correct: true, xp: 10 },
           { text: "I'd rather sit this one out.", correct: false }
@@ -314,7 +314,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "I wrote something in your guest book. It's a bit long.", zh: "我在你们的签到本上写了些话。有点长。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "will-future",
         choices: [
           { text: "Long is perfect. I'll read every word.", zh: "长才好呢。每个字我都会读。", correct: true, xp: 10 },
           { text: "Long is unnecessary, honestly.", correct: false }
@@ -325,7 +325,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This whole day feels like a letter finally being answered.", zh: "今天这一整天，感觉像是一封信终于得到了回音。" },
         skill: "community",
-        grammarTag: "passive",
+        grammarTag: "past-simple",
         choices: [
           { text: "A letter answered after ten long years.", zh: "一封等了十年才得到回音的信。", correct: true, xp: 10 },
           { text: "A letter that was never really answered.", correct: false }
@@ -400,7 +400,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Good morning, husband. How does it feel?", zh: "早安，老公。感觉怎么样？", voice: "emma" },
         skill: "work",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "It feels like the beginning of everything.", zh: "感觉像是一切的开始。", correct: true, xp: 10 },
           { text: "It feels exactly like yesterday, honestly.", correct: false }
@@ -411,7 +411,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "So, what does forever look like from here?", zh: "那，从这里开始，永远会是什么样子？", voice: "emma" },
         skill: "work",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Forever looks like this, exactly like this.", zh: "永远就是这样子，正是这样。", correct: true, xp: 10 },
           { text: "Forever looks uncertain, I have to admit.", correct: false }

@@ -22,7 +22,7 @@ const GAME_CONTENT = {
     { en: "Yes, under Zhang.", zh: "有，姓张" },
     { en: "For me? Can I see it?", zh: "给我的？我能看看吗" },
     { en: "Thank you so much!", zh: "太谢谢了" },
-    { en: "A coffee and a croissant, please.", zh: "请给我一杯咖啡" },
+    { en: "A coffee and a croissant, please.", zh: "请给我一杯咖啡和一个牛角包" },
     { en: "You know her? Where is she?", zh: "你认识她？她在哪儿" },
     { en: "Thank you, I'm on my way!", zh: "谢谢，我这就出发！" },
     { en: "Excuse me, where is the CN Tower?", zh: "打扰一下，请问CN塔怎么走" },
@@ -197,7 +197,7 @@ const GAME_CONTENT = {
           skill: "dining",
           grammarTag: "please-request",
           choices: [
-            { text: "A coffee and a croissant, please.", zh: "请给我一杯咖啡", correct: true, xp: 10 },
+            { text: "A coffee and a croissant, please.", zh: "请给我一杯咖啡和一个牛角包", correct: true, xp: 10 },
             { text: "I'm not hungry.", correct: false }
           ],
           hintOnWrong: "点单说「请给我...」→ ..., please.",

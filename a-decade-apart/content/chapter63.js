@@ -15,7 +15,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "When was the last time any of us saw a dentist?", zh: "我们上次看牙医是什么时候？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Honestly, it's probably been over a year.", zh: "说实话，大概已经一年多了。", correct: true, xp: 10 },
           { text: "We just went yesterday, actually.", correct: false }
@@ -37,7 +37,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's book all three of us for the same morning.", zh: "我们三个人都约在同一个早上吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, that saves us a whole extra trip.", zh: "好主意，这样能省下一趟额外的行程。", correct: true, xp: 10 },
           { text: "Let's book three completely different days instead.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we read them a book about visiting the dentist?", zh: "我们要不要给他们读一本关于看牙医的书？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Yes, that should make it feel less scary.", zh: "好，这样应该能让他们没那么害怕。", correct: true, xp: 10 },
           { text: "No, let's just surprise them at the office.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This book explains it more simply than I could.", zh: "这本书解释得比我能说的还要简单明了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, kids' books are surprisingly good at this.", zh: "确实是，儿童书在这方面出乎意料地擅长。", correct: true, xp: 10 },
           { text: "It doesn't, this book is way too confusing.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Have any of you had dental work done before?", zh: "你们之前有做过牙科治疗吗？" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "past-simple",
         choices: [
           { text: "We've had a few cavities filled over the years.", zh: "这些年我们补过几颗蛀牙。", correct: true, xp: 10 },
           { text: "We've never once been to a dentist before.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This waiting room feels more playful than most clinics.", zh: "这个候诊室感觉比大多数诊所都更有趣味。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, all these fish tanks are a nice touch.", zh: "确实是，这些鱼缸真是个不错的巧思。", correct: true, xp: 10 },
           { text: "It doesn't, this room feels pretty plain.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please fill out this medical history form while you wait.", zh: "请在等待期间填写这份病史表。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Of course, we'll get started right away.", zh: "好的，我们马上开始填写。", correct: true, xp: 10 },
           { text: "Sorry, forms aren't something we like filling out.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Their teeth look healthier than most kids their age.", zh: "他们的牙齿比大多数同龄孩子都要健康。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "That's such a relief, all that brushing paid off.", zh: "这真让人松了口气，之前的刷牙习惯没白费。", correct: true, xp: 10 },
           { text: "That's disappointing, we expected worse news.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you floss regularly at home?", zh: "您在家规律用牙线吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Honestly, not as often as I probably should.", zh: "说实话，可能没有我应该做到的那么频繁。", correct: true, xp: 10 },
           { text: "Yes, I floss after literally every single meal.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This cleaning feels more thorough than my last one.", zh: "这次洗牙感觉比我上次的更彻底。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, my teeth already feel so smooth.", zh: "确实是，我的牙齿已经感觉很光滑了。", correct: true, xp: 10 },
           { text: "It doesn't, this feels exactly the same as always.", correct: false }
@@ -209,7 +209,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "I found one small cavity that needs filling.", zh: "我发现了一颗需要补的小蛀牙。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "That's manageable, let's schedule the filling soon.", zh: "这问题不大，我们尽快安排补牙吧。", correct: true, xp: 10 },
           { text: "That's terrible, let's just ignore it forever.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How long does a filling usually take?", zh: "补牙通常需要多长时间？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Usually about thirty minutes, more or less.", zh: "通常大概三十分钟左右。", correct: true, xp: 10 },
           { text: "Fillings take absolutely no time at all.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you brushing for the full two minutes each time?", zh: "您每次刷牙有刷满两分钟吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Honestly, probably not, I usually rush a bit.", zh: "说实话，可能没有，我通常刷得有点快。", correct: true, xp: 10 },
           { text: "Yes, I time it perfectly every single day.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "A timer or a song can help more than you'd think.", zh: "一个计时器或一首歌能带来比你想象的更大帮助。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "That's a great tip, we'll try that at home.", zh: "这是个好建议，我们在家试试。", correct: true, xp: 10 },
           { text: "That sounds silly, timing brushing seems unnecessary.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "They handled that better than I ever expected.", zh: "他们处理得比我预想的要好得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "They really did, they were incredibly brave.", zh: "确实如此，他们真的非常勇敢。", correct: true, xp: 10 },
           { text: "They really didn't, that was a total disaster.", correct: false }
@@ -338,7 +338,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This experience should make future visits much easier.", zh: "这次经历应该会让未来的看诊轻松很多。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "statement",
         choices: [
           { text: "That would be wonderful, I really hope so.", zh: "那真是太好了，我真心希望如此。", correct: true, xp: 10 },
           { text: "That won't happen, dentist visits never get easier.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We've all gotten better at this since the appointment.", zh: "自从那次看诊后，我们大家都做得更好了。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "We really have, small reminders really do help.", zh: "确实如此，小小的提醒真的很有帮助。", correct: true, xp: 10 },
           { text: "We really haven't, nothing has changed at all.", correct: false }

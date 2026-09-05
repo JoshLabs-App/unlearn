@@ -19,7 +19,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What time does the ceremony actually start?", zh: "典礼具体几点开始？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "It starts at ten, but doors open earlier.", zh: "十点开始，但门会更早开放。", correct: true, xp: 10 },
           { text: "It doesn't have a start time at all.", correct: false }
@@ -41,7 +41,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'll need to leave early to find good parking.", zh: "我们得早点出发才能找到好的停车位。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Good thinking, let's leave in twenty minutes.", zh: "想得周到，我们二十分钟后出发吧。", correct: true, xp: 10 },
           { text: "Good thinking, though parking never matters much.", correct: false }
@@ -62,7 +62,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This place is more crowded than I expected.", zh: "这地方比我预想的还要拥挤。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, let's find seats quickly.", zh: "确实是，我们赶紧找座位吧。", correct: true, xp: 10 },
           { text: "It isn't, this place looks nearly empty.", correct: false }
@@ -84,7 +84,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's save a seat for your aunt and uncle.", zh: "我们留个座位给你的姑姑姑父吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "will-future",
         choices: [
           { text: "Good call, I'll put my bag on that seat.", zh: "好主意，我把包放在那个座位上。", correct: true, xp: 10 },
           { text: "Let's not, they can find their own seats.", correct: false }
@@ -116,7 +116,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "He looks so much older than I remember.", zh: "他看起来比我记忆中老成多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "do-question",
         choices: [
           { text: "He really does, time flies, doesn't it?", zh: "确实是，时间过得真快，不是吗？", correct: true, xp: 10 },
           { text: "He really doesn't, he looks exactly the same.", correct: false }
@@ -127,7 +127,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "I'm getting emotional just watching this.", zh: "光是看着这一幕我就开始感动了。" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "past-simple",
         choices: [
           { text: "Same here, I wasn't expecting to tear up.", zh: "我也是，没想到自己会想哭。", correct: true, xp: 10 },
           { text: "I'm not feeling anything at all, honestly.", correct: false }
@@ -148,7 +148,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Failure taught me more than success ever did.", zh: "失败教会我的，比成功教会我的还要多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's such a powerful thing to say.", zh: "这句话说得真是有力量。", correct: true, xp: 10 },
           { text: "That's a strange thing to say to graduates.", correct: false }
@@ -170,7 +170,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This speech is definitely making me reflect on my own life.", zh: "这场演讲确实让我反思起自己的人生。" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "comparative",
         choices: [
           { text: "Mine too, it's more relatable than I thought.", zh: "我也是，这演讲比我想的更能引起共鸣。", correct: true, xp: 10 },
           { text: "Not mine, this speech feels totally irrelevant.", correct: false }
@@ -191,7 +191,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "They're getting close to his name now.", zh: "现在快念到他的名字了。" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "conditional",
         choices: [
           { text: "I'm ready with the camera, just in case.", zh: "我已经拿好相机了，以防万一。", correct: true, xp: 10 },
           { text: "I'm not ready, and I don't have a camera.", correct: false }
@@ -234,7 +234,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "We're being louder than everyone else, aren't we?", zh: "我们是不是比其他人都更大声？" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "Definitely, but he deserves every bit of it.", zh: "绝对是，但这都是他应得的。", correct: true, xp: 10 },
           { text: "No, actually we're the quietest ones here.", correct: false }
@@ -245,7 +245,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Did you see him smile when he heard us cheering?", zh: "你看到他听到我们欢呼时笑了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "I did, his whole face lit up.", zh: "看到了，他整张脸都亮了起来。", correct: true, xp: 10 },
           { text: "I didn't see anything, my eyes were closed.", correct: false }
@@ -288,7 +288,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This photo turned out better than the last one.", zh: "这张照片比上一张拍得更好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It did, let's use this one for the frame.", zh: "确实是，我们就用这张来装框吧。", correct: true, xp: 10 },
           { text: "It didn't, let's delete this one immediately.", correct: false }
@@ -331,7 +331,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "He's worked harder than anyone I know for this.", zh: "为了这一切，他比我认识的任何人都努力。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "He truly has, and it clearly paid off.", zh: "他确实做到了，而且显然值得了。", correct: true, xp: 10 },
           { text: "He hasn't, honestly, this was pretty easy for him.", correct: false }
@@ -363,7 +363,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What are your plans now that you've graduated?", zh: "毕业之后你有什么打算？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "I've actually just accepted a job offer.", zh: "我其实刚接受了一份工作邀约。", correct: true, xp: 10 },
           { text: "I have absolutely no plans of any kind.", correct: false }
@@ -385,7 +385,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We're so proud of the person you've become.", zh: "我们为你成为这样的人感到骄傲。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "courtesy",
         choices: [
           { text: "That means everything, thank you all so much.", zh: "这句话对我意义非凡，非常感谢大家。", correct: true, xp: 10 },
           { text: "That's a strange thing to say, honestly.", correct: false }

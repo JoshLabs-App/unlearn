@@ -20,7 +20,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "My grandmother passed away this morning.", zh: "我祖母今天早上去世了。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "courtesy",
         choices: [
           { text: "I'm so sorry, I'm right here with you.", zh: "我很难过，我就在你身边。", correct: true, xp: 10 },
           { text: "That's fine, these things happen sometimes.", correct: false }
@@ -63,7 +63,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Have you decided on a date for the service yet?", zh: "你们定好追悼仪式的日期了吗？" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "We've settled on this coming Saturday.", zh: "我们定在这个周六了。", correct: true, xp: 10 },
           { text: "We've never once discussed the date.", correct: false }
@@ -85,7 +85,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Thank you for handling all of this with me.", zh: "谢谢你和我一起处理这一切。" },
         skill: "community",
-        grammarTag: "courtesy",
+        grammarTag: "short-answer",
         choices: [
           { text: "Of course, we're in this together.", zh: "当然了，我们要一起面对。", correct: true, xp: 10 },
           { text: "Of course, though this isn't really my responsibility.", correct: false }
@@ -106,7 +106,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you think this is appropriate for today?", zh: "你觉得今天穿这个合适吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, that looks perfectly appropriate to me.", zh: "是的，在我看来这很合适。", correct: true, xp: 10 },
           { text: "No, that looks far too bright for today.", correct: false }
@@ -128,7 +128,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Whatever happens today, I'll stay close to you.", zh: "不管今天发生什么，我都会陪在你身边。" },
         skill: "community",
-        grammarTag: "concession",
+        grammarTag: "relative-clause",
         choices: [
           { text: "Whatever happens, thank you for being here.", zh: "不管发生什么，谢谢你在我身边。", correct: true, xp: 10 },
           { text: "Whatever happens, I'd rather you kept your distance.", correct: false }
@@ -171,7 +171,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please, let us know if you need anything at all.", zh: "有什么需要请一定告诉我们。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "courtesy",
         choices: [
           { text: "Thank you, just having you here helps.", zh: "谢谢，你能来就已经帮了很大忙。", correct: true, xp: 10 },
           { text: "Thank you, though we don't need anything from anyone.", correct: false }
@@ -192,7 +192,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "My mother taught me more than she ever knew.", zh: "我母亲教给我的，比她自己意识到的还要多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "What a beautiful way to remember her.", zh: "这真是一种美好的怀念方式。", correct: true, xp: 10 },
           { text: "That's a strange thing to say at a funeral.", correct: false }
@@ -214,7 +214,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Even now, I feel her presence in this room.", zh: "即使是现在，我也能感受到她在这个房间里的存在。" },
         skill: "community",
-        grammarTag: "concession",
+        grammarTag: "statement",
         choices: [
           { text: "Even now, I feel it too, honestly.", zh: "说实话，即使是现在，我也有同样的感受。", correct: true, xp: 10 },
           { text: "Even now, I don't feel anything at all.", correct: false }
@@ -235,7 +235,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you remember how she always made too much food?", zh: "你还记得她总是做太多菜吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "I remember, and it was always delicious.", zh: "我记得，而且每次都很好吃。", correct: true, xp: 10 },
           { text: "I don't remember her cooking at all.", correct: false }
@@ -257,7 +257,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "I wish our baby could have met her.", zh: "我真希望我们的宝宝能见到她。" },
         skill: "community",
-        grammarTag: "subjunctive",
+        grammarTag: "conditional-advanced",
         choices: [
           { text: "If they had, she would have loved this baby so much.", zh: "如果见到了，她一定会非常爱这个宝宝。", correct: true, xp: 10 },
           { text: "If they had, it wouldn't have made any difference.", correct: false }
@@ -278,7 +278,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "I just needed a moment to breathe.", zh: "我只是需要一点时间喘口气。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "statement",
         choices: [
           { text: "That's completely understandable, take all the time you need.", zh: "这完全可以理解，你需要多久都可以。", correct: true, xp: 10 },
           { text: "That's strange, you should be inside with everyone.", correct: false }
@@ -289,7 +289,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Thank you for not leaving my side today.", zh: "谢谢你今天一直没有离开我身边。" },
         skill: "community",
-        grammarTag: "courtesy",
+        grammarTag: "will-future",
         choices: [
           { text: "Always, I'll never leave your side.", zh: "永远如此，我永远不会离开你身边。", correct: true, xp: 10 },
           { text: "You're welcome, though it wasn't really a big deal.", correct: false }
@@ -321,7 +321,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Is this the baby we've all been hearing about?", zh: "这就是我们一直听说的那个宝宝吗？" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "It is, we're so glad you get to meet them.", zh: "没错，很高兴你能见到他们。", correct: true, xp: 10 },
           { text: "It isn't, this baby belongs to someone else.", correct: false }
@@ -332,7 +332,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Your great-grandmother would have adored this little one.", zh: "你的曾祖母一定会非常疼爱这个小家伙。" },
         skill: "community",
-        grammarTag: "subjunctive",
+        grammarTag: "statement",
         choices: [
           { text: "I believe she would have, without a doubt.", zh: "我相信她一定会，毫无疑问。", correct: true, xp: 10 },
           { text: "I doubt it, she never liked babies much.", correct: false }
@@ -343,7 +343,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "It's good to see this family staying close, even now.", zh: "看到这个家族即使在这种时候依然团结在一起，真好。" },
         skill: "community",
-        grammarTag: "concession",
+        grammarTag: "statement",
         choices: [
           { text: "Even now, family is what matters most.", zh: "即使是现在，家人才是最重要的。", correct: true, xp: 10 },
           { text: "Even now, we're mostly just going through the motions.", correct: false }
@@ -364,7 +364,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Today was harder than I expected it to be.", zh: "今天比我预想的要难熬。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It was, but you got through it.", zh: "确实是，但你熬过来了。", correct: true, xp: 10 },
           { text: "It really wasn't, today felt easy to me.", correct: false }
@@ -375,7 +375,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How are you feeling now that it's over?", zh: "现在一切都结束了，你感觉怎么样？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "connector",
         choices: [
           { text: "Sad, but also strangely at peace.", zh: "很难过，但也有种奇怪的平静感。", correct: true, xp: 10 },
           { text: "I don't feel anything about it at all.", correct: false }
@@ -407,7 +407,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "I brought some flowers from her favorite garden.", zh: "我带来了一些她最喜欢的花园里的花。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "statement",
         choices: [
           { text: "That's such a lovely thing to do.", zh: "这真是件很美好的事。", correct: true, xp: 10 },
           { text: "That's strange, flowers don't really mean anything.", correct: false }
@@ -418,7 +418,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We've healed more than I thought we would by now.", zh: "到现在为止，我们的疗愈比我预想的要好。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "We really have, one day at a time.", zh: "确实如此，一天天慢慢来的。", correct: true, xp: 10 },
           { text: "We really haven't, nothing has gotten any easier.", correct: false }

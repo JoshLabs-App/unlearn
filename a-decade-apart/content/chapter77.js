@@ -15,7 +15,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Have you ever made pasta completely from scratch?", zh: "你有完全从头做过意面吗？" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "past-simple",
         choices: [
           { text: "I've never once made it from scratch.", zh: "我从没从头做过。", correct: true, xp: 10 },
           { text: "I've made it from scratch every week for years.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please wash your hands before we start kneading.", zh: "开始揉面前请先洗手。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Of course, we'll go wash up right now.", zh: "当然，我们现在就去洗手。", correct: true, xp: 10 },
           { text: "Sorry, washing hands seems unnecessary for cooking.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let this rest for thirty minutes before rolling it out.", zh: "擀面之前先让它醒发三十分钟。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Okay, we'll set a timer for that.", zh: "好的，我们设个计时器。", correct: true, xp: 10 },
           { text: "Sorry, we'd rather skip resting it entirely.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This sauce needs less garlic than you might think.", zh: "这个酱汁需要的大蒜比你想的要少。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Good to know, let's add it a little at a time.", zh: "很高兴知道这个，我们一点一点加吧。", correct: true, xp: 10 },
           { text: "More garlic is always better, let's dump it all in.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Taste it now and tell me what it needs.", zh: "现在尝一下，告诉我还需要加点什么。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "comparative",
         choices: [
           { text: "Okay, I think it needs a little more salt.", zh: "好的，我觉得需要再多加点盐。", correct: true, xp: 10 },
           { text: "Sorry, tasting food while cooking feels wrong.", correct: false }
@@ -209,7 +209,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This smells better than any sauce we've made at home.", zh: "这闻起来比我们在家做的任何酱汁都要香。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really does, I want to remember this recipe.", zh: "确实如此，我要记住这个食谱。", correct: true, xp: 10 },
           { text: "It really doesn't, our sauce at home is always better.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Fresh pasta cooks much faster than dried pasta does.", zh: "新鲜意面煮的速度比干意面要快得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "That's good to know, let's watch it closely.", zh: "很高兴知道这个，我们仔细看着点吧。", correct: true, xp: 10 },
           { text: "Speed doesn't matter, let's just walk away.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Save some pasta water before draining it.", zh: "沥水前留一些煮面水。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "past-simple",
         choices: [
           { text: "Got it, I'll scoop some out right now.", zh: "明白了，我现在就舀一点出来。", correct: true, xp: 10 },
           { text: "Sorry, pasta water seems completely useless.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This twirling technique looks harder than it actually is.", zh: "这个卷面技巧看起来比实际做起来要难。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Let's give it a try and see for ourselves.", zh: "我们试试看吧，自己感受一下。", correct: true, xp: 10 },
           { text: "Let's just pile it on messily instead.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Yours looks more elegant than mine, honestly.", zh: "说实话，你摆的看起来比我的更精致。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "No way, yours has its own kind of charm.", zh: "才不是呢，你的也有自己的一种魅力。", correct: true, xp: 10 },
           { text: "That's true, mine looks like a total mess.", correct: false }
@@ -295,7 +295,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Add a little fresh basil right on top.", zh: "在最上面加一点新鲜罗勒叶。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Perfect, that'll add a nice pop of color.", zh: "太好了，这样能增添一抹亮色。", correct: true, xp: 10 },
           { text: "Sorry, basil seems unnecessary for this dish.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This tastes better than any pasta I've ever ordered at a restaurant.", zh: "这味道比我在餐厅点过的任何意面都要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really does, this beats any restaurant, honestly.", zh: "确实如此，说实话这比任何餐厅都好吃。", correct: true, xp: 10 },
           { text: "It really doesn't, restaurant pasta always wins.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "The texture is chewier than store-bought pasta too.", zh: "口感也比买来的意面更有嚼劲。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "relative-clause",
         choices: [
           { text: "It is, and honestly that's exactly how I like it.", zh: "确实是，说实话我就喜欢这种口感。", correct: true, xp: 10 },
           { text: "It isn't, this tastes exactly like the boxed stuff.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we try making this again at home next weekend?", zh: "我们下周末要不要在家再做一次？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's definitely give it a try.", zh: "好，我们一定要试一试。", correct: true, xp: 10 },
           { text: "No, once was already more than enough.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Doing it at home will probably be trickier without help.", zh: "在家没人帮忙做，大概会更棘手一些。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "Probably, but we'll figure it out together.", zh: "大概会，但我们会一起想办法解决的。", correct: true, xp: 10 },
           { text: "Probably, so let's just never try it again.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "We've made this three times now, and it's gotten easier each time.", zh: "我们已经做了三次了，一次比一次容易。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "We really have, practice is honestly paying off.", zh: "确实如此，说实话练习真的有了回报。", correct: true, xp: 10 },
           { text: "We really haven't, it feels harder each time.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This has become one of our favorite things to do together.", zh: "这已经成了我们最喜欢一起做的事情之一。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really has, I love that we found this.", zh: "确实如此，很高兴我们发现了这件事。", correct: true, xp: 10 },
           { text: "It really hasn't, this still feels like a chore.", correct: false }

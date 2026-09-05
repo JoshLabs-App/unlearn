@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This forge is hotter than any oven we've ever used.", zh: "这锻造炉比我们用过的任何烤箱都要热。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, let's keep a safe distance from it.", zh: "确实是，我们要跟它保持安全距离。", correct: true, xp: 10 },
           { text: "Heat doesn't matter, let's just touch it.", correct: false }
@@ -37,7 +37,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's put on these thick leather aprons first.", zh: "我们先穿上这些厚厚的皮围裙吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, safety first around fire.", zh: "好主意，靠近火要把安全放在第一位。", correct: true, xp: 10 },
           { text: "Let's skip the aprons, they look uncomfortable.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This steel is glowing brighter than I expected it would.", zh: "这根钢条发的红光比我预想的要亮。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, that means it's almost ready to shape.", zh: "确实是，说明它差不多可以塑形了。", correct: true, xp: 10 },
           { text: "Brightness doesn't matter, let's grab it right now.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This hammer is heavier than any tool I've held before.", zh: "这把锤子比我拿过的任何工具都要重。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, my arm is already feeling it.", zh: "确实是，我的胳膊已经有感觉了。", correct: true, xp: 10 },
           { text: "Weight doesn't matter, let's swing it wildly.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This metal is flattening faster than I expected.", zh: "这块金属变扁的速度比我预想的要快。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "It is, each hit is making real progress.", zh: "确实是，每一锤都有实实在在的进展。", correct: true, xp: 10 },
           { text: "Speed doesn't matter, let's just stop hammering.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This is cooling faster than I thought metal would.", zh: "这个冷却得比我以为金属会冷却的速度要快。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "It is, we'll need to heat it several times.", zh: "确实是，我们需要多次重新加热。", correct: true, xp: 10 },
           { text: "Speed doesn't matter, let's just keep hammering it cold.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How many times do we need to repeat this process?", zh: "我们需要重复这个过程多少次？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Probably five or six more times, the instructor said.", zh: "老师说大概还要五六次。", correct: true, xp: 10 },
           { text: "We don't need to repeat it at all.", correct: false }
@@ -166,7 +166,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This shape is starting to look more like a blade now.", zh: "这个形状现在开始更像一把刀刃了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "It is, I can finally see what it'll become.", zh: "确实是，我终于能看出它会变成什么样了。", correct: true, xp: 10 },
           { text: "Shape doesn't matter, let's just melt it down.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This edge needs to be thinner than the spine of the blade.", zh: "这个刃口需要比刀背更薄。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It does, let's angle the hammer carefully.", zh: "确实是，我们要小心调整锤子的角度。", correct: true, xp: 10 },
           { text: "Thickness doesn't matter, let's just hit it randomly.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should we check the shape against this template?", zh: "我们要不要对照这个模板检查一下形状？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's compare it every few hits.", zh: "要，我们每敲几下就比对一次吧。", correct: true, xp: 10 },
           { text: "No, let's just guess the shape freely.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "That hissed louder than anything I've heard all day.", zh: "那声嘶嘶声比我今天听到的任何声音都要大。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It did, that sudden cooling must be intense.", zh: "确实是，那种骤冷一定很剧烈。", correct: true, xp: 10 },
           { text: "Volume doesn't matter, let's ignore that sound.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Why do we need to cool it down so quickly?", zh: "为什么我们需要这么快地把它冷却下来？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "connector",
         choices: [
           { text: "It hardens the steel so it holds an edge.", zh: "这能让钢材变硬，让刀刃更持久。", correct: true, xp: 10 },
           { text: "Cooling speed doesn't affect the metal at all.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This blade is harder now than it was an hour ago.", zh: "这把刀现在比一小时前要硬得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It is, quenching really changed everything.", zh: "确实是，淬火确实改变了一切。", correct: true, xp: 10 },
           { text: "Hardness doesn't matter, let's bend it for fun.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This surface is smoother now than it was this morning.", zh: "这个表面现在比今天早上要光滑多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It is, all that grinding really paid off.", zh: "确实是，那些打磨确实值得。", correct: true, xp: 10 },
           { text: "Smoothness doesn't matter, let's stop grinding now.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should we sand the handle before we attach it?", zh: "我们装上之前要不要先打磨一下刀柄？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Yes, a smooth handle grips better.", zh: "要，光滑的刀柄握起来更好。", correct: true, xp: 10 },
           { text: "No, let's attach it exactly as it is.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This turned out better than I ever expected on our first try.", zh: "以第一次尝试来说，这做出来比我曾经预想的要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, I'm proud of what we made.", zh: "确实如此，我为我们做出的东西感到自豪。", correct: true, xp: 10 },
           { text: "It really didn't, this looks pretty rough.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Today felt more satisfying than most weekends we've had.", zh: "今天比我们大多数周末都要更有成就感。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, making something with our hands mattered.", zh: "确实如此，亲手做点东西真的很有意义。", correct: true, xp: 10 },
           { text: "It really didn't, today felt pretty ordinary.", correct: false }

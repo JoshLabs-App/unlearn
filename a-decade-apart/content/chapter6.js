@@ -66,7 +66,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "A house? Do you have an address?", zh: "一栋房子？你们有地址吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, I do. Here it is.", zh: "有的。给你，就是这个。", correct: true, xp: 10 },
           { text: "No idea, sorry.", correct: false }

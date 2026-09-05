@@ -62,7 +62,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you have any assets we should know about?", zh: "你们有什么资产是我们应该知道的吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, our house and a small business.", zh: "有的，我们的房子和一门小生意。", correct: true, xp: 10 },
           { text: "No, we own absolutely nothing at all.", correct: false }
@@ -105,7 +105,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Who do you trust most to raise our child?", zh: "你最信任谁来抚养我们的孩子？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Honestly, I trust my sister the most.", zh: "说实话，我最信任我姐姐。", correct: true, xp: 10 },
           { text: "I don't trust anyone with that at all.", correct: false }
@@ -116,7 +116,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "She's more patient than anyone else in our family.", zh: "她比我们家里其他任何人都更有耐心。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "She really is, and she loves kids too.", zh: "确实如此，而且她也很喜欢小孩。", correct: true, xp: 10 },
           { text: "She really isn't, she has no patience at all.", correct: false }
@@ -148,7 +148,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should everything go to your child eventually?", zh: "所有东西最终都应该留给你们的孩子吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, with some set aside for family too.", zh: "是的，也会留一些给家人。", correct: true, xp: 10 },
           { text: "No, our child shouldn't inherit anything at all.", correct: false }
@@ -159,7 +159,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "What about the business, if something happened to both of you?", zh: "如果你们俩都出了意外，生意该怎么处理？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "We'd want it passed to a trusted family member.", zh: "我们希望把它交给一位信得过的家人。", correct: true, xp: 10 },
           { text: "The business doesn't matter to us at all.", correct: false }
@@ -170,7 +170,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This plan is clearer than what most couples come in with.", zh: "这个方案比大多数来这儿的夫妻都要清晰。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "Thank you, we tried to think it through carefully.", zh: "谢谢，我们尽量把它考虑周全了。", correct: true, xp: 10 },
           { text: "Thank you, though we barely thought about it at all.", correct: false }
@@ -191,7 +191,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you want to include a letter for your child?", zh: "你们想为孩子附上一封信吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "Yes, I've actually already started writing one.", zh: "想的，我其实已经开始写了。", correct: true, xp: 10 },
           { text: "No, letters seem completely unnecessary to us.", correct: false }
@@ -202,7 +202,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "What would you want them to know most?", zh: "你最想让他们知道什么？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "passive",
         choices: [
           { text: "That they were loved more than they could ever know.", zh: "他们被爱着，爱到超乎他们的想象。", correct: true, xp: 10 },
           { text: "I don't want them to know anything at all.", correct: false }
@@ -234,7 +234,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Please sign here, and initial each page after that.", zh: "请在这里签名，之后每一页都要签姓名首字母。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "statement",
         choices: [
           { text: "Of course, just show me where to start.", zh: "好的，告诉我从哪儿开始就行。", correct: true, xp: 10 },
           { text: "Sorry, signing documents isn't something I do.", correct: false }
@@ -245,7 +245,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This feels heavier than I expected it to feel.", zh: "这种感觉比我预想的要沉重。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It does, but it's also a relief in a way.", zh: "确实如此，但某种程度上也是一种解脱。", correct: true, xp: 10 },
           { text: "It doesn't, this feels completely meaningless.", correct: false }
@@ -299,7 +299,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Thank you, that means more to us than you know.", zh: "谢谢你，这对我们的意义超乎你的想象。" },
         skill: "community",
-        grammarTag: "courtesy",
+        grammarTag: "statement",
         choices: [
           { text: "Of course, I love that child already.", zh: "当然了，我已经爱上这个孩子了。", correct: true, xp: 10 },
           { text: "Of course, though I hope it never comes to that.", correct: false }
@@ -320,7 +320,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Where should we keep the original copies?", zh: "我们应该把原件放在哪里？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Somewhere fireproof, like a safety deposit box.", zh: "找个防火的地方，比如保险箱。", correct: true, xp: 10 },
           { text: "It doesn't matter, we can just leave them anywhere.", correct: false }
@@ -363,7 +363,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "I feel more at ease than I have in weeks.", zh: "我感觉比这几周以来任何时候都更轻松。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "I feel that too, it's a strange kind of relief.", zh: "我也有同感，这是一种奇怪的解脱感。", correct: true, xp: 10 },
           { text: "I don't feel any different, honestly.", correct: false }
@@ -385,7 +385,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Facing this together made it so much easier.", zh: "一起面对这件事让一切轻松了许多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-perfect",
         choices: [
           { text: "It really did, I couldn't have done it alone.", zh: "确实如此，我一个人根本做不到。", correct: true, xp: 10 },
           { text: "It really didn't, this was harder together.", correct: false }
@@ -417,7 +417,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How do you feel about everything still ahead of us?", zh: "对于前方仍未到来的一切，你感觉怎么样？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "present-perfect",
         choices: [
           { text: "Hopeful, and grateful for everything we've built.", zh: "充满希望，也感激我们一路建立的一切。", correct: true, xp: 10 },
           { text: "I feel nothing about the future at all.", correct: false }
@@ -428,7 +428,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Whatever comes next, we'll face it the way we always have — together.", zh: "无论接下来发生什么，我们都会像一直以来那样一起面对。" },
         skill: "community",
-        grammarTag: "concession",
+        grammarTag: "relative-clause",
         choices: [
           { text: "Whatever comes next, together, always.", zh: "无论接下来发生什么，我们都在一起，永远如此。", correct: true, xp: 10 },
           { text: "Whatever comes next, we'll probably face it apart.", correct: false }

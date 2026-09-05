@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This looks stranger than any ingredient we've ever used.", zh: "这个看起来比我们用过的任何食材都要奇怪。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It does, but apparently it makes great tea.", zh: "确实是，不过据说它能酿出很棒的茶。", correct: true, xp: 10 },
           { text: "Appearance doesn't matter, let's throw it away now.", correct: false }
@@ -37,7 +37,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's read the instructions carefully before we start.", zh: "开始之前我们先仔细读一下说明书吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, fermentation seems easy to get wrong.", zh: "好主意，发酵这件事似乎很容易出错。", correct: true, xp: 10 },
           { text: "Let's just wing it without reading anything.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should we add more sugar than the recipe suggests?", zh: "我们要不要比食谱建议的多加点糖？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "No, let's follow the recipe exactly this time.", zh: "不，这次我们就完全按食谱来吧。", correct: true, xp: 10 },
           { text: "Yes, let's double the sugar just to be safe.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This kitchen smells sweeter than it usually does.", zh: "厨房现在闻起来比平时要甜。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, the whole house smells like tea.", zh: "确实是，整间屋子都是茶香。", correct: true, xp: 10 },
           { text: "Smell doesn't matter, let's open all the windows.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This needs to sit in a warmer spot than the pantry.", zh: "这个需要放在比储藏室更暖和的地方。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "passive",
         choices: [
           { text: "It does, let's put it on top of the fridge.", zh: "确实是，我们把它放在冰箱顶上吧。", correct: true, xp: 10 },
           { text: "Temperature doesn't matter, let's just leave it anywhere.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This is bubbling more than it was yesterday.", zh: "这个比昨天冒的泡要多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "It is, that means it's fermenting well.", zh: "确实是，说明发酵得很顺利。", correct: true, xp: 10 },
           { text: "Bubbling doesn't matter, let's just pour it out.", correct: false }
@@ -166,7 +166,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Should we taste a little bit today to check?", zh: "我们今天要不要尝一小口试试？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "can-modal",
         choices: [
           { text: "Sure, a small taste test can't hurt.", zh: "可以，少量试喝应该没问题。", correct: true, xp: 10 },
           { text: "No, let's never taste it until it's finished.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Which fruit do you want to add to this bottle?", zh: "你想在这瓶里加哪种水果？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Let's try strawberries in this one first.", zh: "我们先在这瓶里试试草莓吧。", correct: true, xp: 10 },
           { text: "I don't want to add any fruit at all.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This second ferment creates more fizz than the first one did.", zh: "这次二次发酵产生的气泡比第一次要多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, the fruit sugar really helps with that.", zh: "确实是，水果里的糖分对此很有帮助。", correct: true, xp: 10 },
           { text: "Fizz doesn't matter, let's skip this whole step.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This tastes way more sour than store-bought kombucha.", zh: "这个尝起来比店里买的康普茶要酸得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It does, but I actually really like it.", zh: "确实是，不过我其实挺喜欢的。", correct: true, xp: 10 },
           { text: "Sourness doesn't matter, let's pour it all out.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Can I try just a little tiny sip, please?", zh: "我能尝一小口吗，拜托？" },
         skill: "community",
-        grammarTag: "can-modal",
+        grammarTag: "concession",
         choices: [
           { text: "Just a tiny sip, it's quite sour though.", zh: "就一小口哦，不过挺酸的。", correct: true, xp: 10 },
           { text: "Sure, drink the entire glass right now.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Is this new layer thicker than the one from last month?", zh: "这层新膜比上个月那层要厚吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "It is, this batch grew a really healthy one.", zh: "是的，这批长出了很健康的一层。", correct: true, xp: 10 },
           { text: "It isn't, nothing grew here at all.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Did you two really brew this whole thing yourselves?", zh: "你们俩真的是自己酿的这整套东西吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "We did, right on our kitchen counter.", zh: "是的，就在我们家厨房台面上做的。", correct: true, xp: 10 },
           { text: "We didn't, we bought this from a shop.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This is more interesting than any gift I've gotten recently.", zh: "这比我最近收到的任何礼物都更有意思。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's kind of you, we hope you enjoy brewing.", zh: "你真客气，希望你享受酿造的过程。", correct: true, xp: 10 },
           { text: "Interest doesn't matter, just throw it away.", correct: false }

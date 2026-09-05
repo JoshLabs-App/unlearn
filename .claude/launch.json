@@ -3,9 +3,26 @@
   "configurations": [
     {
       "name": "static-server",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8917"],
-      "port": 8917
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "python3 -m http.server $PORT"
+      ],
+      "port": 8917,
+      "autoPort": true
+    },
+    {
+      "name": "metro",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "expo",
+        "start",
+        "--dev-client",
+        "--port",
+        "8081"
+      ],
+      "cwd": "apps/mobile",
+      "port": 8081
     }
   ]
 }

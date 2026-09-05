@@ -15,7 +15,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "They woke up four times again last night.", zh: "昨晚他们又醒了四次。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "statement",
         choices: [
           { text: "That's it, we need a real plan now.", zh: "够了，我们现在需要一个真正的计划。", correct: true, xp: 10 },
           { text: "That's fine, four times is completely normal.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Is your child eating and growing normally?", zh: "您的孩子吃得和长得都正常吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, everything else seems perfectly fine.", zh: "是的，其他方面都完全正常。", correct: true, xp: 10 },
           { text: "No, nothing about our child seems normal.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "A consistent bedtime routine works better than most other methods.", zh: "一个固定的睡前流程比大多数其他方法都更有效。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "That makes sense, let's build one at home.", zh: "有道理，我们在家建立一个吧。", correct: true, xp: 10 },
           { text: "Routines never actually make a difference.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Give it two weeks before deciding if it's working.", zh: "给它两周时间，再判断是否有效。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Okay, we'll be patient and stick with it.", zh: "好的，我们会耐心坚持下去的。", correct: true, xp: 10 },
           { text: "Sorry, two weeks feels far too long to wait.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What order should we do bath, book, and bed?", zh: "洗澡、读书、睡觉的顺序应该怎么安排？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Let's do bath first, then a book, then bed.", zh: "我们先洗澡，然后读书，最后睡觉吧。", correct: true, xp: 10 },
           { text: "Order doesn't matter, let's do them randomly.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's keep the same routine every single night.", zh: "我们每晚都坚持同一套流程吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, consistency is probably the key.", zh: "好主意，一致性大概才是关键。", correct: true, xp: 10 },
           { text: "Let's change it up every night for fun.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This crying is harder to listen to than I expected.", zh: "这哭声比我预想的更让人揪心。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, but let's trust the process for now.", zh: "确实是，但我们现在先相信这个方法吧。", correct: true, xp: 10 },
           { text: "It is, so let's give up right now.", correct: false }
@@ -166,7 +166,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This is honestly harder on us than it is on them.", zh: "说实话，这对我们来说比对他们更难受。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's probably true, we just need to stay strong.", zh: "也许确实如此，我们只需要坚持住。", correct: true, xp: 10 },
           { text: "That's false, this is only hard for them.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we just pat their back and leave again?", zh: "我们要不要拍拍他们的背然后再离开？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's keep it short and calm.", zh: "对，我们要简短又平静地做这件事。", correct: true, xp: 10 },
           { text: "No, let's stay in the room all night.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "The crying seems quieter than it was ten minutes ago.", zh: "哭声好像比十分钟前小了一些。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "It does, I think it's actually working.", zh: "确实是，我觉得这方法真的有效果。", correct: true, xp: 10 },
           { text: "It doesn't, this is getting worse and worse.", correct: false }
@@ -209,7 +209,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "They've finally settled down on their own.", zh: "他们终于自己平静下来了。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "They really have, I'm honestly a little proud.", zh: "确实是，说实话我有点小骄傲。", correct: true, xp: 10 },
           { text: "They really haven't, they're still crying loudly.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Tonight only took ten minutes to settle them.", zh: "今晚只花了十分钟就让他们安定下来了。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "statement",
         choices: [
           { text: "That's amazing, this is actually working now.", zh: "太棒了，这方法现在真的起效果了。", correct: true, xp: 10 },
           { text: "That's disappointing, we hoped for one minute.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We're both getting more sleep than we have in months.", zh: "我们俩现在睡的比过去几个月都要多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "We really are, I feel like a new person.", zh: "确实如此，我感觉自己都焕然一新了。", correct: true, xp: 10 },
           { text: "We really aren't, we're still just as exhausted.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "They're waking up again because of this cold.", zh: "因为这场感冒，他们又开始夜醒了。" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "comparative",
         choices: [
           { text: "That makes sense, let's comfort them more right now.", zh: "这可以理解，我们现在多安抚他们一些吧。", correct: true, xp: 10 },
           { text: "That's strange, colds never affect sleep at all.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This setback feels less scary than the first hard night did.", zh: "这次倒退感觉比第一个艰难的夜晚要没那么吓人。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "can-modal",
         choices: [
           { text: "It does, we know we can get back on track.", zh: "确实是，我们知道自己能重新回到正轨。", correct: true, xp: 10 },
           { text: "It doesn't, this feels even worse than before.", correct: false }
@@ -295,7 +295,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Once they're feeling better, we'll get right back to the routine.", zh: "等他们感觉好些了，我们就重新回到流程上。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Right, let's just focus on comfort for now.", zh: "对，我们现在先专注于让他们舒服些吧。", correct: true, xp: 10 },
           { text: "Right, though the routine doesn't matter anymore.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This whole experience taught us more patience than I expected.", zh: "整个过程教会了我们比预想的更多的耐心。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, and I'm grateful for that lesson.", zh: "确实如此，我很感激这个经历带来的教训。", correct: true, xp: 10 },
           { text: "It really didn't, we've never once needed patience.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Did they really sleep through the whole night?", zh: "他们真的一整晚都没醒吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "Yes, not a single wake-up, I checked.", zh: "是的，一次都没醒，我检查过了。", correct: true, xp: 10 },
           { text: "No, they woke up every single hour again.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "I feel more rested than I have in a year.", zh: "我感觉比这一年来任何时候都休息得更好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "Same here, this feels like a whole new life.", zh: "我也是，这感觉像是全新的生活一样。", correct: true, xp: 10 },
           { text: "Same here, though nothing has changed at all.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How did you two finally get through this?", zh: "你们俩最后到底是怎么熬过来的？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Consistency, patience, and a lot of coffee.", zh: "一致性、耐心，还有大量的咖啡。", correct: true, xp: 10 },
           { text: "We never actually got through it at all.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "It's much easier when you know it'll eventually end.", zh: "当你知道它最终会结束时，一切会容易很多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It is, and it really does end, I promise.", zh: "确实是，而且它真的会结束的，我保证。", correct: true, xp: 10 },
           { text: "It isn't, nothing about parenting ever gets easier.", correct: false }

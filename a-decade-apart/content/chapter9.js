@@ -165,7 +165,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "By the way, Lunar New Year is next week. Will you join us?", zh: "对了，下周就是春节了。你愿意来我们家过节吗？", voice: "ho" },
         skill: "festival",
-        grammarTag: "will-future",
+        grammarTag: "statement",
         choices: [
           { text: "I'd love to join you.", zh: "我很乐意加入你们。", correct: true, xp: 10 },
           { text: "I've never heard of it.", correct: false }
@@ -176,7 +176,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Wonderful! It's the biggest celebration of the year for us.", zh: "太好了！这对我们来说是一年中最盛大的节日。", voice: "ho" },
         skill: "festival",
-        grammarTag: "comparative",
+        grammarTag: "can-modal",
         choices: [
           { text: "I can't wait to see it.", zh: "我等不及想看看了。", correct: true, xp: 10 },
           { text: "That sounds too big for me.", correct: false }
@@ -219,7 +219,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Perfect. This is the best decoration we've had in years.", zh: "太好了。这是我们这些年里最好的装饰了。", voice: "ho" },
         skill: "festival",
-        grammarTag: "present-perfect",
+        grammarTag: "can-modal",
         choices: [
           { text: "I'm glad I could help.", zh: "很高兴我能帮上忙。", correct: true, xp: 10 },
           { text: "I didn't do much.", correct: false }

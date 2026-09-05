@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This kit looks simpler than the ones I saw online.", zh: "这套套装比我在网上看到的要更简单。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, perfect for a first attempt.", zh: "确实是，很适合第一次尝试。", correct: true, xp: 10 },
           { text: "Simplicity doesn't matter, let's buy the hardest one.", correct: false }
@@ -37,7 +37,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's grab safety glasses before we start cutting.", zh: "开始切割之前我们先拿好护目镜吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, safety first with sharp tools.", zh: "好主意，用锋利工具安全第一。", correct: true, xp: 10 },
           { text: "Let's just skip the glasses, we'll be fine.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This board feels rougher than the others in the kit.", zh: "这块木板比套装里其他的要粗糙。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It does, let's give it a few extra passes.", zh: "确实是，我们多打磨几遍吧。", correct: true, xp: 10 },
           { text: "Texture doesn't matter, let's move on already.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This is getting smoother with every pass we make.", zh: "每打磨一遍它就变得更光滑一些。" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "statement",
         choices: [
           { text: "It is, this feels satisfying to do.", zh: "确实是，做这件事让人很有成就感。", correct: true, xp: 10 },
           { text: "It isn't, this board looks exactly the same.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should we hold the nail steady while you hammer?", zh: "你敲的时候我们要不要扶稳钉子？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "please-request",
         choices: [
           { text: "Yes, please, that keeps it from bending.", zh: "好的，请扶稳，这样它就不会弯。", correct: true, xp: 10 },
           { text: "No, let's just hammer it in blindly.", correct: false }
@@ -166,7 +166,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "That nail is going in straighter than the last one.", zh: "这颗钉子敲得比上一颗要直。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "It is, I think I'm finally getting the hang of it.", zh: "确实是，我想我终于摸到窍门了。", correct: true, xp: 10 },
           { text: "Straightness doesn't matter, let's move on quickly.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Why do we need so many little nails?", zh: "为什么我们需要这么多小钉子？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Each one holds the boards together tightly.", zh: "每一颗都能把木板牢牢固定住。", correct: true, xp: 10 },
           { text: "We don't actually need any nails at all.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This roof piece is trickier to attach than the walls were.", zh: "这块屋顶部件比墙面更难安装。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, the angle keeps throwing me off.", zh: "确实是，这个角度老是让我搞错。", correct: true, xp: 10 },
           { text: "Difficulty doesn't matter, let's just force it on.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This roof is looking sturdier than I expected already.", zh: "这个屋顶看起来已经比我预想的要更牢固了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, I'm actually proud of how it looks.", zh: "确实是，我对它的样子挺自豪的。", correct: true, xp: 10 },
           { text: "Sturdiness doesn't matter, let's just glue it faster.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Which color do you want to paint the roof?", zh: "你想把屋顶漆成什么颜色？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "They're pointing at the bright red, of course.", zh: "他们当然是指着那种亮红色啦。", correct: true, xp: 10 },
           { text: "They don't want any color at all.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "They're painting more carefully than I expected them to.", zh: "他们涂色比我预想的要更细心。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "They are, look how focused they seem.", zh: "确实是，看他们多专注啊。", correct: true, xp: 10 },
           { text: "Care doesn't matter, let's just take over for them.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This branch looks sturdier than the one near the fence.", zh: "这根树枝看起来比篱笆边那根要更结实。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It does, and it's high enough for safety too.", zh: "确实是，而且高度也够安全了。", correct: true, xp: 10 },
           { text: "Sturdiness doesn't matter, let's just pick any branch.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should we hang it facing away from the wind?", zh: "我们要不要挂得背对着风向？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Yes, that'll keep the birds warmer inside.", zh: "要，这样鸟儿在里面会更暖和。", correct: true, xp: 10 },
           { text: "No, direction doesn't matter to birds at all.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This looks better hanging outside than it did in the garage.", zh: "挂在外面比在车库里看起来更好看。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, the colors really pop against the leaves.", zh: "确实是，颜色在树叶映衬下特别鲜艳。", correct: true, xp: 10 },
           { text: "Looks don't matter, let's just take it down now.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How long do you think it'll take for a bird to notice?", zh: "你觉得鸟儿要多久才会注意到它？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Maybe a few days, birds are curious creatures.", zh: "也许几天吧，鸟儿是很好奇的生物。", correct: true, xp: 10 },
           { text: "Never, birds don't notice anything new.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Look, a bird is checking out our birdhouse right now!", zh: "快看，有只鸟正在查看我们的鸟屋！" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "past-simple",
         choices: [
           { text: "I see it, I can't believe it actually worked.", zh: "我看到了，真不敢相信它真的成功了。", correct: true, xp: 10 },
           { text: "I don't see any bird anywhere near it.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This moment feels better than I ever imagined it would.", zh: "这一刻比我曾经想象的要更美好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really does, all that work was worth it.", zh: "确实如此，之前所有的努力都值得了。", correct: true, xp: 10 },
           { text: "It really doesn't, this feels pretty ordinary.", correct: false }

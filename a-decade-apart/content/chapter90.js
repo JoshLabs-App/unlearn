@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This tackle box looks heavier than the cooler.", zh: "这个渔具箱看起来比冰箱要重。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It does, let's carry it with both hands.", zh: "确实是，我们用双手抬吧。", correct: true, xp: 10 },
           { text: "Weight doesn't matter, let's just drag it along.", correct: false }
@@ -37,7 +37,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's leave early before the lake gets crowded.", zh: "我们早点出发，趁湖边人还不多。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "comparative",
         choices: [
           { text: "Good idea, we'll get the best spot that way.", zh: "好主意，这样我们能占到最好的位置。", correct: true, xp: 10 },
           { text: "Let's just leave whenever we feel like it.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This bobber is smaller than the one in the picture.", zh: "这个浮标比图片里那个要小。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "concession",
         choices: [
           { text: "It is, but it should still float just fine.", zh: "确实是，不过它应该还是能正常浮起来。", correct: true, xp: 10 },
           { text: "Size doesn't matter, let's throw it away.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Is this worm wigglier than the last one we used?", zh: "这条蚯蚓比我们上次用的那条扭得更厉害吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "It is, this one clearly wants to escape.", zh: "是的，这条明显想逃跑。", correct: true, xp: 10 },
           { text: "It isn't, this worm isn't moving at all.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Why do we have to use real worms as bait?", zh: "为什么我们非得用真的蚯蚓当鱼饵？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "passive",
         choices: [
           { text: "Fish are drawn to their smell and movement.", zh: "鱼会被它们的气味和动作吸引。", correct: true, xp: 10 },
           { text: "Fish don't care what kind of bait we use.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Can I hold the worm just once, please?", zh: "我能拿一下这条蚯蚓吗，拜托？" },
         skill: "community",
-        grammarTag: "can-modal",
+        grammarTag: "statement",
         choices: [
           { text: "Sure, hold it gently in your palm.", zh: "可以，轻轻捧在手心里就行。", correct: true, xp: 10 },
           { text: "No, worms are never allowed near you.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "That cast went farther than mine, nicely done!", zh: "这次抛得比我远，抛得好！" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "courtesy",
         choices: [
           { text: "Thanks, beginner's luck must be on my side.", zh: "谢谢，大概是新手运吧。", correct: true, xp: 10 },
           { text: "Distance doesn't matter, let's just reel it in.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This is quieter here than anywhere we've been all week.", zh: "这里比我们这周去过的任何地方都要安静。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "can-modal",
         choices: [
           { text: "It is, I could get used to this peace.", zh: "确实是，我可能会喜欢上这份宁静。", correct: true, xp: 10 },
           { text: "Quiet doesn't matter, let's start talking loudly.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How long do fish usually take to bite?", zh: "鱼通常要多久才会咬钩？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Sometimes minutes, sometimes hours, apparently.", zh: "有时几分钟，有时几小时，据说是这样。", correct: true, xp: 10 },
           { text: "Fish never actually bite the hook at all.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This tug feels stronger than I expected it to be.", zh: "这拉力比我预想的要更强。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, this might be a big one!", zh: "确实是，这可能是条大鱼！", correct: true, xp: 10 },
           { text: "Strength doesn't matter, let's just drop the rod.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Reel it in slowly, don't let the line go slack!", zh: "慢慢收线，别让鱼线松掉！" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "comparative",
         choices: [
           { text: "Got it, I'm reeling as steadily as I can.", zh: "明白了，我在尽量平稳地收线。", correct: true, xp: 10 },
           { text: "No thanks, I'll just yank it out fast.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This fish is bigger than any I imagined catching!", zh: "这条鱼比我想象中能钓到的任何一条都要大！" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really is, I can't believe we caught it.", zh: "确实如此，真不敢相信我们钓到了。", correct: true, xp: 10 },
           { text: "It really isn't, this fish looks tiny.", correct: false }
@@ -295,7 +295,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Their eyes are wider than I've ever seen them!", zh: "他们的眼睛睁得比我以前见过的任何时候都大！" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "They really are, this is pure excitement for them.", zh: "确实如此，这对他们来说是纯粹的兴奋。", correct: true, xp: 10 },
           { text: "They really aren't, they seem completely unbothered.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we keep this one or let it go?", zh: "我们要留下这条还是放它走？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Let's release it, catch and release feels right.", zh: "我们放了它吧，钓放理念感觉更合适。", correct: true, xp: 10 },
           { text: "Let's just leave it on the ground to dry.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Today has been more relaxing than any weekend lately.", zh: "今天比最近任何一个周末都要放松。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It has, we needed a day like this.", zh: "确实是，我们需要这样的一天。", correct: true, xp: 10 },
           { text: "Relaxation doesn't matter, let's plan something hectic instead.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "They fell asleep faster than I've ever seen them fall asleep.", zh: "他们睡着的速度比我见过的任何时候都要快。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's a good sign, today really tired them out.", zh: "这是个好迹象，今天确实把他们累坏了。", correct: true, xp: 10 },
           { text: "That's odd, they usually fight sleep for hours.", correct: false }

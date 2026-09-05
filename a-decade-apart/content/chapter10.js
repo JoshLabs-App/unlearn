@@ -164,7 +164,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "And one of the letters has my name on it?", zh: "而且其中一封信上写着我的名字？", voice: "emma" },
         skill: "work",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "It's had your name on it this whole time.", zh: "这封信从一开始就写着你的名字。", correct: true, xp: 10 },
           { text: "It's just a different Emma.", correct: false }
@@ -206,7 +206,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Want to talk about it, or just watch the game?", zh: "想聊聊，还是就先看比赛？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Let's just watch for now.", zh: "我们先看比赛吧。", correct: true, xp: 10 },
           { text: "I need to leave right now.", correct: false }
@@ -291,7 +291,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This letter has your family name on it. Do you recognize it?", zh: "这封信上写着你的姓氏。你认得出来吗？", voice: "ho" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "Yes, that's my grandmother's handwriting.", zh: "是的，这是我祖母的笔迹。", correct: true, xp: 10 },
           { text: "No, I've never seen it.", correct: false }
@@ -345,7 +345,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "There's one more letter I haven't opened yet.", zh: "还有一封信我还没拆开。", voice: "emma" },
         skill: "work",
-        grammarTag: "present-perfect",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Let's open it together, right now.", zh: "我们现在就一起打开吧。", correct: true, xp: 10 },
           { text: "Let's save it for later.", correct: false }

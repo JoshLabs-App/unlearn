@@ -15,7 +15,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "I've always wanted to learn guitar, honestly.", zh: "说实话，我一直都想学吉他。", },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "I've wanted that too, let's finally do it.", zh: "我也一直想学，我们终于做这件事吧。", correct: true, xp: 10 },
           { text: "I've never once thought about learning that.", correct: false }
@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do you think we're too old to start now?", zh: "你觉得我们现在开始学是不是太老了？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "comparative",
         choices: [
           { text: "No, plenty of people start later than us.", zh: "不会，很多人开始学的时候比我们还晚呢。", correct: true, xp: 10 },
           { text: "Yes, learning anything new is pointless now.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do you want steel strings or nylon strings?", zh: "您想要钢弦还是尼龙弦？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "comparative",
         choices: [
           { text: "I think nylon sounds gentler for beginners.", zh: "我觉得尼龙弦对初学者来说声音更柔和。", correct: true, xp: 10 },
           { text: "Strings don't matter, all guitars sound the same.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'll also need a tuner and some picks.", zh: "我们还需要一个调音器和几个拨片。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Right, let's grab those before we leave.", zh: "对，我们走之前把那些也带上吧。", correct: true, xp: 10 },
           { text: "Right, though we probably won't need those.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This chord is easier than the one you just tried.", zh: "这个和弦比你刚才试的那个更简单。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's a relief, my fingers needed a break.", zh: "这让人松了口气，我的手指也需要休息一下。", correct: true, xp: 10 },
           { text: "That's disappointing, I wanted something harder.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Practice this chord every day, even for five minutes.", zh: "每天都练习这个和弦，哪怕只有五分钟。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "I will, I'll set a reminder for it.", zh: "我会的，我会为此设个提醒。", correct: true, xp: 10 },
           { text: "I won't, five minutes seems too short to bother.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "You've actually gotten better than me at this one.", zh: "这个和弦你其实已经比我弹得好了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "Maybe, but you're way ahead on the other chords.", zh: "也许吧，但其他和弦你领先多了。", correct: true, xp: 10 },
           { text: "That's impossible, I've never once practiced.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do these numbers tell you which fret to press?", zh: "这些数字是告诉你要按哪个品格吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, each number matches a specific fret.", zh: "是的，每个数字对应一个具体的品格。", correct: true, xp: 10 },
           { text: "No, the numbers mean absolutely nothing.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "That sounded so much better than last week.", zh: "这次听起来比上周好多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, all that practice paid off.", zh: "确实如此，所有的练习都有了回报。", correct: true, xp: 10 },
           { text: "It really didn't, last week sounded better.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you nervous about playing in front of people?", zh: "在别人面前弹奏你紧张吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "comparative",
         choices: [
           { text: "A little, but I've prepared as much as I can.", zh: "有一点，但我已经尽力准备了。", correct: true, xp: 10 },
           { text: "No, performing has never bothered me at all.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "There are much younger students performing tonight too.", zh: "今晚还有年纪小得多的学生也要表演。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's inspiring, age really doesn't matter here.", zh: "这挺鼓舞人心的，年龄在这儿真的不重要。", correct: true, xp: 10 },
           { text: "That's embarrassing, we shouldn't be here at all.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "My hands are shaking more than I expected.", zh: "我的手抖得比我预想的要厉害。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Mine too, but let's just start playing.", zh: "我也是，但我们就开始弹吧。", correct: true, xp: 10 },
           { text: "Mine aren't shaking at all, I feel calm.", correct: false }
@@ -381,7 +381,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "The applause afterward felt more rewarding than I imagined.", zh: "演出后的掌声比我想象的更让人有成就感。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, this was worth every hard practice.", zh: "确实如此，之前每一次辛苦的练习都值得了。", correct: true, xp: 10 },
           { text: "It really didn't, the applause felt awkward.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What song should we learn next?", zh: "我们下一首要学什么歌？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "comparative",
         choices: [
           { text: "Something a bit more challenging, maybe.", zh: "也许可以学点更有挑战性的。", correct: true, xp: 10 },
           { text: "Nothing, we should probably stop learning now.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We've come further than I ever thought we would.", zh: "我们进步的程度超出了我曾经的想象。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "connector",
         choices: [
           { text: "We really have, and it's just the beginning.", zh: "确实如此，而且这只是个开始。", correct: true, xp: 10 },
           { text: "We really haven't, we've barely improved at all.", correct: false }

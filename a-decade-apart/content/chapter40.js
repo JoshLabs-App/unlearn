@@ -19,7 +19,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Have we ever actually set up a retirement account?", zh: "我们真的设立过退休账户吗？" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "We've never really gotten around to it.", zh: "我们其实一直没顾得上。", correct: true, xp: 10 },
           { text: "We're setting one up at this exact moment.", correct: false }
@@ -62,7 +62,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What age are you hoping to retire by?", zh: "你们希望多大年纪退休？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "We're hoping for somewhere around sixty-five.", zh: "我们希望大概在六十五岁左右。", correct: true, xp: 10 },
           { text: "We're hoping to work forever, honestly.", correct: false }
@@ -73,7 +73,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "The earlier you start saving, the more it grows.", zh: "越早开始存钱，增长的空间就越大。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "That makes sense, let's start right away then.", zh: "有道理，那我们现在就开始吧。", correct: true, xp: 10 },
           { text: "That makes no sense, timing never matters.", correct: false }
@@ -84,7 +84,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "I'll put together a plan based on your goals.", zh: "我会根据你们的目标制定一份方案。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "courtesy",
         choices: [
           { text: "Thank you, we really appreciate the help.", zh: "谢谢，我们真的很感激你的帮助。", correct: true, xp: 10 },
           { text: "Thank you, though we don't need any plan.", correct: false }
@@ -159,7 +159,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Even a small amount adds up significantly over time.", zh: "即使是小额存款，长期下来也会积累很多。" },
         skill: "community",
-        grammarTag: "concession",
+        grammarTag: "statement",
         choices: [
           { text: "Even a small amount, then, is worth doing.", zh: "那么即使是小额，也值得去做。", correct: true, xp: 10 },
           { text: "Even a small amount feels pointless to us.", correct: false }
@@ -170,7 +170,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'll set up automatic transfers so you never miss a month.", zh: "我们会设置自动转账，这样你们就不会漏掉哪个月。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "statement",
         choices: [
           { text: "That's smart, automation makes it effortless.", zh: "这很明智，自动化让事情变得毫不费力。", correct: true, xp: 10 },
           { text: "That's risky, we'd rather do it manually.", correct: false }
@@ -202,7 +202,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Your balance is higher than it was last quarter.", zh: "你们的余额比上一季度更高了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "That's great to hear, all the saving paid off.", zh: "太好了，之前所有的储蓄都有了回报。", correct: true, xp: 10 },
           { text: "That's disappointing, we expected far more growth.", correct: false }
@@ -234,7 +234,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Why did you two decide to start this now?", zh: "你们俩为什么决定现在开始做这件事？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "We wanted to be responsible for our family's future.", zh: "我们想为家庭的未来负起责任。", correct: true, xp: 10 },
           { text: "We decided because someone told us to.", correct: false }
@@ -245,7 +245,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "I wish we'd started this early like you two did.", zh: "我真希望我们也能像你们俩一样早点开始。" },
         skill: "community",
-        grammarTag: "subjunctive",
+        grammarTag: "statement",
         choices: [
           { text: "It's never too late to start, honestly.", zh: "说实话，任何时候开始都不算晚。", correct: true, xp: 10 },
           { text: "You're right, it's far too late for you now.", correct: false }
@@ -256,7 +256,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We're proud of how responsible you two have become.", zh: "我们为你们俩变得这么负责任而感到骄傲。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "courtesy",
         choices: [
           { text: "Thank you, that really means a lot to us.", zh: "谢谢，这对我们来说意义重大。", correct: true, xp: 10 },
           { text: "Thank you, though we haven't really changed at all.", correct: false }
@@ -277,7 +277,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we be worried about this drop in the market?", zh: "我们应该为这次市场下跌感到担心吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Not really, this is normal over time.", zh: "其实不用，长期来看这很正常。", correct: true, xp: 10 },
           { text: "Yes, let's pull all our money out right now.", correct: false }
@@ -288,7 +288,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "The market has always recovered from dips like this.", zh: "市场以前每次这样下跌之后都会恢复。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "present-continuous",
         choices: [
           { text: "That's reassuring, let's just stay the course.", zh: "这挺让人安心的，我们就继续保持原计划吧。", correct: true, xp: 10 },
           { text: "That's not reassuring, let's panic and sell everything.", correct: false }
@@ -299,7 +299,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Even during dips, staying consistent matters most.", zh: "即使在市场下跌期间，保持一致性才是最重要的。" },
         skill: "community",
-        grammarTag: "concession",
+        grammarTag: "will-future",
         choices: [
           { text: "Even during dips, we'll keep contributing steadily.", zh: "即使市场下跌，我们也会持续稳定地投入。", correct: true, xp: 10 },
           { text: "Even during dips, we'll probably just quit.", correct: false }
@@ -363,7 +363,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What do you picture us doing when we retire?", zh: "你想象我们退休后会做什么？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Traveling together, probably, with plenty of free time.", zh: "大概会一起旅行，有很多自由时间。", correct: true, xp: 10 },
           { text: "Nothing, retirement feels impossible to imagine.", correct: false }
@@ -417,7 +417,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How does it feel seeing real progress like this?", zh: "看到这样真实的进步，你感觉怎么样？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "It feels incredibly motivating, honestly.", zh: "说实话，感觉特别有动力。", correct: true, xp: 10 },
           { text: "It doesn't feel like anything to me.", correct: false }

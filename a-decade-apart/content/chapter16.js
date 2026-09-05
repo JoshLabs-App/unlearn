@@ -258,7 +258,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "By the time the night comes, everything needs to be ready.", zh: "到活动那晚，一切都得准备就绪。", voice: "emma" },
         skill: "work",
-        grammarTag: "past-perfect",
+        grammarTag: "present-perfect",
         choices: [
           { text: "By then, we'll have finished everything.", zh: "到那时，我们会把一切都准备好的。", correct: true, xp: 10 },
           { text: "By then, nothing will be finished.", correct: false }
@@ -278,7 +278,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Can you set up the chairs in a big circle?", zh: "你能把椅子摆成一个大圈吗？" },
         skill: "community",
-        grammarTag: "can-modal",
+        grammarTag: "short-answer",
         choices: [
           { text: "Sure, a big circle it is.", zh: "没问题，就摆成大圈。", correct: true, xp: 10 },
           { text: "I can't move that many chairs alone.", correct: false }
@@ -321,7 +321,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "I've never seen this many people in one room.", zh: "我从没见过这么多人挤在一间屋子里。", voice: "ho" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "connector",
         choices: [
           { text: "I haven't either, and I love it.", zh: "我也没见过，我很喜欢这样。", correct: true, xp: 10 },
           { text: "I've seen way more than this, actually.", correct: false }
@@ -332,7 +332,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "One student is about to tell her story to everyone.", zh: "有一位学员马上就要向大家讲述她的故事了。", voice: "ho" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "She's about to speak — let's listen closely.", zh: "她要开始讲了——我们仔细听吧。", correct: true, xp: 10 },
           { text: "She's not ready to speak at all.", correct: false }

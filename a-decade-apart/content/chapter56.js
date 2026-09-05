@@ -15,7 +15,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we throw her a surprise party this year?", zh: "我们今年要给她办个惊喜派对吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, she deserves something special this year.", zh: "好啊，今年她值得拥有点特别的东西。", correct: true, xp: 10 },
           { text: "No, surprises are always a terrible idea.", correct: false }
@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We'll need to keep this a complete secret.", zh: "我们得把这件事完全保密。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "past-simple",
         choices: [
           { text: "Agreed, not a single word to her.", zh: "同意，一个字都不能跟她透露。", correct: true, xp: 10 },
           { text: "Agreed, though we should probably tell her anyway.", correct: false }
@@ -37,7 +37,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's create a group chat without her in it.", zh: "我们建一个不加她的群聊吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "will-future",
         choices: [
           { text: "Good idea, I'll set that up right now.", zh: "好主意，我现在就建。", correct: true, xp: 10 },
           { text: "Let's just plan everything in the group with her.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'll book it under a fake reason, just in case.", zh: "为了保险起见，我们用一个假借口来预订场地。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Smart move, let's say it's a work event.", zh: "聪明的做法，我们就说是公司活动吧。", correct: true, xp: 10 },
           { text: "Smart move, let's just tell her the truth.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Who's handling the cake and decorations?", zh: "谁负责蛋糕和装饰？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "will-future",
         choices: [
           { text: "I'll take care of both of those.", zh: "这两样我来负责。", correct: true, xp: 10 },
           { text: "Nobody's handling anything at all, honestly.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This planning has become more complicated than I expected.", zh: "这个策划比我预想的要复杂多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It has, but it's fun coordinating everyone.", zh: "确实是，但协调大家其实挺有趣的。", correct: true, xp: 10 },
           { text: "It hasn't, this has been incredibly simple.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What excuse should we use to bring her there?", zh: "我们应该用什么借口把她带过去？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Let's tell her we're just meeting for dinner.", zh: "我们就说只是一起吃个饭吧。", correct: true, xp: 10 },
           { text: "We shouldn't use any excuse at all.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This lie is easier to keep up than I thought.", zh: "这个谎言比我想的要好维持。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-perfect",
         choices: [
           { text: "It really is, she hasn't suspected a thing.", zh: "确实如此，她一点都没起疑心。", correct: true, xp: 10 },
           { text: "It really isn't, she already figured it out.", correct: false }
@@ -166,7 +166,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please stick to the story, no matter what she asks.", zh: "不管她问什么，都请坚持这个说法。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Of course, I won't slip up.", zh: "当然，我不会说漏嘴的。", correct: true, xp: 10 },
           { text: "Sorry, I already told her the truth.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This banner looks better than the one from last year.", zh: "这条横幅比去年那条更好看。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It does, everyone did a great job on this.", zh: "确实是，大家这次做得都很棒。", correct: true, xp: 10 },
           { text: "It doesn't, last year's banner was much nicer.", correct: false }
@@ -209,7 +209,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "She just texted, she's five minutes away!", zh: "她刚发消息说，还有五分钟就到了！" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "phrasal-verb",
         choices: [
           { text: "Everyone hide, quick, turn off the lights!", zh: "大家快躲起来，关灯！", correct: true, xp: 10 },
           { text: "Everyone relax, we have plenty of time still.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Her face lit up brighter than any candle in the room.", zh: "她脸上的笑容比屋里任何一支蜡烛都要明亮。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, this was worth every secret text.", zh: "确实如此，之前所有偷偷发的短信都值得了。", correct: true, xp: 10 },
           { text: "It really didn't, she looked completely unimpressed.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This is honestly the best surprise anyone has ever given me.", zh: "这真的是有人给过我的最棒的惊喜了。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "can-modal",
         choices: [
           { text: "We're so glad we could pull this off for you.", zh: "我们很高兴能为你把这一切做成。", correct: true, xp: 10 },
           { text: "We're glad, though it wasn't really that hard.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This secret was harder to keep than I expected.", zh: "这个秘密比我预想的更难保守。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really was, I almost slipped up twice.", zh: "确实如此，我差点漏嘴两次。", correct: true, xp: 10 },
           { text: "It really wasn't, keeping secrets is always easy.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Cleanup always feels faster with more people helping.", zh: "人多帮忙收拾总是感觉更快。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, many hands really do make light work.", zh: "确实是，人多力量大果然没错。", correct: true, xp: 10 },
           { text: "It doesn't, more people just gets in the way.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "That went better than we could have ever planned.", zh: "这次的效果比我们计划的还要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, everything just came together perfectly.", zh: "确实如此，一切都恰到好处地凑到了一起。", correct: true, xp: 10 },
           { text: "It really didn't, tonight went completely wrong.", correct: false }

@@ -329,7 +329,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do you want to take a photo together?", zh: "要不要一起拍张照？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's take one right here.", zh: "好呀，我们就在这儿拍一张吧。", correct: true, xp: 10 },
           { text: "No, I hate photos.", correct: false }

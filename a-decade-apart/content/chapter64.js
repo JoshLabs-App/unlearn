@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you think our dog would get along with a cat?", zh: "你觉得我们家的狗会和猫相处得来吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "I think so, he's pretty calm with new animals.", zh: "我觉得可以，他对新动物一向挺淡定的。", correct: true, xp: 10 },
           { text: "No, he's never met an animal he liked.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Two pets will be more work than one.", zh: "养两只宠物比养一只要更费心。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "It will, but I think we can handle it.", zh: "确实会，但我觉得我们能应付得来。", correct: true, xp: 10 },
           { text: "It won't, two pets are always easier than one.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What does a cat actually need that a dog doesn't?", zh: "猫真正需要而狗不需要的东西有什么？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "A litter box and a scratching post, mainly.", zh: "主要是猫砂盆和抓板。", correct: true, xp: 10 },
           { text: "Cats and dogs need exactly the same things.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's grab a scratching post before we forget.", zh: "我们趁还没忘记，赶紧拿个抓板吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "will-future",
         choices: [
           { text: "Good call, that'll protect our furniture too.", zh: "好主意，这样也能保护我们的家具。", correct: true, xp: 10 },
           { text: "Let's skip that, furniture doesn't matter much.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "She seems more nervous than I expected in a new place.", zh: "在新地方，她看起来比我预想的更紧张。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "That's normal, let's give her some quiet space.", zh: "这很正常，我们给她留点安静的空间吧。", correct: true, xp: 10 },
           { text: "That's odd, cats should feel comfortable instantly.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should we keep the dog in another room for now?", zh: "我们现在要不要把狗关在另一个房间？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's introduce them slowly, over a few days.", zh: "好，我们花几天慢慢介绍他们认识吧。", correct: true, xp: 10 },
           { text: "No, let's just let them meet right away.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Is he being gentle, or is he too excited?", zh: "他是在温柔相待，还是太兴奋了？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "He's being gentle, actually, tail wagging slowly.", zh: "他其实很温柔，尾巴慢慢摇着。", correct: true, xp: 10 },
           { text: "He's being way too rough, let's separate them.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "That escalated more quickly than I expected.", zh: "这次升级的速度比我预想的要快。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It did, let's give them both some space now.", zh: "确实是，我们现在给他们俩都留点空间吧。", correct: true, xp: 10 },
           { text: "It didn't, that was actually pretty calm.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Setbacks like this are more common than people admit.", zh: "像这样的小挫折比大家承认的要常见得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "That's reassuring, we won't panic about it then.", zh: "这让人安心，那我们就不会为此惊慌了。", correct: true, xp: 10 },
           { text: "That's alarming, let's give up on this entirely.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's slow things down and start over tomorrow.", zh: "我们放慢速度，明天重新开始吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "comparative",
         choices: [
           { text: "Good idea, patience matters more than speed here.", zh: "好主意，在这件事上耐心比速度更重要。", correct: true, xp: 10 },
           { text: "Let's push forward faster instead.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "They're getting more comfortable around each other every day.", zh: "他们每天都对彼此更自在一些。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "They really are, patience is finally paying off.", zh: "确实如此，耐心终于有了回报。", correct: true, xp: 10 },
           { text: "They really aren't, nothing has changed at all.", correct: false }
@@ -338,7 +338,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This moment feels more precious than I could have imagined.", zh: "这一刻感觉比我能想象的还要珍贵。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really does, I want to remember this forever.", zh: "确实如此，我想永远记住这一刻。", correct: true, xp: 10 },
           { text: "It doesn't, this moment feels pretty ordinary.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "These two have become closer than we ever expected.", zh: "他们俩变得比我们预想的还要亲密。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "They really have, and it's honestly adorable.", zh: "确实如此，说实话真的太可爱了。", correct: true, xp: 10 },
           { text: "They really haven't, they still avoid each other.", correct: false }
@@ -381,7 +381,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This house feels more like a real home with both of them here.", zh: "有了他们俩，这个家感觉更像一个真正的家了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really does, this family feels complete now.", zh: "确实如此，这个家庭现在感觉完整了。", correct: true, xp: 10 },
           { text: "It doesn't, nothing feels different at all.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "She's happier here than I ever could have made her.", zh: "她在这儿比我曾经能给她的还要幸福。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "courtesy",
         choices: [
           { text: "That means so much, thank you for trusting us.", zh: "这句话对我们意义重大，谢谢你信任我们。", correct: true, xp: 10 },
           { text: "That's a strange thing to say, honestly.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Thank you both for giving her such a wonderful life.", zh: "谢谢你们俩给了她如此美好的生活。" },
         skill: "community",
-        grammarTag: "courtesy",
+        grammarTag: "passive",
         choices: [
           { text: "Of course, she's brought us so much joy too.", zh: "不客气，她也给我们带来了很多快乐。", correct: true, xp: 10 },
           { text: "Of course, though she hasn't really added much.", correct: false }

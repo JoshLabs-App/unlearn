@@ -150,7 +150,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Welcome. Do you have an appointment today?", zh: "欢迎光临。您今天有预约吗？", voice: "official" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, I do. It's under my name.", zh: "有的。是在我名下预约的。", correct: true, xp: 10 },
           { text: "No, I just walked in randomly.", correct: false }
@@ -362,7 +362,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Your phone just buzzed like crazy. What is it?", zh: "你手机刚才疯狂震动。是什么？", voice: "emma" },
         skill: "work",
-        grammarTag: "past-simple",
+        grammarTag: "present-perfect",
         choices: [
           { text: "It's the email I've been waiting for.", zh: "是我一直在等的那封邮件。", correct: true, xp: 10 },
           { text: "It's nothing, just an old reminder.", correct: false }
@@ -373,7 +373,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Well? Don't leave me hanging, what does it say?", zh: "怎么样？别吊我胃口，上面写了什么？", voice: "emma" },
         skill: "work",
-        grammarTag: "phrasal-verb",
+        grammarTag: "passive",
         choices: [
           { text: "It says I've been approved!", zh: "上面写着我被批准了！", correct: true, xp: 10 },
           { text: "It says the application was denied.", correct: false }

@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Why do you want to host a student?", zh: "你们为什么想接待一位学生？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "phrasal-verb",
         choices: [
           { text: "We want our child to grow up seeing different cultures.", zh: "我们希望孩子能从小接触不同的文化。", correct: true, xp: 10 },
           { text: "We don't actually want to host anyone, honestly.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do you have a spare bedroom available?", zh: "你们有多余的卧室可以用吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, we have a small guest room ready.", zh: "有的，我们有一间准备好的小客房。", correct: true, xp: 10 },
           { text: "No, we don't have any extra space at all.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we add a small desk for studying?", zh: "我们要不要加一张学习用的小书桌？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's make sure they have space to work.", zh: "好，我们确保他们有学习的空间。", correct: true, xp: 10 },
           { text: "No, students never actually need to study.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This room feels warmer now than it did empty.", zh: "这间屋子现在比空着的时候感觉更温馨了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "courtesy",
         choices: [
           { text: "It does, I hope they feel welcome here.", zh: "确实是，希望他们在这儿感觉受欢迎。", correct: true, xp: 10 },
           { text: "It doesn't, this room still feels cold to me.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do you have any questions before we head home?", zh: "回家之前你有什么问题吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "wh-question",
         choices: [
           { text: "Just one, how far is your house from here?", zh: "就一个，你们家离这儿有多远？", correct: true, xp: 10 },
           { text: "No, I already know absolutely everything.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Please let us know if you'll be home late.", zh: "如果你会晚回家，请提前告诉我们一声。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Of course, I'll always send a message.", zh: "当然，我会一直发消息告知的。", correct: true, xp: 10 },
           { text: "Sorry, sending messages seems too complicated.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This dish is spicier than anything we usually cook.", zh: "这道菜比我们平时做的任何菜都要辣。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's exciting, we love trying new flavors.", zh: "太棒了，我们喜欢尝试新的口味。", correct: true, xp: 10 },
           { text: "That's concerning, spicy food scares us.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This is honestly better than any restaurant version I've had.", zh: "说实话，这比我吃过的任何餐厅版本都要好吃。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "courtesy",
         choices: [
           { text: "That means so much, thank you for sharing this.", zh: "这句话意义重大，谢谢你分享这道菜。", correct: true, xp: 10 },
           { text: "That's odd, restaurant food is always better.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you feeling okay tonight?", zh: "你今晚还好吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "I'm okay, just missing my family a little.", zh: "我还好，就是有点想家人了。", correct: true, xp: 10 },
           { text: "I'm not okay, I want to leave right now.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Missing home is more normal than you might think.", zh: "想家其实比你想的要更普遍。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "That's reassuring, thank you for understanding.", zh: "这让人安心，谢谢你的理解。", correct: true, xp: 10 },
           { text: "That's odd, I thought I was the only one.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "I've started calling this place home, honestly.", zh: "说实话，我已经开始把这里当成家了。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "That means everything to us, honestly.", zh: "说实话，这句话对我们意义非凡。", correct: true, xp: 10 },
           { text: "That's strange, this isn't your real home.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Our little one has become more attached to you than I expected.", zh: "我们家小家伙对你的依恋比我预想的要深。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-perfect",
         choices: [
           { text: "That's so sweet, I've grown attached too.", zh: "这真是太温馨了，我也变得很依恋他们。", correct: true, xp: 10 },
           { text: "That's odd, kids never really bond with guests.", correct: false }
@@ -338,7 +338,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This house feels more complete with you in it.", zh: "有了你，这个家感觉更完整了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "courtesy",
         choices: [
           { text: "That's such a kind thing to say, thank you.", zh: "你这样说真是太贴心了，谢谢你。", correct: true, xp: 10 },
           { text: "That's not true, nothing has changed here.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This goodbye is harder than I ever thought it would be.", zh: "这次道别比我曾经想象的要难得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-perfect",
         choices: [
           { text: "It really is, we've grown so close to you.", zh: "确实如此，我们和你已经变得非常亲近。", correct: true, xp: 10 },
           { text: "It really isn't, goodbyes have never mattered to us.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Thank you for treating me like your own family.", zh: "谢谢你们把我当成自己的家人。" },
         skill: "community",
-        grammarTag: "courtesy",
+        grammarTag: "will-future",
         choices: [
           { text: "Of course, you'll always be part of ours.", zh: "当然了，你永远是我们家的一员。", correct: true, xp: 10 },
           { text: "Of course, though you were never really family.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "We've learned more from this than I ever expected.", zh: "我们从这段经历中学到的比我预想的要多得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "We really have, this changed how we see the world.", zh: "确实如此，这改变了我们看待世界的方式。", correct: true, xp: 10 },
           { text: "We really haven't, nothing much changed for us.", correct: false }

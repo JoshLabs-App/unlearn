@@ -73,7 +73,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This swaddle is tighter than the last attempt.", zh: "这次包的襁褓比上次更紧了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It is, and it seems to be working.", zh: "确实是，而且看起来很有效。", correct: true, xp: 10 },
           { text: "It isn't, this one is actually looser.", correct: false }
@@ -105,7 +105,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Is it your turn or mine this time?", zh: "这次轮到你还是我？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "It's my turn, go back to sleep.", zh: "轮到我了，你继续睡吧。", correct: true, xp: 10 },
           { text: "It's nobody's turn, let's ignore the crying.", correct: false }
@@ -116,7 +116,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How many hours of sleep did you get last night?", zh: "你昨晚睡了几个小时？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "I probably got about three hours, total.", zh: "我大概总共睡了三个小时。", correct: true, xp: 10 },
           { text: "I got a full eight hours, easily.", correct: false }
@@ -127,7 +127,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We've both become experts at surviving on little sleep.", zh: "我们俩都成了靠少量睡眠撑下去的专家了。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "concession",
         choices: [
           { text: "We really have, though I could use more coffee.", zh: "确实如此，不过我需要更多咖啡。", correct: true, xp: 10 },
           { text: "We really haven't, sleep has never been an issue.", correct: false }
@@ -170,7 +170,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Do you have any questions before you go?", zh: "离开前你们有什么问题吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "wh-question",
         choices: [
           { text: "Yes, actually, when should we expect a smile?", zh: "有的，宝宝大概什么时候会笑？", correct: true, xp: 10 },
           { text: "No, we understand everything perfectly already.", correct: false }
@@ -191,7 +191,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "I feel more tired than I've ever felt in my life.", zh: "我感觉比这辈子任何时候都累。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "Me too, but somehow it's worth it.", zh: "我也是，但不知怎么地这一切都值得。", correct: true, xp: 10 },
           { text: "Me too, and I regret every part of this.", correct: false }
@@ -202,7 +202,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Should we take turns napping this afternoon?", zh: "今天下午我们要不要轮流小睡一下？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's split the afternoon in half.", zh: "好，我们把下午分成两半吧。", correct: true, xp: 10 },
           { text: "No, naps are a complete waste of time.", correct: false }
@@ -213,7 +213,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Even on the hardest days, I wouldn't trade this for anything.", zh: "即使是最难熬的日子，我也不会用这一切换任何东西。" },
         skill: "community",
-        grammarTag: "concession",
+        grammarTag: "comparative",
         choices: [
           { text: "Even on the hardest days, I feel the same way.", zh: "即使是最难熬的日子，我也有同样的感受。", correct: true, xp: 10 },
           { text: "Even on the hardest days, I'd trade this in a second.", correct: false }
@@ -256,7 +256,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let us know if you need anything at all.", zh: "有什么需要就告诉我们。", voice: "ho" },
         skill: "community",
-        grammarTag: "connector",
+        grammarTag: "will-future",
         choices: [
           { text: "We will, and thank you for everything.", zh: "我们会的，谢谢你们的一切。", correct: true, xp: 10 },
           { text: "We will, but we probably won't need help.", correct: false }
@@ -299,7 +299,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please hand me the towel when we're done.", zh: "洗完之后请把毛巾递给我。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "present-perfect",
         choices: [
           { text: "Sure, I've got it ready right here.", zh: "好的，我已经准备好了。", correct: true, xp: 10 },
           { text: "Sorry, I forgot to get a towel at all.", correct: false }
@@ -320,7 +320,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "I think we're finally getting the hang of this.", zh: "我觉得我们终于开始摸到门道了。" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "comparative",
         choices: [
           { text: "We really are, it feels less chaotic now.", zh: "确实如此，现在感觉没那么混乱了。", correct: true, xp: 10 },
           { text: "We're not, everything still feels impossible.", correct: false }
@@ -331,7 +331,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This week has been easier than last week, honestly.", zh: "说实话，这周比上周轻松多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "It has, we're finally settling into this.", zh: "确实如此，我们终于开始适应了。", correct: true, xp: 10 },
           { text: "It hasn't, every single week feels the same.", correct: false }
@@ -374,7 +374,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Moments like this remind me how far we've come.", zh: "像这样的时刻让我意识到我们已经走了多远。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "comparative",
         choices: [
           { text: "They really do, more than you know.", zh: "确实如此，比你想的还要多。", correct: true, xp: 10 },
           { text: "They remind me of nothing in particular.", correct: false }
@@ -417,7 +417,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "How do you feel looking back on this first month?", zh: "回顾这第一个月，你有什么感受？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Exhausted, proud, and completely in love.", zh: "疲惫、骄傲，还有满满的爱。", correct: true, xp: 10 },
           { text: "I don't feel anything looking back at all.", correct: false }

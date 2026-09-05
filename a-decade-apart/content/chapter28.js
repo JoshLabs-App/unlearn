@@ -10,7 +10,7 @@
 GAME_CONTENT.scenes.push(
   {
     id: "meeting-the-contractor",
-    transition: { en: "They invite a contractor over to look at the spare room.", zh: "他们请了一位承包商来看那间空房间。" },
+    transition: { en: "The nursery they painted and set up themselves last month has hit a snag — the paint is already peeling, and pulling back the carpet to check reveals water damage underneath. They call in a contractor to fix it properly.", zh: "他们上个月自己刷漆布置的婴儿房出了点问题——油漆已经开始掉皮，掀开地毯检查时还发现底下有水损。他们决定请一位专业的承包商来彻底处理。" },
     title: "Meeting the Contractor",
     subtitle: "装修 · 见承包商",
     avatar: "🧰",
@@ -19,7 +19,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What kind of renovation are you planning?", zh: "你们打算做什么样的装修？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "We're turning this room into a nursery.", zh: "我们要把这个房间改成婴儿房。", correct: true, xp: 10 },
           { text: "We're not planning any renovation at all.", correct: false }
@@ -30,7 +30,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Do you have a budget in mind?", zh: "你们心里有预算数字吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "Yes, we're hoping to stay under five thousand.", zh: "有的，我们希望控制在五千以内。", correct: true, xp: 10 },
           { text: "No, money doesn't matter to us at all.", correct: false }
@@ -73,7 +73,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This paint is more durable than the cheaper brand.", zh: "这种油漆比便宜的牌子更耐用。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "Durable is worth the extra cost to us.", zh: "耐用对我们来说值这个额外花费。", correct: true, xp: 10 },
           { text: "Durable doesn't matter, we'll repaint every year.", correct: false }
@@ -84,7 +84,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "How many gallons do you think you'll need?", zh: "你们觉得需要买几加仑？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "I think two gallons should cover it.", zh: "我觉得两加仑应该够用了。", correct: true, xp: 10 },
           { text: "I think paint is something we don't need.", correct: false }
@@ -105,7 +105,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This carpet has been here since the house was built.", zh: "这块地毯从这房子建成就一直在这儿了。" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "It's definitely been here far too long.", zh: "它在这儿的时间确实太久了。", correct: true, xp: 10 },
           { text: "It's never actually been here before.", correct: false }
@@ -116,7 +116,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Watch out for nails as you pull it up.", zh: "拉起地毯的时候要小心钉子。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Thanks for the warning, I'll wear gloves.", zh: "谢谢提醒，我会戴上手套的。", correct: true, xp: 10 },
           { text: "Thanks, but gloves seem unnecessary here.", correct: false }
@@ -127,7 +127,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Once the carpet is gone, we'll check the subfloor.", zh: "地毯拆掉之后，我们会检查一下底层地板。" },
         skill: "community",
-        grammarTag: "connector",
+        grammarTag: "statement",
         choices: [
           { text: "Sounds good, and let me know what you find.", zh: "好的，如果发现什么问题告诉我一声。", correct: true, xp: 10 },
           { text: "Sounds good, but I don't want to know.", correct: false }
@@ -170,7 +170,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This will add a bit to the original estimate.", zh: "这会比原来的报价多花一点钱。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "statement",
         choices: [
           { text: "That's understandable, we'd rather fix it properly.", zh: "这可以理解，我们更希望把它彻底修好。", correct: true, xp: 10 },
           { text: "That's unacceptable, we won't pay a cent more.", correct: false }
@@ -191,7 +191,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Are you happy with how the flooring looks so far?", zh: "目前地板的样子你们满意吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "present-continuous",
         choices: [
           { text: "Yes, it's coming together beautifully.", zh: "是的，效果非常好。", correct: true, xp: 10 },
           { text: "No, we haven't looked at it once.", correct: false }
@@ -213,7 +213,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Give it twenty-four hours before moving furniture on it.", zh: "在上面放家具之前请等二十四小时。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "past-simple",
         choices: [
           { text: "Got it, we'll wait a full day before that.", zh: "明白了，我们会等满一整天再放。", correct: true, xp: 10 },
           { text: "Got it, though waiting sounds pointless to me.", correct: false }
@@ -256,7 +256,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's do two coats to make sure it's even.", zh: "我们刷两层，确保颜色均匀。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Sounds smart, two coats it is.", zh: "听起来很明智，那就刷两层吧。", correct: true, xp: 10 },
           { text: "Let's just do one coat and hope for the best.", correct: false }
@@ -268,7 +268,7 @@ GAME_CONTENT.scenes.push(
   },
   {
     id: "assembling-the-crib",
-    transition: { en: "A crib arrives in a large flat box.", zh: "婴儿床装在一个又大又扁的箱子里送到了。" },
+    transition: { en: "With the new flooring finally down, they move the crib back into the room and put it back together.", zh: "新地板终于铺好了，他们把婴儿床搬回房间，重新组装起来。" },
     title: "Assembling the Crib",
     subtitle: "装修 · 组装婴儿床",
     avatar: "🛠️",
@@ -288,7 +288,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This piece is heavier than it looks.", zh: "这块板子比看起来要重。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "You're right, let's lift it together.", zh: "你说得对，我们一起抬吧。", correct: true, xp: 10 },
           { text: "You're wrong, it feels perfectly light.", correct: false }
@@ -320,7 +320,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Why did you choose blackout curtains for this room?", zh: "你们为什么给这间房选了遮光窗帘？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "We chose them so the baby can nap during the day.", zh: "我们选它是为了让宝宝白天也能睡着。", correct: true, xp: 10 },
           { text: "We chose them because color didn't matter.", correct: false }
@@ -331,7 +331,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Could you hold the rod steady while I hang this?", zh: "我挂窗帘的时候你能扶稳窗帘杆吗？" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "present-perfect",
         choices: [
           { text: "Sure, I've got it steady for you.", zh: "好的，我给你扶稳了。", correct: true, xp: 10 },
           { text: "Sorry, holding things isn't really my job.", correct: false }
@@ -374,7 +374,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This room turned out even better than we planned.", zh: "这间房间的效果比我们计划的还要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, thank you for the great work.", zh: "确实如此，谢谢你的出色工作。", correct: true, xp: 10 },
           { text: "It really didn't, we're quite disappointed honestly.", correct: false }

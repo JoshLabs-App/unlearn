@@ -15,7 +15,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Did you hear about the break-in two streets over?", zh: "你听说两条街外那起入室盗窃了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, that's actually what worried me too.", zh: "听说了，其实这也让我担心。", correct: true, xp: 10 },
           { text: "No, and I don't want to know either.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How many entry points does your home have?", zh: "您家有多少个出入口？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "We have a front door, back door, and a garage.", zh: "我们有前门、后门，还有一个车库。", correct: true, xp: 10 },
           { text: "Our home doesn't have any entry points.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'll install everything within a single afternoon.", zh: "我们会在一个下午之内安装完所有设备。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "wh-question",
         choices: [
           { text: "That's fast, when can we schedule it?", zh: "这速度挺快的，我们什么时候能预约？", correct: true, xp: 10 },
           { text: "That's too fast, we'd rather wait months.", correct: false }
@@ -123,7 +123,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please avoid touching the panel until setup is finished.", zh: "在设置完成前请不要触碰面板。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "will-future",
         choices: [
           { text: "Of course, we'll stay out of the way.", zh: "当然，我们不会打扰的。", correct: true, xp: 10 },
           { text: "Sorry, I already pressed a few buttons.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What just triggered the alarm?", zh: "刚才是什么触发了警报？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "past-simple",
         choices: [
           { text: "It was probably just the cat walking by.", zh: "大概只是猫走过去了。", correct: true, xp: 10 },
           { text: "Nothing triggered it, we're just imagining things.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This doorbell records more clearly than I expected.", zh: "这个门铃录像的清晰度比我预想的要高。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really does, the picture is impressively sharp.", zh: "确实如此，画面清晰得让人印象深刻。", correct: true, xp: 10 },
           { text: "It really doesn't, the video looks blurry.", correct: false }
@@ -273,7 +273,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How does this lock work exactly?", zh: "这个锁具体是怎么工作的？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "You just enter a code or use the app.", zh: "只需要输入密码或者用应用就行。", correct: true, xp: 10 },
           { text: "It doesn't actually work at all.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This is more convenient than fumbling for keys.", zh: "这比在包里摸钥匙方便多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really is, especially with a baby in my arms.", zh: "确实如此，尤其是我怀里还抱着宝宝的时候。", correct: true, xp: 10 },
           { text: "It really isn't, keys were always easier.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we test every sensor in the house today?", zh: "我们今天要测试家里每一个传感器吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's be thorough about this.", zh: "好的，我们仔细一点测试吧。", correct: true, xp: 10 },
           { text: "No, one test should cover everything.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "My phone just showed motion at the back door.", zh: "我的手机刚显示后门有动静。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Let's check the camera footage right now.", zh: "我们马上看一下摄像头画面吧。", correct: true, xp: 10 },
           { text: "Let's just ignore it, it's probably nothing.", correct: false }
@@ -381,7 +381,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This system is proving useful more than I expected.", zh: "这套系统比我预想的更加实用。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really is, this was money well spent.", zh: "确实如此，这笔钱花得很值。", correct: true, xp: 10 },
           { text: "It really isn't, this alert was a total waste.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Even with everything else going on, this feels like one less worry.", zh: "即使还有很多其他事情，这至少少了一个担忧。" },
         skill: "community",
-        grammarTag: "concession",
+        grammarTag: "statement",
         choices: [
           { text: "Even with everything else, I agree completely.", zh: "即使还有很多其他事情，我也完全同意。", correct: true, xp: 10 },
           { text: "Even with everything else, this feels like more worry.", correct: false }

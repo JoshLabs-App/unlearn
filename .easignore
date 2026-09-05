@@ -1,0 +1,29 @@
+# EAS Build packages the whole git repo root, but only apps/mobile is
+# actually needed for the mobile app build. Everything below belongs to
+# the unrelated web project at the repo root and would otherwise get
+# uploaded on every build (a-decade-apart/content/audio alone is 260MB+).
+/a-decade-apart/
+/covers/
+/icons/
+/scripts/
+/supabase/
+/*.html
+/*.css
+/*.js
+/manifest.webmanifest
+/sw.js
+/.pagesignore
+/CLAUDE.md
+/.claude/
+/.github/
+
+# NOTE: creating this file disables EAS's automatic .gitignore-based
+# filtering for the whole repo, so apps/mobile's own .gitignore rules
+# (node_modules, generated ios/android, credentials, etc.) must be
+# re-declared here or they'd get uploaded too.
+node_modules/
+apps/mobile/ios/
+apps/mobile/android/
+apps/mobile/credentials/
+apps/mobile/.expo/
+apps/mobile/expo-env.d.ts

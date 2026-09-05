@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Have either of us ever run five kilometers before?", zh: "我们俩有人跑过五公里吗？" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "connector",
         choices: [
           { text: "Neither of us has, but there's a first time.", zh: "我们俩都没有，但凡事总有第一次。", correct: true, xp: 10 },
           { text: "Both of us have run marathons before.", correct: false }
@@ -37,7 +37,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's give ourselves eight weeks to train.", zh: "我们给自己八周时间来训练吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, that sounds like enough time.", zh: "好主意，这个时间听起来够用。", correct: true, xp: 10 },
           { text: "Let's just show up without training at all.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you want to run together or at your own pace?", zh: "你想和我一起跑还是按自己的节奏跑？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "concession",
         choices: [
           { text: "I'd love to run together, at least at first.", zh: "至少一开始，我很想和你一起跑。", correct: true, xp: 10 },
           { text: "I'd rather never see you during the race.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We'll get a free T-shirt just for signing up.", zh: "报名就能免费获得一件T恤。" },
         skill: "community",
-        grammarTag: "will-future",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Nice, let's pick our sizes right now.", zh: "太好了，我们现在就选尺码吧。", correct: true, xp: 10 },
           { text: "Nice, though we don't want free shirts.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "We're already more tired than I expected.", zh: "我们现在已经比我预想的要累了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "We are, let's walk for a minute and catch our breath.", zh: "确实是，我们走一分钟，喘口气吧。", correct: true, xp: 10 },
           { text: "We are, so let's just quit right now.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "How many days a week should we train?", zh: "我们每周应该训练几天？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Maybe three days, with rest in between.", zh: "也许三天，中间要休息。", correct: true, xp: 10 },
           { text: "We shouldn't train on any days at all.", correct: false }
@@ -166,7 +166,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's mark our runs on the calendar together.", zh: "我们把训练日一起标在日历上吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "will-future",
         choices: [
           { text: "Good idea, that'll keep us accountable.", zh: "好主意，这样能让我们互相监督。", correct: true, xp: 10 },
           { text: "Let's not plan it, we'll just wing it.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we skip today's run because of the rain?", zh: "我们要因为下雨跳过今天的训练吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "concession",
         choices: [
           { text: "No, let's just wear jackets and go anyway.", zh: "不要，我们穿上外套照样去跑吧。", correct: true, xp: 10 },
           { text: "Yes, let's skip every rainy day from now on.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Running in the rain feels more refreshing than I expected.", zh: "在雨中跑步比我预想的更让人神清气爽。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, this is oddly enjoyable, honestly.", zh: "确实是，说实话这莫名地挺享受的。", correct: true, xp: 10 },
           { text: "It doesn't, this is completely miserable.", correct: false }
@@ -209,7 +209,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We're more committed to this than I thought we'd be.", zh: "我们对这件事的坚持程度比我预想的要高。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "phrasal-verb",
         choices: [
           { text: "We really are, and it feels good to show up.", zh: "确实如此，能坚持出现感觉真好。", correct: true, xp: 10 },
           { text: "We really aren't, we've skipped most of our runs.", correct: false }
@@ -241,7 +241,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This week has been harder than any week before it.", zh: "这周比之前任何一周都要难。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It has, but hard weeks don't erase our progress.", zh: "确实是，但艰难的一周并不会抹去我们的进步。", correct: true, xp: 10 },
           { text: "It has, so let's just give up altogether.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "That felt so much easier than the first week.", zh: "这次感觉比第一周轻松多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-perfect",
         choices: [
           { text: "It really did, we've come such a long way.", zh: "确实如此，我们真的进步了很多。", correct: true, xp: 10 },
           { text: "It really didn't, this felt just as hard as before.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This crowd is bigger than I expected for a local race.", zh: "对一场本地赛事来说，这人群比我预想的要大。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, this energy is honestly contagious.", zh: "确实是，这种气氛真的很有感染力。", correct: true, xp: 10 },
           { text: "It isn't, barely anyone showed up today.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Are you feeling ready for this?", zh: "你觉得自己准备好了吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "connector",
         choices: [
           { text: "I am, nervous, but ready.", zh: "准备好了，虽然紧张，但也准备好了。", correct: true, xp: 10 },
           { text: "I'm not, let's just go home instead.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "My legs feel heavier than they did an hour ago.", zh: "我的腿比一小时前要沉重多了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "phrasal-verb",
         choices: [
           { text: "Mine too, but we're almost there, keep going.", zh: "我也是，但我们快到了，继续加油。", correct: true, xp: 10 },
           { text: "Mine feel lighter than they've ever felt.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This medal means more to me than I expected it to.", zh: "这枚奖牌对我的意义比我预想的要大。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really does, this represents so much hard work.", zh: "确实如此，这代表了这么多的努力。", correct: true, xp: 10 },
           { text: "It doesn't, this medal means nothing to me.", correct: false }

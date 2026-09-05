@@ -15,7 +15,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Have you ever used a camera besides your phone?", zh: "除了手机你用过相机吗？" },
         skill: "community",
-        grammarTag: "present-perfect",
+        grammarTag: "statement",
         choices: [
           { text: "I've never once used a real camera before.", zh: "我以前从没用过真正的相机。", correct: true, xp: 10 },
           { text: "I've used one professionally for many years.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This camera is heavier than I expected it to be.", zh: "这台相机比我预想的要重。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "will-future",
         choices: [
           { text: "It is, I'll need to hold it with both hands.", zh: "确实是，我得用两只手拿着了。", correct: true, xp: 10 },
           { text: "Weight doesn't matter, let's just hold it loosely.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Please keep the camera strap around your neck at all times.", zh: "请一直把相机带挂在脖子上。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "past-simple",
         choices: [
           { text: "Got it, I'll keep it on the whole time.", zh: "明白了，我会一直挂着的。", correct: true, xp: 10 },
           { text: "Sorry, straps seem uncomfortable and unnecessary.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "A faster shutter speed freezes motion more than a slow one.", zh: "更快的快门速度比慢速快门更能定格动态画面。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "That's helpful, good for photographing our toddler.", zh: "这很有帮助，很适合给我们孩子拍照。", correct: true, xp: 10 },
           { text: "Shutter speed doesn't matter for that at all.", correct: false }
@@ -144,7 +144,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Try placing the fountain slightly off-center.", zh: "试着把喷泉放在稍微偏离中心的位置。" },
         skill: "community",
-        grammarTag: "please-request",
+        grammarTag: "past-simple",
         choices: [
           { text: "Okay, I'll shift it a little to the left.", zh: "好的，我会把它往左边挪一点。", correct: true, xp: 10 },
           { text: "Sorry, centering everything feels more natural.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This angle looks better than the one from straight ahead.", zh: "这个角度比正面拍要好看。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It does, angles really do change everything.", zh: "确实是，角度真的能改变一切。", correct: true, xp: 10 },
           { text: "It doesn't, angles never actually matter much.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This morning light is softer than midday sun.", zh: "这清晨的光线比正午的阳光更柔和。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "connector",
         choices: [
           { text: "It is, that's why photographers love this time.", zh: "确实是，这也是摄影师喜欢这个时段的原因。", correct: true, xp: 10 },
           { text: "Light doesn't matter, let's shoot at noon instead.", correct: false }
@@ -209,7 +209,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "This shot came out better than I expected it would.", zh: "这张照片拍出来比我预想的要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, look at how the light glows.", zh: "确实如此，看看这光线多么柔美地发亮。", correct: true, xp: 10 },
           { text: "It really didn't, this photo looks completely blurry.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we ask people before taking their picture?", zh: "拍照之前我们要不要先问一下对方？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's always ask first out of respect.", zh: "好，出于尊重我们总要先问一下。", correct: true, xp: 10 },
           { text: "No, let's just snap photos of anyone we see.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "We took more photos than I ever thought we would today.", zh: "我们今天拍的照片比我曾经想的要多得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "We really did, it's hard to pick a favorite.", zh: "确实如此，很难挑出最喜欢的一张。", correct: true, xp: 10 },
           { text: "We really didn't, we barely took any photos.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This one turned out sharper than I remembered taking it.", zh: "这张比我记忆中拍出来的要清晰。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, this might be my favorite one.", zh: "确实如此，这可能是我最喜欢的一张。", correct: true, xp: 10 },
           { text: "It didn't, this photo looks completely blurry.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "I'm noticing so many details I never saw before.", zh: "我注意到了这么多以前从没发现的细节。" },
         skill: "community",
-        grammarTag: "present-continuous",
+        grammarTag: "statement",
         choices: [
           { text: "Same here, this city looks different today.", zh: "我也是，今天这座城市看起来不一样了。", correct: true, xp: 10 },
           { text: "I'm not noticing anything different at all.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Let's use natural light from the window instead of the flash.", zh: "我们用窗户的自然光，别用闪光灯吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "comparative",
         choices: [
           { text: "Good idea, natural light looks so much softer.", zh: "好主意，自然光看起来柔和多了。", correct: true, xp: 10 },
           { text: "Let's just use the flash, it's simpler.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This photo turned out warmer than any we've taken before.", zh: "这张照片拍出来的色调比我们以前拍的都要温暖。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "It really did, I want to frame this one.", zh: "确实如此，我想把这张裱起来。", correct: true, xp: 10 },
           { text: "It really didn't, this photo looks completely cold.", correct: false }

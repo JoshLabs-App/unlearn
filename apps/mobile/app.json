@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "别学英语",
+    "slug": "a-decade-apart",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "unlearn",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#faf6f0",
+    "ios": {
+      "bundleIdentifier": "com.unlearn.decadeapart",
+      "supportsTablet": true,
+      "usesAppleSignIn": true,
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.unlearn.decadeapart",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#3e8f4f"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/icon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-apple-authentication",
+      "expo-font",
+      [
+        "@react-native-google-signin/google-signin",
+        {
+          "iosUrlScheme": "com.googleusercontent.apps.827770827257-c1dtd0kaaqfo7t96cr8btpe1ihtudkkf"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": false
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "54925bbf-9ac2-403e-8c27-72b95e5da8f3"
+      }
+    }
+  }
+}

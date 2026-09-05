@@ -302,7 +302,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "That's the moment I remember why I started this.", zh: "那就是让我想起自己为什么开始做这件事的时刻。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "statement",
         choices: [
           { text: "Those moments are why any of this matters.", zh: "正是这些时刻让这一切都有了意义。", correct: true, xp: 10 },
           { text: "Those moments don't really change anything.", correct: false }
@@ -334,7 +334,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "I called it 'Ten Letters, One Home.'", zh: "我给它取名叫《十封信，一个家》。" },
         skill: "community",
-        grammarTag: "past-simple",
+        grammarTag: "statement",
         choices: [
           { text: "That title fits perfectly.", zh: "这个标题太贴切了。", correct: true, xp: 10 },
           { text: "That title doesn't fit at all.", correct: false }

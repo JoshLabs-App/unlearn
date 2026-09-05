@@ -26,7 +26,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "Teams can have up to six players.", zh: "每队最多可以有六名玩家。" },
         skill: "community",
-        grammarTag: "can-modal",
+        grammarTag: "comparative",
         choices: [
           { text: "That's plenty, let's invite a couple more friends.", zh: "这人数够用了，我们再邀请几个朋友吧。", correct: true, xp: 10 },
           { text: "That's too many, let's just go by ourselves.", correct: false }
@@ -58,7 +58,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "What should we name our team?", zh: "我们队应该叫什么名字？" },
         skill: "community",
-        grammarTag: "wh-question",
+        grammarTag: "statement",
         choices: [
           { text: "Something punny, like Quiz Pro Quo.", zh: "起个带点谐音梗的名字，比如“问答有理”。", correct: true, xp: 10 },
           { text: "It doesn't need a name, honestly.", correct: false }
@@ -69,7 +69,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This name is funnier than the one we used last time.", zh: "这个名字比我们上次用的要更好笑。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, let's go with this one for sure.", zh: "确实是，那我们就用这个吧。", correct: true, xp: 10 },
           { text: "It isn't, let's just keep the old boring name.", correct: false }
@@ -80,7 +80,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "Let's split up who's good at which categories.", zh: "我们分一下谁擅长哪个类别吧。" },
         skill: "community",
-        grammarTag: "lets-suggestion",
+        grammarTag: "statement",
         choices: [
           { text: "Good idea, I'm strong in movies and music.", zh: "好主意，我在电影和音乐方面比较强。", correct: true, xp: 10 },
           { text: "Let's not plan anything, we'll just wing it.", correct: false }
@@ -101,7 +101,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This category is history, does anyone know a lot about that?", zh: "这个类别是历史，有人对这个很了解吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "Yes, actually, history happens to be my thing.", zh: "有的，其实历史正好是我擅长的。", correct: true, xp: 10 },
           { text: "No, none of us know anything about history.", correct: false }
@@ -112,7 +112,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This question is trickier than I expected round one to be.", zh: "这道题比我预想的第一轮要棘手。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "It is, let's think about it together.", zh: "确实是，我们一起想想吧。", correct: true, xp: 10 },
           { text: "It isn't, this question feels far too easy.", correct: false }
@@ -155,7 +155,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We're doing better than I ever expected for our first time.", zh: "对于我们第一次来说，表现比我预想的要好。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "We really are, maybe we're naturals at this.", zh: "确实如此，也许我们对这个还挺有天赋的。", correct: true, xp: 10 },
           { text: "We really aren't, we're doing terribly, honestly.", correct: false }
@@ -187,7 +187,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Do you recognize this song from the intro?", zh: "从这段前奏你能认出这首歌吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "statement",
         choices: [
           { text: "I do, this song is from the nineties.", zh: "认得出来，这是九十年代的歌。", correct: true, xp: 10 },
           { text: "I don't, this song sounds completely unfamiliar.", correct: false }
@@ -198,7 +198,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This round is more fun than the history round was.", zh: "这一轮比历史环节要更有趣。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It is, music trivia is my favorite kind.", zh: "确实是，音乐类问答是我最喜欢的类型。", correct: true, xp: 10 },
           { text: "It isn't, this round feels much more boring.", correct: false }
@@ -230,7 +230,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "This tiebreaker feels more intense than the whole game combined.", zh: "这次加时赛比整场比赛加起来还要紧张。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-continuous",
         choices: [
           { text: "It does, my heart is honestly racing right now.", zh: "确实是，说实话我的心跳现在都加快了。", correct: true, xp: 10 },
           { text: "It doesn't, this feels completely relaxed to me.", correct: false }
@@ -252,7 +252,7 @@ GAME_CONTENT.scenes.push(
       n3: {
         npcLine: { en: "We're closer than the other team, we actually won!", zh: "我们比另一队更接近，我们真的赢了！" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "can-modal",
         choices: [
           { text: "We are, I honestly can't believe it!", zh: "确实是，我真不敢相信！", correct: true, xp: 10 },
           { text: "We aren't, the other team clearly beat us.", correct: false }
@@ -284,7 +284,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This win feels sweeter than I expected our first time to feel.", zh: "对于我们的第一次来说，这次获胜比我预想的更让人满足。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "can-modal",
         choices: [
           { text: "It really does, beginner's luck can be amazing.", zh: "确实如此，新手运有时候真的很厉害。", correct: true, xp: 10 },
           { text: "It doesn't, winning never really feels satisfying.", correct: false }
@@ -316,7 +316,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Should we make this a regular Thursday thing?", zh: "我们要把这变成固定的周四活动吗？" },
         skill: "community",
-        grammarTag: "do-question",
+        grammarTag: "lets-suggestion",
         choices: [
           { text: "Yes, let's mark it on the calendar right now.", zh: "好，我们现在就标在日历上吧。", correct: true, xp: 10 },
           { text: "No, once was already more than enough.", correct: false }
@@ -327,7 +327,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This has honestly become more fun than I expected weekly outings to be.", zh: "说实话，这比我预想的每周活动要有趣得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "phrasal-verb",
         choices: [
           { text: "It really has, I already look forward to next week.", zh: "确实如此，我已经开始期待下周了。", correct: true, xp: 10 },
           { text: "It hasn't, this feels like a chore already.", correct: false }
@@ -359,7 +359,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "Did you know the human body has more bones as a baby than as an adult?", zh: "你知道人体作为婴儿时的骨头比成年后要多吗？" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "past-simple",
         choices: [
           { text: "I didn't know that, that's a fun fact.", zh: "我不知道，这真是个有趣的冷知识。", correct: true, xp: 10 },
           { text: "I already knew that, everyone knows that.", correct: false }
@@ -370,7 +370,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "We've been learning more random facts than I ever expected we would.", zh: "我们学到的冷知识比我曾经预想的要多得多。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "We really have, this hobby is oddly educational.", zh: "确实如此，这个爱好意外地挺有教育意义的。", correct: true, xp: 10 },
           { text: "We really haven't, we've forgotten everything already.", correct: false }
@@ -402,7 +402,7 @@ GAME_CONTENT.scenes.push(
       n1: {
         npcLine: { en: "You two again, you're getting harder to beat each week.", zh: "又是你们俩，你们一周比一周更难被打败了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "present-perfect",
         choices: [
           { text: "We're trying, honestly, and it's been fun.", zh: "说实话，我们也在努力，而且过程很有趣。", correct: true, xp: 10 },
           { text: "We're not trying at all, we're just lucky.", correct: false }
@@ -413,7 +413,7 @@ GAME_CONTENT.scenes.push(
       n2: {
         npcLine: { en: "This rivalry has made trivia night even more exciting than before.", zh: "这份竞争让知识问答之夜比以前更精彩了。" },
         skill: "community",
-        grammarTag: "comparative",
+        grammarTag: "statement",
         choices: [
           { text: "It really has, I love having someone to compete with.", zh: "确实如此，我很喜欢有对手一起较量。", correct: true, xp: 10 },
           { text: "It hasn't, competition just makes everything worse.", correct: false }

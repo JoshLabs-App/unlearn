@@ -1,5 +1,6 @@
 // 单词发音生成脚本：给 content/dictionary.js 里 WORD_DICT 的每一个 key 单独
-// 合成一句发音（本地 Kokoro，同 scripts/generate-audio.mjs 的模型/环境），
+// 合成一句发音（本地 Qwen3-TTS，同 scripts/generate-audio.mjs 的引擎/环境，
+// 批量合成在 scripts/tts_qwen3.py），
 // 写出 content/word-audio-manifest.js（单词 → 音频文件路径查找表），
 // 供 main.js 的 showWordPopup() 在弹出释义的同时播放这个词的发音。
 //
@@ -7,12 +8,13 @@
 //   句子音频 → content/audio/ + content/audio-manifest.js
 //   单词音频 → content/word-audio/ + content/word-audio-manifest.js
 //
-// 用法：node scripts/generate-word-audio.mjs
+// 用法：node scripts/generate-word-audio.mjs [--out-dir content/word-audio-new] [--limit N]
 // 只会重新生成"缺失"的单词音频，已存在的不重新合成（WORD_DICT 的 key 不会变已有释义就不用重跑）。
 
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import vm from "node:vm";
@@ -20,15 +22,18 @@ import vm from "node:vm";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const DICT_PATH = join(ROOT, "content", "dictionary.js");
-const AUDIO_DIR = join(ROOT, "content", "word-audio");
 const MANIFEST_PATH = join(ROOT, "content", "word-audio-manifest.js");
-
 const VENV_PYTHON = join(__dirname, ".venv-tts", "bin", "python");
-const KOKORO_MODEL = "prince-canuma/Kokoro-82M";
-// 单词发音统一用玩家的美式男声，跟整句配音里"玩家台词"用的是同一个声线，
-// 保持声音风格一致（路人 NPC 的英式男声、Emma 的英式女声都不适合当作
-// "中性词典发音"）。
-const WORD_VOICE = { voice: "am_puck", langCode: "a" };
+const TTS_SCRIPT = join(__dirname, "tts_qwen3.py");
+
+function argValue(flag) {
+  const i = process.argv.indexOf(flag);
+  return i >= 0 ? process.argv[i + 1] : undefined;
+}
+const AUDIO_DIR = argValue("--out-dir") ? join(process.cwd(), argValue("--out-dir")) : join(ROOT, "content", "word-audio");
+const LIMIT = argValue("--limit") ? Number(argValue("--limit")) : undefined;
+// 单词发音统一用玩家台词的那个男声（tts_qwen3.py 里 role=word，跟 player 同一音色），
+// 保持声音风格一致——路人 NPC 的男声、Emma 的女声都不适合当作"中性词典发音"。
 
 function loadWordDict() {
   const sandbox = {};
@@ -47,22 +52,13 @@ function slugify(word) {
   return `${base || "word"}-${hash}`;
 }
 
-function runMlxAudio(args, outPrefix) {
-  execFileSync(
-    VENV_PYTHON,
-    ["-m", "mlx_audio.tts.generate", "--join_audio", "--audio_format", "wav", "--file_prefix", outPrefix, ...args],
-    { stdio: ["ignore", "ignore", "inherit"] }
-  );
-}
-
-function synth(word, outPath) {
-  const tmpWav = outPath.replace(/\.m4a$/, "");
-  runMlxAudio(
-    ["--model", KOKORO_MODEL, "--text", word, "--voice", WORD_VOICE.voice, "--lang_code", WORD_VOICE.langCode],
-    tmpWav
-  );
-  execFileSync("afconvert", ["-f", "m4af", "-d", "aac", "-b", "64000", `${tmpWav}.wav`, outPath]);
-  unlinkSync(`${tmpWav}.wav`);
+function synthBatch(jobs) {
+  if (jobs.length === 0) return;
+  const jobsPath = join(tmpdir(), `tts-word-jobs-${process.pid}.jsonl`);
+  writeFileSync(jobsPath, jobs.map((j) => JSON.stringify(j)).join("\n") + "\n", "utf8");
+  const args = [TTS_SCRIPT, "--jobs", jobsPath, "--out-dir", AUDIO_DIR];
+  if (LIMIT) args.push("--limit", String(LIMIT));
+  execFileSync(VENV_PYTHON, args, { stdio: "inherit" });
 }
 
 function main() {
@@ -71,7 +67,7 @@ function main() {
   const words = Object.keys(dict);
 
   const manifest = {};
-  let generated = 0;
+  const jobs = [];
   let skipped = 0;
 
   for (const word of words) {
@@ -83,10 +79,10 @@ function main() {
       skipped++;
       continue;
     }
-    synth(word, outPath);
-    generated++;
-    process.stdout.write(`✓ [word] ${word}\n`);
+    jobs.push({ text: word, role: "word", out: outPath });
   }
+  synthBatch(jobs);
+  const generated = jobs.filter((j) => existsSync(j.out)).length;
 
   const manifestSource = `// 由 scripts/generate-word-audio.mjs 自动生成，不要手改。
 // 单词（WORD_DICT 的 key）→ 音频文件路径的查找表；main.js 的 showWordPopup()

@@ -2,3 +2,9 @@
 scripts/
 a-decade-apart/scripts/
 node_modules/
+
+# TTS 生成/上传的临时产物
+a-decade-apart/content/.r2-uploaded-*.txt
+a-decade-apart/content/upload-*.log
+a-decade-apart/content/tts-*.log
+a-decade-apart/content/tts-suspects.tsv

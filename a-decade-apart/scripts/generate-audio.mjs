@@ -1,20 +1,25 @@
-// 配音生成脚本：本地神经网络 TTS 把 content 里所有英文台词
+// 配音生成脚本：本地 Qwen3-TTS 把 content 里所有英文台词
 // （NPC 台词 + 玩家选项 + 词汇库）批量转成压缩音频，并写出一份文本→文件名的清单
 // （content/audio-manifest.js），供 main.js 在运行时按文本查找对应音频播放。
 //
-// 用法：node scripts/generate-audio.mjs
+// 用法：node scripts/generate-audio.mjs [--out-dir content/audio-new] [--limit N]
 // 只会重新生成"文本变化过"或"音频文件缺失"的条目，已存在且文本没变的不会重新合成。
+// --out-dir 用来先生成到别的目录（比如整批换引擎重做时），跑完再整体替换 content/audio。
 //
-// 依赖：scripts/.venv-tts（Python 3.12 venv），装了 mlx-audio + misaki[en]，
-// 首次跑 `python -m mlx_audio.tts.generate ...` 时会自动从 HuggingFace 拉模型权重
-// 到 ~/.cache/huggingface（Kokoro-82M 约 300MB，Chatterbox 约 2GB），需要联网。
+// 引擎：Qwen3-TTS-12Hz-1.7B-CustomVoice（mlx-audio，Apple Silicon 本地跑），
+// 合成本身在 scripts/tts_qwen3.py 里按批并行解码，这里只负责收集台词、分配角色、写清单。
+// 2026-09 之前用的是 Kokoro-82M（快 5 倍但音色平），全部台词已用 Qwen3 重做过一遍。
+//
+// 依赖：scripts/.venv-tts（Python 3.12 venv），装了 mlx-audio>=0.5.1；
+// 首次跑会自动从 HuggingFace 拉模型权重到 ~/.cache/huggingface（约 4.2GB），需要联网。
 // 建环境：
 //   /opt/homebrew/opt/python@3.12/bin/python3.12 -m venv scripts/.venv-tts
-//   scripts/.venv-tts/bin/pip install mlx-audio "misaki[en]"
+//   scripts/.venv-tts/bin/pip install mlx-audio
 
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import vm from "node:vm";
@@ -120,32 +125,22 @@ const CONTENT_PATHS = [
   join(ROOT, "content", "chapter94.js"),
   join(ROOT, "content", "chapter95.js")
 ];
-const AUDIO_DIR = join(ROOT, "content", "audio");
 const MANIFEST_PATH = join(ROOT, "content", "audio-manifest.js");
-
 const VENV_PYTHON = join(__dirname, ".venv-tts", "bin", "python");
-const KOKORO_MODEL = "prince-canuma/Kokoro-82M";
+const TTS_SCRIPT = join(__dirname, "tts_qwen3.py");
 
-// 路人 NPC（机场官员/司机/店员等）统一用 Kokoro 英式男声——量大、要快、不追求个性。
-// 玩家选项/词汇统一用 Kokoro 美式男声（男主视角——玩家是男生，跟 Emma 是异性关系，
-// 声音不能配成女声，不然听起来会像同性）。
-// 剧情里固定的女性角色台词（chapter*.js 里手动标了 npcLine.voice 的几句）单独分配
-// Kokoro 自带的英式女声，跟路人 NPC 区分开，各角色之间也用不同音色区分：
-//   - Emma（女主角）→ bf_emma
-//   - Ho太太（贯穿全剧的邻居老太太）→ bf_alice
-//   - 剧情里出现的女医生 → bf_lily
-//   - 剧情里出现的女性职员/官员（市政厅、移民局、酒店前台等）→ bf_isabella
-// （曾试过用 Chatterbox 做更有情感起伏的声线，但它在本机跑单句要卡好几分钟，
-// 性价比太低，先放弃——如果以后想再试，mlx-audio 已经装好了，模型是
-// ResembleAI/chatterbox，直接加回 synth() 的分支即可。）
-const NPC_VOICE = { voice: "bm_george", langCode: "b" };
-const PLAYER_VOICE = { voice: "am_puck", langCode: "a" };
-const NAMED_VOICES = {
-  emma: { voice: "bf_emma", langCode: "b" },
-  ho: { voice: "bf_alice", langCode: "b" },
-  doctor: { voice: "bf_lily", langCode: "b" },
-  official: { voice: "bf_isabella", langCode: "b" }
-};
+function argValue(flag) {
+  const i = process.argv.indexOf(flag);
+  return i >= 0 ? process.argv[i + 1] : undefined;
+}
+const AUDIO_DIR = argValue("--out-dir") ? join(process.cwd(), argValue("--out-dir")) : join(ROOT, "content", "audio");
+const LIMIT = argValue("--limit") ? Number(argValue("--limit")) : undefined;
+
+// 角色 → 音色的对应关系在 scripts/tts_qwen3.py 的 ROLE_VOICES 里统一维护，这里只给角色名：
+//   npc      路人 NPC（机场官员/司机/店员等），量大、不追求个性
+//   player   玩家选项 / vocabBank——玩家是男生，跟 Emma 是异性关系，必须是男声
+//   emma / ho / doctor / official  剧情里固定的女性角色（chapter*.js 里 npcLine.voice 手动标的）
+const ROLES = new Set(["npc", "player", "emma", "ho", "doctor", "official"]);
 
 function loadGameContent() {
   const sandbox = {};
@@ -191,25 +186,14 @@ function collectLines(content) {
   return lines;
 }
 
-// 调用 mlx-audio 的 CLI 合成一句台词。--join_audio 强制把内部按标点切出的多个
-// 分句合并成一个文件，输出文件名固定为 `${prefix}.wav`，不会带 _000 这种序号后缀。
-function runMlxAudio(args, outPrefix) {
-  execFileSync(
-    VENV_PYTHON,
-    ["-m", "mlx_audio.tts.generate", "--join_audio", "--audio_format", "wav", "--file_prefix", outPrefix, ...args],
-    { stdio: ["ignore", "ignore", "inherit"] }
-  );
-}
-
-function synth(text, speaker, voiceTag, outPath) {
-  const tmpWav = outPath.replace(/\.m4a$/, "");
-  const v = NAMED_VOICES[voiceTag] || (speaker === "npc" ? NPC_VOICE : PLAYER_VOICE);
-  runMlxAudio(
-    ["--model", KOKORO_MODEL, "--text", text, "--voice", v.voice, "--lang_code", v.langCode],
-    tmpWav
-  );
-  execFileSync("afconvert", ["-f", "m4af", "-d", "aac", "-b", "64000", `${tmpWav}.wav`, outPath]);
-  unlinkSync(`${tmpWav}.wav`);
+// 把要合成的条目写成 JSONL，一次交给 tts_qwen3.py 批量合成（模型只加载一次、按批并行）。
+function synthBatch(jobs) {
+  if (jobs.length === 0) return;
+  const jobsPath = join(tmpdir(), `tts-jobs-${process.pid}.jsonl`);
+  writeFileSync(jobsPath, jobs.map((j) => JSON.stringify(j)).join("\n") + "\n", "utf8");
+  const args = [TTS_SCRIPT, "--jobs", jobsPath, "--out-dir", AUDIO_DIR];
+  if (LIMIT) args.push("--limit", String(LIMIT));
+  execFileSync(VENV_PYTHON, args, { stdio: "inherit" });
 }
 
 function main() {
@@ -218,7 +202,7 @@ function main() {
   const lines = collectLines(content);
 
   const manifest = {};
-  let generated = 0;
+  const jobs = [];
   let skipped = 0;
 
   for (const [text, { speaker, voice }] of lines) {
@@ -230,10 +214,11 @@ function main() {
       skipped++;
       continue;
     }
-    synth(text, speaker, voice, outPath);
-    generated++;
-    process.stdout.write(`✓ [${voice || speaker}] ${text}\n`);
+    const role = voice && ROLES.has(voice) ? voice : speaker;
+    jobs.push({ text, role, out: outPath });
   }
+  synthBatch(jobs);
+  const generated = jobs.filter((j) => existsSync(j.out)).length;
 
   const manifestSource = `// 由 scripts/generate-audio.mjs 自动生成，不要手改。
 // 文本 → 音频文件路径的查找表；main.js 靠原文精确匹配来找对应的配音。

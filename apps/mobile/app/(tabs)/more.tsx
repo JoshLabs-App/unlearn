@@ -10,7 +10,7 @@ import { PrimaryButton } from "@/components/game/PrimaryButton";
 import { useAuth } from "@/contexts/AuthContext";
 import { useGame } from "@/contexts/GameContext";
 import { ACHIEVEMENTS } from "@/lib/game/achievements";
-import { computePlayerLevel } from "@/lib/game/progress";
+import { computePlayerLevel, totalXpAcrossBooks } from "@/lib/game/progress";
 import { theme } from "@/lib/theme";
 
 // 待复习、对话回放现在是底部独立的标签页了，不再需要这里的入口卡片——排行榜挪到
@@ -20,11 +20,11 @@ import { theme } from "@/lib/theme";
 
 export default function MoreScreen() {
   const router = useRouter();
-  const { user, loading, signOut } = useAuth();
+  const { user, loading, signOut, deleteAccount } = useAuth();
   const { state, resetGame, hideZh, toggleZh, setPlayerName } = useGame();
   const unlocked = new Set(state?.unlockedAchievements ?? []);
 
-  const totalXp = state ? Object.values(state.skills).reduce((a, b) => a + b, 0) : 0;
+  const totalXp = totalXpAcrossBooks(state);
   const playerLevel = computePlayerLevel(totalXp);
 
   // 改昵称：没有跨平台的系统弹窗输入框（Alert.prompt 只有 iOS 有），改成点铅笔图标
@@ -44,6 +44,45 @@ export default function MoreScreen() {
     Alert.alert("重新开始", "会清空本地进度（云端存档下次登录同步时也会被覆盖），确定吗？", [
       { text: "取消", style: "cancel" },
       { text: "确定", style: "destructive", onPress: () => void resetGame() },
+    ]);
+  }
+
+  // 删除账号（App Store Guideline 5.1.1(v)：支持注册就必须支持在 App 内删号）。
+  // 两级确认——第一级讲清后果，第二级才是真的按下去，Apple 允许加确认步骤防误触。
+  const [deletingAccount, setDeletingAccount] = useState(false);
+
+  async function runDeleteAccount() {
+    setDeletingAccount(true);
+    try {
+      await deleteAccount();
+      // 云端删干净之后再清本地，否则本地清了、云端删失败，人还登着账号但进度没了。
+      await resetGame();
+      Alert.alert("账号已删除", "你的账号、学习进度和排行榜成绩已经从云端永久清除。");
+    } catch (e) {
+      Alert.alert(
+        "删除失败",
+        `${e instanceof Error ? e.message : "请检查网络后重试"}。如果一直不成功，可以发邮件到 josh.zeng.ca@gmail.com 找我处理。`,
+      );
+    } finally {
+      setDeletingAccount(false);
+    }
+  }
+
+  function confirmDeleteAccount() {
+    Alert.alert(
+      "删除账号",
+      "删除后，你的学习进度、词汇记录和排行榜成绩会从云端永久清除，无法恢复；这台设备上的本地进度也会一并清空。",
+      [
+        { text: "取消", style: "cancel" },
+        { text: "继续", style: "destructive", onPress: confirmDeleteAccountFinal },
+      ],
+    );
+  }
+
+  function confirmDeleteAccountFinal() {
+    Alert.alert("确认永久删除账号？", "这一步无法撤销。", [
+      { text: "取消", style: "cancel" },
+      { text: "永久删除", style: "destructive", onPress: () => void runDeleteAccount() },
     ]);
   }
 
@@ -98,7 +137,17 @@ export default function MoreScreen() {
           </View>
         </View>
         {loading ? null : user ? (
-          <PrimaryButton label="退出登录" variant="surface" onPress={() => void signOut()} />
+          <>
+            <PrimaryButton label="退出登录" variant="surface" onPress={() => void signOut()} />
+            <Pressable
+              style={styles.deleteAccountBtn}
+              disabled={deletingAccount}
+              onPress={confirmDeleteAccount}>
+              <Text style={styles.deleteAccountText}>
+                {deletingAccount ? "正在删除…" : "删除账号"}
+              </Text>
+            </Pressable>
+          </>
         ) : (
           <PrimaryButton label="登录账号" onPress={() => router.push("/auth")} />
         )}
@@ -183,6 +232,10 @@ const styles = StyleSheet.create({
   sectionCount: { fontSize: 14, color: theme.colors.textMuted, fontWeight: "600" },
   hint: { color: theme.colors.textMuted, fontSize: 15 },
   accountEmail: { color: theme.colors.text, fontSize: 16, fontWeight: "700" },
+  // 删号入口做成弱视觉的文字按钮：Apple 要求它在 App 内可达，但它不该跟"退出登录"
+  // 抢注意力——真要删的人找得到，误触的人碰不着。
+  deleteAccountBtn: { alignItems: "center", paddingVertical: 12, marginTop: 2 },
+  deleteAccountText: { color: theme.colors.wrong, fontSize: 13, fontWeight: "700" },
   profileRow: { flexDirection: "row", alignItems: "center", gap: theme.spacing.sm },
   avatarLevel: {
     width: 52,

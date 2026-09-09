@@ -17,6 +17,7 @@ import type { Session, User } from "@supabase/supabase-js";
 
 import { isAppleSignInAvailable, signInWithAppleViaSupabase } from "@/lib/supabase/apple-sign-in";
 import { getSupabase, isSupabaseConfigured } from "@/lib/supabase/client";
+import { deleteOwnAccount } from "@/lib/supabase/deleteAccount";
 import { signInWithGoogleViaSupabase, signOutSupabase } from "@/lib/supabase/google-sign-in";
 import { supabaseAuthRedirectUri } from "@/lib/supabase/oauth-session";
 
@@ -30,6 +31,7 @@ type AuthContextValue = {
   signInWithGoogle: () => Promise<void>;
   sendMagicLink: (email: string) => Promise<void>;
   signOut: () => Promise<void>;
+  deleteAccount: () => Promise<void>;
 };
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -97,6 +99,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setSession(null);
   }, []);
 
+  // 删号：先让服务端把 auth.users 那行连同存档、排行榜一起删掉，成功了再登出。
+  // 顺序不能反——先登出就没 JWT 了，RPC 里的 auth.uid() 会变成 null，删不成。
+  // RPC 抛错就直接往上传，让调用方把失败告诉用户，而不是静悄悄把人登出了事。
+  const deleteAccount = useCallback(async () => {
+    await deleteOwnAccount();
+    await signOutSupabase();
+    setSession(null);
+  }, []);
+
   const value = useMemo(
     () => ({
       session,
@@ -108,8 +119,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       signInWithGoogle,
       sendMagicLink,
       signOut,
+      deleteAccount,
     }),
-    [session, loading, supabaseConfigured, appleAvailable, signInWithApple, signInWithGoogle, sendMagicLink, signOut],
+    [
+      session,
+      loading,
+      supabaseConfigured,
+      appleAvailable,
+      signInWithApple,
+      signInWithGoogle,
+      sendMagicLink,
+      signOut,
+      deleteAccount,
+    ],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

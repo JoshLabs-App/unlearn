@@ -5,6 +5,7 @@
 import { useMemo, useRef, useState } from "react";
 import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
 
+import { PlayPauseIcon } from "@/components/PlayPauseIcon";
 import { useGame } from "@/contexts/GameContext";
 import { buildFullScript, type HistoryEntry } from "@/lib/game/history";
 import { playLine } from "@/lib/game/audio";
@@ -83,9 +84,16 @@ export default function HistoryScreen() {
       <Pressable
         style={[styles.playAllBtn, isPlayingAll && styles.playAllBtnPlaying]}
         onPress={() => (isPlayingAll ? stopPlayback() : void playAllFrom(0))}>
-        <Text style={[styles.playAllBtnText, isPlayingAll && styles.playAllBtnTextPlaying]}>
-          {isPlayingAll ? "⏹ 停止播放" : "▶ 连续播放全部对话"}
-        </Text>
+        <View style={styles.playAllBtnInner}>
+          <PlayPauseIcon
+            mode={isPlayingAll ? "stop" : "play"}
+            color={isPlayingAll ? theme.colors.surface : theme.colors.accent}
+            size={12}
+          />
+          <Text style={[styles.playAllBtnText, isPlayingAll && styles.playAllBtnTextPlaying]}>
+            {isPlayingAll ? "停止播放" : "连续播放全部对话"}
+          </Text>
+        </View>
       </Pressable>
 
       {loading ? (
@@ -183,6 +191,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.accentSoft,
   },
   playAllBtnPlaying: { backgroundColor: theme.colors.accent },
+  playAllBtnInner: { flexDirection: "row", alignItems: "center", gap: 6 },
   playAllBtnText: { fontSize: 14, fontWeight: "800", color: theme.colors.accent },
   playAllBtnTextPlaying: { color: theme.colors.surface },
   empty: { color: theme.colors.textMuted, fontSize: 14, textAlign: "center", marginTop: theme.spacing.xl },

@@ -17,19 +17,20 @@ import {
 } from "react";
 
 import { useAuth } from "@/contexts/AuthContext";
-import { GAME_CONTENT } from "@/content/chapter1";
+import { getBookContent, getBookMeta, BOOKS, MAIN_BOOK_ID } from "@/content/books";
+import type { BookMeta } from "@/content/books";
 import { computeUnlocked } from "@/lib/game/achievements";
 import { playLine } from "@/lib/game/audio";
 import { loseHeart, msUntilNextHeart, syncHearts } from "@/lib/game/hearts";
 import { lookupWord } from "@/lib/game/dictionary";
-import { computeSkillMax } from "@/lib/game/progress";
+import { computeSkillMax, totalXpAcrossBooks } from "@/lib/game/progress";
 import {
   addWrongAnswerToReview,
   enqueueExposureReviews,
   pickFlashbackItems,
   resolveFlashbackAnswer,
 } from "@/lib/game/review";
-import { cloneState, freshState, loadState, normalizeState, persistState, SAVE_KEY } from "@/lib/game/state";
+import { cloneState, freshState, loadState, normalizeState, persistState, SAVE_KEY, switchBook } from "@/lib/game/state";
 import { registerDailyProgress } from "@/lib/game/streak";
 import type { GameContent, GameState, ReviewItem, SceneTransition } from "@/lib/game/types";
 import { pullSave, pushLeaderboardDebounced, pushSaveDebounced } from "@/lib/supabase/gameSync";
@@ -111,6 +112,19 @@ interface GameContextValue {
   answerFlashback: (answer: string) => FlashbackOutcome | undefined;
   startHeartRecoveryFlashback: () => void;
   resetGame: () => Promise<void>;
+  /** 当前正在读哪本书。 */
+  currentBookId: string;
+  /** 书架上的全部书目（全开放，不锁；minLevel 只作难度标签）。 */
+  books: BookMeta[];
+  bookMeta: BookMeta;
+  /** 换书。进度各自独立保存，随时可以切回来。 */
+  changeBook: (bookId: string) => void;
+  /**
+   * 跳到某一幕（短篇集用：一章一个独立故事，从哪章读起都行）。
+   * 只挪"当前读到哪"，学过的词、复习队列、技能经验全部保留——跳回前面重读
+   * 也不会把已有的进度抹掉。
+   */
+  jumpToScene: (sceneIndex: number) => void;
   // 点单词查释义时收藏进生词本（PORTED from main.js queueWordForReview）：查过的词
   // 跟错题走同一套间隔重复复习机制，不是查完就算。sentence/sentenceZh 是这个词
   // 当时所在的那句台词，"待复习"页要把词摆回整句里显示，不是孤零零一个词。
@@ -134,10 +148,13 @@ const GameContext = createContext<GameContextValue | null>(null);
 
 export function GameProvider({ children }: { children: ReactNode }) {
   const { user } = useAuth();
-  const content = GAME_CONTENT;
+  const [gameState, setGameState] = useState<GameState | null>(null);
+  // 当前这本书的内容。换书时 currentBookId 一变，content/skillMax 跟着换，
+  // 下游（题目、技能面板、闪回选项池）不需要各自知道"现在读的是哪本书"。
+  const currentBookId = gameState?.currentBookId ?? MAIN_BOOK_ID;
+  const content = useMemo(() => getBookContent(currentBookId), [currentBookId]);
   const skillMax = useMemo(() => computeSkillMax(content), [content]);
 
-  const [gameState, setGameState] = useState<GameState | null>(null);
   const [loading, setLoading] = useState(true);
   // 跟网页版一致：默认隐藏中文（main.js `localStorage.getItem(ZH_HIDE_KEY) !== "0"`
   // 在没存过值时就是 true），只有存过"0"才是显示。
@@ -155,6 +172,10 @@ export function GameProvider({ children }: { children: ReactNode }) {
   // 当前这一幕有没有答错过——只在 handleChoice 里写，只在离开当前幕（goToNextScene）
   // 时读+重置，不需要触发渲染，用 ref 就够。
   const sceneHadMistakeRef = useRef(false);
+  // 这一幕用掉免费试错了没有。干扰项是"语法近似但错"（时态/词形/主谓一致），
+  // 本来就该让人停下来想；每错一次都扣心，人就只敢挑最保守的选项，不敢试。
+  // 每幕送一次机会：第一次答错只给提示，第二次起才扣心。
+  const sceneFreeMissRef = useRef(false);
 
   const stateRef = useRef<GameState | null>(null);
   const flashbackRef = useRef<FlashbackSession | null>(null);
@@ -189,7 +210,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
     setNextHeartInMs(msUntilNextHeart(draft));
     void persistState(draft).catch(() => {});
     pushSaveDebounced(userIdRef.current, draft);
-    const totalXp = Object.values(draft.skills).reduce((a, b) => a + b, 0);
+    const totalXp = totalXpAcrossBooks(draft);
     if (userIdRef.current) {
       pushLeaderboardDebounced(userIdRef.current, {
         nickname: draft.playerName || "Anonymous",
@@ -202,7 +223,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
   // 首次加载：本地 AsyncStorage 存档（跟原网页版一样，不等网络）。
   useEffect(() => {
     void (async () => {
-      const initial = await loadState(content);
+      const initial = await loadState(getBookContent);
       stateRef.current = initial;
       setGameState(initial);
       const synced = cloneState(initial);
@@ -210,7 +231,10 @@ export function GameProvider({ children }: { children: ReactNode }) {
       setNextHeartInMs(msUntilNextHeart(synced));
       setLoading(false);
     })();
-  }, [content]);
+    // 只在挂载时读一次存档。content 现在会随换书变化，不能进依赖数组，
+    // 否则每次换书都会把存档重新读一遍、把刚切过去的进度覆盖掉。
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     void AsyncStorage.getItem("eng-rpg-hide-zh").then((v) => {
@@ -267,7 +291,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
     void (async () => {
       const cloudRaw = await pullSave(user.id);
       if (cloudRaw && cloudRaw.skills) {
-        const cloud = normalizeState(cloudRaw, content);
+        const cloud = normalizeState(cloudRaw, getBookContent);
         stateRef.current = cloud;
         setGameState(cloud);
         const synced = cloneState(cloud);
@@ -313,6 +337,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
       setFlawlessPulse(Date.now());
     }
     sceneHadMistakeRef.current = false;
+    sceneFreeMissRef.current = false;
 
     const nextIndex = stateRef.current!.sceneIndex + 1;
     if (nextIndex >= content.scenes.length) {
@@ -462,7 +487,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
           node.npcLine.en,
           node.npcLine.zh,
         );
-        loseHeart(draft);
+        // 每幕第一次答错只提示不扣心，第二次起才扣。
+        if (sceneFreeMissRef.current) loseHeart(draft);
+        else sceneFreeMissRef.current = true;
       });
       return { correct: false, hint: node.hintOnWrong };
     },
@@ -567,8 +594,46 @@ export function GameProvider({ children }: { children: ReactNode }) {
     [mutate],
   );
 
+  // 换书：把当前进度收进存档里那本书的槽位，再把目标书的进度摊到顶层（没读过就
+  // 从第一幕开始）。连胜/爱心/昵称/成就/掌握词是平台级资产，跨书保留不清零。
+  // 连击、闪回、过渡卡是"这一局"的瞬时状态，换书时一并清掉。
+  const changeBook = useCallback(
+    (toBookId: string) => {
+      if (!stateRef.current || toBookId === stateRef.current.currentBookId) return;
+      mutate((draft) => {
+        Object.assign(draft, switchBook(draft, toBookId, getBookContent(toBookId)));
+      });
+      setFlashback(null);
+      setTransitionCard(null);
+      setCombo(0);
+      sceneHadMistakeRef.current = false;
+      sceneFreeMissRef.current = false;
+    },
+    [mutate],
+  );
+
+  const jumpToScene = useCallback(
+    (sceneIndex: number) => {
+      if (!stateRef.current) return;
+      const scenes = getBookContent(stateRef.current.currentBookId).scenes;
+      const idx = Math.max(0, Math.min(sceneIndex, scenes.length - 1));
+      mutate((draft) => {
+        draft.sceneIndex = idx;
+        draft.nodeId = scenes[idx].startNode;
+        // 跳章之后不该还挂着"已通关"的状态，不然会一直停在结算页。
+        draft.finished = false;
+      });
+      setFlashback(null);
+      setTransitionCard(null);
+      setCombo(0);
+      sceneHadMistakeRef.current = false;
+      sceneFreeMissRef.current = false;
+    },
+    [mutate],
+  );
+
   const resetGame = useCallback(async () => {
-    const next = freshState(content);
+    const next = freshState(content, currentBookId);
     stateRef.current = next;
     setGameState(next);
     setHearts(next.hearts);
@@ -580,9 +645,10 @@ export function GameProvider({ children }: { children: ReactNode }) {
     setFlawlessPulse(null);
     setNewAchievementPulse(null);
     sceneHadMistakeRef.current = false;
+    sceneFreeMissRef.current = false;
     await persistState(next).catch(() => {});
     if (userIdRef.current) pushSaveDebounced(userIdRef.current, next);
-  }, [content]);
+  }, [content, currentBookId]);
 
   const value = useMemo<GameContextValue>(
     () => ({
@@ -606,6 +672,11 @@ export function GameProvider({ children }: { children: ReactNode }) {
       answerFlashback,
       startHeartRecoveryFlashback,
       resetGame,
+      currentBookId,
+      books: BOOKS,
+      bookMeta: getBookMeta(currentBookId),
+      changeBook,
+      jumpToScene,
       queueWordForReview,
       combo,
       bestCombo,
@@ -615,6 +686,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
     [
       content,
       skillMax,
+      currentBookId,
+      changeBook,
+      jumpToScene,
       gameState,
       loading,
       hearts,

@@ -54,6 +54,10 @@ export default function RootLayout() {
                   是"游戏页不展示下面的几个固定图标"这条要求最省心的实现方式，
                   不用在 game.tsx 里额外藏 tab 栏。*/}
               <Stack.Screen name="game" options={{ headerShown: false }} />
+              {/* 书籍详情页：自己画了关闭按钮，不要系统导航栏（默认会显示 "book/[id]"）。 */}
+              <Stack.Screen name="book/[id]" options={{ headerShown: false }} />
+              {/* 原文阅读页：自带顶栏和关闭按钮，同样不要系统导航栏。 */}
+              <Stack.Screen name="read/[id]" options={{ headerShown: false }} />
               <Stack.Screen
                 name="guide"
                 options={{ presentation: "modal", headerShown: false }}

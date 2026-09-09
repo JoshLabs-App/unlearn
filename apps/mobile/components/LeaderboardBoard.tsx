@@ -8,7 +8,7 @@ import { ActivityIndicator, Pressable, StyleSheet, Text, View } from "react-nati
 
 import { useAuth } from "@/contexts/AuthContext";
 import { useGame } from "@/contexts/GameContext";
-import { computePlayerLevel } from "@/lib/game/progress";
+import { computePlayerLevel, totalXpAcrossBooks } from "@/lib/game/progress";
 import { fetchLeaderboard, fetchMyRank, type LeaderboardRow, type MyRankInfo } from "@/lib/supabase/gameSync";
 import { theme } from "@/lib/theme";
 
@@ -36,7 +36,7 @@ export function LeaderboardBoard() {
     setRefreshing(false);
   }
 
-  const myTotalXp = state ? Object.values(state.skills).reduce((a, b) => a + b, 0) : 0;
+  const myTotalXp = totalXpAcrossBooks(state);
   const myRank = rows && user ? rows.findIndex((r) => r.user_id === user.id) : -1;
 
   // 不在前 50 名可见榜单里时，另外查一下真实全局名次——玩家多了之后不可能把

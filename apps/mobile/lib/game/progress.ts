@@ -1,7 +1,7 @@
 // PORTED from a-decade-apart/main.js:92-165 (computeSkillMax / computeVocabExposure /
 // computeLevelProgress) — logic unchanged, DOM removed.
 import { isStopword, lemmatize } from "./lemma";
-import type { GameContent, GameState } from "./types";
+import type { GameContent, GameState, LearnedVocabEntry } from "./types";
 
 // 每个技能能拿到的经验值上限，从内容里所有场景动态算出——加新场景/新技能只需要改
 // content 文件，这里不用再手动同步数字。
@@ -108,6 +108,50 @@ export function computeVocabStats(
   return { encountered: count.size, mastered };
 }
 
+// —— 跨书合并统计（设计文档：词汇量是平台级资产，一个词不管在哪本书读到只算一次）——
+// 每本书各自读到哪一幕不同，所以不能把内容拼成一份再算；这里分书算曝光次数再合并，
+// 词元归并用的是所有书合起来的词形表，保证同一个词在不同书里归到同一个词元。
+export interface BookVocabInput {
+  content: GameContent;
+  upToSceneIndex: number;
+  learnedVocab: LearnedVocabEntry[];
+}
+
+export function computeVocabStatsAcrossBooks(
+  books: BookVocabInput[],
+  confirmedWords: string[],
+): VocabStats {
+  const vocabAll = new Set<string>();
+  for (const b of books) for (const w of corpusVocab(b.content)) vocabAll.add(w);
+
+  const count = new Map<string, number>();
+  for (const b of books) {
+    for (let i = 0; i <= b.upToSceneIndex && i < b.content.scenes.length; i++) {
+      for (const node of Object.values(b.content.scenes[i].nodes)) {
+        const right = node.choices.find((c) => c.correct);
+        const lines = right ? [node.npcLine.en, right.text] : [node.npcLine.en];
+        for (const line of lines) {
+          for (const w of tokenizeWords(line)) {
+            const lm = lemmatize(w, vocabAll);
+            if (isStopword(lm)) continue;
+            count.set(lm, (count.get(lm) || 0) + 1);
+          }
+        }
+      }
+    }
+  }
+
+  const produced = new Set<string>();
+  for (const b of books) {
+    for (const v of b.learnedVocab) for (const w of tokenizeWords(v.en)) produced.add(lemmatize(w, vocabAll));
+  }
+  for (const w of confirmedWords || []) produced.add(lemmatize(w, vocabAll));
+
+  let mastered = 0;
+  for (const [lm, c] of count) if (c >= MASTERY_EXPOSURES && produced.has(lm)) mastered++;
+  return { encountered: count.size, mastered };
+}
+
 export interface LevelProgress {
   level: string;
   globalPct: number;
@@ -115,10 +159,16 @@ export interface LevelProgress {
   target: number;
 }
 
+// 词量在"整条到 B2 的路"上的位置——mastered/encountered 共用同一把尺子，
+// 才能在进度条里叠成同一条轴上的两层。
+export function vocabRoutePct(wordCount: number): number {
+  const finalTarget = CEFR_VOCAB_THRESHOLDS[CEFR_VOCAB_THRESHOLDS.length - 1].words;
+  return Math.max(0, Math.min(100, Math.round((wordCount / finalTarget) * 100)));
+}
+
 export function computeLevelProgress(wordCount: number): LevelProgress {
   // globalPct 是在"整条到 B1 的路"上的位置，用来算进度条该露出多少。
-  const finalTarget = CEFR_VOCAB_THRESHOLDS[CEFR_VOCAB_THRESHOLDS.length - 1].words;
-  const globalPct = Math.max(0, Math.min(100, Math.round((wordCount / finalTarget) * 100)));
+  const globalPct = vocabRoutePct(wordCount);
 
   for (const tier of CEFR_VOCAB_THRESHOLDS) {
     if (wordCount < tier.words) {
@@ -127,6 +177,30 @@ export function computeLevelProgress(wordCount: number): LevelProgress {
   }
   const last = CEFR_VOCAB_THRESHOLDS[CEFR_VOCAB_THRESHOLDS.length - 1];
   return { level: last.level + "+", globalPct, wordCount, target: last.words };
+}
+
+/**
+ * 总经验：当前书 + 其他所有书。XP、玩家等级、排行榜都是平台级资产（设计文档原则 9），
+ * 换书不能让等级和排名倒退——只算 state.skills 的话，切到新书那一刻会从几千掉到 0。
+ */
+export function totalXpAcrossBooks(state: Pick<GameState, "skills" | "books"> | null): number {
+  if (!state) return 0;
+  let sum = Object.values(state.skills).reduce((a, b) => a + b, 0);
+  for (const p of Object.values(state.books ?? {})) {
+    sum += Object.values(p.skills).reduce((a, b) => a + b, 0);
+  }
+  return sum;
+}
+
+/** 已学词汇（玩家亲口选对过的句子数）：同样跨书合计，换书不清零。 */
+export function learnedVocabCountAcrossBooks(
+  state: Pick<GameState, "learnedVocab" | "books"> | null,
+): number {
+  if (!state) return 0;
+  return (
+    state.learnedVocab.length +
+    Object.values(state.books ?? {}).reduce((n, p) => n + p.learnedVocab.length, 0)
+  );
 }
 
 // 玩家等级（Lv.1、Lv.2……）：跟上面的 CEFR 分级是两套完全独立的系统，故意分开——

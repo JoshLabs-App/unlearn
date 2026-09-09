@@ -20,8 +20,11 @@ import { theme } from "@/lib/theme";
 // 静音，所以要按 item.kind 分流，不能一律用 playLine。返回 Promise 而不是
 // fire-and-forget：调用方要等发音真的放完，才播效果音、弹积分特效、提交答案——
 // 不然效果音会跟发音撞在一起响，听不清哪个是哪个。
-function playItemAudio(item: ReviewItem): Promise<void> {
-  return item.kind === "word" ? playWord(item.en) : playLine(item.en);
+async function playItemAudio(item: ReviewItem): Promise<void> {
+  // playLine 现在返回是否真的放完了（整章连读要靠它判断要不要重试），
+  // 这里只关心放完没放完的时机，不关心结果，吞掉返回值即可。
+  if (item.kind === "word") await playWord(item.en);
+  else await playLine(item.en);
 }
 
 interface Props {

@@ -11,6 +11,7 @@ import { LeaderboardBoard } from "@/components/LeaderboardBoard";
 import { StreakCalendar } from "@/components/game/StreakCalendar";
 import { useGame } from "@/contexts/GameContext";
 import { DAILY_GOAL, localDateStr } from "@/lib/game/streak";
+import { totalXpAcrossBooks, learnedVocabCountAcrossBooks } from "@/lib/game/progress";
 import { theme } from "@/lib/theme";
 
 export default function GrowthScreen() {
@@ -53,7 +54,7 @@ export default function GrowthScreen() {
     );
   }
 
-  const totalXp = Object.values(state.skills).reduce((a, b) => a + b, 0);
+  const totalXp = totalXpAcrossBooks(state);
   const checkedInToday = state.lastStreakDate === today;
 
   return (
@@ -100,7 +101,7 @@ export default function GrowthScreen() {
       </View>
       <View style={styles.statRow}>
         <Text style={styles.statLabel}>Vocabulary Learned <Text style={styles.zh}>已学词汇</Text></Text>
-        <Text style={styles.statValue}>{state.learnedVocab.length}</Text>
+        <Text style={styles.statValue}>{learnedVocabCountAcrossBooks(state)}</Text>
       </View>
 
       <View style={[styles.card, isComplete && styles.cardComplete]}>

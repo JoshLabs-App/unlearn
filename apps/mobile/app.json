@@ -33,6 +33,14 @@
       "expo-apple-authentication",
       "expo-font",
       [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#1f6b3d"
+        }
+      ],
+      [
         "@react-native-google-signin/google-signin",
         {
           "iosUrlScheme": "com.googleusercontent.apps.827770827257-c1dtd0kaaqfo7t96cr8btpe1ihtudkkf"
@@ -47,6 +55,16 @@
       "eas": {
         "projectId": "54925bbf-9ac2-403e-8c27-72b95e5da8f3"
       }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/54925bbf-9ac2-403e-8c27-72b95e5da8f3",
+      "fallbackToCacheTimeout": 8000,
+      "requestHeaders": {
+        "expo-channel-name": "preview"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
     }
   }
 }

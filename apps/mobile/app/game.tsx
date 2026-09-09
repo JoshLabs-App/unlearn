@@ -51,7 +51,11 @@ import { bigImpact } from "@/lib/game/haptics";
 import { MAX_HEARTS } from "@/lib/game/hearts";
 import { buildHistory } from "@/lib/game/history";
 import { pickContextualDistractor } from "@/lib/game/distractor";
-import { computeLevelProgress, computePlayerLevel, computeVocabStats } from "@/lib/game/progress";
+import {
+  computeLevelProgress,
+  computePlayerLevel,
+  computeVocabStatsAcrossBooks, totalXpAcrossBooks, learnedVocabCountAcrossBooks, vocabRoutePct } from "@/lib/game/progress";
+import { getBookContent } from "@/content/books";
 import { levelTitle } from "@/lib/game/levelTitles";
 import { playSfx } from "@/lib/game/sfx";
 import { localDateStr } from "@/lib/game/streak";
@@ -240,6 +244,7 @@ export default function GameScreen() {
     answerFlashback,
     startHeartRecoveryFlashback,
     resetGame,
+    bookMeta,
     queueWordForReview,
     combo,
     bestCombo,
@@ -447,11 +452,27 @@ export default function GameScreen() {
 
   // 诚实计数：等级按"掌握"的词元数算（出现够次数且玩家产出过），"接触"数只做参考
   // （设计精华第 7 条）。按幕/已产出句数/已确认词数缓存，不每次渲染都扫全部内容。
-  const vocabStats = useMemo(
-    () => (state ? computeVocabStats(content, state.sceneIndex, state) : { encountered: 0, mastered: 0 }),
+  // 跨书合并：一个词不管在哪本书读到只算一次，进度条走的是全部书的总量（Josh 2026-09-05
+  // 拍板的三条规则之一）。只统计真的读过的书——books 里没有条目的书不贡献词汇量。
+  const vocabStats = useMemo(() => {
+    if (!state) return { encountered: 0, mastered: 0 };
+    const entries = [
+      { content, upToSceneIndex: state.sceneIndex, learnedVocab: state.learnedVocab },
+      ...Object.entries(state.books).map(([id, p]) => ({
+        content: getBookContent(id),
+        upToSceneIndex: p.sceneIndex,
+        learnedVocab: p.learnedVocab,
+      })),
+    ];
+    return computeVocabStatsAcrossBooks(entries, state.confirmedWords);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [content, state?.sceneIndex, state?.learnedVocab.length, state?.confirmedWords?.length],
-  );
+  }, [
+    content,
+    state?.sceneIndex,
+    state?.learnedVocab.length,
+    state?.confirmedWords?.length,
+    state?.books,
+  ]);
   const level = computeLevelProgress(vocabStats.mastered);
 
   // 升级时刻：跨过门槛时全屏闪一下——纯粹是给 computeLevelProgress 已经算好的结果加
@@ -510,8 +531,8 @@ export default function GameScreen() {
   // 结算页的数字要滚动播放，useCountUp 是个 hook，不能等 state.finished 判断
   // 通过了才调用——统一提到所有早退（loading/finished）判断之前，用 state 为空
   // 时的兜底 0 保证 hook 顺序稳定。
-  const totalXp = state ? Object.values(state.skills).reduce((a, b) => a + b, 0) : 0;
-  const vocabCount = state ? state.learnedVocab.length : 0;
+  const totalXp = totalXpAcrossBooks(state);
+  const vocabCount = learnedVocabCountAcrossBooks(state);
   const finishedXpCount = useCountUp(state?.finished ? totalXp : 0, 1100);
   const finishedVocabCount = useCountUp(state?.finished ? vocabCount : 0, 1100);
   // HUD 里常驻的总分数字也滚动播放——每答对一题就往上"爬"一下，而不是数字瞬间
@@ -552,9 +573,8 @@ export default function GameScreen() {
       <View style={[styles.centerFill, { paddingTop: insets.top }]}>
         <Text style={styles.endMedal}>🏅</Text>
         <Text style={styles.endTitle}>Chapter Complete!</Text>
-        <Text style={styles.endBody}>
-          你在多伦多安顿了下来——开了账户、租了房、认识了室友——但那张旧照片和地址一直没放下。今晚，你决定明天就去看看。
-        </Text>
+        {/* 收尾语按书取——写死主线那段的话，读完福尔摩斯会跳出"你在多伦多安顿下来"。 */}
+        <Text style={styles.endBody}>{bookMeta.outro}</Text>
         <View style={styles.endStatGrid}>
           <View style={styles.endStatCard}>
             <Text style={styles.endStatValue}>{finishedXpCount}</Text>
@@ -758,11 +778,6 @@ export default function GameScreen() {
           to next level
         </Text>
 
-        <CefrLevelBar pct={level.globalPct} height={12} />
-        <Text style={styles.levelLabel}>
-          {level.level} · {levelTitle(level.level)} · {level.wordCount}/{level.target} mastered · {vocabStats.encountered} seen
-        </Text>
-
         <View style={[styles.sceneCard, { backgroundColor: scenePalette.bg }]}>
           <View style={styles.sceneHead}>
             <BreathingAvatar style={[styles.avatar, { borderColor: scenePalette.tint }]}>
@@ -926,6 +941,13 @@ export default function GameScreen() {
         </Text>
 
         {hint && !browsing ? <Text style={styles.hint}>💡 {hint}</Text> : null}
+
+        <CefrLevelBar pct={level.globalPct} seenPct={vocabRoutePct(vocabStats.encountered)} height={12} />
+        <Text style={styles.levelLabel}>
+          {level.level} · {levelTitle(level.level)} ·{" "}
+          <Text style={styles.levelLabelMastered}>{level.wordCount}/{level.target} mastered</Text> ·{" "}
+          <Text style={styles.levelLabelSeen}>{vocabStats.encountered} seen</Text>
+        </Text>
       </ScrollView>
 
       {/* 连击徽章悬浮在问题页右上角（HUD 行下方）——不占文档流，
@@ -1092,6 +1114,10 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   levelLabel: { fontSize: 13, color: theme.colors.textMuted, marginTop: 4, marginBottom: theme.spacing.md },
+  // 跟 CefrLevelBar 里的两层颜色对应："掌握"用条上那层深绿渐变的同色系，"接触"
+  // 用浅色那层的同色系——文字和条子用同一套颜色语言，才看得出两个数分别对应哪层。
+  levelLabelMastered: { color: theme.colors.accentDeep, fontWeight: "700" },
+  levelLabelSeen: { color: theme.colors.accent },
   // 场景卡：整块场景（头像+标题+对话）套进一张按 sceneIndex 换色的卡片里，
   // 才有"进入了一个新场景"的画面感，而不是文字元素零散地摆在同一块米色背景上。
   sceneCard: {

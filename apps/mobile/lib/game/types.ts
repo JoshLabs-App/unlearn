@@ -82,7 +82,23 @@ export interface LearnedVocabEntry {
   skill: string;
 }
 
+// 一本书自己的进度。跨书共享的东西（连胜、爱心、昵称、成就、掌握词、历史最高连击）
+// 不在这里——那些是平台级资产，挂在 GameState 顶层，换书不清零（设计文档原则 9）。
+export interface BookProgress {
+  sceneIndex: number;
+  nodeId: string;
+  skills: Record<string, number>;
+  learnedVocab: LearnedVocabEntry[];
+  reviewQueue: ReviewItem[];
+  finished: boolean;
+  flawlessScenes: number;
+}
+
 export interface GameState {
+  // —— 当前正在读的这本书的进度 ——
+  // 顶层这几个字段就是"当前书"的进度本身，不是副本：页面和引擎照旧读 state.sceneIndex，
+  // 不需要到处改成 state.books[id].sceneIndex。换书时由 switchBook() 把顶层搬进
+  // books[旧书]、再把 books[新书] 摊回顶层，所以任何时刻只有一份真相。
   sceneIndex: number;
   nodeId: string;
   skills: Record<string, number>;
@@ -117,4 +133,9 @@ export interface GameState {
   // （第一条是玩家在主线里亲口选过），见 lib/game/progress.ts 的 computeVocabStats。
   // 旧存档没有这个字段，normalizeState 补成 []。
   confirmedWords: string[];
+  // —— 多本书 ——
+  // 当前正在读哪本书；顶层进度字段属于它。旧存档没有这个字段，迁移时补成主线。
+  currentBookId: string;
+  // 除当前书以外，其他书各自的进度。当前书的进度不在这里（它在顶层），换书时才搬进来。
+  books: Record<string, BookProgress>;
 }

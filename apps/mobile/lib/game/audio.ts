@@ -19,7 +19,15 @@ const LOAD_TIMEOUT_MS = 2500;
 // 本地文件，2.5s 足够；网络那部分的耐心单独放在下载超时里。回顾弹窗、答题
 // 反馈都是等发音放完才继续的，这个数直接决定了弱网下玩家最多干等多久。
 const DOWNLOAD_TIMEOUT_MS = 6000;
-const MAX_PLAYBACK_MS = 8000; // 整句配音比按键音效长，超时上限也放宽一些
+// 播放的兜底上限。**正常播放一律等它自己读完**（didJustFinish），这个超时只用来
+// 防"播放器卡死、回调永远不来"这一种情况，不该参与正常的结束判断。
+//
+// 原来这里是固定 8 秒，按游戏页那种十来个词的台词定的。原文阅读本一节动辄五六十
+// 词、读满二十多秒（路得记 85 节里有 63 节超过 8 秒），于是长句读到 8 秒就被硬生生
+// 掐断跳下一句。现在改成：拿得到音频时长就用「时长 + 余量」，拿不到就用一个足够长
+// 的保险值——宁可卡死时多等一会儿，也不能把正常朗读从中间切掉。
+const STALL_TIMEOUT_MS = 120000; // 只在完全拿不到时长时兜底，两分钟够任何一句话读完
+const PLAYBACK_GRACE_MS = 5000; // 在音频自身时长上再宽限这么久才认定卡死
 
 let audioModePromise: Promise<void> | null = null;
 
@@ -43,6 +51,8 @@ interface PlayerHandle {
     listener: (status: { didJustFinish: boolean }) => void,
   ): { remove(): void };
   release(): void;
+  /** 音频总时长（秒）。加载完成后才有值，拿不到就是 0。 */
+  duration?: number;
 }
 
 function waitForLoaded(player: AudioPlayer, timeoutMs: number): Promise<boolean> {
@@ -85,7 +95,11 @@ function waitForPlaybackToFinish(player: AudioPlayer, token: number): Promise<vo
         if (status.didJustFinish || token !== currentToken) finish();
       },
     );
-    const timeout = setTimeout(finish, MAX_PLAYBACK_MS);
+    // 兜底超时按这段音频自己的长度算；拿不到时长就给一个长到不可能误伤的值。
+    // 无论哪种，都只是"播放器卡死"的保险，正常结束永远走 didJustFinish。
+    const seconds = (player as unknown as PlayerHandle).duration ?? 0;
+    const cap = seconds > 0 ? seconds * 1000 + PLAYBACK_GRACE_MS : STALL_TIMEOUT_MS;
+    const timeout = setTimeout(finish, cap);
     player.play();
   });
 }
@@ -177,29 +191,47 @@ async function resolveRemoteSource(url: string): Promise<string | null> {
   return Promise.race([inflight, timeout]);
 }
 
-async function playSource(source: number | string, token: number): Promise<void> {
+async function playSource(source: number | string, token: number): Promise<boolean> {
   await preloadGameAudio();
-  if (token !== currentToken) return; // 等 preload 的这段时间又被更新的一次打断了
+  if (token !== currentToken) return false; // 等 preload 的这段时间又被更新的一次打断了
   if (typeof source === "string" && /^https?:/.test(source)) {
     const resolved = await resolveRemoteSource(source);
-    if (token !== currentToken) return; // 下载期间被更新的一次打断了
-    if (!resolved) return; // 拿不到就静音继续，不把 URL 塞给播放器去死等
+    if (token !== currentToken) return false; // 下载期间被更新的一次打断了
+    if (!resolved) return false; // 拿不到就静音继续，不把 URL 塞给播放器去死等
     source = resolved;
   }
   const player = createAudioPlayer(source, { keepAudioSessionActive: true });
   currentPlayer = player;
   try {
-    if (!(await waitForLoaded(player, LOAD_TIMEOUT_MS))) return;
-    if (token !== currentToken) return;
+    // 远程音频已经先下到本地了，但第一次读某一章时文件刚落盘，解码偶尔要久一点。
+    // 加载没等到就返回 false，让整章连读知道"这句没响"，不要立刻翻到下一句。
+    if (!(await waitForLoaded(player, LOAD_TIMEOUT_MS))) return false;
+    if (token !== currentToken) return false;
     await waitForPlaybackToFinish(player, token);
+    return true;
   } catch {
     // Non-fatal — a missing/broken clip shouldn't block game progress.
+    return false;
   } finally {
     if (currentPlayer === player) {
       (player as unknown as PlayerHandle).release();
       currentPlayer = null;
     }
   }
+}
+
+/** 上一次 playLine 是不是真的把音频放完了。整章连读用它决定要不要重试这一句。 */
+export function lastPlaybackFinished(): boolean {
+  return lastFinished;
+}
+let lastFinished = false;
+
+/**
+ * 立刻停掉正在播的那一句。原文阅读页的"整章连读"要用：切章、退出页面、或者
+ * 用户点单独一节时，都得先把上一轮的声音掐掉，不然会两段音叠在一起响。
+ */
+export function stopPlayback(): void {
+  stopCurrent();
 }
 
 /**
@@ -209,15 +241,20 @@ async function playSource(source: number | string, token: number): Promise<void>
  * silent, same as the web version's silent no-op). Starting a new playLine()/playWord()
  * call always interrupts whatever is currently playing first.
  */
-export async function playLine(text: string): Promise<void> {
+export async function playLine(text: string): Promise<boolean> {
   // 本地只打包了第一章的配音（体积原因），后面章节在本地表里查不到时，回落到
   // 网站上那份完整音频（见 content/remoteAudioManifest.ts）——不再是"查不到就
   // 静音"，是"本地没有就去网上读"，跟用户要求的一致。
   const source: number | string | undefined = audioManifest[text] ?? remoteAudioUrl(text) ?? undefined;
   stopCurrent();
-  if (!source) return;
+  if (!source) {
+    lastFinished = false;
+    return false;
+  }
   const token = currentToken;
-  await playSource(source, token);
+  const done = await playSource(source, token);
+  lastFinished = done;
+  return done;
 }
 
 /** Same interrupt-then-play behaviour as playLine(), for an arbitrary pre-resolved asset. */

@@ -26,6 +26,9 @@ interface Props {
   // 分类词表页用：判断某个词是否该常驻染色（内容词 / 已经点查过收藏的词），
   // 跟 activeWord 那种"刚点了一下"的瞬时高亮是两回事，两者可以同时生效。
   highlightWord?: (word: string) => boolean;
+  // highlightWord 命中时套的样式。不给就用默认的"染成主题绿 + 加粗"（分类词表页
+  // 那种）；原文阅读页要的是"查过的词垫一层底色"，样式不一样，所以开个口子。
+  highlightStyle?: StyleProp<TextStyle>;
 }
 
 export function WordText({
@@ -36,6 +39,7 @@ export function WordText({
   onWordLongPress,
   onSelect,
   highlightWord,
+  highlightStyle,
 }: Props) {
   const parts = text.split(WORD_SPLIT_RE);
   const hasLongPress = !!onWordLongPress;
@@ -52,7 +56,7 @@ export function WordText({
             key={i}
             suppressHighlighting
             style={[
-              highlightWord?.(part) ? styles.contentWord : undefined,
+              highlightWord?.(part) ? (highlightStyle ?? styles.contentWord) : undefined,
               isActive ? styles.active : undefined,
             ]}
             onPress={hasLongPress ? onSelect : (e) => onWordPress(part, e)}

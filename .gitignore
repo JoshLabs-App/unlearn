@@ -8,3 +8,6 @@ a-decade-apart/content/.r2-uploaded-*.txt
 a-decade-apart/content/upload-*.log
 a-decade-apart/content/tts-*.log
 a-decade-apart/content/tts-suspects.tsv
+
+# Supabase CLI 的本地临时文件（版本号缓存之类），不该进版本库
+supabase/.temp/

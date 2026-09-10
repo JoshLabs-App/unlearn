@@ -18,7 +18,7 @@
 
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -140,11 +140,34 @@ const LIMIT = argValue("--limit") ? Number(argValue("--limit")) : undefined;
 //   npc      路人 NPC（机场官员/司机/店员等），量大、不追求个性
 //   player   玩家选项 / vocabBank——玩家是男生，跟 Emma 是异性关系，必须是男声
 //   emma / ho / doctor / official  剧情里固定的女性角色（chapter*.js 里 npcLine.voice 手动标的）
-const ROLES = new Set(["npc", "player", "emma", "ho", "doctor", "official"]);
+const ROLES = new Set([
+  "npc", "player", "emma", "ho", "doctor", "official",
+  // 第二本书「福尔摩斯 · 贝克街」的角色（--book baker-street 时用到）
+  "watson", "holmes", "stamford", "wilson", "spaulding", "jones", "merryweather", "hudson",
+  "king", "irene", "godfrey", "mary", "windibank",
+]);
+
+// --book <slug>：给第二本书起的独立故事线配音（content/books/<slug>/chapter*.js）。
+// 音频文件和 manifest 仍然是全局共用一份——manifest 是"文本 → 文件"的查找表，
+// 按文本精确匹配，不需要按书分；同一句话在两本书里出现也只合成一次。
+// 不带 --book 就是主线，行为跟以前完全一样。
+const BOOK_SLUG = argValue("--book");
+// 玩家（正确/错误选项、vocabBank）在这本书里由谁来念。主线是 player（美式男声），
+// 福尔摩斯里玩家扮演华生，用 watson 这个角色的音色。
+const PLAYER_ROLE = argValue("--player-role") || (BOOK_SLUG === "baker-street" ? "watson" : "player");
 
 function loadGameContent() {
   const sandbox = {};
   vm.createContext(sandbox);
+  if (BOOK_SLUG) {
+    const dir = join(ROOT, "content", "books", BOOK_SLUG);
+    const files = readdirSync(dir)
+      .filter((f) => /^chapter\d+\.js$/.test(f))
+      .sort((a, b) => parseInt(a.match(/\d+/)[0], 10) - parseInt(b.match(/\d+/)[0], 10));
+    for (const f of files) vm.runInContext(readFileSync(join(dir, f), "utf8"), sandbox);
+    const global = BOOK_SLUG.toUpperCase().replace(/-/g, "_") + "_CONTENT";
+    return vm.runInContext(`${global};`, sandbox);
+  }
   for (const path of CONTENT_PATHS) {
     const code = readFileSync(path, "utf8");
     vm.runInContext(code, sandbox);
@@ -176,12 +199,12 @@ function collectLines(content) {
     for (const node of Object.values(scene.nodes)) {
       setLine(node.npcLine.en, "npc", node.npcLine.voice);
       for (const choice of node.choices) {
-        setLine(choice.text, "player");
+        setLine(choice.text, PLAYER_ROLE);
       }
     }
   }
   for (const item of content.vocabBank) {
-    setLine(item.en, "player");
+    setLine(item.en, PLAYER_ROLE);
   }
   return lines;
 }
@@ -201,7 +224,15 @@ function main() {
   const content = loadGameContent();
   const lines = collectLines(content);
 
+  // manifest 是全局一份：给某一本书单独跑时要在现有清单上追加，不能整份覆盖，
+  // 否则另一本书的条目会被抹掉。
   const manifest = {};
+  if (existsSync(MANIFEST_PATH)) {
+    const sb = {};
+    vm.createContext(sb);
+    vm.runInContext(readFileSync(MANIFEST_PATH, "utf8"), sb);
+    Object.assign(manifest, vm.runInContext("AUDIO_MANIFEST;", sb));
+  }
   const jobs = [];
   let skipped = 0;
 

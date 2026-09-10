@@ -1,4 +1,6 @@
 // 内容数据层：第二本书「福尔摩斯 · 贝克街」第一章。
+// @chapter-title 第一章 · 贝克街的房客
+// @chapter-subtitle 相遇 + 红发会
 // 和主线（十年之约）是两条独立的故事线，各自一个内容对象，不往 GAME_CONTENT 上 push。
 // 引擎多本书支持（每本书各自存档、词汇量跨书合并去重、闪回不跨书、全开放不锁）
 // 还没做，做好之前这个文件只用于校验和审稿：
@@ -33,7 +35,7 @@ const BAKER_STREET_CONTENT = {
 
   vocabBank: [
     { en: "Stamford! Yes, I just came back from Afghanistan.", zh: "斯坦福！是的，我刚从阿富汗回来。" },
-    { en: "I got wounded, so they sent me home.", zh: "我受了伤，所以他们把我送回国了。" },
+    { en: "A bullet hit my shoulder, so they sent me home.", zh: "一颗子弹打中我肩膀，所以他们把我送回国了。" },
     { en: "Nothing yet. I'm looking for cheap rooms.", zh: "还没着落。我在找便宜的住处。" },
     { en: "Really? Who was the first?", zh: "真的？第一个是谁？" },
     { en: "How do you do, Mr. Holmes?", zh: "您好，福尔摩斯先生。" },
@@ -71,7 +73,7 @@ const BAKER_STREET_CONTENT = {
     { en: "Understood. How long do we wait?", zh: "明白。我们要等多久？" },
     { en: "I'm ready. My revolver is in my hand.", zh: "我准备好了。手枪就在我手里。" },
     { en: "Well done! We caught him.", zh: "干得好！我们抓住他了。" },
-    { en: "So Spaulding wanted the shop to himself?", zh: "所以斯波尔丁想一个人待在店里？" },
+    { en: "I see. He took the job because he wanted the shop.", zh: "我明白了。他接这份活，是因为他想要那家店。" },
     { en: "So you tapped the ground to find the tunnel.", zh: "所以你敲地面是为了找那条地道。" },
     { en: "Amazing. How did you know it was tonight?", zh: "太厉害了。你怎么知道是今晚？" },
     { en: "Sleep well, Holmes. And thank you.", zh: "好好睡一觉，福尔摩斯。谢谢你。" },
@@ -119,10 +121,10 @@ const BAKER_STREET_CONTENT = {
           skill: "meeting",
           grammarTag: "past-simple",
           choices: [
-            { text: "I got wounded, so they sent me home.", zh: "我受了伤，所以他们把我送回国了。", correct: true, xp: 10 },
-            { text: "I am going there tomorrow.", correct: false }
+            { text: "A bullet hit my shoulder, so they sent me home.", zh: "一颗子弹打中我肩膀，所以他们把我送回国了。", correct: true, xp: 10 },
+            { text: "A bullet hit my shoulder, so they send me home.", correct: false }
           ],
-          hintOnWrong: "过去的事用过去时，so 连出结果 → I got wounded, so they sent me home.",
+          hintOnWrong: "过去的事用过去时，so 连出结果 → A bullet hit my shoulder, so they sent me home.",
           next: "n3"
         },
         n3: {
@@ -142,7 +144,7 @@ const BAKER_STREET_CONTENT = {
           grammarTag: "wh-question",
           choices: [
             { text: "Really? Who was the first?", zh: "真的？第一个是谁？", correct: true, xp: 10 },
-            { text: "I don't care.", correct: false }
+            { text: "Really? Who is the first?", correct: false }
           ],
           hintOnWrong: "用 Who 追问是谁 → Who was the first?",
           next: null
@@ -269,7 +271,7 @@ const BAKER_STREET_CONTENT = {
           grammarTag: "lets-suggestion",
           choices: [
             { text: "Let's do it. I'll bring my things tomorrow.", zh: "就这么定。我明天把东西搬过来。", correct: true, xp: 10 },
-            { text: "Let's go to Afghanistan.", correct: false }
+            { text: "Let's do it. I'll bringing my things tomorrow.", correct: false }
           ],
           hintOnWrong: "接受提议 → Let's do it. I'll bring my things tomorrow.",
           next: null
@@ -370,7 +372,7 @@ const BAKER_STREET_CONTENT = {
           grammarTag: "past-simple",
           choices: [
             { text: "You were lucky. What was the work?", zh: "你真走运。工作是什么？", correct: true, xp: 10 },
-            { text: "You were late.", correct: false }
+            { text: "You were lucky. What is the work?", correct: false }
           ],
           hintOnWrong: "用 was / were 谈过去的事 → You were lucky. What was the work?",
           next: "n3"
@@ -381,7 +383,7 @@ const BAKER_STREET_CONTENT = {
           grammarTag: "connector",
           choices: [
             { text: "That sounds easy. So they paid you every week?", zh: "听起来很轻松。所以他们每周都给你钱？", correct: true, xp: 10 },
-            { text: "I never write letters.", correct: false }
+            { text: "That sounds easy. So they pay you every week?", correct: false }
           ],
           hintOnWrong: "用 so 接着往下推 → So they paid you every week?",
           next: "n4"
@@ -408,12 +410,12 @@ const BAKER_STREET_CONTENT = {
       nodes: {
         n1: {
           avatar: "👨‍🦰",
-          npcLine: { en: "'THE RED-HEADED LEAGUE IS DISSOLVED. October 9th.' No office, no Mr. Ross, no money. Everyone is gone!", zh: "「红发会已解散。10 月 9 日。」办公室没了，罗斯先生没了，钱也没了。人全都不见了！", voice: "wilson" },
+          npcLine: { en: "'THE RED-HEADED LEAGUE IS DISSOLVED. October the ninth.' No office, no Mr. Ross, no money. Everyone is gone!", zh: "「红发会已解散。10 月 9 日。」办公室没了，罗斯先生没了，钱也没了。人全都不见了！", voice: "wilson" },
           skill: "story",
           grammarTag: "do-question",
           choices: [
             { text: "That's very strange. Did you look for Mr. Ross?", zh: "太奇怪了。你去找罗斯先生了吗？", correct: true, xp: 10 },
-            { text: "That's normal.", correct: false }
+            { text: "That's very strange. Did you looked for Mr. Ross?", correct: false }
           ],
           hintOnWrong: "用 Did you 问对方有没有做 → Did you look for Mr. Ross?",
           next: "n2"
@@ -471,7 +473,7 @@ const BAKER_STREET_CONTENT = {
           grammarTag: "present-continuous",
           choices: [
             { text: "Why are you hitting the ground with your stick?", zh: "你为什么用手杖敲地面？", correct: true, xp: 10 },
-            { text: "Why are you sleeping?", correct: false }
+            { text: "Why do you hitting the ground with your stick?", correct: false }
           ],
           hintOnWrong: "问对方正在做什么 → Why are you hitting the ground with your stick?",
           next: "n2"
@@ -529,7 +531,7 @@ const BAKER_STREET_CONTENT = {
           grammarTag: "wh-question",
           choices: [
             { text: "Of course. When do we start?", zh: "当然。我们什么时候开始？", correct: true, xp: 10 },
-            { text: "I'm busy tonight.", correct: false }
+            { text: "Of course. When we do start?", correct: false }
           ],
           hintOnWrong: "用 When 问时间 → When do we start?",
           next: "n2"
@@ -562,7 +564,7 @@ const BAKER_STREET_CONTENT = {
           grammarTag: "please-request",
           choices: [
             { text: "All right. Please knock on my door at half past nine.", zh: "好。请九点半敲我的门。", correct: true, xp: 10 },
-            { text: "Please wake me next week.", correct: false }
+            { text: "All right. Please knocking on my door at half past nine.", correct: false }
           ],
           hintOnWrong: "用 Please 提出请求 → Please knock on my door at half past nine.",
           next: null
@@ -586,7 +588,7 @@ const BAKER_STREET_CONTENT = {
           grammarTag: "present-continuous",
           choices: [
             { text: "Pleased to meet you. Are we going there now?", zh: "幸会。我们现在就去那儿吗？", correct: true, xp: 10 },
-            { text: "Do you sell fish?", correct: false }
+            { text: "Pleased to meet you. Are we go there now?", correct: false }
           ],
           hintOnWrong: "问接下来是不是要去 → Are we going there now?",
           next: "n2"
@@ -621,7 +623,7 @@ const BAKER_STREET_CONTENT = {
           grammarTag: "statement",
           choices: [
             { text: "I'm ready. My revolver is in my hand.", zh: "我准备好了。手枪就在我手里。", correct: true, xp: 10 },
-            { text: "I'm sleeping.", correct: false }
+            { text: "I'm ready. My revolver are in my hand.", correct: false }
           ],
           hintOnWrong: "用陈述句说明自己的状态 → I'm ready. My revolver is in my hand.",
           next: "n5"
@@ -633,7 +635,7 @@ const BAKER_STREET_CONTENT = {
           grammarTag: "past-simple",
           choices: [
             { text: "Well done! We caught him.", zh: "干得好！我们抓住他了。", correct: true, xp: 10 },
-            { text: "Let him go.", correct: false }
+            { text: "Well done! We catched him.", correct: false }
           ],
           hintOnWrong: "用过去时说刚发生的事 → We caught him.",
           next: null
@@ -656,10 +658,10 @@ const BAKER_STREET_CONTENT = {
           skill: "case",
           grammarTag: "connector",
           choices: [
-            { text: "So Spaulding wanted the shop to himself?", zh: "所以斯波尔丁想一个人待在店里？", correct: true, xp: 10 },
-            { text: "So Wilson is the thief?", correct: false }
+            { text: "I see. He took the job because he wanted the shop.", zh: "我明白了。他接这份活，是因为他想要那家店。", correct: true, xp: 10 },
+            { text: "I see. He took the job because of he wanted the shop.", correct: false }
           ],
-          hintOnWrong: "想把威尔逊支开的是店员斯波尔丁，不是威尔逊自己 → So Spaulding wanted the shop to himself?",
+          hintOnWrong: "用 because 接出原因 → He took the job because he wanted the shop.",
           next: "n2"
         },
         n2: {
@@ -668,7 +670,7 @@ const BAKER_STREET_CONTENT = {
           grammarTag: "past-simple",
           choices: [
             { text: "So you tapped the ground to find the tunnel.", zh: "所以你敲地面是为了找那条地道。", correct: true, xp: 10 },
-            { text: "So you dug the tunnel.", correct: false }
+            { text: "So you tap the ground to find the tunnel.", correct: false }
           ],
           hintOnWrong: "地道是斯波尔丁挖的，福尔摩斯敲地面是为了找它 → So you tapped the ground to find the tunnel.",
           next: "n3"
@@ -679,7 +681,7 @@ const BAKER_STREET_CONTENT = {
           grammarTag: "wh-question",
           choices: [
             { text: "Amazing. How did you know it was tonight?", zh: "太厉害了。你怎么知道是今晚？", correct: true, xp: 10 },
-            { text: "How old are you?", correct: false }
+            { text: "Amazing. How did you knew it was tonight?", correct: false }
           ],
           hintOnWrong: "用 How did you know 问对方怎么知道的 → How did you know it was tonight?",
           next: "n4"
@@ -690,7 +692,7 @@ const BAKER_STREET_CONTENT = {
           grammarTag: "courtesy",
           choices: [
             { text: "Sleep well, Holmes. And thank you.", zh: "好好睡一觉，福尔摩斯。谢谢你。", correct: true, xp: 10 },
-            { text: "Wake up, Holmes!", correct: false }
+            { text: "Sleep good, Holmes. And thank you.", correct: false }
           ],
           hintOnWrong: "祝对方睡个好觉并致谢 → Sleep well, Holmes. And thank you.",
           next: "n5"

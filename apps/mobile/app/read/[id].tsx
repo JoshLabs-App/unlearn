@@ -20,7 +20,11 @@ import { lookupWord } from "@/lib/game/dictionary";
 import type { ReviewItem } from "@/lib/game/types";
 import { theme } from "@/lib/theme";
 
-import ruth from "@/content/books/ruth.json";
+// 中国区上架不接受宗教内容，《路得记》暂不随 App 发布——这里的 import 一旦留着，
+// 内容就会被打进 bundle，光把书架入口拿掉没有用。页面本身保留：它是通用的原文
+// 阅读器，代码里不含任何宗教内容，以后接别的原文读本（或把路得记放回来）直接可用。
+// 恢复办法见 content/books.ts 顶部那段说明。
+// import ruth from "@/content/books/ruth.json";
 
 interface Verse {
   n: number;
@@ -46,7 +50,7 @@ interface ReadingBook {
 }
 
 const READING_BOOKS: Record<string, ReadingBook> = {
-  ruth: ruth as unknown as ReadingBook,
+  // ruth: ruth as unknown as ReadingBook,
 };
 
 const POS_KEY = "reading-pos:";
@@ -57,7 +61,7 @@ export default function ReadingScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const { state, hideZh, toggleZh, queueWordForReview } = useGame();
 
-  const bookId = id ?? "ruth";
+  const bookId = id ?? "";
   const book = READING_BOOKS[bookId];
   const meta = getBookMeta(bookId);
 

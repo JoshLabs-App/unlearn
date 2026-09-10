@@ -11,7 +11,13 @@ import type { GameContent } from "@/lib/game/types";
 import mainContent from "./game-content.json";
 import bookIndex from "./books/index.json";
 import bakerStreet from "./books/baker-street.json";
-import ruth from "./books/ruth.json";
+// 中国区应用商店不接受宗教内容，《路得记》暂不随 App 发布。这一行是关键——
+// 留着 import，metro 就会把 ruth.json 打进 bundle，光在 UI 上隐藏入口没有用。
+// 内容源文件（a-decade-apart/content/books/ruth/reading.js）保留，网页版不受影响；
+// 生成脚本 build-mobile-content.mjs 的 MOBILE_EXCLUDED_BOOKS 也排除了它，所以
+// apps/mobile/content/books/ruth.json 不会再被生成出来。
+// 以后要放回来：解开这三处注释 + 从那个 Set 里删掉 slug + 重跑生成脚本。
+// import ruth from "./books/ruth.json";
 
 export const MAIN_BOOK_ID = "a-decade-apart";
 
@@ -59,7 +65,7 @@ export interface BookMeta {
 // 第二本书起的静态内容表。文件名即 slug，跟 books/index.json 里的 id 对应。
 const BOOK_CONTENT: Record<string, unknown> = {
   "baker-street": bakerStreet,
-  ruth,
+  // ruth,  // 见文件顶部：中国区上架限制，暂不打包
 };
 
 const MAIN_BOOK: BookMeta = {
@@ -87,16 +93,17 @@ const PRESENTATION: Record<
   string,
   { emoji: string; tag: string; blurb: string; outro: string; serial: boolean }
 > = {
+  // 路得记的门面文案一并注释掉——blurb 本身就是宗教内容描述，不该留在包里。
   // 路得记：原文阅读本，不改写一个字。对外只当一个故事讲，不在界面上谈译本和版权
   // （那些写在内容文件的注释里，给我们自己看）。
-  ruth: {
-    emoji: "🌾",
-    serial: false,
-    tag: "原文阅读 · B1",
-    blurb:
-      "饥荒年间，一个外族女子失去了丈夫，却选择跟着婆婆回到陌生的家乡。她在别人的麦田里拾穗谋生，遇见了那块地的主人。85 节，原文不改写，配中文对照和逐节朗读。",
-    outro: "读完了。一个关于忠诚和恩慈的古老故事，也是少数以女子命名、从头到尾没有战争的一卷。",
-  },
+  // ruth: {
+  // emoji: "🌾",
+  // serial: false,
+  // tag: "原文阅读 · B1",
+  // blurb:
+  // "饥荒年间，一个外族女子失去了丈夫，却选择跟着婆婆回到陌生的家乡。她在别人的麦田里拾穗谋生，遇见了那块地的主人。85 节，原文不改写，配中文对照和逐节朗读。",
+  // outro: "读完了。一个关于忠诚和恩慈的古老故事，也是少数以女子命名、从头到尾没有战争的一卷。",
+  // },
   "baker-street": {
     emoji: "🔍",
     serial: false,

@@ -152,6 +152,16 @@
       const supabase = await getClient();
       await supabase.auth.signOut();
     },
+    // 删除账号：跟 app 端走同一个 delete_own_account RPC（security definer，只认
+    // auth.uid()，删自己那一行）。网页拿的也是 anon key，删 auth.users 同样要
+    // service_role，所以不能在前端直接删。先删云端再登出——顺序反了就没 JWT 了，
+    // RPC 里的 auth.uid() 会变 null。
+    async deleteAccount() {
+      const supabase = await getClient();
+      const { error } = await supabase.rpc("delete_own_account");
+      if (error) throw error;
+      await supabase.auth.signOut();
+    },
     pushSave: pushSaveDebounced,
     pullSave,
     pushLeaderboard: pushLeaderboardDebounced,

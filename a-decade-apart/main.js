@@ -77,6 +77,7 @@ const el = {
   authAppleBtn: document.getElementById("auth-apple-btn"),
   authError: document.getElementById("auth-error"),
   authSignOutBtn: document.getElementById("auth-sign-out-btn"),
+  authDeleteAccountBtn: document.getElementById("auth-delete-account-btn"),
   characterEditBtn: document.getElementById("character-edit-btn"),
   characterOverlay: document.getElementById("character-overlay"),
   characterCloseBtn: document.getElementById("character-close-btn"),
@@ -312,36 +313,73 @@ function recordConfirmed(item) {
 
 // —— 第三个选项（设计精华第 5 条）：从附近节点借一句"通顺但答非所问"的玩家句 ——
 // 与 apps/mobile/lib/game/distractor.ts 逻辑相同。同一节点每次渲染都拿到同一句（确定性哈希）。
-function pickContextualDistractor(sceneIndex, nodeId, node) {
+// 2026-09-07：原来每个节点各自独立挑"语境重叠最少"的一句，谁也不知道别人挑了什么，
+// 结果同一句会被反复借用——主线实测 2815 个节点只用到 1653 句，最多一句出现 16 次。
+// 改成整本书一次性分配：按节点顺序贪心，优先借"还没被用过"的句子，用过次数相同时
+// 才比语境重叠。改完最多重复 2 次。结果缓存起来，全书算一次约 37ms。
+// 逻辑与 apps/mobile/lib/game/distractor.ts 相同，改一处同步另一处。
+let _distractorAssignment = null;
+
+function buildDistractorAssignment() {
   const WINDOW = 10, MIN_WORDS = 4;
   const hash = (str) => { let h = 2166136261; for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; };
-  const correct = node.choices.find((c) => c.correct);
-  if (!correct) return null;
-  const cLen = tokenizeWords(correct.text).length;
-  if (cLen < MIN_WORDS) return null;
-  const own = new Set(node.choices.map((c) => c.text.trim().toLowerCase()));
-  const context = new Set([...tokenizeWords(node.npcLine.en), ...node.choices.flatMap((c) => tokenizeWords(c.text))]);
-  const lo = Math.max(0, sceneIndex - WINDOW), hi = Math.min(GAME_CONTENT.scenes.length - 1, sceneIndex + WINDOW);
-  const pool = [];
-  for (let i = lo; i <= hi; i++) {
-    if (i === sceneIndex) continue;
-    for (const [nid, n] of Object.entries(GAME_CONTENT.scenes[i].nodes)) {
-      const right = n.choices.find((c) => c.correct);
+  const infos = [];
+  GAME_CONTENT.scenes.forEach((scene, sceneIndex) => {
+    for (const [nodeId, node] of Object.entries(scene.nodes)) {
+      const right = node.choices.find((c) => c.correct);
       if (!right) continue;
-      const ws = tokenizeWords(right.text);
-      if (ws.length < MIN_WORDS || ws.length < cLen * 0.6 || ws.length > cLen * 1.5) continue;
-      if (own.has(right.text.trim().toLowerCase())) continue;
-      if (/\?$/.test(right.text.trim()) !== /\?$/.test(correct.text.trim())) continue;
-      // 语境词重叠越少越"答非所问"；同一技能领域（同话题）再加 1 分惩罚，优先借别的话题的句子
-      const overlap = ws.filter((w) => w.length > 3 && context.has(w)).length * 2 + (n.skill === node.skill ? 1 : 0);
-      pool.push({ text: right.text, zh: right.zh, overlap, key: `${i}:${nid}` });
+      infos.push({
+        sceneIndex, nodeId, node,
+        right: { text: right.text, zh: right.zh },
+        ws: tokenizeWords(right.text),
+        isQuestion: /\?$/.test(right.text.trim()),
+      });
     }
+  });
+  const byScene = new Map();
+  for (const info of infos) {
+    if (!byScene.has(info.sceneIndex)) byScene.set(info.sceneIndex, []);
+    byScene.get(info.sceneIndex).push(info);
   }
-  if (pool.length === 0) return null;
-  const minOverlap = Math.min(...pool.map((p) => p.overlap));
-  const best = pool.filter((p) => p.overlap === minOverlap);
-  const pick = best[hash(`${sceneIndex}:${nodeId}`) % best.length];
-  return { text: pick.text, zh: pick.zh };
+  const usedCount = new Map();
+  const result = new Map();
+  for (const info of infos) {
+    const cLen = info.ws.length;
+    if (cLen < MIN_WORDS) continue;
+    const own = new Set(info.node.choices.map((c) => c.text.trim().toLowerCase()));
+    const context = new Set([...tokenizeWords(info.node.npcLine.en), ...info.node.choices.flatMap((c) => tokenizeWords(c.text))]);
+    const lo = Math.max(0, info.sceneIndex - WINDOW);
+    const hi = Math.min(GAME_CONTENT.scenes.length - 1, info.sceneIndex + WINDOW);
+    const pool = [];
+    for (let i = lo; i <= hi; i++) {
+      if (i === info.sceneIndex) continue;
+      for (const cand of byScene.get(i) || []) {
+        const ws = cand.ws;
+        if (ws.length < MIN_WORDS || ws.length < cLen * 0.6 || ws.length > cLen * 1.5) continue;
+        if (own.has(cand.right.text.trim().toLowerCase())) continue;
+        // 问句/陈述句形态要一致，不然形态本身就泄露答案
+        if (cand.isQuestion !== info.isQuestion) continue;
+        // 语境词重叠越少越"答非所问"；同一技能领域（同话题）再加 1 分惩罚
+        const overlap = ws.filter((w) => w.length > 3 && context.has(w)).length * 2 + (cand.node.skill === info.node.skill ? 1 : 0);
+        pool.push({ text: cand.right.text, zh: cand.right.zh, used: usedCount.get(cand.right.text) || 0, overlap });
+      }
+    }
+    if (pool.length === 0) continue;
+    // 先按"被借用过几次"分层——没用过的永远优先，用完一轮才轮到第二次。
+    const minUsed = Math.min(...pool.map((p) => p.used));
+    const fresh = pool.filter((p) => p.used === minUsed);
+    const minOverlap = Math.min(...fresh.map((p) => p.overlap));
+    const best = fresh.filter((p) => p.overlap === minOverlap);
+    const pick = best[hash(`${info.sceneIndex}:${info.nodeId}`) % best.length];
+    usedCount.set(pick.text, (usedCount.get(pick.text) || 0) + 1);
+    result.set(`${info.sceneIndex}:${info.nodeId}`, { text: pick.text, zh: pick.zh });
+  }
+  return result;
+}
+
+function pickContextualDistractor(sceneIndex, nodeId, node) {
+  if (!_distractorAssignment) _distractorAssignment = buildDistractorAssignment();
+  return _distractorAssignment.get(`${sceneIndex}:${nodeId}`) || null;
 }
 
 // 只统计玩家实际会读到的文字（NPC 台词 + 场景里出现过的选项），不算 vocabBank——
@@ -1998,6 +2036,33 @@ el.authAppleBtn.addEventListener("click", () => {
 });
 el.authSignOutBtn.addEventListener("click", async () => {
   await window.GameAuth.signOut();
+});
+
+// 删除账号：App Store 5.1.1(v) 和 Google Play 都要求"能注册就能删号"，网页版同样
+// 得有入口——只在网页玩的人没有 app 可以去删。两级确认防误触，第一层讲清后果。
+// 删完不走 resetGame()：那个函数会顺手 pushSave 一份空存档到云端，而这时账号已经
+// 没了，没必要也不该再写。直接清本地那把钥匙然后整页重载，回到干净的未登录状态。
+el.authDeleteAccountBtn.addEventListener("click", async () => {
+  const warn = "删除后，你的学习进度、词汇记录和排行榜成绩会从云端永久清除，无法恢复；" +
+    "这台设备上的本地进度也会一并清空。\n\n确定要继续吗？";
+  if (!confirm(warn)) return;
+  if (!confirm("确认永久删除账号？这一步无法撤销。")) return;
+
+  const btn = el.authDeleteAccountBtn;
+  const label = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "正在删除…";
+  try {
+    await window.GameAuth.deleteAccount();
+    localStorage.removeItem(SAVE_KEY);
+    alert("账号已删除。你的账号、学习进度和排行榜成绩已经从云端永久清除。");
+    location.reload();
+  } catch (e) {
+    alert("删除失败：" + (e && e.message ? e.message : "请检查网络后重试") +
+      "。如果一直不成功，可以发邮件到 josh.zeng.ca@gmail.com 找我处理。");
+    btn.disabled = false;
+    btn.textContent = label;
+  }
 });
 
 applyZhVisibility();

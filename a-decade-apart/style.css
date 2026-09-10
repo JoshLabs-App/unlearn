@@ -1220,6 +1220,21 @@ body.blind-listen.zh-peek .npc-zh { display: block; }
   font-family: inherit;
 }
 .auth-full-btn { display: block; width: 100%; margin-bottom: 10px; }
+/* 删号入口：跟 app 端一样做成弱视觉的文字按钮——App Store 和 Google Play 都要求
+   它在产品内可达，但它不该跟"退出登录"抢注意力，真要删的人找得到就行。 */
+.delete-account-btn {
+  display: block;
+  width: 100%;
+  padding: 8px 0 2px;
+  border: none;
+  background: none;
+  color: var(--wrong);
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+}
+.delete-account-btn:disabled { opacity: 0.55; cursor: default; }
 .auth-hint { color: var(--muted); font-size: 0.85rem; margin: 0 0 10px; }
 .auth-error { color: var(--wrong); font-size: 0.85rem; min-height: 1.2em; margin: 4px 0 0; }
 

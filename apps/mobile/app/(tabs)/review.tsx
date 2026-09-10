@@ -46,6 +46,11 @@ function ReviewRow({ item }: { item: ReviewItem }) {
   // 阅读时要不要显示翻译，这里的诉求完全相反：本来就是来看释义的，只是不希望
   // 进页面就一次性铺满一整屏中文，改成点一下才展开，点的同时顺便读一遍发音。
   const [revealed, setRevealed] = useState(false);
+  // 旧存档的条目没有 source 字段，那就不显示徽章，而不是瞎猜一个来源。
+  const sourceLabel =
+    item.source === "wrong" ? "答错过" :
+    item.source === "tap" ? "查过词" :
+    item.source === "exposure" ? "反复出现" : null;
 
   function handlePress() {
     setRevealed(true);
@@ -56,11 +61,15 @@ function ReviewRow({ item }: { item: ReviewItem }) {
     <Pressable
       style={[styles.row, item.status === "pendingFinal" ? styles.rowMastered : styles.rowLearning]}
       onPress={handlePress}>
-      {isWord ? null : (
-        <View style={styles.rowHead}>
-          <Text style={styles.kindBadge}>💬 句</Text>
-        </View>
-      )}
+      {/* 原来只有句子类型才有头部，而且除了"💬 句"什么都不说。两个问题：一是
+          ReviewItem.source 记着这条为什么进队列（答错 / 查词 / 反复出现，见设计
+          原则 6"复习不等答错"的三个入口），页面一直没显示；二是整张卡点下去才
+          出释义和发音，但没有任何东西暗示它可以点——不知道的人就只看到一行英文。 */}
+      <View style={styles.rowHead}>
+        {isWord ? null : <Text style={styles.kindBadge}>💬 句</Text>}
+        {sourceLabel ? <Text style={styles.sourceBadge}>{sourceLabel}</Text> : null}
+        {revealed ? null : <Text style={styles.revealHint}>点一下 看释义 · 听发音</Text>}
+      </View>
 
       {sentence ? (
         <HighlightedSentence
@@ -132,6 +141,18 @@ const styles = StyleSheet.create({
   rowMastered: { backgroundColor: theme.colors.correctSoft, borderColor: theme.colors.correct },
   rowHead: { flexDirection: "row", alignItems: "center", gap: theme.spacing.xs, marginBottom: 4 },
   kindBadge: { fontSize: 12, fontWeight: "700", color: theme.colors.textMuted },
+  sourceBadge: {
+    fontSize: 11,
+    fontWeight: "700",
+    color: theme.colors.textMuted,
+    backgroundColor: theme.colors.background,
+    borderRadius: theme.radius.pill,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    overflow: "hidden",
+  },
+  // 提示挤到最右边，用 marginLeft:auto 把它推过去，别跟左边的徽章黏在一起。
+  revealHint: { marginLeft: "auto", fontSize: 11, color: theme.colors.accent, fontWeight: "600" },
   sentenceEn: { fontSize: 18, lineHeight: 24, color: theme.colors.text, fontWeight: "600" },
   wordHighlight: { color: theme.colors.correct, fontWeight: "800" },
   sentenceZh: { fontSize: 14, lineHeight: 19, color: theme.colors.textMuted, marginTop: 4 },

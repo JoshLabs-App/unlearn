@@ -100,7 +100,9 @@ export default function GrowthScreen() {
         <Text style={styles.statValue}>{totalXp}</Text>
       </View>
       <View style={styles.statRow}>
-        <Text style={styles.statLabel}>Vocabulary Learned <Text style={styles.zh}>已学词汇</Text></Text>
+        {/* 数的是 learnedVocab.length = 答对过的台词条数，不是词汇量。词汇量口径
+            （接触/掌握）在首页的 CefrLevelBar 上，两者别混着叫。 */}
+        <Text style={styles.statLabel}>Lines Learned <Text style={styles.zh}>答对台词</Text></Text>
         <Text style={styles.statValue}>{learnedVocabCountAcrossBooks(state)}</Text>
       </View>
 

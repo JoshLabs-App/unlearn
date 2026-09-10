@@ -534,7 +534,8 @@ export default function GameScreen() {
   const totalXp = totalXpAcrossBooks(state);
   const vocabCount = learnedVocabCountAcrossBooks(state);
   const finishedXpCount = useCountUp(state?.finished ? totalXp : 0, 1100);
-  const finishedVocabCount = useCountUp(state?.finished ? vocabCount : 0, 1100);
+  // 这里数的必须是词元，不是 learnedVocab.length（那是答对的台词条数，不是词汇量）。
+  const finishedVocabCount = useCountUp(state?.finished ? vocabStats.encountered : 0, 1100);
   // HUD 里常驻的总分数字也滚动播放——每答对一题就往上"爬"一下，而不是数字瞬间
   // 跳变，"分数一直在涨"这件事本身要看得见过程，不只是看得见结果。用
   // useLiveCounter（从上次显示的值滚到新值）而不是 useCountUp（每次都从 0 滚）——
@@ -582,7 +583,7 @@ export default function GameScreen() {
           </View>
           <View style={styles.endStatCard}>
             <Text style={styles.endStatValue}>{finishedVocabCount}</Text>
-            <Text style={styles.endStatLabel}>Vocab Learned</Text>
+            <Text style={styles.endStatLabel}>Words Seen</Text>
           </View>
           <View style={[styles.endStatCard, { borderColor: theme.colors.gold }]}>
             <Text style={[styles.endStatValue, { color: theme.colors.goldDeep }]}>{bestCombo}</Text>

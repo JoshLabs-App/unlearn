@@ -28,7 +28,6 @@ import {
   computeLevelProgress,
   computePlayerLevel,
   computeVocabStatsAcrossBooks,
-  learnedVocabCountAcrossBooks,
   totalXpAcrossBooks,
 } from "@/lib/game/progress";
 import { DAILY_GOAL, localDateStr } from "@/lib/game/streak";
@@ -83,8 +82,6 @@ export default function HomeScreen() {
   const streak = state?.streak ?? 0;
   const totalXp = totalXpAcrossBooks(state);
   const level = computePlayerLevel(totalXp).level;
-  // 已学词汇跨书合计——切到新书那一刻不该从 21 掉回 0（词汇量是平台级资产）。
-  const vocabCount = learnedVocabCountAcrossBooks(state);
   // CEFR 进度：跟游戏页顶部同一个口径（掌握的词元数，不是答对过的句子数），
   // 让"我学到什么程度"在日常界面里就有答案，而不是进了游戏才看得到。
   // 扫全部内容比较重（主线近千幕），按幕号/产出量缓存，不每次渲染都算。
@@ -216,8 +213,8 @@ export default function HomeScreen() {
         </Pressable>
         <Pressable style={styles.stat} onPress={() => router.navigate("/(tabs)/growth")}>
           <Text style={styles.statIcon}>📚</Text>
-          <Text style={styles.statValue}>{vocabCount}</Text>
-          <Text style={styles.statLabel}>已学词汇</Text>
+          <Text style={styles.statValue}>{vocabStats.encountered}</Text>
+          <Text style={styles.statLabel}>接触词汇</Text>
         </Pressable>
         <Pressable style={styles.stat} onPress={() => router.navigate("/(tabs)/growth")}>
           <Text style={styles.statIcon}>⭐</Text>

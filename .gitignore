@@ -11,3 +11,8 @@ a-decade-apart/content/tts-suspects.tsv
 
 # Supabase CLI 的本地临时文件（版本号缓存之类），不该进版本库
 supabase/.temp/
+
+# 配音音频托管在 Cloudflare R2（见 a-decade-apart/content/audio-base.js），
+# 不进版本库——360MB 的 .m4a 每次 clone 都白拉。生成脚本产出后直接传 R2。
+a-decade-apart/content/audio/
+a-decade-apart/content/word-audio/

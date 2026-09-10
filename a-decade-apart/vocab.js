@@ -131,7 +131,7 @@ function playAudio(text, btnEl, manifest) {
     currentAudio.pause();
     currentAudio.currentTime = 0;
   }
-  const audio = new Audio(src);
+  const audio = new Audio(audioUrl(src));
   currentAudio = audio;
   if (btnEl) btnEl.classList.add("playing");
   const done = () => {

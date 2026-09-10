@@ -3,3 +3,5 @@ scripts/
 a-decade-apart/scripts/
 node_modules/
 apps/
+a-decade-apart/content/audio/
+a-decade-apart/content/word-audio/

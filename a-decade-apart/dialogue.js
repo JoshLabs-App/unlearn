@@ -343,7 +343,7 @@ function playLineAudio(text, manifest) {
       resolve();
       return;
     }
-    const audio = new Audio(src);
+    const audio = new Audio(audioUrl(src));
     audio._resolve = resolve;
     currentAudio = audio;
     const done = () => {

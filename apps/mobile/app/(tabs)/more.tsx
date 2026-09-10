@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "expo-router";
 import { Alert, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 
+import { AnimatedProgressBar } from "@/components/game/AnimatedProgressBar";
 import { PrimaryButton } from "@/components/game/PrimaryButton";
 import { useAuth } from "@/contexts/AuthContext";
 import { useGame } from "@/contexts/GameContext";
@@ -130,12 +131,28 @@ export default function MoreScreen() {
             {loading ? (
               <Text style={styles.hint}>加载中…</Text>
             ) : user ? (
-              <Text style={styles.accountEmail}>{user.email ?? "已登录"}</Text>
+              <Text style={styles.accountEmail} numberOfLines={1} ellipsizeMode="middle">
+                {user.email ?? "已登录"}
+              </Text>
             ) : (
               <Text style={styles.hint}>登录后进度可跨设备同步</Text>
             )}
           </View>
         </View>
+        {/* Lv.N 单独摆着看不出任何信息——computePlayerLevel 早就把 xpIntoLevel/
+            xpForNext 算好了，这里把它显示出来，等级才有了"离下一级还有多远"的
+            上下文。数字直接来自真实 XP，不做任何美化（设计原则 7：度量要诚实，
+            进度条虚了整个卖点就是负资产）。 */}
+        <View style={styles.levelProgress}>
+          <AnimatedProgressBar pct={playerLevel.pct} height={7} gradient={theme.levelGradient} glow />
+          <Text style={styles.levelProgressText}>
+            {playerLevel.xpIntoLevel}/{playerLevel.xpForNext} XP
+            <Text style={styles.levelProgressMuted}>
+              {"  ·  还差 " + (playerLevel.xpForNext - playerLevel.xpIntoLevel) + " 升到 Lv." + (playerLevel.level + 1)}
+            </Text>
+          </Text>
+        </View>
+
         {loading ? null : user ? (
           <>
             <PrimaryButton label="退出登录" variant="surface" onPress={() => void signOut()} />
@@ -179,10 +196,6 @@ export default function MoreScreen() {
         })}
       </View>
 
-      <Pressable style={styles.dangerButton} onPress={confirmReset}>
-        <Text style={styles.dangerButtonText}>重新开始游戏</Text>
-      </Pressable>
-
       <Pressable style={styles.guideCard} onPress={() => router.push("/guide")}>
         <Text style={styles.guideIcon}>📖</Text>
         <View style={styles.flex1}>
@@ -191,6 +204,14 @@ export default function MoreScreen() {
         </View>
         <Text style={styles.guideArrow}>›</Text>
       </Pressable>
+
+      {/* 破坏性操作单独垫底，并且给一圈描边——之前是一行孤零零的红字，既没有
+          边界感也容易在滑动时误触。它清的是本机进度，跟账号卡片里那个"删除账号"
+          （连云端一起删）不是一回事，所以两者分开放、措辞也写清楚。 */}
+      <Pressable style={styles.dangerButton} onPress={confirmReset}>
+        <Text style={styles.dangerButtonText}>重新开始游戏</Text>
+      </Pressable>
+      <Text style={styles.dangerHint}>只清空这台设备上的进度，不会删除账号</Text>
     </ScrollView>
   );
 }
@@ -287,6 +308,10 @@ const styles = StyleSheet.create({
   // 金色描边+彩色图标底庆祝一下，没解锁的保持中性灰，一眼能分清哪些拿到了。
   achieveCard: {
     width: "47%",
+    // 描述文字有一行有两行，不给最小高度的话同一行的两张卡会一高一矮。
+    // justifyContent 让内容在等高的卡里垂直居中，而不是顶着上边缘。
+    minHeight: 132,
+    justifyContent: "center",
     alignItems: "center",
     backgroundColor: theme.colors.surface,
     borderRadius: theme.radius.md,
@@ -319,6 +344,19 @@ const styles = StyleSheet.create({
     marginTop: theme.spacing.lg,
     alignItems: "center",
     paddingVertical: 12,
+    borderRadius: theme.radius.md,
+    borderWidth: 1,
+    borderColor: theme.colors.wrong,
+    backgroundColor: theme.colors.surface,
   },
   dangerButtonText: { color: theme.colors.wrong, fontWeight: "700", fontSize: 15 },
+  dangerHint: {
+    marginTop: 6,
+    textAlign: "center",
+    fontSize: 12,
+    color: theme.colors.textMuted,
+  },
+  levelProgress: { gap: 5, marginTop: 2 },
+  levelProgressText: { fontSize: 12, fontWeight: "800", color: theme.colors.goldDeep },
+  levelProgressMuted: { fontWeight: "600", color: theme.colors.textMuted },
 });
